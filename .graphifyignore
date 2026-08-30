@@ -1,0 +1,12 @@
+# Ignore native platform build artifacts and dependencies in vsmart-app
+vsmart-app/ios/
+vsmart-app/android/
+vsmart-app/.expo/
+vsmart-app/node_modules/
+
+# Ignore virtual environments and configs
+.venv/
+.env
+.env.*
+.DS_Store
+*.pdf

@@ -1,0 +1,92 @@
+(footprint "Keyestudio_KS0319_NEO7M"
+  (version 20241229)
+  (generator "kicad-mcp")
+  (generator_version "9.0")
+  (layer "F.Cu")
+  (descr "Keyestudio KS0319 NEO-7M GPS breakout carrier footprint, 53 x 26 mm, 1x5 2.54 mm header")
+  (tags "GPS NEO-7M Keyestudio KS0319 module carrier")
+
+  (property "Reference" "REF**" (at -26.5 -15 0)
+    (layer "F.SilkS")
+    (uuid "b2f599ac-720a-4d5d-b4b3-71fe870d55ec")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Value" "Keyestudio_KS0319_NEO7M" (at -26.5 15 0)
+    (layer "F.Fab")
+    (uuid "aa4431bf-913d-4136-953f-07e48f7145a7")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Datasheet" "" (at 0 0 0)
+    (layer "F.Fab")
+    (uuid "40718f5c-ae6d-40c3-a0cc-79426aba276e")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+
+  (fp_rect
+    (start -53.5 -13.5)
+    (end 1.5 13.5)
+    (stroke (width 0.05) (type default))
+    (fill none)
+    (layer "F.CrtYd")
+    (uuid "772eb76d-ed85-4324-a31e-0d8719dbf840")
+  )
+
+  (fp_rect
+    (start -53 -13)
+    (end -1.6 13)
+    (stroke (width 0.15) (type default))
+    (fill none)
+    (layer "F.SilkS")
+    (uuid "9476ff6e-f031-4695-8aec-cd5a3fcf42f0")
+  )
+
+  (fp_rect
+    (start -53 -13)
+    (end 0.8 13)
+    (stroke (width 0.1) (type default))
+    (fill none)
+    (layer "F.Fab")
+    (uuid "7bc1fa01-94cc-4b1d-9ec1-8f216b9a3736")
+  )
+
+  (pad "1" thru_hole rect
+    (at 0 5.08)
+    (size 1.8 1.8)
+    (drill 1)
+    (layers "*.Cu" "*.Mask")
+    (uuid "cab040d8-45be-4f0a-ac84-3aae87a1b26f")
+  )
+
+  (pad "2" thru_hole oval
+    (at 0 2.54)
+    (size 1.8 1.8)
+    (drill 1)
+    (layers "*.Cu" "*.Mask")
+    (uuid "14061df5-6fb3-40d8-bc1f-ab024c59d8b1")
+  )
+
+  (pad "3" thru_hole oval
+    (at 0 0)
+    (size 1.8 1.8)
+    (drill 1)
+    (layers "*.Cu" "*.Mask")
+    (uuid "50b55ffd-5516-488c-a829-dcfa2640bb7a")
+  )
+
+  (pad "4" thru_hole oval
+    (at 0 -2.54)
+    (size 1.8 1.8)
+    (drill 1)
+    (layers "*.Cu" "*.Mask")
+    (uuid "fae210d4-abaf-4c15-98bc-3ee45ed51e41")
+  )
+
+  (pad "5" thru_hole oval
+    (at 0 -5.08)
+    (size 1.8 1.8)
+    (drill 1)
+    (layers "*.Cu" "*.Mask")
+    (uuid "e0ddaafc-1051-4944-8b24-d8b5830b8493")
+  )
+
+)

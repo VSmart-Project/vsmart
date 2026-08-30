@@ -1,0 +1,80 @@
+(footprint "LM2596_DC_DC_Module"
+  (version 20241229)
+  (generator "kicad-mcp")
+  (generator_version "9.0")
+  (layer "F.Cu")
+  (descr "LM2596 adjustable DC-DC module carrier footprint, 22 x 16.4 mm, four solder pads")
+  (tags "LM2596 buck DC-DC module carrier")
+
+  (property "Reference" "REF**" (at 0 -10 0)
+    (layer "F.SilkS")
+    (uuid "48367673-d8ca-486c-8616-21893a031b23")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Value" "LM2596_DC_DC_Module" (at 0 10 0)
+    (layer "F.Fab")
+    (uuid "edffed69-6d11-4f8b-80c9-00558a6fefb0")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Datasheet" "" (at 0 0 0)
+    (layer "F.Fab")
+    (uuid "759b80c7-506a-48a3-9393-91e57d82be0d")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+
+  (fp_rect
+    (start -11.5 -8.7)
+    (end 11.5 8.7)
+    (stroke (width 0.05) (type default))
+    (fill none)
+    (layer "F.CrtYd")
+    (uuid "8a3c2082-6b86-4c6f-9d88-4d470f78872b")
+  )
+
+  (fp_rect
+    (start -11 -8.2)
+    (end 11 8.2)
+    (stroke (width 0.15) (type default))
+    (fill none)
+    (layer "F.SilkS")
+    (uuid "40c2e3a3-f187-4044-a306-a9651db93daa")
+  )
+
+  (fp_rect
+    (start -11 -8.2)
+    (end 11 8.2)
+    (stroke (width 0.1) (type default))
+    (fill none)
+    (layer "F.Fab")
+    (uuid "a95520a0-a0fa-4d63-a68c-9202e84bfec2")
+  )
+
+  (pad "1" smd rect
+    (at -10 5.8)
+    (size 4 6)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "317bbb18-3230-4d1c-9340-1f3dd8ecc5c1")
+  )
+
+  (pad "2" smd rect
+    (at -10 -5.8)
+    (size 4 6)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "4d2564b8-81f2-4c53-bf46-ecf7600f8894")
+  )
+
+  (pad "3" smd rect
+    (at 10 -5.8)
+    (size 4 6)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "c4c7d9bf-56c2-4f79-aea4-0012b789ace2")
+  )
+
+  (pad "4" smd rect
+    (at 10 5.8)
+    (size 4 6)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+    (uuid "0285e670-e2ea-4719-98b8-796b6e2fd7f5")
+  )
+
+)

@@ -1,0 +1,40 @@
+name: build
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  # cancel jobs on PRs only
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+jobs:
+  build:
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        package:
+          ["map-with-geojson", "map-with-markers", "tracking-data-streaming"]
+        node-version: ["18.x", "20.x", "22.x"]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+          cache-dependency-path: ${{ matrix.package }}/package-lock.json
+      - name: Install dependencies
+        working-directory: ./${{ matrix.package }}
+        run: npm ci
+      - name: Build
+        working-directory: ./${{ matrix.package }}
+        run: npm run build

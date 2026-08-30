@@ -1,0 +1,1182 @@
+{
+  "tracking-data-streaming-backend/index.js": {
+    "mtime": 1782722766.0023417,
+    "ast_hash": "05ceb033811acceb57c0387309d778b4",
+    "semantic_hash": "05ceb033811acceb57c0387309d778b4"
+  },
+  "tracking-data-streaming-backend/package.json": {
+    "mtime": 1782790125.5648377,
+    "ast_hash": "e9ec9bb5c125689f1b955c05da1be1fb",
+    "semantic_hash": "e9ec9bb5c125689f1b955c05da1be1fb"
+  },
+  "tracking-data-streaming-backend/scripts/backfill-device-owners.js": {
+    "mtime": 1777363829.0,
+    "ast_hash": "8d7231e93f23adaf122d790633e70b5e",
+    "semantic_hash": "8d7231e93f23adaf122d790633e70b5e"
+  },
+  "tracking-data-streaming-backend/scripts/enable-admin-auth.js": {
+    "mtime": 1782747714.2503,
+    "ast_hash": "851d717c07939071dffceae2fd1842e7",
+    "semantic_hash": "851d717c07939071dffceae2fd1842e7"
+  },
+  "tracking-data-streaming-backend/scripts/interactive-move.js": {
+    "mtime": 1777372088.0,
+    "ast_hash": "4780c75af4d76fd3bfbda2e96097b886",
+    "semantic_hash": "4780c75af4d76fd3bfbda2e96097b886"
+  },
+  "tracking-data-streaming-backend/scripts/move-device.js": {
+    "mtime": 1776690205.0,
+    "ast_hash": "381e34f7e6d73edb6efd05508f431042",
+    "semantic_hash": "381e34f7e6d73edb6efd05508f431042"
+  },
+  "tracking-data-streaming-backend/src/config/aws.js": {
+    "mtime": 1776668964.0,
+    "ast_hash": "f5e67f1db8f0cee4d41b409f004e8a43",
+    "semantic_hash": "f5e67f1db8f0cee4d41b409f004e8a43"
+  },
+  "tracking-data-streaming-backend/src/config/constants.js": {
+    "mtime": 1776689125.0,
+    "ast_hash": "92e7c35be183022a615b8a714a68f01b",
+    "semantic_hash": "92e7c35be183022a615b8a714a68f01b"
+  },
+  "tracking-data-streaming-backend/src/config/realtime.js": {
+    "mtime": 1777363849.0,
+    "ast_hash": "aa637ad085c23d645322e363b950560f",
+    "semantic_hash": "aa637ad085c23d645322e363b950560f"
+  },
+  "tracking-data-streaming-backend/src/config/realtimeEventSchema.js": {
+    "mtime": 1777363808.0,
+    "ast_hash": "ea84066e2e5b45bc3f0f46b833fbd7e8",
+    "semantic_hash": "ea84066e2e5b45bc3f0f46b833fbd7e8"
+  },
+  "tracking-data-streaming-backend/src/config/swagger.js": {
+    "mtime": 1777210809.0,
+    "ast_hash": "340b46d7c75b6c99a9588545e7664ea6",
+    "semantic_hash": "340b46d7c75b6c99a9588545e7664ea6"
+  },
+  "tracking-data-streaming-backend/src/controllers/antitheftController.js": {
+    "mtime": 1782752053.9027743,
+    "ast_hash": "ce65e4c1d7d873da24b742d3653f7063",
+    "semantic_hash": "ce65e4c1d7d873da24b742d3653f7063"
+  },
+  "tracking-data-streaming-backend/src/controllers/authController.js": {
+    "mtime": 1777218931.0,
+    "ast_hash": "9da91cba7df8df23757476f7760e8deb",
+    "semantic_hash": "9da91cba7df8df23757476f7760e8deb"
+  },
+  "tracking-data-streaming-backend/src/controllers/deviceController.js": {
+    "mtime": 1782813628.5289662,
+    "ast_hash": "d6fc360658298585249179d68c0ea0da",
+    "semantic_hash": "d6fc360658298585249179d68c0ea0da"
+  },
+  "tracking-data-streaming-backend/src/middleware/auth.js": {
+    "mtime": 1777201884.0,
+    "ast_hash": "1a43e6254e1b128ca7710fd04886e123",
+    "semantic_hash": "1a43e6254e1b128ca7710fd04886e123"
+  },
+  "tracking-data-streaming-backend/src/middleware/errorHandler.js": {
+    "mtime": 1776668985.0,
+    "ast_hash": "afc2efe57812e72610666af2ee02a2af",
+    "semantic_hash": "afc2efe57812e72610666af2ee02a2af"
+  },
+  "tracking-data-streaming-backend/src/routes/antitheft.js": {
+    "mtime": 1777210850.0,
+    "ast_hash": "d58872a5aadb922f3827387728434a54",
+    "semantic_hash": "d58872a5aadb922f3827387728434a54"
+  },
+  "tracking-data-streaming-backend/src/routes/auth.js": {
+    "mtime": 1777218936.0,
+    "ast_hash": "147f26ae0339359c869b53adb693f554",
+    "semantic_hash": "147f26ae0339359c869b53adb693f554"
+  },
+  "tracking-data-streaming-backend/src/routes/devices.js": {
+    "mtime": 1777210838.0,
+    "ast_hash": "5943973e9cf8c69063cfa2ada0a6706d",
+    "semantic_hash": "5943973e9cf8c69063cfa2ada0a6706d"
+  },
+  "tracking-data-streaming-backend/src/services/antitheftWorker.js": {
+    "mtime": 1777284978.0,
+    "ast_hash": "0b044753ebb8f06d82944f107880baef",
+    "semantic_hash": "0b044753ebb8f06d82944f107880baef"
+  },
+  "tracking-data-streaming-backend/src/services/dynamoService.js": {
+    "mtime": 1782873999.8120284,
+    "ast_hash": "f8b31b9a5f202e06be0b1b4d09d3d530",
+    "semantic_hash": ""
+  },
+  "tracking-data-streaming-backend/src/services/geoUtils.js": {
+    "mtime": 1776689683.0,
+    "ast_hash": "9fff81d8b32e0ba1268b94268d39dd60",
+    "semantic_hash": "9fff81d8b32e0ba1268b94268d39dd60"
+  },
+  "tracking-data-streaming-backend/src/services/locationService.js": {
+    "mtime": 1782817810.0225868,
+    "ast_hash": "1f77c30c02ac3b753d6f04a0a960e9a4",
+    "semantic_hash": "1f77c30c02ac3b753d6f04a0a960e9a4"
+  },
+  "tracking-data-streaming-backend/src/services/snsService.js": {
+    "mtime": 1776744509.0,
+    "ast_hash": "8beff4ae887d798b0963339b13b9f9b3",
+    "semantic_hash": "8beff4ae887d798b0963339b13b9f9b3"
+  },
+  "tracking-data-streaming-datn/eslint.config.js": {
+    "mtime": 1775714853.0,
+    "ast_hash": "49c8473bcfcec3aef596a5fb04a6df06",
+    "semantic_hash": "49c8473bcfcec3aef596a5fb04a6df06"
+  },
+  "tracking-data-streaming-datn/package.json": {
+    "mtime": 1782722877.9715114,
+    "ast_hash": "61fa8347813204a06a2e20b123a99bab",
+    "semantic_hash": "61fa8347813204a06a2e20b123a99bab"
+  },
+  "tracking-data-streaming-datn/postcss.config.js": {
+    "mtime": 1775719799.0,
+    "ast_hash": "5b84f4567208c7c747079c0477373231",
+    "semantic_hash": "5b84f4567208c7c747079c0477373231"
+  },
+  "tracking-data-streaming-datn/src/App.jsx": {
+    "mtime": 1782817170.6879861,
+    "ast_hash": "736671463bd7194e6e506bb580bf207f",
+    "semantic_hash": "736671463bd7194e6e506bb580bf207f"
+  },
+  "tracking-data-streaming-datn/src/api/deviceApi.js": {
+    "mtime": 1777201901.0,
+    "ast_hash": "f811dbc3482e00f6193c7d577e2c63d9",
+    "semantic_hash": "f811dbc3482e00f6193c7d577e2c63d9"
+  },
+  "tracking-data-streaming-datn/src/components/auth/AuthLayout.jsx": {
+    "mtime": 1782792449.2494326,
+    "ast_hash": "d98dc2b9e2b069439065f08f9b3cc50c",
+    "semantic_hash": "d98dc2b9e2b069439065f08f9b3cc50c"
+  },
+  "tracking-data-streaming-datn/src/components/common/Toast.jsx": {
+    "mtime": 1776657951.0,
+    "ast_hash": "0b4d04c826ddd376d4d968d7c0dd139f",
+    "semantic_hash": "0b4d04c826ddd376d4d968d7c0dd139f"
+  },
+  "tracking-data-streaming-datn/src/components/dashboard/DashboardView.jsx": {
+    "mtime": 1782802362.6764514,
+    "ast_hash": "d9492d27df343eb0d9beb1d34ff5acae",
+    "semantic_hash": "d9492d27df343eb0d9beb1d34ff5acae"
+  },
+  "tracking-data-streaming-datn/src/components/devices/ConfirmAntiTheftModal.jsx": {
+    "mtime": 1776740601.0,
+    "ast_hash": "c566a41e6fbb4376888127fa07971a0c",
+    "semantic_hash": "c566a41e6fbb4376888127fa07971a0c"
+  },
+  "tracking-data-streaming-datn/src/components/devices/DeleteDeviceModal.jsx": {
+    "mtime": 1777359690.0,
+    "ast_hash": "2531aaea882bdf1b05b64c1a1055616f",
+    "semantic_hash": "2531aaea882bdf1b05b64c1a1055616f"
+  },
+  "tracking-data-streaming-datn/src/components/devices/DeviceFormModal.jsx": {
+    "mtime": 1782801425.569828,
+    "ast_hash": "0b8525ec94c8cacb30a77241eacbd3ee",
+    "semantic_hash": "0b8525ec94c8cacb30a77241eacbd3ee"
+  },
+  "tracking-data-streaming-datn/src/components/devices/DeviceList.jsx": {
+    "mtime": 1782801896.0178998,
+    "ast_hash": "ca58ecc1624dea559855a0c728bd1403",
+    "semantic_hash": "ca58ecc1624dea559855a0c728bd1403"
+  },
+  "tracking-data-streaming-datn/src/components/devices/DeviceMarkers.jsx": {
+    "mtime": 1782801248.4424322,
+    "ast_hash": "ebe91a6516c1e858018aceb1a37c407e",
+    "semantic_hash": "ebe91a6516c1e858018aceb1a37c407e"
+  },
+  "tracking-data-streaming-datn/src/components/geofences/DrawControl.jsx": {
+    "mtime": 1775725227.0,
+    "ast_hash": "a413042b896cf693572e70983f714be4",
+    "semantic_hash": "a413042b896cf693572e70983f714be4"
+  },
+  "tracking-data-streaming-datn/src/components/geofences/DrawnGeofences.jsx": {
+    "mtime": 1775720617.0,
+    "ast_hash": "49a5c6a789ee22c4740f9435203c290e",
+    "semantic_hash": "49a5c6a789ee22c4740f9435203c290e"
+  },
+  "tracking-data-streaming-datn/src/components/geofences/GeofenceManagement.jsx": {
+    "mtime": 1782801636.0580335,
+    "ast_hash": "fb7e37cb5b36399cb63912cfc089ede3",
+    "semantic_hash": "fb7e37cb5b36399cb63912cfc089ede3"
+  },
+  "tracking-data-streaming-datn/src/components/geofences/GeofencesLayer.jsx": {
+    "mtime": 1782801398.1084156,
+    "ast_hash": "550a0b5dde5c9541710b2b4b46104202",
+    "semantic_hash": "550a0b5dde5c9541710b2b4b46104202"
+  },
+  "tracking-data-streaming-datn/src/components/geofences/GeofencesPanel.jsx": {
+    "mtime": 1782801273.593187,
+    "ast_hash": "160da84c2acde6bb5603ddef14ad76de",
+    "semantic_hash": "160da84c2acde6bb5603ddef14ad76de"
+  },
+  "tracking-data-streaming-datn/src/components/layout/Header.jsx": {
+    "mtime": 1782792584.9467173,
+    "ast_hash": "c4bd238b4d69735fb8ba6bc6613ae799",
+    "semantic_hash": "c4bd238b4d69735fb8ba6bc6613ae799"
+  },
+  "tracking-data-streaming-datn/src/components/layout/Sidebar.jsx": {
+    "mtime": 1782802252.7173269,
+    "ast_hash": "fa09ed17564982555c32a773d5054c89",
+    "semantic_hash": "fa09ed17564982555c32a773d5054c89"
+  },
+  "tracking-data-streaming-datn/src/components/map/DeviceDetailPanel.jsx": {
+    "mtime": 1782818239.0483806,
+    "ast_hash": "62fb965abf545161415820a65446830d",
+    "semantic_hash": "62fb965abf545161415820a65446830d"
+  },
+  "tracking-data-streaming-datn/src/components/map/DeviceHistoryPathLayer.jsx": {
+    "mtime": 1782818251.4679906,
+    "ast_hash": "b4ede8e97297e4168383e505757ab833",
+    "semantic_hash": "b4ede8e97297e4168383e505757ab833"
+  },
+  "tracking-data-streaming-datn/src/components/map/DevicesMapOverlay.jsx": {
+    "mtime": 1782801327.1779447,
+    "ast_hash": "058c974f02d39d5d4bd17f3eb972537c",
+    "semantic_hash": "058c974f02d39d5d4bd17f3eb972537c"
+  },
+  "tracking-data-streaming-datn/src/components/map/MapView.jsx": {
+    "mtime": 1782721696.2238681,
+    "ast_hash": "661f7d489fe4c2e9de3ef5950bcc3f1d",
+    "semantic_hash": "661f7d489fe4c2e9de3ef5950bcc3f1d"
+  },
+  "tracking-data-streaming-datn/src/configuration.js": {
+    "mtime": 1782723996.5863216,
+    "ast_hash": "df49c098a1a53f094c02224f66c82365",
+    "semantic_hash": "df49c098a1a53f094c02224f66c82365"
+  },
+  "tracking-data-streaming-datn/src/hooks/useDeviceManager.js": {
+    "mtime": 1777363796.0,
+    "ast_hash": "a78eaa6380969b95040b6ace3db02c87",
+    "semantic_hash": "a78eaa6380969b95040b6ace3db02c87"
+  },
+  "tracking-data-streaming-datn/src/hooks/useDevicePolling.js": {
+    "mtime": 1782874016.6980937,
+    "ast_hash": "62ed51746ddde31ca10d97e1971e8d1e",
+    "semantic_hash": ""
+  },
+  "tracking-data-streaming-datn/src/hooks/useLocationService.js": {
+    "mtime": 1776658972.0,
+    "ast_hash": "3cb786408685d2cf64ebe2f3803054a8",
+    "semantic_hash": "3cb786408685d2cf64ebe2f3803054a8"
+  },
+  "tracking-data-streaming-datn/src/main.jsx": {
+    "mtime": 1782792375.203542,
+    "ast_hash": "572cc5769f22c487cb479e568b8538cf",
+    "semantic_hash": "572cc5769f22c487cb479e568b8538cf"
+  },
+  "tracking-data-streaming-datn/src/realtime/eventSchema.js": {
+    "mtime": 1777363875.0,
+    "ast_hash": "cd11768880171f99dbdad22499ae6c1a",
+    "semantic_hash": "cd11768880171f99dbdad22499ae6c1a"
+  },
+  "tracking-data-streaming-datn/src/utils/aws.js": {
+    "mtime": 1775721887.0,
+    "ast_hash": "0fbf12b6d01f1425e5c32a5955743174",
+    "semantic_hash": "0fbf12b6d01f1425e5c32a5955743174"
+  },
+  "tracking-data-streaming-datn/tailwind.config.js": {
+    "mtime": 1782792795.3480177,
+    "ast_hash": "4d17783146791877158d1b21dcf540d2",
+    "semantic_hash": "4d17783146791877158d1b21dcf540d2"
+  },
+  "tracking-data-streaming-datn/vite.config.js": {
+    "mtime": 1775714853.0,
+    "ast_hash": "88439104b3c207f17d33ef3160e3b080",
+    "semantic_hash": "88439104b3c207f17d33ef3160e3b080"
+  },
+  "tracking-data-streaming-infrastructure/geofence-test.json": {
+    "mtime": 1777366978.0,
+    "ast_hash": "b62227090c1564e23d041a2aafb28976",
+    "semantic_hash": "b62227090c1564e23d041a2aafb28976"
+  },
+  "tracking-data-streaming-infrastructure/lambda/geofence-event-consumer/index.py": {
+    "mtime": 1782722817.2778487,
+    "ast_hash": "f2297e7ade83dcd4dcb341e8ebd17748",
+    "semantic_hash": "f2297e7ade83dcd4dcb341e8ebd17748"
+  },
+  "tracking-data-streaming-infrastructure/lambda/iot-message-processor/index.py": {
+    "mtime": 1782723714.3021317,
+    "ast_hash": "d83a9db9bdbb6748b9f01b4c8449ad43",
+    "semantic_hash": "d83a9db9bdbb6748b9f01b4c8449ad43"
+  },
+  "tracking-data-streaming-infrastructure/lambda/offline-detector/index.py": {
+    "mtime": 1782721742.9315772,
+    "ast_hash": "8e9321752149fbda59783c1e59f9b23e",
+    "semantic_hash": "8e9321752149fbda59783c1e59f9b23e"
+  },
+  "tracking-data-streaming-infrastructure/lambda/realtime-event-publisher/index.py": {
+    "mtime": 1777364164.0,
+    "ast_hash": "a399ab88134f51799cccb487a41da1b0",
+    "semantic_hash": "a399ab88134f51799cccb487a41da1b0"
+  },
+  "vsmart-app/.vscode/extensions.json": {
+    "mtime": 499162500.0,
+    "ast_hash": "b2354ba0225f5689d13651ec0fac0de0",
+    "semantic_hash": "b2354ba0225f5689d13651ec0fac0de0"
+  },
+  "vsmart-app/.vscode/settings.json": {
+    "mtime": 499162500.0,
+    "ast_hash": "6b9302c1f72c315e90233c7539c48c9f",
+    "semantic_hash": "6b9302c1f72c315e90233c7539c48c9f"
+  },
+  "vsmart-app/app.json": {
+    "mtime": 1782748338.9504366,
+    "ast_hash": "7c7803f24736ab30ccae8a15f9e5ac31",
+    "semantic_hash": "7c7803f24736ab30ccae8a15f9e5ac31"
+  },
+  "vsmart-app/app/(tabs)/_layout.jsx": {
+    "mtime": 1777217876.0,
+    "ast_hash": "63b09ee47ad20204dfaacb7cc18faeec",
+    "semantic_hash": "63b09ee47ad20204dfaacb7cc18faeec"
+  },
+  "vsmart-app/app/(tabs)/devices.jsx": {
+    "mtime": 1782748484.2060852,
+    "ast_hash": "de42b0d8a32baef7fd8e3c490d22d56b",
+    "semantic_hash": "de42b0d8a32baef7fd8e3c490d22d56b"
+  },
+  "vsmart-app/app/(tabs)/geofences.jsx": {
+    "mtime": 1777360638.0,
+    "ast_hash": "901fced6f4dad44d959af3f8821e0c02",
+    "semantic_hash": "901fced6f4dad44d959af3f8821e0c02"
+  },
+  "vsmart-app/app/(tabs)/index.jsx": {
+    "mtime": 1777361879.0,
+    "ast_hash": "c84a74673546e937baff1636944b826d",
+    "semantic_hash": "c84a74673546e937baff1636944b826d"
+  },
+  "vsmart-app/app/(tabs)/settings.jsx": {
+    "mtime": 1777372088.0,
+    "ast_hash": "4f2428a6f1255772eca8a2d38d14664b",
+    "semantic_hash": "4f2428a6f1255772eca8a2d38d14664b"
+  },
+  "vsmart-app/app/_layout.jsx": {
+    "mtime": 1782724048.8051586,
+    "ast_hash": "9139c90a6ce433eb4cb78a1f002d8b69",
+    "semantic_hash": "9139c90a6ce433eb4cb78a1f002d8b69"
+  },
+  "vsmart-app/app/geofence-draw.jsx": {
+    "mtime": 1777358873.0,
+    "ast_hash": "fd79535bf3c53377a8bda289c2023d80",
+    "semantic_hash": "fd79535bf3c53377a8bda289c2023d80"
+  },
+  "vsmart-app/app/login.jsx": {
+    "mtime": 1777224647.0,
+    "ast_hash": "f99d3b4e014cc6d862a7fb670b39d44b",
+    "semantic_hash": "f99d3b4e014cc6d862a7fb670b39d44b"
+  },
+  "vsmart-app/app/map.jsx": {
+    "mtime": 1782748472.4219503,
+    "ast_hash": "f6b5f3e0a817f16579cbde255dd64621",
+    "semantic_hash": "f6b5f3e0a817f16579cbde255dd64621"
+  },
+  "vsmart-app/app/notification-test.jsx": {
+    "mtime": 1777347783.0,
+    "ast_hash": "83bc2b78106c9753209e9bcfb8437eb1",
+    "semantic_hash": "83bc2b78106c9753209e9bcfb8437eb1"
+  },
+  "vsmart-app/app/onboarding.jsx": {
+    "mtime": 1777221417.0,
+    "ast_hash": "9a929d4e663dbe5cfa71faddf66057b1",
+    "semantic_hash": "9a929d4e663dbe5cfa71faddf66057b1"
+  },
+  "vsmart-app/app/scan.jsx": {
+    "mtime": 1777282387.0,
+    "ast_hash": "a1beb8c75d21c16fd22d37b57d36cd34",
+    "semantic_hash": "a1beb8c75d21c16fd22d37b57d36cd34"
+  },
+  "vsmart-app/babel.config.js": {
+    "mtime": 1777219964.0,
+    "ast_hash": "6b8b8a80ab46ab817813c3f435912036",
+    "semantic_hash": "6b8b8a80ab46ab817813c3f435912036"
+  },
+  "vsmart-app/eslint.config.js": {
+    "mtime": 499162500.0,
+    "ast_hash": "560a864580ad8107fbbf8d6d452c82fe",
+    "semantic_hash": "560a864580ad8107fbbf8d6d452c82fe"
+  },
+  "vsmart-app/expo-env.d.ts": {
+    "mtime": 1782747431.3743834,
+    "ast_hash": "0dd9dccdb4b08595bc83df70d6a154d3",
+    "semantic_hash": "0dd9dccdb4b08595bc83df70d6a154d3"
+  },
+  "vsmart-app/metro.config.js": {
+    "mtime": 1777219960.0,
+    "ast_hash": "cc364165e1adb9c1e60179ca78e72b37",
+    "semantic_hash": "cc364165e1adb9c1e60179ca78e72b37"
+  },
+  "vsmart-app/package.json": {
+    "mtime": 1782752205.7903545,
+    "ast_hash": "1b7188a6f559fa073a2660566173cea6",
+    "semantic_hash": "1b7188a6f559fa073a2660566173cea6"
+  },
+  "vsmart-app/src/api/deviceApi.js": {
+    "mtime": 1777216986.0,
+    "ast_hash": "2e6303ceaac770304dc41e14948ba4a5",
+    "semantic_hash": "2e6303ceaac770304dc41e14948ba4a5"
+  },
+  "vsmart-app/src/components/ui/BottomSheetModal.jsx": {
+    "mtime": 1777280841.0,
+    "ast_hash": "f54d04bb059d911da20b6bde52fcc455",
+    "semantic_hash": "f54d04bb059d911da20b6bde52fcc455"
+  },
+  "vsmart-app/src/components/ui/ConfirmModal.jsx": {
+    "mtime": 1777223261.0,
+    "ast_hash": "18840bca6bcb74bd02cc99bf4712c690",
+    "semantic_hash": "18840bca6bcb74bd02cc99bf4712c690"
+  },
+  "vsmart-app/src/components/ui/FormField.jsx": {
+    "mtime": 1777280847.0,
+    "ast_hash": "20f871ee7ddf63223cceee3aaefba715",
+    "semantic_hash": "20f871ee7ddf63223cceee3aaefba715"
+  },
+  "vsmart-app/src/components/ui/TabBar.jsx": {
+    "mtime": 1777223101.0,
+    "ast_hash": "227a70e2ef8b8e6cd69ce9dad88ca048",
+    "semantic_hash": "227a70e2ef8b8e6cd69ce9dad88ca048"
+  },
+  "vsmart-app/src/components/ui/Toast.jsx": {
+    "mtime": 1777358873.0,
+    "ast_hash": "2dbb0805895d410db801aa4507fc730b",
+    "semantic_hash": "2dbb0805895d410db801aa4507fc730b"
+  },
+  "vsmart-app/src/components/ui/index.js": {
+    "mtime": 1777280854.0,
+    "ast_hash": "26984eeb28584fe6104aff20797b5183",
+    "semantic_hash": "26984eeb28584fe6104aff20797b5183"
+  },
+  "vsmart-app/src/configuration.js": {
+    "mtime": 1782747593.8499637,
+    "ast_hash": "0df48249b39b3e25f7d3b8039a21a020",
+    "semantic_hash": "0df48249b39b3e25f7d3b8039a21a020"
+  },
+  "vsmart-app/src/constants/theme.js": {
+    "mtime": 1777220781.0,
+    "ast_hash": "0c28dac8260a5776ae89919d5e355a98",
+    "semantic_hash": "0c28dac8260a5776ae89919d5e355a98"
+  },
+  "vsmart-app/src/contexts/DeviceDataContext.jsx": {
+    "mtime": 1782752227.1909235,
+    "ast_hash": "cc49c76abbe6d5704f32e8c9caad9b2b",
+    "semantic_hash": "cc49c76abbe6d5704f32e8c9caad9b2b"
+  },
+  "vsmart-app/src/contexts/GeofenceDataContext.jsx": {
+    "mtime": 1777362084.0,
+    "ast_hash": "de04c1c9c2aa2285666fee4a3a13730a",
+    "semantic_hash": "de04c1c9c2aa2285666fee4a3a13730a"
+  },
+  "vsmart-app/src/hooks/useAuth.js": {
+    "mtime": 1777218168.0,
+    "ast_hash": "aac8fd3336e2146f5b719c82966dfed4",
+    "semantic_hash": "aac8fd3336e2146f5b719c82966dfed4"
+  },
+  "vsmart-app/src/hooks/useScanner.js": {
+    "mtime": 1777281611.0,
+    "ast_hash": "00baab11236a353d09b51142de0d6d7d",
+    "semantic_hash": "00baab11236a353d09b51142de0d6d7d"
+  },
+  "vsmart-app/src/hooks/useSystemNotifications.js": {
+    "mtime": 1782874009.6435351,
+    "ast_hash": "eca2b53e0968172a001c5829d2c9ecd9",
+    "semantic_hash": ""
+  },
+  "vsmart-app/src/realtime/eventSchema.js": {
+    "mtime": 1777363868.0,
+    "ast_hash": "dbeebe1919ad134da065e1b36a4d31f5",
+    "semantic_hash": "dbeebe1919ad134da065e1b36a4d31f5"
+  },
+  "vsmart-app/src/services/localNotificationService.js": {
+    "mtime": 1777347744.0,
+    "ast_hash": "fd0a4ff9c7679c60fbef8ab8e91da98b",
+    "semantic_hash": "fd0a4ff9c7679c60fbef8ab8e91da98b"
+  },
+  "vsmart-app/src/utils/aws.js": {
+    "mtime": 1777372088.0,
+    "ast_hash": "4e962b0284bf29078019513aebcb8d31",
+    "semantic_hash": "4e962b0284bf29078019513aebcb8d31"
+  },
+  "vsmart-app/src/utils/cognitoAuth.js": {
+    "mtime": 1782748463.403717,
+    "ast_hash": "3161fe9ff9d553958e4292a82fd629cc",
+    "semantic_hash": "3161fe9ff9d553958e4292a82fd629cc"
+  },
+  "vsmart-app/tsconfig.json": {
+    "mtime": 1777219975.0,
+    "ast_hash": "3d3d93b08d27173642834be8e227901d",
+    "semantic_hash": "3d3d93b08d27173642834be8e227901d"
+  },
+  ".agents/rules/graphify.md": {
+    "mtime": 1782873533.528282,
+    "ast_hash": "af6efa0563488ef74831889237066f2f",
+    "semantic_hash": "af6efa0563488ef74831889237066f2f"
+  },
+  ".agents/skills/graphify/SKILL.md": {
+    "mtime": 1782873435.1608505,
+    "ast_hash": "5bc28728a68fa52adb97f26b0ffa1324",
+    "semantic_hash": "5bc28728a68fa52adb97f26b0ffa1324"
+  },
+  ".agents/skills/graphify/references/add-watch.md": {
+    "mtime": 1782873435.1680021,
+    "ast_hash": "d59d027fe449f06aa03905a01184e779",
+    "semantic_hash": "d59d027fe449f06aa03905a01184e779"
+  },
+  ".agents/skills/graphify/references/exports.md": {
+    "mtime": 1782873435.1648061,
+    "ast_hash": "9da2a2152e60a22f07f05fed5158f287",
+    "semantic_hash": "9da2a2152e60a22f07f05fed5158f287"
+  },
+  ".agents/skills/graphify/references/extraction-spec.md": {
+    "mtime": 1782873435.165769,
+    "ast_hash": "42fef56a01698118f7fd722acdadea34",
+    "semantic_hash": "42fef56a01698118f7fd722acdadea34"
+  },
+  ".agents/skills/graphify/references/github-and-merge.md": {
+    "mtime": 1782873435.1634145,
+    "ast_hash": "cde13df085e4c492aeb7ba298a996d0d",
+    "semantic_hash": "cde13df085e4c492aeb7ba298a996d0d"
+  },
+  ".agents/skills/graphify/references/hooks.md": {
+    "mtime": 1782873435.1671946,
+    "ast_hash": "3f545db6ce646650bb9de588f5512a27",
+    "semantic_hash": "3f545db6ce646650bb9de588f5512a27"
+  },
+  ".agents/skills/graphify/references/query.md": {
+    "mtime": 1782873435.1641548,
+    "ast_hash": "9e5aadc2c57ab561bc56600fcfa70735",
+    "semantic_hash": "9e5aadc2c57ab561bc56600fcfa70735"
+  },
+  ".agents/skills/graphify/references/transcribe.md": {
+    "mtime": 1782873435.162541,
+    "ast_hash": "67b6a5fa6c0974e18f60db9f8932fbd8",
+    "semantic_hash": "67b6a5fa6c0974e18f60db9f8932fbd8"
+  },
+  ".agents/skills/graphify/references/update.md": {
+    "mtime": 1782873435.1664553,
+    "ast_hash": "c698309979460d0f02ba616417844399",
+    "semantic_hash": "c698309979460d0f02ba616417844399"
+  },
+  ".agents/workflows/graphify.md": {
+    "mtime": 1782873528.2360468,
+    "ast_hash": "de8c2228e0e015eaa92ad981599b37b8",
+    "semantic_hash": "de8c2228e0e015eaa92ad981599b37b8"
+  },
+  ".claude/skills/graphify/SKILL.md": {
+    "mtime": 1782873435.146619,
+    "ast_hash": "5bc28728a68fa52adb97f26b0ffa1324",
+    "semantic_hash": "5bc28728a68fa52adb97f26b0ffa1324"
+  },
+  ".claude/skills/graphify/references/add-watch.md": {
+    "mtime": 1782873435.1542418,
+    "ast_hash": "d59d027fe449f06aa03905a01184e779",
+    "semantic_hash": "d59d027fe449f06aa03905a01184e779"
+  },
+  ".claude/skills/graphify/references/exports.md": {
+    "mtime": 1782873435.1506145,
+    "ast_hash": "9da2a2152e60a22f07f05fed5158f287",
+    "semantic_hash": "9da2a2152e60a22f07f05fed5158f287"
+  },
+  ".claude/skills/graphify/references/extraction-spec.md": {
+    "mtime": 1782873435.1514385,
+    "ast_hash": "42fef56a01698118f7fd722acdadea34",
+    "semantic_hash": "42fef56a01698118f7fd722acdadea34"
+  },
+  ".claude/skills/graphify/references/github-and-merge.md": {
+    "mtime": 1782873435.1487706,
+    "ast_hash": "cde13df085e4c492aeb7ba298a996d0d",
+    "semantic_hash": "cde13df085e4c492aeb7ba298a996d0d"
+  },
+  ".claude/skills/graphify/references/hooks.md": {
+    "mtime": 1782873435.1532865,
+    "ast_hash": "3f545db6ce646650bb9de588f5512a27",
+    "semantic_hash": "3f545db6ce646650bb9de588f5512a27"
+  },
+  ".claude/skills/graphify/references/query.md": {
+    "mtime": 1782873435.1496832,
+    "ast_hash": "9e5aadc2c57ab561bc56600fcfa70735",
+    "semantic_hash": "9e5aadc2c57ab561bc56600fcfa70735"
+  },
+  ".claude/skills/graphify/references/transcribe.md": {
+    "mtime": 1782873435.1479323,
+    "ast_hash": "67b6a5fa6c0974e18f60db9f8932fbd8",
+    "semantic_hash": "67b6a5fa6c0974e18f60db9f8932fbd8"
+  },
+  ".claude/skills/graphify/references/update.md": {
+    "mtime": 1782873435.1522992,
+    "ast_hash": "c698309979460d0f02ba616417844399",
+    "semantic_hash": "c698309979460d0f02ba616417844399"
+  },
+  "CLAUDE.md": {
+    "mtime": 1782873443.7118347,
+    "ast_hash": "9b31786b637be3c13978bec4c2330752",
+    "semantic_hash": "9b31786b637be3c13978bec4c2330752"
+  },
+  "README.md": {
+    "mtime": 1782813215.7631996,
+    "ast_hash": "2aa4a352ab8bbef591039b789a802d65",
+    "semantic_hash": "2aa4a352ab8bbef591039b789a802d65"
+  },
+  "tracking-data-streaming-backend/README.md": {
+    "mtime": 1776661412.0,
+    "ast_hash": "46664e899468493c345c012d84fe52fb",
+    "semantic_hash": "46664e899468493c345c012d84fe52fb"
+  },
+  "tracking-data-streaming-datn/README.md": {
+    "mtime": 1775714853.0,
+    "ast_hash": "a28dc4cb878325f3e9e5649f3e1469ac",
+    "semantic_hash": "a28dc4cb878325f3e9e5649f3e1469ac"
+  },
+  "tracking-data-streaming-datn/index.html": {
+    "mtime": 1776660242.0,
+    "ast_hash": "ecfe25048fcbf7d5f567b5fc1b2bf7bf",
+    "semantic_hash": "ecfe25048fcbf7d5f567b5fc1b2bf7bf"
+  },
+  "tracking-data-streaming-infrastructure/README.md": {
+    "mtime": 1777363301.0,
+    "ast_hash": "10ae628bf9f600f03cf80a1f94e74069",
+    "semantic_hash": "10ae628bf9f600f03cf80a1f94e74069"
+  },
+  "tracking-data-streaming-infrastructure/lambda/geofence-event-consumer/requirements.txt": {
+    "mtime": 1777363138.0,
+    "ast_hash": "85afc3a999166aab337a42a1e61e8948",
+    "semantic_hash": "85afc3a999166aab337a42a1e61e8948"
+  },
+  "tracking-data-streaming-infrastructure/lambda/iot-message-processor/README.md": {
+    "mtime": 1775718863.0,
+    "ast_hash": "65e72dccc20b95ed3a1837efa0682d32",
+    "semantic_hash": "65e72dccc20b95ed3a1837efa0682d32"
+  },
+  "tracking-data-streaming-infrastructure/lambda/iot-message-processor/requirements.txt": {
+    "mtime": 1775718599.0,
+    "ast_hash": "424ddd71137c6dce7d4772f4c57245b6",
+    "semantic_hash": "424ddd71137c6dce7d4772f4c57245b6"
+  },
+  "tracking-data-streaming-infrastructure/lambda/offline-detector/requirements.txt": {
+    "mtime": 1777364199.0,
+    "ast_hash": "85afc3a999166aab337a42a1e61e8948",
+    "semantic_hash": "85afc3a999166aab337a42a1e61e8948"
+  },
+  "tracking-data-streaming-infrastructure/lambda/realtime-event-publisher/requirements.txt": {
+    "mtime": 1777363125.0,
+    "ast_hash": "85afc3a999166aab337a42a1e61e8948",
+    "semantic_hash": "85afc3a999166aab337a42a1e61e8948"
+  },
+  "tracking-data-streaming-infrastructure/packaged.yml": {
+    "mtime": 1783500202.6801195,
+    "ast_hash": "a16827c249da18ce4330e181a67e720e",
+    "semantic_hash": ""
+  },
+  "tracking-data-streaming-infrastructure/template.yml": {
+    "mtime": 1783499591.5032344,
+    "ast_hash": "d462ff3db5fa55f8571a3d24f4664b1a",
+    "semantic_hash": ""
+  },
+  "vsmart-app/README.md": {
+    "mtime": 499162500.0,
+    "ast_hash": "e22acbc85bc1f0b21dd2d4fbb55488b7",
+    "semantic_hash": "e22acbc85bc1f0b21dd2d4fbb55488b7"
+  },
+  "tracking-data-streaming-datn/public/favicon.svg": {
+    "mtime": 1775714853.0,
+    "ast_hash": "7e840862161341271697daa99a40d76b",
+    "semantic_hash": "7e840862161341271697daa99a40d76b"
+  },
+  "tracking-data-streaming-datn/public/icons.svg": {
+    "mtime": 1775714853.0,
+    "ast_hash": "3b4fcfcf393eca4d264dca4a4663bc37",
+    "semantic_hash": "3b4fcfcf393eca4d264dca4a4663bc37"
+  },
+  "tracking-data-streaming-datn/src/assets/background.png": {
+    "mtime": 1782792303.3288262,
+    "ast_hash": "8794c50c64df65f12fb99ab1425f74fc",
+    "semantic_hash": "8794c50c64df65f12fb99ab1425f74fc"
+  },
+  "tracking-data-streaming-datn/src/assets/icon.png": {
+    "mtime": 1777200512.0,
+    "ast_hash": "3eb58424713191b29c5e9672b88aa6c2",
+    "semantic_hash": "3eb58424713191b29c5e9672b88aa6c2"
+  },
+  "tracking-data-streaming-datn/src/assets/icon.svg": {
+    "mtime": 1777201024.0,
+    "ast_hash": "d784f92c0fc08244be78750cb295d8de",
+    "semantic_hash": "d784f92c0fc08244be78750cb295d8de"
+  },
+  "vsmart-app/assets/background.png": {
+    "mtime": 1777200555.0,
+    "ast_hash": "2c221613deb72b8bb01f0e3b5490eb13",
+    "semantic_hash": "2c221613deb72b8bb01f0e3b5490eb13"
+  },
+  "vsmart-app/assets/icon-1.png": {
+    "mtime": 1777219377.0,
+    "ast_hash": "8b5d6c268f1df3c499c2a5f3986ed8af",
+    "semantic_hash": "8b5d6c268f1df3c499c2a5f3986ed8af"
+  },
+  "vsmart-app/assets/icon-2.png": {
+    "mtime": 1777219421.0,
+    "ast_hash": "62eec032cedf52a6f10ce77f486b7947",
+    "semantic_hash": "62eec032cedf52a6f10ce77f486b7947"
+  },
+  "vsmart-app/assets/icon-3.png": {
+    "mtime": 1777220248.0,
+    "ast_hash": "83fe48d00be82e5bb5890a5e09e135a1",
+    "semantic_hash": "83fe48d00be82e5bb5890a5e09e135a1"
+  },
+  "vsmart-app/assets/icon.png": {
+    "mtime": 1777200512.0,
+    "ast_hash": "3eb58424713191b29c5e9672b88aa6c2",
+    "semantic_hash": "3eb58424713191b29c5e9672b88aa6c2"
+  },
+  "vsmart-app/assets/icon.svg": {
+    "mtime": 1777201024.0,
+    "ast_hash": "d784f92c0fc08244be78750cb295d8de",
+    "semantic_hash": "d784f92c0fc08244be78750cb295d8de"
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/.github/solutionid_validator.sh": {
+    "mtime": 1774854510.0,
+    "ast_hash": "5772cafebeea8f1258d268cc4c6367d4",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/map-with-geojson/package.json": {
+    "mtime": 1774854757.0,
+    "ast_hash": "3afe194490af38bf6d1273ae69eca128",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/map-with-geojson/src/App.jsx": {
+    "mtime": 1774854757.0,
+    "ast_hash": "9a13798b4b165a6ead44a05df9570f19",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/map-with-geojson/src/VancouverOverlay.jsx": {
+    "mtime": 1774854757.0,
+    "ast_hash": "779a1b696fa6bf1ea7b8232a4438c688",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/map-with-geojson/src/index.jsx": {
+    "mtime": 1774854757.0,
+    "ast_hash": "2696747cba76fe7d1d7cda9c9ce9ae7b",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/map-with-geojson/src/vancouver.json": {
+    "mtime": 1774854757.0,
+    "ast_hash": "20b82ce822368c5b498a0695e8ff2b77",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/map-with-geojson/vite.config.js": {
+    "mtime": 1774854757.0,
+    "ast_hash": "b2aad07b25ca9efcf6483a47fc764dc9",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/map-with-markers/package.json": {
+    "mtime": 1774854757.0,
+    "ast_hash": "743322d17c6e569f5636fd70b1758b99",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/map-with-markers/src/App.jsx": {
+    "mtime": 1774854757.0,
+    "ast_hash": "da45dc5d0d3d741567c285cdc35fea53",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/map-with-markers/src/LockerMarkers.jsx": {
+    "mtime": 1774854757.0,
+    "ast_hash": "d83f3b09b3669e47dc0c63c1acde973c",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/map-with-markers/src/LockerPopup.jsx": {
+    "mtime": 1774854757.0,
+    "ast_hash": "a7550e303ca250bfa7b9c0129c660816",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/map-with-markers/src/PinIcon.jsx": {
+    "mtime": 1774854757.0,
+    "ast_hash": "8feb14fe8f913d36059914c8480fcd2d",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/map-with-markers/src/index.jsx": {
+    "mtime": 1774854757.0,
+    "ast_hash": "2e47e51fce365f7c2c36354ea405762d",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/map-with-markers/src/lockers.json": {
+    "mtime": 1774854757.0,
+    "ast_hash": "3a43c5f80ac1a2130567a5564e8de155",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/map-with-markers/vite.config.js": {
+    "mtime": 1774854757.0,
+    "ast_hash": "b2aad07b25ca9efcf6483a47fc764dc9",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/deploy_cloudformation.sh": {
+    "mtime": 1775484632.0,
+    "ast_hash": "4c7a838142ab1afdf51923de763c1ad0",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/package.json": {
+    "mtime": 1774854757.0,
+    "ast_hash": "74ae207abb66402223f3a83744e6df0c",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/src/App.jsx": {
+    "mtime": 1774854757.0,
+    "ast_hash": "4735f255364ded550b774d05bd88295f",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/src/DemoData.js": {
+    "mtime": 1774854757.0,
+    "ast_hash": "7ef02ad50ddca3cd6ae81cb3b0aefa89",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/src/components/common/InfoBox.jsx": {
+    "mtime": 1774854757.0,
+    "ast_hash": "e15fb413cc5813b8f0d1757edca309b7",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/src/components/common/Marker.jsx": {
+    "mtime": 1774854757.0,
+    "ast_hash": "15df57663ef55ca63bf2e700ed42f9d7",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/src/components/common/Panel.jsx": {
+    "mtime": 1774854757.0,
+    "ast_hash": "5a27fb600f4a3ea130f006708517f71c",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/src/components/common/Spinner.jsx": {
+    "mtime": 1774854757.0,
+    "ast_hash": "ab6c68b6bbe85e721cc90b45b0b49785",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/src/components/common/VehicleIcon.jsx": {
+    "mtime": 1774854757.0,
+    "ast_hash": "28b1ffb101e6d3cd498def29d485a19b",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/src/components/geofences/DrawControl.jsx": {
+    "mtime": 1774854757.0,
+    "ast_hash": "c219c220a3f2d030f0c6e95ea49fa9ea",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/src/components/geofences/DrawnGeofences.jsx": {
+    "mtime": 1774854757.0,
+    "ast_hash": "920a3bc12dfcadcf3dc85f7aa798dd7f",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/src/components/geofences/GeofencesLayer.jsx": {
+    "mtime": 1774854757.0,
+    "ast_hash": "78fdec0fe2336bf798c628bf7b52b82d",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/src/components/geofences/GeofencesPanel.jsx": {
+    "mtime": 1774854757.0,
+    "ast_hash": "e6982d63cb5c22cb2ea2e44ee0487905",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/src/components/trackers/DevicePositionHistory.jsx": {
+    "mtime": 1774854757.0,
+    "ast_hash": "93061bab9dbfb4af7c897c184a2f2c46",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/src/components/trackers/Devices.jsx": {
+    "mtime": 1774854757.0,
+    "ast_hash": "40548ce3812c1dc037cbe81a3581a44e",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/src/components/trackers/TrackersLayer.jsx": {
+    "mtime": 1774854757.0,
+    "ast_hash": "e03027d9f78ca2140fce039988637132",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/src/components/trackers/TrackersPanel.jsx": {
+    "mtime": 1774854757.0,
+    "ast_hash": "e0195a750ea096e6703bd0b93913522a",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/src/configuration.js": {
+    "mtime": 1775712100.0,
+    "ast_hash": "bc8a9767a2f476b7a9172d54f0c37614",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/src/constants.js": {
+    "mtime": 1774854757.0,
+    "ast_hash": "d511aa76706b939d4bab1f2849e9aaf3",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/src/main.jsx": {
+    "mtime": 1774854757.0,
+    "ast_hash": "ebd592f153cc4b05cdc42223f3a74da0",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/src/theme.js": {
+    "mtime": 1774854757.0,
+    "ast_hash": "3945eaa567a3cf2f8f3e37c9e1e60ad3",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/vite.config.js": {
+    "mtime": 1774854757.0,
+    "ast_hash": "d27f00241d6238dc4a4bc77d38038200",
+    "semantic_hash": ""
+  },
+  "vsmart-iot/.pio/libdeps/esp32doit-devkit-v1/PubSubClient/library.json": {
+    "mtime": 1589973313.0,
+    "ast_hash": "ca38c05262d3510f43113115e64b0d4c",
+    "semantic_hash": ""
+  },
+  "vsmart-iot/.pio/libdeps/esp32doit-devkit-v1/PubSubClient/src/PubSubClient.cpp": {
+    "mtime": 1589935239.0,
+    "ast_hash": "4ab11a9a5f48490f94c55ebe8ebf940e",
+    "semantic_hash": ""
+  },
+  "vsmart-iot/.pio/libdeps/esp32doit-devkit-v1/PubSubClient/src/PubSubClient.h": {
+    "mtime": 1589935239.0,
+    "ast_hash": "6cc105518c983d166ee358390ccdc53a",
+    "semantic_hash": ""
+  },
+  "vsmart-iot/.pio/libdeps/esp32doit-devkit-v1/TinyGPSPlus/library.json": {
+    "mtime": 1716217666.0,
+    "ast_hash": "02a6d399c4f0f1d65084c29780521f3b",
+    "semantic_hash": ""
+  },
+  "vsmart-iot/.pio/libdeps/esp32doit-devkit-v1/TinyGPSPlus/src/TinyGPS++.cpp": {
+    "mtime": 1716217666.0,
+    "ast_hash": "78ef1435468849ab81a1db0c466a86f8",
+    "semantic_hash": ""
+  },
+  "vsmart-iot/.pio/libdeps/esp32doit-devkit-v1/TinyGPSPlus/src/TinyGPS++.h": {
+    "mtime": 1716217666.0,
+    "ast_hash": "d710a14759f7a7b52bfcb463fbd0f177",
+    "semantic_hash": ""
+  },
+  "vsmart-iot/.pio/libdeps/esp32doit-devkit-v1/TinyGPSPlus/src/TinyGPSPlus.h": {
+    "mtime": 1716217666.0,
+    "ast_hash": "b68347adfec08b824f8100ec25062ab5",
+    "semantic_hash": ""
+  },
+  "vsmart-iot/.vscode/c_cpp_properties.json": {
+    "mtime": 1783500623.4196706,
+    "ast_hash": "edc48717ab1802dfebfa0d9171426a5c",
+    "semantic_hash": ""
+  },
+  "vsmart-iot/.vscode/extensions.json": {
+    "mtime": 1783500623.420712,
+    "ast_hash": "90f13aaa6d970e2869f11ed92ffbc61a",
+    "semantic_hash": ""
+  },
+  "vsmart-iot/.vscode/launch.json": {
+    "mtime": 1783500623.4181159,
+    "ast_hash": "35fbbfd584a9d48eeae64bf2604598b1",
+    "semantic_hash": ""
+  },
+  "vsmart-iot/compile_commands.json": {
+    "mtime": 1783492923.6760063,
+    "ast_hash": "bc6b9487aaa1208260145e3e2b6222a2",
+    "semantic_hash": ""
+  },
+  "vsmart-iot/src/main.cpp": {
+    "mtime": 1783504960.7369294,
+    "ast_hash": "a64f62d623fcef81c123683b41dcc9de",
+    "semantic_hash": ""
+  },
+  ".agents/AGENTS.md": {
+    "mtime": 1782874181.9473433,
+    "ast_hash": "f33274a02e4dfbee996f85218f25383c",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/.github/workflows/maintainer_workflows.yml": {
+    "mtime": 1774854510.0,
+    "ast_hash": "ed8b3b2a430b0ae75794ea1c6b02f691",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/CODE_OF_CONDUCT.md": {
+    "mtime": 1774854510.0,
+    "ast_hash": "28d8a483f910394fb4a1a10ff9ff7580",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/CONTRIBUTING.md": {
+    "mtime": 1774854510.0,
+    "ast_hash": "ed2cee0ae9e090935179a92ed63746ae",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/README.md": {
+    "mtime": 1774854510.0,
+    "ast_hash": "6298314b920d23211f06e593dc4b4e0c",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/.github/ISSUE_TEMPLATE/bug-report.yml": {
+    "mtime": 1774854757.0,
+    "ast_hash": "7d84edf5504b933dfc505e73496e9dec",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/.github/workflows/build.yml": {
+    "mtime": 1774854757.0,
+    "ast_hash": "8586bf0ad0abc238748b954d58e1d79e",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/CODE_OF_CONDUCT.md": {
+    "mtime": 1774854757.0,
+    "ast_hash": "e5d51b7a05ac0646b905f39e1de8f4df",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/CONTRIBUTING.md": {
+    "mtime": 1774854757.0,
+    "ast_hash": "bc7a43ae26622d9ef74f7e8699411d33",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/README.md": {
+    "mtime": 1774854757.0,
+    "ast_hash": "527e979d15e934f30e0b32d841d223c2",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/map-with-geojson/README.md": {
+    "mtime": 1774854757.0,
+    "ast_hash": "4a9a263daedf3d80b2785a1c458189dc",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/map-with-geojson/cloudformation/template.yaml": {
+    "mtime": 1774854757.0,
+    "ast_hash": "495975d56f66287444658ba3538419ee",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/map-with-geojson/index.html": {
+    "mtime": 1774854757.0,
+    "ast_hash": "935b4f3e4ad44d0381cacae567a22dce",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/map-with-markers/README.md": {
+    "mtime": 1774854757.0,
+    "ast_hash": "001be1697d0549e6958adec6585bc327",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/map-with-markers/cloudformation/template.yaml": {
+    "mtime": 1774854757.0,
+    "ast_hash": "93c29a278c07c38ae42683e175945cad",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/map-with-markers/index.html": {
+    "mtime": 1774854757.0,
+    "ast_hash": "51023d22c84c260445263b33b2541713",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/CODE_OF_CONDUCT.md": {
+    "mtime": 1774854757.0,
+    "ast_hash": "e5d51b7a05ac0646b905f39e1de8f4df",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/CONTRIBUTING.md": {
+    "mtime": 1774854757.0,
+    "ast_hash": "598b6d0aa6b94361fd79dcf763662115",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/README.md": {
+    "mtime": 1774854757.0,
+    "ast_hash": "3e12f8c91de29b9d51706e6658bed831",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/index.html": {
+    "mtime": 1774854757.0,
+    "ast_hash": "41594e1b5f5a7a8db406f61f066101a7",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/src/cfn_template/kinesisResources.yml": {
+    "mtime": 1774854757.0,
+    "ast_hash": "f23871e87ce415b3fb920766a2ce2fe6",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/src/cfn_template/locationResources.yml": {
+    "mtime": 1774854757.0,
+    "ast_hash": "8168e34d261de2f8ee1972cd35686dea",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/aws-solutions-library-samples_.md": {
+    "mtime": 1775098546.0,
+    "ast_hash": "c86794261fca88d2ca27d819aea570da",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/cf/analyticsResources.yml": {
+    "mtime": 1774854510.0,
+    "ast_hash": "30476c7fa84370555643fb3ac6e666fd",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/cf/iotResources.yml": {
+    "mtime": 1775712857.0,
+    "ast_hash": "cdb17342ca8a0c9392a70a6c83d1cb16",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/huong_dan_trien_khai_va_chi_phi.md": {
+    "mtime": 1775712203.0,
+    "ast_hash": "7e574e469d23380058e1992438f9e9a1",
+    "semantic_hash": ""
+  },
+  "vsmart-iot/.pio/libdeps/esp32doit-devkit-v1/PubSubClient/.travis.yml": {
+    "mtime": 1589973313.0,
+    "ast_hash": "7dc775e658bfcdd47a43414a3d3d32f7",
+    "semantic_hash": ""
+  },
+  "vsmart-iot/.pio/libdeps/esp32doit-devkit-v1/PubSubClient/CHANGES.txt": {
+    "mtime": 1589973313.0,
+    "ast_hash": "3ab62278dffdd6f31417bc65e8f092ec",
+    "semantic_hash": ""
+  },
+  "vsmart-iot/.pio/libdeps/esp32doit-devkit-v1/PubSubClient/LICENSE.txt": {
+    "mtime": 1589973313.0,
+    "ast_hash": "a0dbd49444a7c1bc47aad61b6aa4dd54",
+    "semantic_hash": ""
+  },
+  "vsmart-iot/.pio/libdeps/esp32doit-devkit-v1/PubSubClient/README.md": {
+    "mtime": 1589973313.0,
+    "ast_hash": "f1eb96aa46d8ab58853dd3295af7e26a",
+    "semantic_hash": ""
+  },
+  "vsmart-iot/.pio/libdeps/esp32doit-devkit-v1/PubSubClient/keywords.txt": {
+    "mtime": 1589973313.0,
+    "ast_hash": "2b79660ce61ec00edfc007172ea5ef50",
+    "semantic_hash": ""
+  },
+  "vsmart-iot/.pio/libdeps/esp32doit-devkit-v1/TinyGPSPlus/README.md": {
+    "mtime": 1716217666.0,
+    "ast_hash": "e93fcc343f923272052deaa2725edc61",
+    "semantic_hash": ""
+  },
+  "vsmart-iot/.pio/libdeps/esp32doit-devkit-v1/TinyGPSPlus/examples/SatElevTracker/sample_satellite_elevation_log.txt": {
+    "mtime": 1716217666.0,
+    "ast_hash": "822739f1cf98b0448ca92250e0ba4b3b",
+    "semantic_hash": ""
+  },
+  "vsmart-iot/.pio/libdeps/esp32doit-devkit-v1/TinyGPSPlus/keywords.txt": {
+    "mtime": 1716217666.0,
+    "ast_hash": "c1543a7b89cb8270c67d13f41950ffcc",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/tracking-data-streaming/assets/screenshot.png": {
+    "mtime": 1774854757.0,
+    "ast_hash": "a708a4917c48af40813de7e9b77d7690",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/generated-diagrams/architecture_diagram.png": {
+    "mtime": 1775716554.0,
+    "ast_hash": "ac35c35dfdcfffb12fffb67aac69eb85",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/generated-diagrams/detailed_data_flow.png": {
+    "mtime": 1775716641.0,
+    "ast_hash": "54e0663f880b993e5771e9f08bc83f11",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/generated-diagrams/iot_tracking_architecture.png": {
+    "mtime": 1775716624.0,
+    "ast_hash": "51cb36c75bc5e4191017ad48c2a27fba",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/images/mapview.png": {
+    "mtime": 1774854510.0,
+    "ast_hash": "8ae4a653dcb2dc13061e1fbf928aba65",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/images/s3bucket.png": {
+    "mtime": 1774854510.0,
+    "ast_hash": "154421dfc5622a6817ffe47c2b5f49e1",
+    "semantic_hash": ""
+  },
+  "guidance-for-tracking-assets-and-locating-devices-using-aws-iot/images/trackerview.png": {
+    "mtime": 1774854510.0,
+    "ast_hash": "5b71449ab18d07f4d03f354189d1cfb1",
+    "semantic_hash": ""
+  }
+}

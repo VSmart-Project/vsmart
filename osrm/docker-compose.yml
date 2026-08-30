@@ -1,0 +1,10 @@
+services:
+  osrm:
+    image: ghcr.io/project-osrm/osrm-backend
+    container_name: vsmart-osrm
+    command: osrm-routed --algorithm mld --max-matching-size 200 /data/hcmc.osrm
+    ports:
+      - "5050:5000"
+    volumes:
+      - ./data:/data
+    restart: unless-stopped

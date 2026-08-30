@@ -1,0 +1,85 @@
+2026-08-24T08:23:37.947Z [kicad] [info] Initializing server... { metadata: undefined }
+2026-08-24T08:23:37.947Z [kicad] [info] Era probe verdict: legacy (exec lane pinned — no sibling probe) { metadata: undefined }
+2026-08-24T08:23:37.953Z [kicad] [info] Using MCP server command: /opt/homebrew/bin/node with path: {
+  metadata: {
+    paths: [
+      '/Users/vi.trandai/.local/bin',
+      '/Users/vi.trandai/.antigravity-ide/antigravity-ide/bin',
+      '/opt/homebrew/bin',
+      '/opt/homebrew/sbin',
+      '/usr/local/bin',
+      '/System/Cryptexes/App/usr/bin',
+      '/usr/bin',
+      '/bin',
+      '/usr/sbin',
+      '/sbin',
+      '/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin',
+      '/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin',
+      '/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin',
+      '/pkg/env/global/bin',
+      '/Library/Apple/usr/bin',
+      '/Applications/VMware Fusion.app/Contents/Public',
+      '/Users/vi.trandai/go/bin',
+      '/Users/vi.trandai/Library/pnpm',
+      [length]: 18
+    ]
+  }
+} %o
+2026-08-24T08:23:37.954Z [kicad] [info] Server started and connected successfully { metadata: undefined }
+[2026-08-24 15:23:38,314] [INFO] Using STDIO transport for local communication
+[2026-08-24 15:23:38,320] [INFO] Registering KiCAD tools, resources, and prompts...
+[2026-08-24 15:23:38,321] [INFO] Registering router tools
+[2026-08-24 15:23:38,331] [INFO] Router tools registered successfully
+[2026-08-24 15:23:38,332] [INFO] Registering board management tools
+[2026-08-24 15:23:38,333] [INFO] Board management tools registered
+[2026-08-24 15:23:38,334] [INFO] Registering component management tools
+[2026-08-24 15:23:38,335] [INFO] Component management tools registered
+[2026-08-24 15:23:38,337] [INFO] Registering design rule tools
+[2026-08-24 15:23:38,338] [INFO] Design rule tools registered
+[2026-08-24 15:23:38,339] [INFO] Registering export tools
+[2026-08-24 15:23:38,340] [INFO] Export tools registered
+[2026-08-24 15:23:38,345] [INFO] UI management tools registered
+[2026-08-24 15:23:38,346] [INFO] Registering project resources
+[2026-08-24 15:23:38,347] [INFO] Project resources registered
+[2026-08-24 15:23:38,348] [INFO] Registering board resources
+[2026-08-24 15:23:38,348] [INFO] Board resources registered
+[2026-08-24 15:23:38,349] [INFO] Registering component resources
+[2026-08-24 15:23:38,349] [INFO] Component resources registered
+[2026-08-24 15:23:38,350] [INFO] Registering library resources
+[2026-08-24 15:23:38,350] [INFO] Library resources registered
+[2026-08-24 15:23:38,351] [INFO] Registering component prompts
+[2026-08-24 15:23:38,351] [INFO] Component prompts registered
+[2026-08-24 15:23:38,352] [INFO] Registering routing prompts
+[2026-08-24 15:23:38,352] [INFO] Routing prompts registered
+[2026-08-24 15:23:38,353] [INFO] Registering design prompts
+[2026-08-24 15:23:38,353] [INFO] Design prompts registered
+[2026-08-24 15:23:38,354] [INFO] Registering footprint prompts
+[2026-08-24 15:23:38,354] [INFO] All KiCAD tools, resources, and prompts registered
+[2026-08-24 15:23:38,355] [INFO] Starting KiCAD MCP server...
+[2026-08-24 15:23:38,355] [INFO] Connecting MCP server to STDIO transport...
+[2026-08-24 15:23:38,355] [INFO] Successfully connected to STDIO transport
+[2026-08-24 15:23:38,356] [INFO] Starting Python process with script: /Users/vi.trandai/7 - NCKH/KiCAD-MCP-Server/python/kicad_interface.py
+[2026-08-24 15:23:38,356] [INFO] Using KICAD_PYTHON environment variable: /Applications/KiCad/KiCad.app/Contents/Frameworks/Python.framework/Versions/Current/bin/python3
+[2026-08-24 15:23:38,357] [INFO] Using Python executable: /Applications/KiCad/KiCad.app/Contents/Frameworks/Python.framework/Versions/Current/bin/python3
+[2026-08-24 15:23:38,357] [INFO] Validating pcbnew module access...
+2026-08-24T08:23:38.512Z [kicad] [info] Message from client: method="initialize" id=0 params { metadata: undefined }
+2026-08-24T08:23:38.521Z [kicad] [info] Message from server: id=0 result { metadata: undefined }
+2026-08-24T08:23:38.539Z [kicad] [info] Message from client: method="notifications/initialized" { metadata: undefined }
+2026-08-24T08:23:38.541Z [kicad] [info] Message from client: method="tools/list" id=1 params { metadata: undefined }
+2026-08-24T08:23:38.541Z [kicad] [info] Message from client: method="prompts/list" id=2 params { metadata: undefined }
+2026-08-24T08:23:38.541Z [kicad] [info] Message from client: method="resources/list" id=3 { metadata: undefined }
+2026-08-24T08:23:38.562Z [kicad] [info] Message from server: id=1 result { metadata: undefined }
+2026-08-24T08:23:38.562Z [kicad] [info] Message from server: id=2 result { metadata: undefined }
+2026-08-24T08:23:38.562Z [kicad] [info] Message from server: id=3 result { metadata: undefined }
+[2026-08-24 15:23:38,892] [INFO] ✓ pcbnew module validated successfully
+[2026-08-24 15:23:38,893] [INFO] Waiting for Python process to be ready...
+[2026-08-24 15:23:40,303] [INFO] Python process READY — stdin loop is live
+[2026-08-24 15:23:40,304] [INFO] Python process is ready.
+[2026-08-24 15:23:40,304] [INFO] Sending warm-up command (background)...
+[2026-08-24 15:23:40,347] [ERROR] Python stderr: ./src/common/stdpbase.cpp(59): assert ""traits"" failed in Get(): create wxApp before calling this
+
+[2026-08-24 15:23:40,379] [INFO] Warm-up succeeded: pcbnew 10.0.5 (0s)
+[2026-08-24 15:23:40,379] [INFO] Warm-up complete — pcbnew/wxApp initialised
+KiCAD MCP SERVER READY
+[2026-08-24 15:23:40,379] [INFO] KiCAD MCP server started and ready
+[2026-08-24 15:23:40,380] [INFO] KiCAD MCP server started with STDIO transport

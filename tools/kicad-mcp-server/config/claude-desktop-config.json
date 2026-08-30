@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "kicad_helper": {
+      "command": "node",
+      "args": ["dist/index.js"],
+      "cwd": "/Users/vi.trandai/7 - NCKH/KiCAD-MCP-Server",
+      "env": {
+        "NODE_ENV": "production",
+        "PYTHONPATH": "/Applications/KiCad/KiCad.app/Contents/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages"
+      },
+      "description": "KiCAD PCB Design Assistant"
+    }
+  }
+}

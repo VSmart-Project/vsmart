@@ -1,0 +1,42 @@
+# Secrets and environment-specific configuration
+.env
+.env.*
+!.env.example
+!*.example.h
+**/secrets.h
+**/lib/secrets/
+*.key
+*-certificate.pem.crt
+
+# Dependencies and generated build products
+**/node_modules/
+**/dist/
+**/.expo/
+**/.pio/
+**/.venv/
+**/.runtime/
+**/.aws-sam/
+**/coverage/
+**/__pycache__/
+**/*.py[cod]
+**/android/.gradle/
+**/android/build/
+**/android/app/build/
+**/ios/Pods/
+**/ios/build/
+
+# Large/regenerable datasets and local history
+osrm/data/
+**/snapshots/
+**/.history/
+**/graphify-out/cache/
+**/graphify-out/*.html
+
+# Local metadata
+**/.DS_Store
+**/.idea/
+**/.vscode/
+*.lck
+/.agents/
+/.claude/
+/.impeccable/

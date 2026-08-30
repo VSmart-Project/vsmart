@@ -1,0 +1,155 @@
+@import 'maplibre-gl/dist/maplibre-gl.css';
+@import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Unified light/dark base */
+@layer base {
+  html {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-surface text-ink font-sans antialiased transition-colors duration-200 dark:bg-surface-dark dark:text-ink-dark;
+  }
+}
+
+/* Custom scrollbar — light */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eceef2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c7cad1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a9adb6;
+}
+
+/* Custom scrollbar — dark */
+html.dark ::-webkit-scrollbar-track {
+  background: #1c1c22;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #3a3a44;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #4a4a56;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #c7cad1 #eceef2;
+}
+
+html.dark * {
+  scrollbar-color: #3a3a44 #1c1c22;
+}
+
+/* MapLibre GL overrides */
+.maplibregl-ctrl-group {
+  box-shadow: 0 1px 1px 0 rgba(31, 35, 44, 0.12), 0 4px 14px rgba(31, 35, 44, 0.06);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.maplibregl-ctrl-group button {
+  background-color: #ffffff;
+}
+
+.maplibregl-ctrl-group button:hover {
+  background-color: #f6f7f9;
+}
+
+html.dark .maplibregl-ctrl-group {
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.4), 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+html.dark .maplibregl-ctrl-group button {
+  background-color: #222229;
+}
+
+html.dark .maplibregl-ctrl-group button:hover {
+  background-color: #2d2d35;
+}
+
+html.dark .maplibregl-ctrl-icon {
+  filter: invert(1) brightness(0.9);
+}
+
+.maplibregl-popup-content {
+  box-shadow: 0 4px 20px 1px rgba(31, 35, 44, 0.12);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+html.dark .maplibregl-popup-content {
+  background-color: #222229;
+  color: #f3f3f5;
+  box-shadow: 0 4px 20px 1px rgba(0, 0, 0, 0.35);
+}
+
+html.dark .maplibregl-popup-tip {
+  border-top-color: #222229 !important;
+  border-bottom-color: #222229 !important;
+}
+
+/* Custom scrollbar utility class used inside floating panels */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Animations */
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+/* Shared component classes — light + dark aware */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-brand-500 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-600 active:scale-[0.98] dark:bg-brand-400 dark:hover:bg-brand-300 dark:text-[#16161b];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-hairline bg-card px-4 py-2 text-sm font-semibold text-ink shadow-sm transition-colors hover:bg-surface active:scale-[0.98] dark:border-hairline-dark dark:bg-card-dark dark:text-ink-dark dark:hover:bg-white/5;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-rose-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-rose-700 active:scale-[0.98];
+  }
+
+  .card {
+    @apply rounded-2xl border border-hairline bg-card p-6 shadow-panel dark:border-hairline-dark dark:bg-card-dark dark:shadow-panel-dark;
+  }
+
+  .input-field {
+    @apply w-full rounded-xl border border-hairline bg-card px-3 py-2 text-sm text-ink placeholder:text-subtle transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20 dark:border-hairline-dark dark:bg-white/5 dark:text-ink-dark dark:placeholder:text-subtle-dark dark:focus:border-brand-400 dark:focus:ring-brand-400/20;
+  }
+}

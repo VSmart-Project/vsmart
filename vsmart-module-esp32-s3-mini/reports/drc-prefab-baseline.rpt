@@ -1,0 +1,71 @@
+** Drc report for vsmart-module-esp32-s3-mini.kicad_pcb **
+** Created on 2026-08-29T18:26:20 **
+** Report includes: Errors, Warnings **
+
+** Found 16 DRC violations **
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7620 mm)
+    Rule: board setup constraints silk text height; warning
+    @(62.5500 mm, 63.0000 mm): Footprint text of U4 (ANT)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7620 mm)
+    Rule: board setup constraints silk text height; warning
+    @(62.6500 mm, 65.5000 mm): Footprint text of U4 (VCC
+)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7620 mm)
+    Rule: board setup constraints silk text height; warning
+    @(62.6500 mm, 68.1000 mm): Footprint text of U4 (RST)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7620 mm)
+    Rule: board setup constraints silk text height; warning
+    @(62.7000 mm, 70.5500 mm): Footprint text of U4 (RXD)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7620 mm)
+    Rule: board setup constraints silk text height; warning
+    @(62.7000 mm, 73.0000 mm): Footprint text of U4 (TXD)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7620 mm)
+    Rule: board setup constraints silk text height; warning
+    @(62.7500 mm, 75.7000 mm): Footprint text of U4 (GND)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7620 mm)
+    Rule: board setup constraints silk text height; warning
+    @(80.0000 mm, 78.2000 mm): Footprint text of U4 (SPKN)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7620 mm)
+    Rule: board setup constraints silk text height; warning
+    @(80.0500 mm, 73.1000 mm): Footprint text of U4 (MICN)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7620 mm)
+    Rule: board setup constraints silk text height; warning
+    @(80.0500 mm, 75.6500 mm): Footprint text of U4 (SPKP)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7620 mm)
+    Rule: board setup constraints silk text height; warning
+    @(80.1000 mm, 70.4500 mm): Footprint text of U4 (MICP)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7620 mm)
+    Rule: board setup constraints silk text height; warning
+    @(80.2500 mm, 65.5500 mm): Footprint text of U4 (RI)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7620 mm)
+    Rule: board setup constraints silk text height; warning
+    @(80.2500 mm, 67.9500 mm): Footprint text of U4 (DTR)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(73.0000 mm, 27.0000 mm): PCB text 'GPS NEO-7M' on F.Silkscreen
+    @(73.0000 mm, 28.0000 mm): Reference field of U3
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(46.0000 mm, 80.2500 mm): Arc of U1 on F.Silkscreen
+    @(50.5000 mm, 81.4000 mm): PCB text '4V SIM     GND' on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(46.0000 mm, 81.2500 mm): Segment of U1 on F.Silkscreen
+    @(50.5000 mm, 81.4000 mm): PCB text '4V SIM     GND' on F.Silkscreen
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(57.0000 mm, 23.0000 mm): PCB text 'VSMART S3' on F.Silkscreen
+    @(53.5000 mm, 24.6000 mm): PTH pad 2 [GND] of J1
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** Ignored checks **
+    - Footprint has no courtyard defined
+    - Track endpoint not centered on via
+    - Tuning profile track geometries
+    - Footprint doesn't match symbol's footprint filters
+    - Footprint component type doesn't match footprint pads
+
+** End of Report **

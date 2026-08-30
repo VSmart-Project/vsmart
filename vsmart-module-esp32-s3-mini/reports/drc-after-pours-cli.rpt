@@ -1,0 +1,109 @@
+** Drc report for vsmart-module-esp32-s3-mini.kicad_pcb **
+** Created on 2026-08-28T23:14:01 **
+** Report includes: Errors, Warnings **
+
+** Found 27 DRC violations **
+[starved_thermal]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)
+    Local override; error
+    @(23.0000 mm, 20.5000 mm): Zone [GND] on F.Cu, priority 0
+    @(46.6200 mm, 75.8800 mm): PTH pad GND [GND] of U1
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(20.0000 mm, 93.0000 mm): Segment on Edge.Cuts
+    @(35.0000 mm, 26.0000 mm): PCB text 'VSMART ESP32-S3 MINI CARRIER' on F.Silkscreen
+[lib_footprint_issues]: Footprint 'MountingHole_3.2mm' not found in library 'MountingHole'
+    Local override; warning
+    @(24.0000 mm, 24.0000 mm): Footprint MH1
+[lib_footprint_issues]: Footprint 'MountingHole_3.2mm' not found in library 'MountingHole'
+    Local override; warning
+    @(24.0000 mm, 92.0000 mm): Footprint MH3
+[lib_footprint_issues]: Footprint 'MountingHole_3.2mm' not found in library 'MountingHole'
+    Local override; warning
+    @(112.0000 mm, 92.0000 mm): Footprint MH4
+[lib_footprint_mismatch]: Footprint 'ESP32-S3-SuperMini' does not match copy in library 'VSmart_Modules'
+    Local override; warning
+    @(39.0000 mm, 83.5000 mm): Footprint U1
+[lib_footprint_issues]: Footprint 'MountingHole_3.2mm' not found in library 'MountingHole'
+    Local override; warning
+    @(112.0000 mm, 24.0000 mm): Footprint MH2
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)
+    Rule: board setup constraints silk text height; warning
+    @(39.0000 mm, 94.5000 mm): PCB text 'ANTENNA KEEP-OUT' on B.Silkscreen
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7620 mm)
+    Rule: board setup constraints silk text height; warning
+    @(90.3500 mm, 63.0000 mm): Footprint text of U4 (ANT)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7620 mm)
+    Rule: board setup constraints silk text height; warning
+    @(90.4500 mm, 65.5000 mm): Footprint text of U4 (VCC
+)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7620 mm)
+    Rule: board setup constraints silk text height; warning
+    @(90.4500 mm, 68.1000 mm): Footprint text of U4 (RST)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7620 mm)
+    Rule: board setup constraints silk text height; warning
+    @(90.5000 mm, 70.5500 mm): Footprint text of U4 (RXD)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7620 mm)
+    Rule: board setup constraints silk text height; warning
+    @(90.5000 mm, 73.0000 mm): Footprint text of U4 (TXD)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7620 mm)
+    Rule: board setup constraints silk text height; warning
+    @(90.5500 mm, 75.7000 mm): Footprint text of U4 (GND)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7620 mm)
+    Rule: board setup constraints silk text height; warning
+    @(107.8000 mm, 78.2000 mm): Footprint text of U4 (SPKN)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7620 mm)
+    Rule: board setup constraints silk text height; warning
+    @(107.8500 mm, 73.1000 mm): Footprint text of U4 (MICN)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7620 mm)
+    Rule: board setup constraints silk text height; warning
+    @(107.8500 mm, 75.6500 mm): Footprint text of U4 (SPKP)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7620 mm)
+    Rule: board setup constraints silk text height; warning
+    @(107.9000 mm, 70.4500 mm): Footprint text of U4 (MICP)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7620 mm)
+    Rule: board setup constraints silk text height; warning
+    @(108.0500 mm, 65.5500 mm): Footprint text of U4 (RI)
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7620 mm)
+    Rule: board setup constraints silk text height; warning
+    @(108.0500 mm, 67.9500 mm): Footprint text of U4 (DTR)
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(94.7000 mm, 88.5000 mm): PCB text '4V SIM     GND' on F.Silkscreen
+    @(88.9500 mm, 88.0000 mm): Pad 2 [GND] of C2 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(53.0000 mm, 23.0000 mm): Rectangle of U3 on F.Silkscreen
+    @(106.0000 mm, 41.0800 mm): PTH pad 1 [+5V] of U3
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(53.0000 mm, 23.0000 mm): Rectangle of U3 on F.Silkscreen
+    @(106.0000 mm, 38.5400 mm): PTH pad 2 [GND] of U3
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(53.0000 mm, 23.0000 mm): Rectangle of U3 on F.Silkscreen
+    @(106.0000 mm, 36.0000 mm): PTH pad 3 [GPS_RX] of U3
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(53.0000 mm, 23.0000 mm): Rectangle of U3 on F.Silkscreen
+    @(106.0000 mm, 33.4600 mm): PTH pad 4 [GPS_TX] of U3
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(53.0000 mm, 23.0000 mm): Rectangle of U3 on F.Silkscreen
+    @(106.0000 mm, 30.9200 mm): PTH pad 5 [GPS_PPS] of U3
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(35.0000 mm, 26.0000 mm): PCB text 'VSMART ESP32-S3 MINI CARRIER' on F.Silkscreen
+    @(24.0000 mm, 24.0000 mm): NPTH pad of MH1
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** Ignored checks **
+    - Footprint has no courtyard defined
+    - Track endpoint not centered on via
+    - Tuning profile track geometries
+    - Footprint doesn't match symbol's footprint filters
+    - Footprint component type doesn't match footprint pads
+
+** End of Report **

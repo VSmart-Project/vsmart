@@ -1,0 +1,22 @@
+# AWS SAM build output
+.aws-sam/
+
+# CloudFormation packaged templates
+packaged.yml
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
