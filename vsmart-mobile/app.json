@@ -1,0 +1,56 @@
+{
+  "expo": {
+    "name": "Vsmart Tracking",
+    "slug": "vsmart-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "vsmartapp",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "icon": "./assets/icon-square.png",
+    "notification": {
+      "icon": "./assets/icon-square.png",
+      "color": "#7C3AED"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSAppTransportSecurity": {
+          "NSAllowsLocalNetworking": true
+        },
+        "NSCameraUsageDescription": "Vsmart needs camera access to scan QR codes and barcodes for device identification.",
+        "NSUserNotificationsUsageDescription": "Vsmart sends you alerts about device security events and status changes."
+      },
+      "bundleIdentifier": "com.vsmart.tracking"
+    },
+    "android": {
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": true,
+      "permissions": [
+        "CAMERA"
+      ],
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon-square.png",
+        "backgroundColor": "#0B0F1A"
+      },
+      "package": "com.vsmart.tracking"
+    },
+    "web": {
+      "output": "static"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Vsmart needs camera access to scan QR codes and barcodes for device identification."
+        }
+      ],
+      "expo-secure-store"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}

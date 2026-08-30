@@ -1,0 +1,40 @@
+{
+  "name": "vsmart-backend",
+  "version": "1.0.0",
+  "description": "Backend REST API for Vsmart - Devices CRUD",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "backfill:device-owners": "node scripts/backfill-device-owners.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@aws-sdk/client-cognito-identity-provider": "^3.1037.0",
+    "@aws-sdk/client-dynamodb": "^3.1032.0",
+    "@aws-sdk/client-iot": "^3.1038.0",
+    "@aws-sdk/client-iot-data-plane": "^3.1038.0",
+    "@aws-sdk/client-location": "^3.1032.0",
+    "@aws-sdk/client-sqs": "^3.1038.0",
+    "@aws-sdk/credential-providers": "^3.1032.0",
+    "@aws-sdk/lib-dynamodb": "^3.1032.0",
+    "@turf/turf": "^7.3.5",
+    "aws-jwt-verify": "^5.1.1",
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "expo-server-sdk": "^6.1.0",
+    "express": "^4.22.1",
+    "express-rate-limit": "^7.5.1",
+    "helmet": "^7.2.0",
+    "morgan": "^1.10.1",
+    "socket.io": "^4.8.3",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

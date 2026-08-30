@@ -1,4 +1,4 @@
-# VSmart module carrier — ESP32-DevKitC (board 2)
+# Vsmart module carrier — ESP32-DevKitC (board 2)
 
 Carrier lắp tay cho ESP32-DevKitC 38 chân + A7680C 4G + GPS NEO-7M (Keyestudio
 KS0319) + MPU6050. Board 105.1 × 82.1 mm, 2 lớp, mọi module cắm header.

@@ -129,18 +129,18 @@
 
 ## Surprising Connections (you probably didn't know these)
 - `GeofencesScreen()` --calls--> `useToast()`  [EXTRACTED]
-  vsmart-app/app/(tabs)/geofences.jsx → vsmart-app/src/components/ui/Toast.jsx
+  vsmart-mobile/app/(tabs)/geofences.jsx → vsmart-mobile/src/components/ui/Toast.jsx
 - `TinyGPSLocation` --references--> `MODE`  [EXTRACTED]
-  vsmart-iot/.pio/libdeps/esp32doit-devkit-v1/TinyGPSPlus/src/TinyGPS++.h → vsmart-app/app/geofence-draw.jsx
+  vsmart-firmware/.pio/libdeps/esp32doit-devkit-v1/TinyGPSPlus/src/TinyGPS++.h → vsmart-mobile/app/geofence-draw.jsx
 - `GeofenceDrawScreen()` --calls--> `useToast()`  [EXTRACTED]
-  vsmart-app/app/geofence-draw.jsx → vsmart-app/src/components/ui/Toast.jsx
+  vsmart-mobile/app/geofence-draw.jsx → vsmart-mobile/src/components/ui/Toast.jsx
 - `App()` --calls--> `useDeviceManager()`  [EXTRACTED]
-  tracking-data-streaming-datn/src/App.jsx → tracking-data-streaming-datn/src/hooks/useDeviceManager.js
+  vsmart-web/src/App.jsx → vsmart-web/src/hooks/useDeviceManager.js
 - `DevicesScreen()` --calls--> `useToast()`  [EXTRACTED]
-  vsmart-app/app/(tabs)/devices.jsx → vsmart-app/src/components/ui/Toast.jsx
+  vsmart-mobile/app/(tabs)/devices.jsx → vsmart-mobile/src/components/ui/Toast.jsx
 
 ## Import Cycles
-- 1-file cycle: `vsmart-app/metro.config.js -> vsmart-app/metro.config.js`
+- 1-file cycle: `vsmart-mobile/metro.config.js -> vsmart-mobile/metro.config.js`
 
 ## Communities (114 total, 23 thin omitted)
 
@@ -331,7 +331,7 @@ Nodes (24): For /graphify add and --watch, For /graphify query, For the commit h
 
 ### Community 53 - "Community 53"
 Cohesion: 0.12
-Nodes (16): Backend (`tracking-data-streaming-backend`), Deleting the Stack, Deployment Steps, Frontend (`tracking-data-streaming-datn`), Prerequisites, Stack Parameters, Step 1 — Create an S3 Bucket for artifacts, Step 2 — Package the stack (uploads Lambda code to S3) (+8 more)
+Nodes (16): Backend (`vsmart-backend`), Deleting the Stack, Deployment Steps, Frontend (`vsmart-web`), Prerequisites, Stack Parameters, Step 1 — Create an S3 Bucket for artifacts, Step 2 — Package the stack (uploads Lambda code to S3) (+8 more)
 
 ### Community 54 - "Community 54"
 Cohesion: 0.17
@@ -459,7 +459,7 @@ Nodes (7): Code of Conduct, Contributing Guidelines, Contributing via Pull Reque
 
 ### Community 97 - "Community 97"
 Cohesion: 0.25
-Nodes (8): 3.2.1. [App.jsx](file:///d:/D22CQCI01N/7-%C4%90ATN/guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/amazon-location-samples-react/tracking-data-streaming/src/App.jsx) — Root Component, 3.2.2. [GeofencesLayer.jsx](file:///d:/D22CQCI01N/7-%C4%90ATN/guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/amazon-location-samples-react/tracking-data-streaming/src/components/geofences/GeofencesLayer.jsx) — Quản lý Geofences, 3.2.3. [TrackersLayer.jsx](file:///d:/D22CQCI01N/7-%C4%90ATN/guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/amazon-location-samples-react/tracking-data-streaming/src/components/trackers/TrackersLayer.jsx) — Quản lý Trackers, 3.2.4. [Devices.jsx](file:///d:/D22CQCI01N/7-%C4%90ATN/guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/amazon-location-samples-react/tracking-data-streaming/src/components/trackers/Devices.jsx) — Animated Markers, 3.2.5. [configuration.js](file:///d:/D22CQCI01N/7-%C4%90ATN/guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/amazon-location-samples-react/tracking-data-streaming/src/configuration.js) — File cấu hình (CẦN SỬA), 3.2.6. [DemoData.js](file:///d:/D22CQCI01N/7-%C4%90ATN/guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/amazon-location-samples-react/tracking-data-streaming/src/DemoData.js) — Dữ liệu demo, 3.2. Frontend React Application, Cấu trúc thư mục
+Nodes (8): 3.2.1. [App.jsx](file:///d:/D22CQCI01N/7-%C4%90ATN/guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/amazon-location-samples-react/vsmart/src/App.jsx) — Root Component, 3.2.2. [GeofencesLayer.jsx](file:///d:/D22CQCI01N/7-%C4%90ATN/guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/amazon-location-samples-react/vsmart/src/components/geofences/GeofencesLayer.jsx) — Quản lý Geofences, 3.2.3. [TrackersLayer.jsx](file:///d:/D22CQCI01N/7-%C4%90ATN/guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/amazon-location-samples-react/vsmart/src/components/trackers/TrackersLayer.jsx) — Quản lý Trackers, 3.2.4. [Devices.jsx](file:///d:/D22CQCI01N/7-%C4%90ATN/guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/amazon-location-samples-react/vsmart/src/components/trackers/Devices.jsx) — Animated Markers, 3.2.5. [configuration.js](file:///d:/D22CQCI01N/7-%C4%90ATN/guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/amazon-location-samples-react/vsmart/src/configuration.js) — File cấu hình (CẦN SỬA), 3.2.6. [DemoData.js](file:///d:/D22CQCI01N/7-%C4%90ATN/guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/amazon-location-samples-react/vsmart/src/DemoData.js) — Dữ liệu demo, 3.2. Frontend React Application, Cấu trúc thư mục
 
 ### Community 98 - "Community 98"
 Cohesion: 0.25
@@ -471,7 +471,7 @@ Nodes (7): 7.1. Bảng Chi Phí Theo Dịch Vụ (1 triệu location updates/th�
 
 ### Community 101 - "Community 101"
 Cohesion: 0.33
-Nodes (6): 3.1. CloudFormation Templates (Infrastructure as Code), 3. Phân Tích Code Chi Tiết, Stack 1: [kinesisResources.yml](file:///d:/D22CQCI01N/7-%C4%90ATN/guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/amazon-location-samples-react/tracking-data-streaming/src/cfn_template/kinesisResources.yml) — Kinesis Data Stream, Stack 2: [locationResources.yml](file:///d:/D22CQCI01N/7-%C4%90ATN/guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/amazon-location-samples-react/tracking-data-streaming/src/cfn_template/locationResources.yml) — Location Service + Cognito + SQS, Stack 3: [iotResources.yml](file:///d:/D22CQCI01N/7-%C4%90ATN/guidance-for-tracking-assets-and-locating-devices-using-aws-iot/cf/iotResources.yml) — IoT Core + Lambda, Stack 4: [analyticsResources.yml](file:///d:/D22CQCI01N/7-%C4%90ATN/guidance-for-tracking-assets-and-locating-devices-using-aws-iot/cf/analyticsResources.yml) — Analytics (Tùy chọn)
+Nodes (6): 3.1. CloudFormation Templates (Infrastructure as Code), 3. Phân Tích Code Chi Tiết, Stack 1: [kinesisResources.yml](file:///d:/D22CQCI01N/7-%C4%90ATN/guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/amazon-location-samples-react/vsmart/src/cfn_template/kinesisResources.yml) — Kinesis Data Stream, Stack 2: [locationResources.yml](file:///d:/D22CQCI01N/7-%C4%90ATN/guidance-for-tracking-assets-and-locating-devices-using-aws-iot/amazon-location-samples-react/amazon-location-samples-react/vsmart/src/cfn_template/locationResources.yml) — Location Service + Cognito + SQS, Stack 3: [iotResources.yml](file:///d:/D22CQCI01N/7-%C4%90ATN/guidance-for-tracking-assets-and-locating-devices-using-aws-iot/cf/iotResources.yml) — IoT Core + Lambda, Stack 4: [analyticsResources.yml](file:///d:/D22CQCI01N/7-%C4%90ATN/guidance-for-tracking-assets-and-locating-devices-using-aws-iot/cf/analyticsResources.yml) — Analytics (Tùy chọn)
 
 ### Community 102 - "Community 102"
 Cohesion: 0.33

@@ -1,4 +1,4 @@
-# Smart Fleet Management — Cloud-based Vehicle GPS Tracking and Management System (IoT)
+# Vsmart — Cloud-based Vehicle GPS Tracking and Management System (IoT)
 
 > **Graduation Project** — Real-time GPS Tracking, Geofencing, Anti-theft protection, and instant intrusion alerts system, built entirely on AWS Serverless Cloud Architecture.
 
@@ -43,7 +43,7 @@ to stop all running services. Service logs are retained under `.runtime/logs/`.
 
 ### Problem Statement
 
-Traditional fleet management systems usually require dedicated physical servers, resulting in high operational costs, maintenance overhead, and poor scalability. The **Smart Fleet Management** project solves these issues by leveraging a modern **Serverless Event-Driven Architecture** on AWS, eliminating server management while ensuring high availability, lower latency, and pay-as-you-go cost-efficiency.
+Traditional fleet management systems usually require dedicated physical servers, resulting in high operational costs, maintenance overhead, and poor scalability. The **Vsmart** project solves these issues by leveraging a modern **Serverless Event-Driven Architecture** on AWS, eliminating server management while ensuring high availability, lower latency, and pay-as-you-go cost-efficiency.
 
 ### Key Features
 
@@ -67,7 +67,7 @@ The project is structured into **4 independent modules**, enabling isolated deve
 ```
 7-DATN/
 │
-├── tracking-data-streaming-infrastructure/   ← AWS Serverless Infrastructure (IaC)
+├── vsmart-infrastructure/   ← AWS Serverless Infrastructure (IaC)
 │   ├── template.yml                             # Primary SAM Template (30+ AWS resources)
 │   ├── packaged.yml                             # Packaged Template containing S3 URIs
 │   └── lambda/                                  # Serverless Functions (Python 3.12)
@@ -76,7 +76,7 @@ The project is structured into **4 independent modules**, enabling isolated deve
 │       ├── realtime-event-publisher/            #   → Publishes real-time events to clients via IoT Core
 │       └── offline-detector/                    #   → Cron job identifying offline devices (every 1min)
 │
-├── tracking-data-streaming-backend/          ← Node.js REST API & Socket.io Proxy
+├── vsmart-backend/          ← Node.js REST API & Socket.io Proxy
 │   ├── index.js                                 # Entry point (Express server & Socket.io, port 3001)
 │   ├── src/
 │   │   ├── config/
@@ -107,7 +107,7 @@ The project is structured into **4 independent modules**, enabling isolated deve
 │       ├── move-device.js                       #   Single device route simulator
 │       └── backfill-device-owners.js            #   Owner backfill utility script
 │
-├── tracking-data-streaming-datn/             ← Web Client (React 19 + Vite 8)
+├── vsmart-web/             ← Web Client (React 19 + Vite 8)
 │   ├── index.html                               # HTML Entry
 │   ├── vite.config.js                           # Vite bundler config (port 5173)
 │   ├── tailwind.config.js                       # TailwindCSS styles configuration
@@ -124,7 +124,7 @@ The project is structured into **4 independent modules**, enabling isolated deve
 │       ├── api/                                 #   Fetch-based REST client
 │       └── utils/                               #   AWS Identity Pool credentials resolver
 │
-└── vsmart-app/                               ← Mobile Client (React Native + Expo SDK 54)
+└── vsmart-mobile/                               ← Mobile Client (React Native + Expo SDK 54)
     ├── app.json                                 # Expo configuration file
     ├── app/                                     # File-based navigation screens
     │   ├── _layout.jsx                          #   Root provider layout
@@ -171,8 +171,8 @@ graph TB
         end
         
         subgraph LocationServices ["AWS Location Services"]
-            ALSMap["Map: TrackingDATN-Map"]
-            ALSTracker["Tracker: TrackingDATN-Tracker"]
+            ALSMap["Map: Vsmart-Map"]
+            ALSTracker["Tracker: Vsmart-Tracker"]
             ALSCollection["Collection: GeofenceCollection"]
         end
         
@@ -254,13 +254,13 @@ graph TB
 
 | Service | Resource Name | Purpose |
 |---|---|---|
-| **Amazon Location Service** | `TrackingDATN-Map` | Renders map vector tiles (Esri Navigation style) |
-| | `TrackingDATN-Tracker` | Caches coordinates history, applies `DistanceBased` filtering |
-| | `TrackingDATN-GeofenceCollection` | Stores geofence boundary coordinates |
+| **Amazon Location Service** | `Vsmart-Map` | Renders map vector tiles (Esri Navigation style) |
+| | `Vsmart-Tracker` | Caches coordinates history, applies `DistanceBased` filtering |
+| | `Vsmart-GeofenceCollection` | Stores geofence boundary coordinates |
 | **AWS IoT Core** | Rule: `UpdateLocationTracker` | Receives incoming MQTT telemetry and routes payload to Lambda |
-| **Amazon DynamoDB** | `TrackingDATN-Devices` | Device profiles database (name, license plate, status) |
-| | `TrackingDATN-DeviceState` | Live runtime state database (online flag, last seen timestamp, anti-theft trigger) |
-| **Amazon Cognito** | `TrackingDATN-UserPool` | Secure registration and login gateway |
+| **Amazon DynamoDB** | `Vsmart-Devices` | Device profiles database (name, license plate, status) |
+| | `Vsmart-DeviceState` | Live runtime state database (online flag, last seen timestamp, anti-theft trigger) |
+| **Amazon Cognito** | `Vsmart-UserPool` | Secure registration and login gateway |
 
 ### Supporting Services
 
@@ -274,7 +274,7 @@ graph TB
 | **Amazon SQS** | `GeofenceEvents` | Queues geofence breach events for batch consumption |
 | **Amazon SNS** | `AntitheftAlerts` | Dispatches warning emails to owners on anti-theft breaches |
 | | `IoTErrors` | Emails administrators on processing failures |
-| **CloudFormation** | `TrackingDATN-UnifiedStack` | Deploys the entire backend cloud infrastructure as code |
+| **CloudFormation** | `Vsmart-UnifiedStack` | Deploys the entire backend cloud infrastructure as code |
 
 ---
 
@@ -484,7 +484,7 @@ aws configure
 
 ### Step 2: Deploy AWS Infrastructure
 
-The AWS Cloud Services are declared as Infrastructure as Code in `template.yml` under `tracking-data-streaming-infrastructure/`.
+The AWS Cloud Services are declared as Infrastructure as Code in `template.yml` under `vsmart-infrastructure/`.
 
 #### 2.1. Clone the Repository
 ```bash
@@ -501,7 +501,7 @@ aws s3 mb s3://vsmart-tracking-artifacts-by-tranvix0910 --region ap-southeast-1
 #### 2.3. Package the Template
 Zip the Lambda code, upload it to S3, and generate the template containing absolute S3 URIs:
 ```bash
-cd tracking-data-streaming-infrastructure
+cd vsmart-infrastructure
 aws cloudformation package \
   --template-file template.yml \
   --s3-bucket vsmart-tracking-artifacts-by-tranvix0910 \
@@ -522,7 +522,7 @@ Deploy the CloudFormation template, passing your email and your ngrok webhook UR
 ```bash
 aws cloudformation deploy \
   --template-file packaged.yml \
-  --stack-name TrackingDATN-UnifiedStack \
+  --stack-name Vsmart-UnifiedStack \
   --capabilities CAPABILITY_NAMED_IAM \
   --parameter-overrides AlertEmail="tranvix.work@gmail.com" BackendWebhookUrl="https://abc-123.ngrok-free.dev/api/realtime/event" \
   --region ap-southeast-1
@@ -533,7 +533,7 @@ aws cloudformation deploy \
 > ```bash
 > export NGROK_URL="https://YOUR_NEW_NGROK.ngrok-free.dev/api/realtime/event"
 >
-> for fn in $(aws lambda list-functions --region ap-southeast-1 --query "Functions[?starts_with(FunctionName, 'TrackingDATN-UnifiedStack')].FunctionName" --output text); do
+> for fn in $(aws lambda list-functions --region ap-southeast-1 --query "Functions[?starts_with(FunctionName, 'Vsmart-UnifiedStack')].FunctionName" --output text); do
 >   aws lambda update-function-configuration --function-name "$fn" \
 >     --environment "Variables={$(aws lambda get-function-configuration --function-name "$fn" --region ap-southeast-1 --query "Environment.Variables" --output json | jq -r 'to_entries | map("\(.key)=\(.value)") | join(",")' | sed "s|BACKEND_WEBHOOK_URL=[^,]*|BACKEND_WEBHOOK_URL=$NGROK_URL|")}" \
 >     --region ap-southeast-1 >/dev/null 2>&1
@@ -547,7 +547,7 @@ AWS will send a validation email to the configured `AlertEmail`. **Open the emai
 Export the resource IDs needed to configure your client applications:
 ```bash
 aws cloudformation describe-stacks \
-  --stack-name TrackingDATN-UnifiedStack \
+  --stack-name Vsmart-UnifiedStack \
   --query "Stacks[0].Outputs" \
   --output table \
   --region ap-southeast-1
@@ -560,10 +560,10 @@ AWS Location Service maps require an API key for map rendering, which must be cr
 ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 
 aws location create-key \
-  --key-name TrackingDATN-MapApiKey \
+  --key-name Vsmart-MapApiKey \
   --restrictions "{
     \"AllowActions\": [\"geo:GetMapStyleDescriptor\",\"geo:GetMapGlyphs\",\"geo:GetMapSprites\",\"geo:GetMapTile\"],
-    \"AllowResources\": [\"arn:aws:geo:ap-southeast-1:${ACCOUNT_ID}:map/TrackingDATN-Map\"]
+    \"AllowResources\": [\"arn:aws:geo:ap-southeast-1:${ACCOUNT_ID}:map/Vsmart-Map\"]
   }" \
   --no-expiry \
   --region ap-southeast-1 \
@@ -576,7 +576,7 @@ aws location create-key \
 
 #### 3.1. Install Dependencies
 ```bash
-cd ../tracking-data-streaming-backend
+cd ../vsmart-backend
 npm install
 ```
 
@@ -590,10 +590,10 @@ PORT=3001
 NODE_ENV=development
 AWS_REGION=ap-southeast-1
 AWS_PROFILE=default # Local development only; use an IAM role in production
-DYNAMODB_DEVICES_TABLE=TrackingDATN-Devices
-LOCATION_TRACKER_NAME=TrackingDATN-Tracker
-LOCATION_GEOFENCE_COLLECTION=TrackingDATN-GeofenceCollection
-SNS_ANTITHEFT_TOPIC_ARN=arn:aws:sns:ap-southeast-1:xxxxxx:TrackingDATN-AntitheftAlerts
+DYNAMODB_DEVICES_TABLE=Vsmart-Devices
+LOCATION_TRACKER_NAME=Vsmart-Tracker
+LOCATION_GEOFENCE_COLLECTION=Vsmart-GeofenceCollection
+SNS_ANTITHEFT_TOPIC_ARN=arn:aws:sns:ap-southeast-1:xxxxxx:Vsmart-AntitheftAlerts
 CORS_ORIGIN=*
 COGNITO_USER_POOL_ID=ap-southeast-1_xxxxxx
 COGNITO_CLIENT_ID=xxxxxx
@@ -612,7 +612,7 @@ npm start
 
 #### 4.1. Install Dependencies
 ```bash
-cd ../tracking-data-streaming-datn
+cd ../vsmart-web
 npm install
 ```
 
@@ -629,7 +629,7 @@ VITE_USER_POOL_CLIENT_ID=xxxxxx
 VITE_MAP_API_KEY=v1.public.eyJ... # Map API Key generated in step 2.8
 VITE_MAP_STYLE=Standard
 VITE_MAP_COLOR_SCHEME=Light
-VITE_GEOFENCE_COLLECTION=TrackingDATN-GeofenceCollection
+VITE_GEOFENCE_COLLECTION=Vsmart-GeofenceCollection
 ```
 
 #### 4.3. Start the Web App
@@ -644,7 +644,7 @@ Open `http://localhost:5173` on your browser.
 
 #### 5.1. Install Dependencies
 ```bash
-cd ../vsmart-app
+cd ../vsmart-mobile
 npm install
 ```
 
@@ -668,7 +668,7 @@ Scan the QR Code with the **Expo Go** application on your smartphone (connected 
 ### Step 6: GPS Simulation & End-to-End Testing
 
 #### 6.1. Start the Simulator
-Open a new terminal window inside `tracking-data-streaming-backend` and run:
+Open a new terminal window inside `vsmart-backend` and run:
 ```bash
 node scripts/interactive-move.js
 ```
@@ -732,7 +732,7 @@ On your browser, you will observe the vehicle marker moving smoothly on the map 
 
 #### Map is blank or fails to load style
 * **Cause**: Map API Key is incorrect, expired, or has improper resource constraints.
-* **Solution**: Double-check `VITE_MAP_API_KEY` matches the key created in Step 2.8. Ensure the key restrictions grant allow actions on the map resource `TrackingDATN-Map`.
+* **Solution**: Double-check `VITE_MAP_API_KEY` matches the key created in Step 2.8. Ensure the key restrictions grant allow actions on the map resource `Vsmart-Map`.
 
 ---
 
@@ -768,7 +768,7 @@ The entire system is designed to run **100% locally on your development machine*
    ```
 3. **Run GPS Simulation (Tab 3):**
    ```bash
-   cd tracking-data-streaming-backend
+   cd vsmart-backend
    node scripts/interactive-move.js
    ```
 4. **Stop everything when finished:**

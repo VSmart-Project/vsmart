@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
-OSRM_DIR="$ROOT_DIR/osrm"
+OSRM_DIR="$ROOT_DIR/vsmart-osrm"
 
 printf 'Stopping all system services...\n'
 

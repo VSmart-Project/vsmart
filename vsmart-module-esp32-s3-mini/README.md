@@ -1,4 +1,4 @@
-# VSmart ESP32-S3 SuperMini Module Carrier
+# Vsmart ESP32-S3 SuperMini Module Carrier
 
 Carrier PCB 2 lớp mới cho các module cắm/rút:
 
