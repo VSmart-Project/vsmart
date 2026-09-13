@@ -1,0 +1,1 @@
+Flip only the A7680C STEP model face 180 degrees around X so the SIM socket is visible from the PCB top view. Preserve U4 in-plane rotation/pin mapping, compensate Y offset to align the STEP body with pad rows, reroute and validate.

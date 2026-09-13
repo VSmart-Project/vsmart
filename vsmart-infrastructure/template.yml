@@ -164,7 +164,8 @@ Resources:
     Properties:
       TrackerName: !Sub "${ProjectName}-Tracker"
       PricingPlan: RequestBasedUsage
-      PositionFiltering: DistanceBased
+      # Evaluate every received fix; retain history at the service's 30 s cadence.
+      PositionFiltering: TimeBased
 
   GeofenceCollection:
     Type: AWS::Location::GeofenceCollection
@@ -480,6 +481,26 @@ Resources:
         Actions:
           - Lambda:
               FunctionArn: !GetAtt IoTMessageProcessorFunction.Arn
+
+  IoTHealthRule:
+    Type: AWS::IoT::TopicRule
+    Properties:
+      RuleName: !Sub "${ProjectName}_DeviceHealth"
+      TopicRulePayload:
+        Sql: "SELECT deviceid, gps, topic(2) AS sourceDeviceId, 'gps_health' AS messageType FROM 'devices/+/status'"
+        AwsIotSqlVersion: "2016-03-23"
+        Actions:
+          - Lambda:
+              FunctionArn: !GetAtt IoTMessageProcessorFunction.Arn
+
+  IoTHealthLambdaPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref IoTMessageProcessorFunction
+      Action: lambda:InvokeFunction
+      Principal: iot.amazonaws.com
+      SourceAccount: !Ref AWS::AccountId
+      SourceArn: !GetAtt IoTHealthRule.Arn
 
   IoTLambdaPermission:
     Type: AWS::Lambda::Permission

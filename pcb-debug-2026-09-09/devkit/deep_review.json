@@ -1,0 +1,184 @@
+{
+  "schema_version": "1.0",
+  "produced_for_run_id": "pcb-debug-2026-09-09-devkit",
+  "produced_at": "2026-09-09T15:21:04.369843+00:00",
+  "findings": [
+    {
+      "detector": "deep_review",
+      "category": "parity",
+      "severity": "warning",
+      "confidence": "medium",
+      "summary": "U1 pad 5 retains GPS_PPS while schematic marks GPIO34 no-connect.",
+      "evidence": {
+        "components": [
+          "U1"
+        ],
+        "computation": {
+          "description": "Raw PCB pad mapping and independently exported KiCad schematic netlist; not a manufacturer electrical validation.",
+          "script": "/Users/vi.trandai/7 - NCKH/DATN/pcb-debug-2026-09-09/raw_audit.py",
+          "result": "[{\"ref\": \"U1\", \"pad\": \"5\", \"pcb_net\": \"GPS_PPS\", \"schematic_net\": \"unconnected-(U1-VDET_1/GPIO34/ADC1_CH6-Pad5)\", \"local_xy\": [0.0, 10.16], \"xy\": [23.0, 44.16], \"drill\": [0.8], \"size\": [1.2, 2.0]}]"
+        }
+      },
+      "evidence_checked": "full",
+      "components": [
+        "U1"
+      ],
+      "finding_id": "deep_review:b3bbadfb3465"
+    },
+    {
+      "detector": "deep_review",
+      "category": "power",
+      "severity": "warning",
+      "confidence": "medium",
+      "summary": "SIM source voltage specification conflicts with the board supply label; resolve exact module before powering.",
+      "evidence": {
+        "components": [
+          "U4"
+        ],
+        "computation": {
+          "description": "Raw PCB pad mapping and independently exported KiCad schematic netlist; not a manufacturer electrical validation.",
+          "script": "/Users/vi.trandai/7 - NCKH/DATN/pcb-debug-2026-09-09/raw_audit.py",
+          "result": "U4.8 and J2.1 connect directly to +5V_SIM; J2 value says EXTERNAL 5V 2A SIM INPUT. Supplier-linked repository specifies 3.8-4.2 V, product page 3.7-4 V. Neither supports 5 V for the named TDM2309. See source URLs in REVIEW.md."
+        }
+      },
+      "evidence_checked": "full",
+      "components": [
+        "U4"
+      ],
+      "finding_id": "deep_review:d70ce1017e72"
+    },
+    {
+      "detector": "deep_review",
+      "category": "rf",
+      "severity": "warning",
+      "confidence": "medium",
+      "summary": "No explicit antenna copper keepout is present in either carrier.",
+      "evidence": {
+        "components": [
+          "U1"
+        ],
+        "computation": {
+          "description": "Raw PCB pad mapping and independently exported KiCad schematic netlist; not a manufacturer electrical validation.",
+          "script": "/Users/vi.trandai/7 - NCKH/DATN/pcb-debug-2026-09-09/raw_audit.py",
+          "result": "Raw PCB/analyzer keepout_zones=[]; module-specific RF keepout and real antenna position require review."
+        }
+      },
+      "evidence_checked": "full",
+      "components": [
+        "U1"
+      ],
+      "finding_id": "deep_review:d38a37c915dd"
+    },
+    {
+      "detector": "deep_review",
+      "category": "routing",
+      "severity": "error",
+      "confidence": "high",
+      "summary": "SIM supply is routed at 0.2 mm, unsuitable to sign off the declared 2 A power path without redesign/load testing.",
+      "evidence": {
+        "components": [
+          "U4"
+        ],
+        "computation": {
+          "description": "Raw PCB pad mapping and independently exported KiCad schematic netlist; not a manufacturer electrical validation.",
+          "script": "/Users/vi.trandai/7 - NCKH/DATN/pcb-debug-2026-09-09/raw_audit.py",
+          "result": "All +5V_SIM segments width=0.2 mm; shortest J2.1 to U4.8 copper path R=0.131515 ohm assuming copper 35 um, rho=1.724e-8 ohm.m; Vdrop at 2A=0.263030 V. Copper thickness/load waveform unverified."
+        }
+      },
+      "evidence_checked": "full",
+      "components": [
+        "U4"
+      ],
+      "finding_id": "deep_review:0b3b228cd25a"
+    },
+    {
+      "detector": "deep_review",
+      "category": "verification_gap",
+      "severity": "info",
+      "confidence": "medium",
+      "summary": "U4 module-internal circuit and exact hardware revision unverified; external connections checked for consistency.",
+      "evidence": {
+        "components": [
+          "U4"
+        ],
+        "computation": {
+          "description": "Raw PCB pad mapping and independently exported KiCad schematic netlist; not a manufacturer electrical validation.",
+          "script": "/Users/vi.trandai/7 - NCKH/DATN/pcb-debug-2026-09-09/raw_audit.py",
+          "result": "1:RI=SIM_RI; 2:DTR=SIM_DTR; 3:MICP=NO_CONNECT; 4:MICN=NO_CONNECT; 5:SPKP=NO_CONNECT; 6:SPKN=NO_CONNECT; 7:ANT=NO_CONNECT; 8:VCC=+5V_SIM; 9:RST=SIM_RST; 10:RXD=SIM_TX; 11:TXD=SIM_RX; 12:GND=GND"
+        }
+      },
+      "evidence_checked": "full",
+      "components": [
+        "U4"
+      ],
+      "finding_id": "deep_review:3f80ba7c176e"
+    },
+    {
+      "detector": "deep_review",
+      "category": "verification_gap",
+      "severity": "info",
+      "confidence": "medium",
+      "summary": "U2 module-internal circuit and exact hardware revision unverified; external connections checked for consistency.",
+      "evidence": {
+        "components": [
+          "U2"
+        ],
+        "computation": {
+          "description": "Raw PCB pad mapping and independently exported KiCad schematic netlist; not a manufacturer electrical validation.",
+          "script": "/Users/vi.trandai/7 - NCKH/DATN/pcb-debug-2026-09-09/raw_audit.py",
+          "result": "1:VCC=+3V3; 2:GND=GND; 3:SCL=I2C_SCL; 4:SDA=I2C_SDA; 5:XDA=NO_CONNECT; 6:XCL=NO_CONNECT; 7:ADD=GND; 8:INT=MPU_INT"
+        }
+      },
+      "evidence_checked": "full",
+      "components": [
+        "U2"
+      ],
+      "finding_id": "deep_review:699c27a9541d"
+    },
+    {
+      "detector": "deep_review",
+      "category": "verification_gap",
+      "severity": "info",
+      "confidence": "medium",
+      "summary": "U1 module-internal circuit and exact hardware revision unverified; external connections checked for consistency.",
+      "evidence": {
+        "components": [
+          "U1"
+        ],
+        "computation": {
+          "description": "Raw PCB pad mapping and independently exported KiCad schematic netlist; not a manufacturer electrical validation.",
+          "script": "/Users/vi.trandai/7 - NCKH/DATN/pcb-debug-2026-09-09/raw_audit.py",
+          "result": "1:3V3=+3V3; 2:CHIP_PU=NO_CONNECT; 3:SENSOR_VP/GPIO36/ADC1_CH0=NO_CONNECT; 4:SENSOR_VN/GPIO39/ADC1_CH3=NO_CONNECT; 5:VDET_1/GPIO34/ADC1_CH6=NO_CONNECT; 6:VDET_2/GPIO35/ADC1_CH7=MPU_INT; 7:32K_XP/GPIO32/ADC1_CH4=SIM_RST; 8:32K_XN/GPIO33/ADC1_CH5=SIM_RI; 9:DAC_1/ADC2_CH8/GPIO25=SIM_DTR; 10:DAC_2/ADC2_CH9/GPIO26=SIM_RX; 11:ADC2_CH7/GPIO27=SIM_TX; 12:MTMS/GPIO14/ADC2_CH6=NO_CONNECT; 13:MTDI/GPIO12/ADC2_CH5=NO_CONNECT; 14:GND=GND; 15:MTCK/GPIO13/ADC2_CH4=NO_CONNECT; 16:SD_DATA2/GPIO9=NO_CONNECT; 17:SD_DATA3/GPIO10=NO_CONNECT; 18:CMD=NO_CONNECT; 19:5V=+5V; 20:SD_CLK/GPIO6=NO_CONNECT; 21:SD_DATA0/GPIO7=NO_CONNECT; 22:SD_DATA1/GPIO8=NO_CONNECT; 23:MTDO/GPIO15/ADC2_CH3=NO_CONNECT; 24:ADC2_CH2/GPIO2=NO_CONNECT; 25:GPIO0/BOOT/ADC2_CH1=NO_CONNECT; 26:ADC2_CH0/GPIO4=NO_CONNECT; 27:GPIO16=GPS_RX; 28:GPIO17=GPS_TX; 29:GPIO5=NO_CONNECT; 30:GPIO18=NO_CONNECT; 31:GPIO19=NO_CONNECT; 32:GND=GND; 33:GPIO21=I2C_SDA; 34:U0RXD/GPIO3=NO_CONNECT; 35:U0TXD/GPIO1=NO_CONNECT; 36:GPIO22=I2C_SCL; 37:GPIO23=NO_CONNECT; 38:GND=GND"
+        }
+      },
+      "evidence_checked": "full",
+      "components": [
+        "U1"
+      ],
+      "finding_id": "deep_review:ae9c25c88741"
+    },
+    {
+      "detector": "deep_review",
+      "category": "verification_gap",
+      "severity": "info",
+      "confidence": "medium",
+      "summary": "U3 module-internal circuit and exact hardware revision unverified; external connections checked for consistency.",
+      "evidence": {
+        "components": [
+          "U3"
+        ],
+        "computation": {
+          "description": "Raw PCB pad mapping and independently exported KiCad schematic netlist; not a manufacturer electrical validation.",
+          "script": "/Users/vi.trandai/7 - NCKH/DATN/pcb-debug-2026-09-09/raw_audit.py",
+          "result": "1:VCC=+3V3; 2:RXD=GPS_TX; 3:TXD=GPS_RX; 4:GND=GND"
+        }
+      },
+      "evidence_checked": "full",
+      "components": [
+        "U3"
+      ],
+      "finding_id": "deep_review:edefa4619dad"
+    }
+  ],
+  "quarantined": []
+}

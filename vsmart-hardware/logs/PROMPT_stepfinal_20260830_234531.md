@@ -1,0 +1,1 @@
+Đặt module A7680C trên board ESP32-S3 Mini với khe SIM ở phía trên như ảnh, giữ nguyên pinout; xác nhận DRC và xuất lại file sản xuất.

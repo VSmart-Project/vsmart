@@ -1,26 +1,25 @@
 /**
  * smoothFollow.js — Google-Maps-style position smoothing for live device markers.
  *
- * Ported from ESP32_OSM_NAV/src/map/map_view.cpp (`map_follow_interp` +
- * `map_ease_rotation` + `map_apply_heading`) and the phone-side drive logic in
- * ESP32_OSM_NAV/web_ble_nav (`posAt` — walk a polyline by distance). Pure math,
- * no framework deps.
+ * The device sends a sparse GPS fix every few seconds and delivery is jittery
+ * (Lambda cold starts, Socket.io bursts, a road-snapped follow-up ~300 ms after
+ * each raw fix). Rendering that raw stream makes the marker teleport / stutter.
  *
- * The device sends a sparse GPS fix every few seconds. Rendering that raw stream
- * makes the marker teleport. A follower keeps the last few fixes and, on every
- * animation frame, returns a position that:
- *   - walks the ON-ROAD polyline for the current fix interval when the backend
- *     provides one (`opts.path`), otherwise a Catmull-Rom spline through the
- *     recent fixes (continuous velocity, no per-fix kink);
- *   - is anchored to the NEWEST fix's arrival time, so it interpolates TOWARD a
- *     known point instead of extrapolating toward an unknown one (renders ~1 fix
- *     behind real time — the reason it stays smooth);
- *   - is hard-clamped to a max speed, so a bad fix can never teleport the marker
- *     off the road and back ("nhảy lung tung");
- *   - carries an eased heading so the icon rotates like a car, not a compass.
+ * This follower is **playhead-based**: it keeps the marker's CURRENT displayed
+ * position and, every animation frame, advances it along a target path at the
+ * vehicle's real speed. Because every new fix rebuilds the target path *starting
+ * from where the marker currently is*, the motion is always continuous — no
+ * per-fix "snap" and no velocity discontinuity, however jittery the input.
  *
- * NOTE: an identical copy lives at vsmart-mobile/src/realtime/smoothFollow.js —
- * keep the two in sync.
+ *   - target path = the on-road polyline the backend supplies (`meta.path`,
+ *     stitched to the current position) when available, else a straight line to
+ *     the new fix.
+ *   - pacing = distance / (GPS sample-time interval) — immune to pipeline jitter
+ *     because it uses when the fix was TAKEN, not when it arrived.
+ *   - heading = eased toward the path tangent so the icon turns like a car.
+ *
+ * NOTE: an identical copy lives at
+ * vsmart-mobile/src/realtime/smoothFollow.js — keep the two in sync.
  */
 
 export const SMOOTH_DEFAULTS = {
@@ -28,14 +27,17 @@ export const SMOOTH_DEFAULTS = {
   ROTATION_TAU_MS: 130,       // displayed-heading easing time constant
   ROTATION_SETTLE_DEG: 0.5,   // heading considered settled below this
   HEADING_DEADBAND_DEG: 4.0,  // ignore sub-wobble so the icon does not jitter
-  POS_DEADBAND_M: 0.6,        // hold still for sub-metre drift
-  LOOKAHEAD_FRAC: 0.15,       // may glide 15% past the newest fix to hide latency
-  EXTRAPOLATE_MAX_M: 18,      // ...but never more than this many metres past it
-  MAX_SPEED_MPS: 45,          // ~160 km/h hard clamp on displayed motion (anti-teleport)
-  RESET_SPEED_MPS: 90,        // ~324 km/h — beyond any vehicle ⇒ real teleport, jump once
-  SEG_MIN_MS: 500,
+  STOP_DEADBAND_M: 1.2,       // once stopped, ignore drift smaller than this
+  SPEED_TAU_MS: 450,          // how fast the shown speed eases toward the target
+  COAST_M: 28,                // keep gliding this far past the last fix while the
+                             //   next one is in flight (bridges delivery jitter)
+  CATCHUP_MULT: 2.2,          // cap the eased speed at this × the segment pace so
+                             //   a burst of fixes catches up without a lurch
+  MAX_SPEED_MPS: 45,          // ~160 km/h hard ceiling (anti-teleport)
+  MIN_SPEED_MPS: 0.3,         // below this the vehicle is treated as stopped
+  RESET_JUMP_M: 400,          // a fix this far from the marker ⇒ teleport, jump once
+  SEG_MIN_MS: 700,
   SEG_MAX_MS: 15000,
-  FIX_RING: 4,
   STALE_MS: 12000,            // stop reporting "moving" after this much silence
 };
 
@@ -74,7 +76,7 @@ export function metersBetween(lat1, lon1, lat2, lon2) {
   return EARTH_R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
-/** Build cumulative-distance metadata for a [lng,lat] polyline. */
+/** Measure a [lng,lat] polyline: cumulative distances + total length. */
 function measurePath(coords) {
   const cum = [0];
   for (let i = 1; i < coords.length; i++) {
@@ -86,7 +88,9 @@ function measurePath(coords) {
 /** Point + heading `d` metres along a measured polyline (clamped at both ends). */
 function alongPath(path, d) {
   const { coords, cum, len } = path;
-  if (coords.length < 2) return { lat: coords[0][1], lon: coords[0][0], hdg: null };
+  if (coords.length < 2) {
+    return { lat: coords[0][1], lon: coords[0][0], hdg: null };
+  }
   if (d <= 0) {
     return { lat: coords[0][1], lon: coords[0][0], hdg: bearingDeg(coords[0][1], coords[0][0], coords[1][1], coords[1][0]) };
   }
@@ -99,11 +103,7 @@ function alongPath(path, d) {
   const f = (d - cum[i - 1]) / (cum[i] - cum[i - 1] || 1);
   const [x1, y1] = coords[i - 1];
   const [x2, y2] = coords[i];
-  return {
-    lat: y1 + (y2 - y1) * f,
-    lon: x1 + (x2 - x1) * f,
-    hdg: bearingDeg(y1, x1, y2, x2),
-  };
+  return { lat: y1 + (y2 - y1) * f, lon: x1 + (x2 - x1) * f, hdg: bearingDeg(y1, x1, y2, x2) };
 }
 
 /**
@@ -114,203 +114,229 @@ export function createFollower(opts = {}) {
   const C = { ...SMOOTH_DEFAULTS, ...tuning };
   const now = typeof clock === 'function' ? clock : clockNow;
 
-  // ring[0] = newest: { lat, lon, tLocal, serverTs, seq, path? (measured) }
-  const ring = [];
-  let smHdg = null;
-  let dispHdg = null;
+  let out = null;        // { lat, lon } — the authoritative displayed position
+  let smHdg = null;      // EMA of the raw fix-to-fix bearing
+  let dispHdg = null;    // eased heading actually shown
   let lastSampleT = null;
-  let outLat = null;
-  let outLon = null;
-  let outT = null;
+  let curSpeed = 0;      // m/s the marker is CURRENTLY moving (eased, continuous)
 
-  function refreshHeadingTail() {
-    if (ring.length < 2) return;
-    const raw = bearingDeg(ring[1].lat, ring[1].lon, ring[0].lat, ring[0].lon);
-    if (smHdg == null) {
-      smHdg = raw;
-      dispHdg = raw;
-    } else {
-      smHdg = wrap360(smHdg + shortestDelta(smHdg, raw) * C.HEADING_LP_ALPHA);
+  // active segment
+  let seg = null;        // { path (measured), pace (m/s), playhead, seq, lastSampleMs }
+  let lastFix = null;    // { lat, lon, sampleMs, tLocal } — newest fix received
+  let lastArrivalT = null;
+  let emaGapMs = null;   // EMA of how often fixes actually arrive (delivery cadence)
+
+  function easeHeadingTo(rawHdg) {
+    if (rawHdg == null) return;
+    smHdg = smHdg == null ? rawHdg : wrap360(smHdg + shortestDelta(smHdg, rawHdg) * C.HEADING_LP_ALPHA);
+  }
+
+  /** Drop the part of a [lng,lat] polyline that lies behind `from`, so the
+   *  stitched path only ever goes forward (no backward lurch). */
+  function trimAhead(coords, from) {
+    let bestI = 0;
+    let bestT = 0;
+    let bestD = Infinity;
+    for (let i = 1; i < coords.length; i++) {
+      const [x1, y1] = coords[i - 1];
+      const [x2, y2] = coords[i];
+      const vx = x2 - x1;
+      const vy = y2 - y1;
+      const len2 = vx * vx + vy * vy || 1e-12;
+      let t = ((from.lon - x1) * vx + (from.lat - y1) * vy) / len2;
+      if (t < 0) t = 0;
+      else if (t > 1) t = 1;
+      const d = metersBetween(from.lat, from.lon, y1 + vy * t, x1 + vx * t);
+      if (d < bestD) { bestD = d; bestI = i; bestT = t; }
     }
+    const [ax, ay] = coords[bestI - 1];
+    const [bx, by] = coords[bestI];
+    const split = [ax + (bx - ax) * bestT, ay + (by - ay) * bestT];
+    return [[from.lon, from.lat], split, ...coords.slice(bestI)];
   }
 
-  function hardReset(lat, lon, serverTs, seq, path) {
-    ring.length = 0;
-    ring.push({
-      lat, lon, tLocal: now(), serverTs: serverTs ?? now(), seq: seq ?? null,
-      path: path && path.length >= 2 ? measurePath(path) : null,
-    });
-    smHdg = null;
-    dispHdg = null;
-    outLat = lat;
-    outLon = lon;
-    outT = now();
+  /** (Re)build the target path from the current marker position to `fix`, and
+   *  set the pace (m/s) at which the marker should traverse it. */
+  function retarget(fix, pathCoords, tNow, sampleMs, seq, extendMs) {
+    const from = out || { lat: fix.lat, lon: fix.lon };
+    let coords;
+    if (Array.isArray(pathCoords) && pathCoords.length >= 2) {
+      coords = trimAhead(pathCoords.map(([x, y]) => [x, y]), from);
+    } else {
+      const toFix = bearingDeg(from.lat, from.lon, fix.lat, fix.lon);
+      const behind = dispHdg != null && Math.abs(shortestDelta(dispHdg, toFix)) > 120;
+      coords = behind
+        ? [[from.lon, from.lat], [from.lon, from.lat]]
+        : [[from.lon, from.lat], [fix.lon, fix.lat]];
+    }
+    const path = measurePath(coords);
+
+    // How long the marker should take to cover this path. The vehicle's real
+    // travel time is the GPS sample-time interval; but pace it over the OBSERVED
+    // delivery cadence (× margin) when that is longer, so the marker is still
+    // gliding when the next (jittery) fix lands instead of stalling at the end.
+    const prevSampleMs = seg && Number.isFinite(seg.lastSampleMs) ? seg.lastSampleMs : null;
+    const sampleGap = Number.isFinite(sampleMs) && prevSampleMs != null ? sampleMs - prevSampleMs : null;
+    const cadence = emaGapMs != null ? emaGapMs * 1.3 : null;
+    let dur = Math.max(sampleGap || 0, cadence || 0)
+      || (lastArrivalT != null ? tNow - lastArrivalT : C.SEG_MIN_MS);
+    dur += (extendMs || 0);
+    dur = Math.min(Math.max(dur, C.SEG_MIN_MS), C.SEG_MAX_MS);
+
+    seg = {
+      path,
+      playhead: 0,
+      pace: path.len / (dur / 1000),
+      lastSampleMs: Number.isFinite(sampleMs) ? sampleMs : (prevSampleMs ?? null),
+      seq: seq ?? null,
+    };
   }
+
 
   /**
    * @param {number} lat
    * @param {number} lon
-   * @param {{ serverTs?: number, seq?: number|null, path?: Array<[number,number]> }} [meta]
+   * @param {{ serverTs?: number, sampleMs?: number, seq?: number|null, path?: Array<[number,number]> }} [meta]
    */
   function pushFix(lat, lon, meta = {}) {
     if (!Number.isFinite(lat) || !Number.isFinite(lon)) return;
-    const { serverTs, seq = null, path } = meta;
-    const measured = path && path.length >= 2 ? measurePath(path) : null;
-    const t = now();
+    const { sampleMs, seq = null, path } = meta;
+    const tNow = now();
 
-    if (ring.length) {
-      const head = ring[0];
-
-      // Road-snap / refinement correction: same seq as the newest fix →
-      // re-target that fix in place (keep its arrival time so playback continues).
-      if (seq != null && head.seq === seq) {
-        head.lat = lat;
-        head.lon = lon;
-        if (measured) head.path = measured;
-        refreshHeadingTail();
-        return;
-      }
-
-      // Identical heartbeat — keep it fresh, do not fabricate a zero segment.
-      if (head.lat === lat && head.lon === lon) {
-        head.tLocal = t;
-        if (serverTs != null) head.serverTs = serverTs;
-        return;
-      }
-
-      // Use the server clock for the elapsed time so bursty Socket.io delivery
-      // (two events arriving milliseconds apart) is not mistaken for a teleport.
-      const gapMs = (serverTs != null && head.serverTs != null)
-        ? serverTs - head.serverTs
-        : t - head.tLocal;
-      const localGapMs = t - head.tLocal;
-      const jumpM = metersBetween(head.lat, head.lon, lat, lon);
-      const impliedSpeed = jumpM / Math.max(gapMs / 1000, 0.1);
-      if (localGapMs > C.STALE_MS || impliedSpeed > C.RESET_SPEED_MPS) {
-        hardReset(lat, lon, serverTs, seq, path);
-        return;
-      }
-    } else {
-      hardReset(lat, lon, serverTs, seq, path);
+    // first fix ever
+    if (!out) {
+      out = { lat, lon };
+      lastFix = { lat, lon, sampleMs: Number.isFinite(sampleMs) ? sampleMs : null, tLocal: tNow };
+      lastArrivalT = tNow;
+      seg = null;
+      dispHdg = null;
+      smHdg = null;
       return;
     }
 
-    ring.unshift({ lat, lon, tLocal: t, serverTs: serverTs ?? t, seq, path: measured });
-    if (ring.length > C.FIX_RING) ring.pop();
-    refreshHeadingTail();
+    // road-snap / refinement of the fix we're already animating toward
+    const isCorrection = seq != null && seg && seg.seq === seq;
+
+    // teleport guard (GPS glitch / device jumped) — snap once
+    const jump = metersBetween(out.lat, out.lon, lat, lon);
+    if (!isCorrection && jump > C.RESET_JUMP_M) {
+      out = { lat, lon };
+      lastFix = { lat, lon, sampleMs: Number.isFinite(sampleMs) ? sampleMs : null, tLocal: tNow };
+      lastArrivalT = tNow;
+      seg = null;
+      dispHdg = null;
+      smHdg = null;
+      return;
+    }
+
+    // heading target from the real fix-to-fix bearing
+    if (lastFix && (lastFix.lat !== lat || lastFix.lon !== lon)) {
+      easeHeadingTo(bearingDeg(lastFix.lat, lastFix.lon, lat, lon));
+      if (dispHdg == null) dispHdg = smHdg;
+    }
+
+    if (isCorrection) {
+      // small road-snap adjustment of the fix we're already heading to — retarget
+      // in place, keep the current pace (extendMs 0 keeps the cadence-based dur).
+      retarget({ lat, lon }, path, tNow, seg.lastSampleMs, seq, 0);
+    } else {
+      if (lastArrivalT != null) {
+        const gap = tNow - lastArrivalT;
+        if (gap > 300 && gap < 30000) {
+          emaGapMs = emaGapMs == null ? gap : emaGapMs + (gap - emaGapMs) * 0.3;
+        }
+      }
+      retarget({ lat, lon }, path, tNow, sampleMs, seq, 0);
+      lastArrivalT = tNow;
+    }
+    lastFix = { lat, lon, sampleMs: Number.isFinite(sampleMs) ? sampleMs : (lastFix && lastFix.sampleMs), tLocal: tNow };
   }
 
   function sample(tNow = now()) {
-    if (!ring.length) return null;
-
-    if (ring.length === 1) {
-      const p = ring[0];
-      outLat = p.lat;
-      outLon = p.lon;
-      outT = tNow;
-      return { lat: p.lat, lon: p.lon, heading: dispHdg ?? 0, moving: false, settled: true };
+    if (!out) return null;
+    if (!seg) {
+      return { lat: out.lat, lon: out.lon, heading: dispHdg ?? 0, moving: false, settled: true };
     }
 
-    const p2 = ring[0];
-    const p1 = ring[1];
+    const dtMs = lastSampleT == null ? 16 : Math.min(Math.max(tNow - lastSampleT, 1), 200);
+    const dt = dtMs / 1000;
+    lastSampleT = tNow;
 
-    // Prefer the server-measured interval (jitter-free); fall back to local
-    // arrival delta when a serverTs is missing or the two clocks disagree
-    // (e.g. a REST-bootstrapped first fix vs. an epoch-stamped socket fix).
-    let segDur = (p2.serverTs || 0) - (p1.serverTs || 0);
-    if (!(segDur > 0 && segDur < 60000)) segDur = p2.tLocal - p1.tLocal;
-    segDur = Math.min(Math.max(segDur, C.SEG_MIN_MS), C.SEG_MAX_MS);
-
-    // Anchor to the NEWEST fix's arrival: frac 0→1 walks p1→p2 over the interval
-    // that follows p2, i.e. we render one fix behind and interpolate toward a
-    // known point. A small overshoot hides delivery latency.
-    let frac = (tNow - p2.tLocal) / segDur;
-    if (frac < 0) frac = 0;
-    const maxFrac = 1 + C.LOOKAHEAD_FRAC;
-    if (frac > maxFrac) frac = maxFrac;
-
-    let lat;
-    let lon;
-    let rawHdg = null;
-
-    if (p2.path) {
-      // Walk the on-road polyline for this segment.
-      const hit = alongPath(p2.path, frac * p2.path.len);
-      lat = hit.lat;
-      lon = hit.lon;
-      rawHdg = hit.hdg;
+    // Velocity model: ease the shown speed toward the segment pace, then advance.
+    // `curSpeed` is follower-level state so retargets never restart from zero —
+    // the marker keeps its momentum and motion is continuous whatever the input.
+    const remaining = seg.path.len - seg.playhead;
+    let wantSpeed;
+    if (remaining > 0.2) {
+      wantSpeed = seg.pace;
+    } else if (seg.playhead < seg.path.len + C.COAST_M) {
+      wantSpeed = seg.pace * 0.6;           // coast past the last fix, decaying
     } else {
-      // Uniform Catmull-Rom between p1 and p2 (C1 continuous velocity).
-      const p0 = ring[2] || p1;
-      const p3lat = p2.lat + (p2.lat - p1.lat);
-      const p3lon = p2.lon + (p2.lon - p1.lon);
-      const u = frac;
-      const u2 = u * u;
-      const u3 = u2 * u;
-      const cr = (a, b, c, d) =>
-        0.5 * (2 * b + (-a + c) * u + (2 * a - 5 * b + 4 * c - d) * u2 + (-a + 3 * b - 3 * c + d) * u3);
-      lat = cr(p0.lat, p1.lat, p2.lat, p3lat);
-      lon = cr(p0.lon, p1.lon, p2.lon, p3lon);
+      wantSpeed = 0;                        // truly out of runway — hold
+    }
+    const cap = Math.min(Math.max(seg.pace * C.CATCHUP_MULT, C.MIN_SPEED_MPS), C.MAX_SPEED_MPS);
+    if (wantSpeed > cap) wantSpeed = cap;
+
+    const k = 1 - Math.exp(-dtMs / C.SPEED_TAU_MS);
+    curSpeed += (wantSpeed - curSpeed) * k;
+    if (curSpeed < 0.02) curSpeed = 0;
+
+    seg.playhead = Math.min(seg.playhead + curSpeed * dt, seg.path.len + C.COAST_M);
+
+    // position — coast straight past the polyline end along the last heading
+    let hit;
+    if (seg.playhead <= seg.path.len) {
+      hit = alongPath(seg.path, seg.playhead);
+    } else {
+      const end = alongPath(seg.path, seg.path.len);
+      const over = seg.playhead - seg.path.len;
+      const h = (end.hdg == null ? (dispHdg ?? 0) : end.hdg) * DEG;
+      hit = {
+        lat: end.lat + (over * Math.cos(h)) / 111320,
+        lon: end.lon + (over * Math.sin(h)) / ((111320 * Math.cos(end.lat * DEG)) || 1),
+        hdg: end.hdg,
+      };
     }
 
-    // Cap how far we may sit past the newest fix.
-    if (frac > 1) {
-      const past = metersBetween(p2.lat, p2.lon, lat, lon);
-      if (past > C.EXTRAPOLATE_MAX_M) {
-        const k = C.EXTRAPOLATE_MAX_M / past;
-        lat = p2.lat + (lat - p2.lat) * k;
-        lon = p2.lon + (lon - p2.lon) * k;
-      }
+    // While moving, always commit the frame's position (a deadband here would
+    // chop smooth motion into stop-go). Only when essentially stopped do we
+    // freeze against GPS drift.
+    const moved = metersBetween(out.lat, out.lon, hit.lat, hit.lon);
+    if (curSpeed > 0.15 || moved >= C.STOP_DEADBAND_M) {
+      out = { lat: hit.lat, lon: hit.lon };
     }
 
-    // Hard speed clamp vs the last emitted position — the anti-teleport net.
-    if (outLat != null) {
-      const dt = Math.max((tNow - (outT ?? tNow)) / 1000, 1 / 120);
-      const moved = metersBetween(outLat, outLon, lat, lon);
-      const maxMove = C.MAX_SPEED_MPS * dt;
-      if (moved > maxMove && moved > 0) {
-        const k = maxMove / moved;
-        lat = outLat + (lat - outLat) * k;
-        lon = outLon + (lon - outLon) * k;
-      } else if (moved < C.POS_DEADBAND_M) {
-        lat = outLat;
-        lon = outLon;
-      }
-    }
-    outLat = lat;
-    outLon = lon;
-    outT = tNow;
-
-    // Eased displayed heading.
+    // eased heading
     let settled = true;
-    if (rawHdg != null) {
-      smHdg = smHdg == null ? rawHdg : wrap360(smHdg + shortestDelta(smHdg, rawHdg) * C.HEADING_LP_ALPHA);
-    }
+    if (hit.hdg != null) easeHeadingTo(hit.hdg);
     if (smHdg != null) {
       if (dispHdg == null) dispHdg = smHdg;
-      const gap = shortestDelta(dispHdg, smHdg);
-      if (Math.abs(gap) > C.HEADING_DEADBAND_DEG) {
-        const dt = lastSampleT == null ? 16 : Math.max(tNow - lastSampleT, 1);
-        const alpha = 1 - Math.exp(-dt / C.ROTATION_TAU_MS);
-        dispHdg = wrap360(dispHdg + gap * alpha);
+      const gapH = shortestDelta(dispHdg, smHdg);
+      if (Math.abs(gapH) > C.HEADING_DEADBAND_DEG) {
+        dispHdg = wrap360(dispHdg + gapH * (1 - Math.exp(-dtMs / C.ROTATION_TAU_MS)));
       }
       settled = Math.abs(shortestDelta(dispHdg, smHdg)) <= C.ROTATION_SETTLE_DEG;
     }
-    lastSampleT = tNow;
 
-    const moving =
-      metersBetween(p1.lat, p1.lon, p2.lat, p2.lon) > C.POS_DEADBAND_M &&
-      tNow - p2.tLocal < Math.max(segDur * 1.5, C.STALE_MS);
+    const stale = !lastFix || tNow - lastFix.tLocal > C.STALE_MS;
+    const moving = !stale && curSpeed > C.MIN_SPEED_MPS;
 
-    return { lat, lon, heading: dispHdg ?? 0, moving, settled };
+    return { lat: out.lat, lon: out.lon, heading: dispHdg ?? 0, moving, settled };
   }
 
   return {
     pushFix,
     sample,
-    reset: (lat, lon) => hardReset(lat, lon),
+    reset: (lat, lon) => {
+      out = Number.isFinite(lat) ? { lat, lon } : null;
+      seg = null;
+      curSpeed = 0;
+      lastFix = out ? { lat, lon, sampleMs: null, tLocal: now() } : null;
+      smHdg = null;
+      dispHdg = null;
+    },
     get fixCount() {
-      return ring.length;
+      return out ? (seg ? 2 : 1) : 0;
     },
   };
 }

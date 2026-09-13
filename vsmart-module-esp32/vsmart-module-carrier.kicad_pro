@@ -140,7 +140,7 @@
       },
       "rules": {
         "max_error": 0.005,
-        "min_clearance": 0.2,
+        "min_clearance": 0.0,
         "min_connection": 0.0,
         "min_copper_edge_clearance": 0.5,
         "min_groove_width": 0.0,
@@ -155,7 +155,7 @@
         "min_through_hole_diameter": 0.3,
         "min_track_width": 0.2,
         "min_via_annular_width": 0.1,
-        "min_via_diameter": 0.6,
+        "min_via_diameter": 0.5,
         "solder_mask_to_copper_clearance": 0.0,
         "use_height_for_length_calcs": true
       },
@@ -411,11 +411,11 @@
       "+3V3": [
         "POWER_3V3"
       ],
-      "+4V_SIM": [
-        "POWER_SIM"
-      ],
       "+5V": [
         "POWER_5V"
+      ],
+      "+5V_SIM": [
+        "POWER_SIM"
       ],
       "GND": [
         "POWER_GND"
@@ -452,9 +452,6 @@
       ],
       "SIM_TX": [
         "SIGNALS"
-      ],
-      "VIN_12V": [
-        "POWER_IN"
       ]
     },
     "netclass_patterns": []

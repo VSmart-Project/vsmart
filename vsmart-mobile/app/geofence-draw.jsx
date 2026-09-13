@@ -122,7 +122,7 @@ export default function GeofenceDrawScreen() {
         <View style={s.container}>
             <MapView
                 ref={mapRef}
-                style={StyleSheet.absoluteFillObject}
+                style={{ flex: 1 }}
                 initialRegion={{ latitude: 10.8231, longitude: 106.6297, latitudeDelta: 0.05, longitudeDelta: 0.05 }}
                 onPress={handleMapPress}
             >

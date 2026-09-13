@@ -1,505 +1,505 @@
 {
-  "vsmart-backend/index.js": {
+  "tracking-data-streaming-backend/index.js": {
     "mtime": 1782722766.0023417,
     "ast_hash": "05ceb033811acceb57c0387309d778b4",
     "semantic_hash": "05ceb033811acceb57c0387309d778b4"
   },
-  "vsmart-backend/package.json": {
+  "tracking-data-streaming-backend/package.json": {
     "mtime": 1782790125.5648377,
     "ast_hash": "e9ec9bb5c125689f1b955c05da1be1fb",
     "semantic_hash": "e9ec9bb5c125689f1b955c05da1be1fb"
   },
-  "vsmart-backend/scripts/backfill-device-owners.js": {
+  "tracking-data-streaming-backend/scripts/backfill-device-owners.js": {
     "mtime": 1777363829.0,
     "ast_hash": "8d7231e93f23adaf122d790633e70b5e",
     "semantic_hash": "8d7231e93f23adaf122d790633e70b5e"
   },
-  "vsmart-backend/scripts/enable-admin-auth.js": {
+  "tracking-data-streaming-backend/scripts/enable-admin-auth.js": {
     "mtime": 1782747714.2503,
     "ast_hash": "851d717c07939071dffceae2fd1842e7",
     "semantic_hash": "851d717c07939071dffceae2fd1842e7"
   },
-  "vsmart-backend/scripts/interactive-move.js": {
+  "tracking-data-streaming-backend/scripts/interactive-move.js": {
     "mtime": 1777372088.0,
     "ast_hash": "4780c75af4d76fd3bfbda2e96097b886",
     "semantic_hash": "4780c75af4d76fd3bfbda2e96097b886"
   },
-  "vsmart-backend/scripts/move-device.js": {
+  "tracking-data-streaming-backend/scripts/move-device.js": {
     "mtime": 1776690205.0,
     "ast_hash": "381e34f7e6d73edb6efd05508f431042",
     "semantic_hash": "381e34f7e6d73edb6efd05508f431042"
   },
-  "vsmart-backend/src/config/aws.js": {
+  "tracking-data-streaming-backend/src/config/aws.js": {
     "mtime": 1776668964.0,
     "ast_hash": "f5e67f1db8f0cee4d41b409f004e8a43",
     "semantic_hash": "f5e67f1db8f0cee4d41b409f004e8a43"
   },
-  "vsmart-backend/src/config/constants.js": {
+  "tracking-data-streaming-backend/src/config/constants.js": {
     "mtime": 1776689125.0,
     "ast_hash": "92e7c35be183022a615b8a714a68f01b",
     "semantic_hash": "92e7c35be183022a615b8a714a68f01b"
   },
-  "vsmart-backend/src/config/realtime.js": {
+  "tracking-data-streaming-backend/src/config/realtime.js": {
     "mtime": 1777363849.0,
     "ast_hash": "aa637ad085c23d645322e363b950560f",
     "semantic_hash": "aa637ad085c23d645322e363b950560f"
   },
-  "vsmart-backend/src/config/realtimeEventSchema.js": {
+  "tracking-data-streaming-backend/src/config/realtimeEventSchema.js": {
     "mtime": 1777363808.0,
     "ast_hash": "ea84066e2e5b45bc3f0f46b833fbd7e8",
     "semantic_hash": "ea84066e2e5b45bc3f0f46b833fbd7e8"
   },
-  "vsmart-backend/src/config/swagger.js": {
+  "tracking-data-streaming-backend/src/config/swagger.js": {
     "mtime": 1777210809.0,
     "ast_hash": "340b46d7c75b6c99a9588545e7664ea6",
     "semantic_hash": "340b46d7c75b6c99a9588545e7664ea6"
   },
-  "vsmart-backend/src/controllers/antitheftController.js": {
+  "tracking-data-streaming-backend/src/controllers/antitheftController.js": {
     "mtime": 1782752053.9027743,
     "ast_hash": "ce65e4c1d7d873da24b742d3653f7063",
     "semantic_hash": "ce65e4c1d7d873da24b742d3653f7063"
   },
-  "vsmart-backend/src/controllers/authController.js": {
+  "tracking-data-streaming-backend/src/controllers/authController.js": {
     "mtime": 1777218931.0,
     "ast_hash": "9da91cba7df8df23757476f7760e8deb",
     "semantic_hash": "9da91cba7df8df23757476f7760e8deb"
   },
-  "vsmart-backend/src/controllers/deviceController.js": {
+  "tracking-data-streaming-backend/src/controllers/deviceController.js": {
     "mtime": 1782813628.5289662,
     "ast_hash": "d6fc360658298585249179d68c0ea0da",
     "semantic_hash": "d6fc360658298585249179d68c0ea0da"
   },
-  "vsmart-backend/src/middleware/auth.js": {
+  "tracking-data-streaming-backend/src/middleware/auth.js": {
     "mtime": 1777201884.0,
     "ast_hash": "1a43e6254e1b128ca7710fd04886e123",
     "semantic_hash": "1a43e6254e1b128ca7710fd04886e123"
   },
-  "vsmart-backend/src/middleware/errorHandler.js": {
+  "tracking-data-streaming-backend/src/middleware/errorHandler.js": {
     "mtime": 1776668985.0,
     "ast_hash": "afc2efe57812e72610666af2ee02a2af",
     "semantic_hash": "afc2efe57812e72610666af2ee02a2af"
   },
-  "vsmart-backend/src/routes/antitheft.js": {
+  "tracking-data-streaming-backend/src/routes/antitheft.js": {
     "mtime": 1777210850.0,
     "ast_hash": "d58872a5aadb922f3827387728434a54",
     "semantic_hash": "d58872a5aadb922f3827387728434a54"
   },
-  "vsmart-backend/src/routes/auth.js": {
+  "tracking-data-streaming-backend/src/routes/auth.js": {
     "mtime": 1777218936.0,
     "ast_hash": "147f26ae0339359c869b53adb693f554",
     "semantic_hash": "147f26ae0339359c869b53adb693f554"
   },
-  "vsmart-backend/src/routes/devices.js": {
+  "tracking-data-streaming-backend/src/routes/devices.js": {
     "mtime": 1777210838.0,
     "ast_hash": "5943973e9cf8c69063cfa2ada0a6706d",
     "semantic_hash": "5943973e9cf8c69063cfa2ada0a6706d"
   },
-  "vsmart-backend/src/services/antitheftWorker.js": {
+  "tracking-data-streaming-backend/src/services/antitheftWorker.js": {
     "mtime": 1777284978.0,
     "ast_hash": "0b044753ebb8f06d82944f107880baef",
     "semantic_hash": "0b044753ebb8f06d82944f107880baef"
   },
-  "vsmart-backend/src/services/dynamoService.js": {
+  "tracking-data-streaming-backend/src/services/dynamoService.js": {
     "mtime": 1782752020.927622,
     "ast_hash": "96a6b44b84fa1d88bbf789b8c7f9ecb5",
     "semantic_hash": "96a6b44b84fa1d88bbf789b8c7f9ecb5"
   },
-  "vsmart-backend/src/services/geoUtils.js": {
+  "tracking-data-streaming-backend/src/services/geoUtils.js": {
     "mtime": 1776689683.0,
     "ast_hash": "9fff81d8b32e0ba1268b94268d39dd60",
     "semantic_hash": "9fff81d8b32e0ba1268b94268d39dd60"
   },
-  "vsmart-backend/src/services/locationService.js": {
+  "tracking-data-streaming-backend/src/services/locationService.js": {
     "mtime": 1782817810.0225868,
     "ast_hash": "1f77c30c02ac3b753d6f04a0a960e9a4",
     "semantic_hash": "1f77c30c02ac3b753d6f04a0a960e9a4"
   },
-  "vsmart-backend/src/services/snsService.js": {
+  "tracking-data-streaming-backend/src/services/snsService.js": {
     "mtime": 1776744509.0,
     "ast_hash": "8beff4ae887d798b0963339b13b9f9b3",
     "semantic_hash": "8beff4ae887d798b0963339b13b9f9b3"
   },
-  "vsmart-web/eslint.config.js": {
+  "tracking-data-streaming-datn/eslint.config.js": {
     "mtime": 1775714853.0,
     "ast_hash": "49c8473bcfcec3aef596a5fb04a6df06",
     "semantic_hash": "49c8473bcfcec3aef596a5fb04a6df06"
   },
-  "vsmart-web/package.json": {
+  "tracking-data-streaming-datn/package.json": {
     "mtime": 1782722877.9715114,
     "ast_hash": "61fa8347813204a06a2e20b123a99bab",
     "semantic_hash": "61fa8347813204a06a2e20b123a99bab"
   },
-  "vsmart-web/postcss.config.js": {
+  "tracking-data-streaming-datn/postcss.config.js": {
     "mtime": 1775719799.0,
     "ast_hash": "5b84f4567208c7c747079c0477373231",
     "semantic_hash": "5b84f4567208c7c747079c0477373231"
   },
-  "vsmart-web/src/App.jsx": {
+  "tracking-data-streaming-datn/src/App.jsx": {
     "mtime": 1782817170.6879861,
     "ast_hash": "736671463bd7194e6e506bb580bf207f",
     "semantic_hash": "736671463bd7194e6e506bb580bf207f"
   },
-  "vsmart-web/src/api/deviceApi.js": {
+  "tracking-data-streaming-datn/src/api/deviceApi.js": {
     "mtime": 1777201901.0,
     "ast_hash": "f811dbc3482e00f6193c7d577e2c63d9",
     "semantic_hash": "f811dbc3482e00f6193c7d577e2c63d9"
   },
-  "vsmart-web/src/components/auth/AuthLayout.jsx": {
+  "tracking-data-streaming-datn/src/components/auth/AuthLayout.jsx": {
     "mtime": 1782792449.2494326,
     "ast_hash": "d98dc2b9e2b069439065f08f9b3cc50c",
     "semantic_hash": "d98dc2b9e2b069439065f08f9b3cc50c"
   },
-  "vsmart-web/src/components/common/Toast.jsx": {
+  "tracking-data-streaming-datn/src/components/common/Toast.jsx": {
     "mtime": 1776657951.0,
     "ast_hash": "0b4d04c826ddd376d4d968d7c0dd139f",
     "semantic_hash": "0b4d04c826ddd376d4d968d7c0dd139f"
   },
-  "vsmart-web/src/components/dashboard/DashboardView.jsx": {
+  "tracking-data-streaming-datn/src/components/dashboard/DashboardView.jsx": {
     "mtime": 1782802362.6764514,
     "ast_hash": "d9492d27df343eb0d9beb1d34ff5acae",
     "semantic_hash": "d9492d27df343eb0d9beb1d34ff5acae"
   },
-  "vsmart-web/src/components/devices/ConfirmAntiTheftModal.jsx": {
+  "tracking-data-streaming-datn/src/components/devices/ConfirmAntiTheftModal.jsx": {
     "mtime": 1776740601.0,
     "ast_hash": "c566a41e6fbb4376888127fa07971a0c",
     "semantic_hash": "c566a41e6fbb4376888127fa07971a0c"
   },
-  "vsmart-web/src/components/devices/DeleteDeviceModal.jsx": {
+  "tracking-data-streaming-datn/src/components/devices/DeleteDeviceModal.jsx": {
     "mtime": 1777359690.0,
     "ast_hash": "2531aaea882bdf1b05b64c1a1055616f",
     "semantic_hash": "2531aaea882bdf1b05b64c1a1055616f"
   },
-  "vsmart-web/src/components/devices/DeviceFormModal.jsx": {
+  "tracking-data-streaming-datn/src/components/devices/DeviceFormModal.jsx": {
     "mtime": 1782801425.569828,
     "ast_hash": "0b8525ec94c8cacb30a77241eacbd3ee",
     "semantic_hash": "0b8525ec94c8cacb30a77241eacbd3ee"
   },
-  "vsmart-web/src/components/devices/DeviceList.jsx": {
+  "tracking-data-streaming-datn/src/components/devices/DeviceList.jsx": {
     "mtime": 1782801896.0178998,
     "ast_hash": "ca58ecc1624dea559855a0c728bd1403",
     "semantic_hash": "ca58ecc1624dea559855a0c728bd1403"
   },
-  "vsmart-web/src/components/devices/DeviceMarkers.jsx": {
+  "tracking-data-streaming-datn/src/components/devices/DeviceMarkers.jsx": {
     "mtime": 1782801248.4424322,
     "ast_hash": "ebe91a6516c1e858018aceb1a37c407e",
     "semantic_hash": "ebe91a6516c1e858018aceb1a37c407e"
   },
-  "vsmart-web/src/components/geofences/DrawControl.jsx": {
+  "tracking-data-streaming-datn/src/components/geofences/DrawControl.jsx": {
     "mtime": 1775725227.0,
     "ast_hash": "a413042b896cf693572e70983f714be4",
     "semantic_hash": "a413042b896cf693572e70983f714be4"
   },
-  "vsmart-web/src/components/geofences/DrawnGeofences.jsx": {
+  "tracking-data-streaming-datn/src/components/geofences/DrawnGeofences.jsx": {
     "mtime": 1775720617.0,
     "ast_hash": "49a5c6a789ee22c4740f9435203c290e",
     "semantic_hash": "49a5c6a789ee22c4740f9435203c290e"
   },
-  "vsmart-web/src/components/geofences/GeofenceManagement.jsx": {
+  "tracking-data-streaming-datn/src/components/geofences/GeofenceManagement.jsx": {
     "mtime": 1782801636.0580335,
     "ast_hash": "fb7e37cb5b36399cb63912cfc089ede3",
     "semantic_hash": "fb7e37cb5b36399cb63912cfc089ede3"
   },
-  "vsmart-web/src/components/geofences/GeofencesLayer.jsx": {
+  "tracking-data-streaming-datn/src/components/geofences/GeofencesLayer.jsx": {
     "mtime": 1782801398.1084156,
     "ast_hash": "550a0b5dde5c9541710b2b4b46104202",
     "semantic_hash": "550a0b5dde5c9541710b2b4b46104202"
   },
-  "vsmart-web/src/components/geofences/GeofencesPanel.jsx": {
+  "tracking-data-streaming-datn/src/components/geofences/GeofencesPanel.jsx": {
     "mtime": 1782801273.593187,
     "ast_hash": "160da84c2acde6bb5603ddef14ad76de",
     "semantic_hash": "160da84c2acde6bb5603ddef14ad76de"
   },
-  "vsmart-web/src/components/layout/Header.jsx": {
+  "tracking-data-streaming-datn/src/components/layout/Header.jsx": {
     "mtime": 1782792584.9467173,
     "ast_hash": "c4bd238b4d69735fb8ba6bc6613ae799",
     "semantic_hash": "c4bd238b4d69735fb8ba6bc6613ae799"
   },
-  "vsmart-web/src/components/layout/Sidebar.jsx": {
+  "tracking-data-streaming-datn/src/components/layout/Sidebar.jsx": {
     "mtime": 1782802252.7173269,
     "ast_hash": "fa09ed17564982555c32a773d5054c89",
     "semantic_hash": "fa09ed17564982555c32a773d5054c89"
   },
-  "vsmart-web/src/components/map/DeviceDetailPanel.jsx": {
+  "tracking-data-streaming-datn/src/components/map/DeviceDetailPanel.jsx": {
     "mtime": 1782818239.0483806,
     "ast_hash": "62fb965abf545161415820a65446830d",
     "semantic_hash": "62fb965abf545161415820a65446830d"
   },
-  "vsmart-web/src/components/map/DeviceHistoryPathLayer.jsx": {
+  "tracking-data-streaming-datn/src/components/map/DeviceHistoryPathLayer.jsx": {
     "mtime": 1782818251.4679906,
     "ast_hash": "b4ede8e97297e4168383e505757ab833",
     "semantic_hash": "b4ede8e97297e4168383e505757ab833"
   },
-  "vsmart-web/src/components/map/DevicesMapOverlay.jsx": {
+  "tracking-data-streaming-datn/src/components/map/DevicesMapOverlay.jsx": {
     "mtime": 1782801327.1779447,
     "ast_hash": "058c974f02d39d5d4bd17f3eb972537c",
     "semantic_hash": "058c974f02d39d5d4bd17f3eb972537c"
   },
-  "vsmart-web/src/components/map/MapView.jsx": {
+  "tracking-data-streaming-datn/src/components/map/MapView.jsx": {
     "mtime": 1782721696.2238681,
     "ast_hash": "661f7d489fe4c2e9de3ef5950bcc3f1d",
     "semantic_hash": "661f7d489fe4c2e9de3ef5950bcc3f1d"
   },
-  "vsmart-web/src/configuration.js": {
+  "tracking-data-streaming-datn/src/configuration.js": {
     "mtime": 1782723996.5863216,
     "ast_hash": "df49c098a1a53f094c02224f66c82365",
     "semantic_hash": "df49c098a1a53f094c02224f66c82365"
   },
-  "vsmart-web/src/hooks/useDeviceManager.js": {
+  "tracking-data-streaming-datn/src/hooks/useDeviceManager.js": {
     "mtime": 1777363796.0,
     "ast_hash": "a78eaa6380969b95040b6ace3db02c87",
     "semantic_hash": "a78eaa6380969b95040b6ace3db02c87"
   },
-  "vsmart-web/src/hooks/useDevicePolling.js": {
+  "tracking-data-streaming-datn/src/hooks/useDevicePolling.js": {
     "mtime": 1777209918.0,
     "ast_hash": "32b22c0b65fd428795798d79522e595e",
     "semantic_hash": "32b22c0b65fd428795798d79522e595e"
   },
-  "vsmart-web/src/hooks/useLocationService.js": {
+  "tracking-data-streaming-datn/src/hooks/useLocationService.js": {
     "mtime": 1776658972.0,
     "ast_hash": "3cb786408685d2cf64ebe2f3803054a8",
     "semantic_hash": "3cb786408685d2cf64ebe2f3803054a8"
   },
-  "vsmart-web/src/main.jsx": {
+  "tracking-data-streaming-datn/src/main.jsx": {
     "mtime": 1782792375.203542,
     "ast_hash": "572cc5769f22c487cb479e568b8538cf",
     "semantic_hash": "572cc5769f22c487cb479e568b8538cf"
   },
-  "vsmart-web/src/realtime/eventSchema.js": {
+  "tracking-data-streaming-datn/src/realtime/eventSchema.js": {
     "mtime": 1777363875.0,
     "ast_hash": "cd11768880171f99dbdad22499ae6c1a",
     "semantic_hash": "cd11768880171f99dbdad22499ae6c1a"
   },
-  "vsmart-web/src/utils/aws.js": {
+  "tracking-data-streaming-datn/src/utils/aws.js": {
     "mtime": 1775721887.0,
     "ast_hash": "0fbf12b6d01f1425e5c32a5955743174",
     "semantic_hash": "0fbf12b6d01f1425e5c32a5955743174"
   },
-  "vsmart-web/tailwind.config.js": {
+  "tracking-data-streaming-datn/tailwind.config.js": {
     "mtime": 1782792795.3480177,
     "ast_hash": "4d17783146791877158d1b21dcf540d2",
     "semantic_hash": "4d17783146791877158d1b21dcf540d2"
   },
-  "vsmart-web/vite.config.js": {
+  "tracking-data-streaming-datn/vite.config.js": {
     "mtime": 1775714853.0,
     "ast_hash": "88439104b3c207f17d33ef3160e3b080",
     "semantic_hash": "88439104b3c207f17d33ef3160e3b080"
   },
-  "vsmart-infrastructure/geofence-test.json": {
+  "tracking-data-streaming-infrastructure/geofence-test.json": {
     "mtime": 1777366978.0,
     "ast_hash": "b62227090c1564e23d041a2aafb28976",
     "semantic_hash": "b62227090c1564e23d041a2aafb28976"
   },
-  "vsmart-infrastructure/lambda/geofence-event-consumer/index.py": {
+  "tracking-data-streaming-infrastructure/lambda/geofence-event-consumer/index.py": {
     "mtime": 1782722817.2778487,
     "ast_hash": "f2297e7ade83dcd4dcb341e8ebd17748",
     "semantic_hash": "f2297e7ade83dcd4dcb341e8ebd17748"
   },
-  "vsmart-infrastructure/lambda/iot-message-processor/index.py": {
+  "tracking-data-streaming-infrastructure/lambda/iot-message-processor/index.py": {
     "mtime": 1782723714.3021317,
     "ast_hash": "d83a9db9bdbb6748b9f01b4c8449ad43",
     "semantic_hash": "d83a9db9bdbb6748b9f01b4c8449ad43"
   },
-  "vsmart-infrastructure/lambda/offline-detector/index.py": {
+  "tracking-data-streaming-infrastructure/lambda/offline-detector/index.py": {
     "mtime": 1782721742.9315772,
     "ast_hash": "8e9321752149fbda59783c1e59f9b23e",
     "semantic_hash": "8e9321752149fbda59783c1e59f9b23e"
   },
-  "vsmart-infrastructure/lambda/realtime-event-publisher/index.py": {
+  "tracking-data-streaming-infrastructure/lambda/realtime-event-publisher/index.py": {
     "mtime": 1777364164.0,
     "ast_hash": "a399ab88134f51799cccb487a41da1b0",
     "semantic_hash": "a399ab88134f51799cccb487a41da1b0"
   },
-  "vsmart-mobile/.vscode/extensions.json": {
+  "vsmart-app/.vscode/extensions.json": {
     "mtime": 499162500.0,
     "ast_hash": "b2354ba0225f5689d13651ec0fac0de0",
     "semantic_hash": "b2354ba0225f5689d13651ec0fac0de0"
   },
-  "vsmart-mobile/.vscode/settings.json": {
+  "vsmart-app/.vscode/settings.json": {
     "mtime": 499162500.0,
     "ast_hash": "6b9302c1f72c315e90233c7539c48c9f",
     "semantic_hash": "6b9302c1f72c315e90233c7539c48c9f"
   },
-  "vsmart-mobile/app.json": {
+  "vsmart-app/app.json": {
     "mtime": 1782748338.9504366,
     "ast_hash": "7c7803f24736ab30ccae8a15f9e5ac31",
     "semantic_hash": "7c7803f24736ab30ccae8a15f9e5ac31"
   },
-  "vsmart-mobile/app/(tabs)/_layout.jsx": {
+  "vsmart-app/app/(tabs)/_layout.jsx": {
     "mtime": 1777217876.0,
     "ast_hash": "63b09ee47ad20204dfaacb7cc18faeec",
     "semantic_hash": "63b09ee47ad20204dfaacb7cc18faeec"
   },
-  "vsmart-mobile/app/(tabs)/devices.jsx": {
+  "vsmart-app/app/(tabs)/devices.jsx": {
     "mtime": 1782748484.2060852,
     "ast_hash": "de42b0d8a32baef7fd8e3c490d22d56b",
     "semantic_hash": "de42b0d8a32baef7fd8e3c490d22d56b"
   },
-  "vsmart-mobile/app/(tabs)/geofences.jsx": {
+  "vsmart-app/app/(tabs)/geofences.jsx": {
     "mtime": 1777360638.0,
     "ast_hash": "901fced6f4dad44d959af3f8821e0c02",
     "semantic_hash": "901fced6f4dad44d959af3f8821e0c02"
   },
-  "vsmart-mobile/app/(tabs)/index.jsx": {
+  "vsmart-app/app/(tabs)/index.jsx": {
     "mtime": 1777361879.0,
     "ast_hash": "c84a74673546e937baff1636944b826d",
     "semantic_hash": "c84a74673546e937baff1636944b826d"
   },
-  "vsmart-mobile/app/(tabs)/settings.jsx": {
+  "vsmart-app/app/(tabs)/settings.jsx": {
     "mtime": 1777372088.0,
     "ast_hash": "4f2428a6f1255772eca8a2d38d14664b",
     "semantic_hash": "4f2428a6f1255772eca8a2d38d14664b"
   },
-  "vsmart-mobile/app/_layout.jsx": {
+  "vsmart-app/app/_layout.jsx": {
     "mtime": 1782724048.8051586,
     "ast_hash": "9139c90a6ce433eb4cb78a1f002d8b69",
     "semantic_hash": "9139c90a6ce433eb4cb78a1f002d8b69"
   },
-  "vsmart-mobile/app/geofence-draw.jsx": {
+  "vsmart-app/app/geofence-draw.jsx": {
     "mtime": 1777358873.0,
     "ast_hash": "fd79535bf3c53377a8bda289c2023d80",
     "semantic_hash": "fd79535bf3c53377a8bda289c2023d80"
   },
-  "vsmart-mobile/app/login.jsx": {
+  "vsmart-app/app/login.jsx": {
     "mtime": 1777224647.0,
     "ast_hash": "f99d3b4e014cc6d862a7fb670b39d44b",
     "semantic_hash": "f99d3b4e014cc6d862a7fb670b39d44b"
   },
-  "vsmart-mobile/app/map.jsx": {
+  "vsmart-app/app/map.jsx": {
     "mtime": 1782748472.4219503,
     "ast_hash": "f6b5f3e0a817f16579cbde255dd64621",
     "semantic_hash": "f6b5f3e0a817f16579cbde255dd64621"
   },
-  "vsmart-mobile/app/notification-test.jsx": {
+  "vsmart-app/app/notification-test.jsx": {
     "mtime": 1777347783.0,
     "ast_hash": "83bc2b78106c9753209e9bcfb8437eb1",
     "semantic_hash": "83bc2b78106c9753209e9bcfb8437eb1"
   },
-  "vsmart-mobile/app/onboarding.jsx": {
+  "vsmart-app/app/onboarding.jsx": {
     "mtime": 1777221417.0,
     "ast_hash": "9a929d4e663dbe5cfa71faddf66057b1",
     "semantic_hash": "9a929d4e663dbe5cfa71faddf66057b1"
   },
-  "vsmart-mobile/app/scan.jsx": {
+  "vsmart-app/app/scan.jsx": {
     "mtime": 1777282387.0,
     "ast_hash": "a1beb8c75d21c16fd22d37b57d36cd34",
     "semantic_hash": "a1beb8c75d21c16fd22d37b57d36cd34"
   },
-  "vsmart-mobile/babel.config.js": {
+  "vsmart-app/babel.config.js": {
     "mtime": 1777219964.0,
     "ast_hash": "6b8b8a80ab46ab817813c3f435912036",
     "semantic_hash": "6b8b8a80ab46ab817813c3f435912036"
   },
-  "vsmart-mobile/eslint.config.js": {
+  "vsmart-app/eslint.config.js": {
     "mtime": 499162500.0,
     "ast_hash": "560a864580ad8107fbbf8d6d452c82fe",
     "semantic_hash": "560a864580ad8107fbbf8d6d452c82fe"
   },
-  "vsmart-mobile/expo-env.d.ts": {
+  "vsmart-app/expo-env.d.ts": {
     "mtime": 1782747431.3743834,
     "ast_hash": "0dd9dccdb4b08595bc83df70d6a154d3",
     "semantic_hash": "0dd9dccdb4b08595bc83df70d6a154d3"
   },
-  "vsmart-mobile/metro.config.js": {
+  "vsmart-app/metro.config.js": {
     "mtime": 1777219960.0,
     "ast_hash": "cc364165e1adb9c1e60179ca78e72b37",
     "semantic_hash": "cc364165e1adb9c1e60179ca78e72b37"
   },
-  "vsmart-mobile/package.json": {
+  "vsmart-app/package.json": {
     "mtime": 1782752205.7903545,
     "ast_hash": "1b7188a6f559fa073a2660566173cea6",
     "semantic_hash": "1b7188a6f559fa073a2660566173cea6"
   },
-  "vsmart-mobile/src/api/deviceApi.js": {
+  "vsmart-app/src/api/deviceApi.js": {
     "mtime": 1777216986.0,
     "ast_hash": "2e6303ceaac770304dc41e14948ba4a5",
     "semantic_hash": "2e6303ceaac770304dc41e14948ba4a5"
   },
-  "vsmart-mobile/src/components/ui/BottomSheetModal.jsx": {
+  "vsmart-app/src/components/ui/BottomSheetModal.jsx": {
     "mtime": 1777280841.0,
     "ast_hash": "f54d04bb059d911da20b6bde52fcc455",
     "semantic_hash": "f54d04bb059d911da20b6bde52fcc455"
   },
-  "vsmart-mobile/src/components/ui/ConfirmModal.jsx": {
+  "vsmart-app/src/components/ui/ConfirmModal.jsx": {
     "mtime": 1777223261.0,
     "ast_hash": "18840bca6bcb74bd02cc99bf4712c690",
     "semantic_hash": "18840bca6bcb74bd02cc99bf4712c690"
   },
-  "vsmart-mobile/src/components/ui/FormField.jsx": {
+  "vsmart-app/src/components/ui/FormField.jsx": {
     "mtime": 1777280847.0,
     "ast_hash": "20f871ee7ddf63223cceee3aaefba715",
     "semantic_hash": "20f871ee7ddf63223cceee3aaefba715"
   },
-  "vsmart-mobile/src/components/ui/TabBar.jsx": {
+  "vsmart-app/src/components/ui/TabBar.jsx": {
     "mtime": 1777223101.0,
     "ast_hash": "227a70e2ef8b8e6cd69ce9dad88ca048",
     "semantic_hash": "227a70e2ef8b8e6cd69ce9dad88ca048"
   },
-  "vsmart-mobile/src/components/ui/Toast.jsx": {
+  "vsmart-app/src/components/ui/Toast.jsx": {
     "mtime": 1777358873.0,
     "ast_hash": "2dbb0805895d410db801aa4507fc730b",
     "semantic_hash": "2dbb0805895d410db801aa4507fc730b"
   },
-  "vsmart-mobile/src/components/ui/index.js": {
+  "vsmart-app/src/components/ui/index.js": {
     "mtime": 1777280854.0,
     "ast_hash": "26984eeb28584fe6104aff20797b5183",
     "semantic_hash": "26984eeb28584fe6104aff20797b5183"
   },
-  "vsmart-mobile/src/configuration.js": {
+  "vsmart-app/src/configuration.js": {
     "mtime": 1782747593.8499637,
     "ast_hash": "0df48249b39b3e25f7d3b8039a21a020",
     "semantic_hash": "0df48249b39b3e25f7d3b8039a21a020"
   },
-  "vsmart-mobile/src/constants/theme.js": {
+  "vsmart-app/src/constants/theme.js": {
     "mtime": 1777220781.0,
     "ast_hash": "0c28dac8260a5776ae89919d5e355a98",
     "semantic_hash": "0c28dac8260a5776ae89919d5e355a98"
   },
-  "vsmart-mobile/src/contexts/DeviceDataContext.jsx": {
+  "vsmart-app/src/contexts/DeviceDataContext.jsx": {
     "mtime": 1782752227.1909235,
     "ast_hash": "cc49c76abbe6d5704f32e8c9caad9b2b",
     "semantic_hash": "cc49c76abbe6d5704f32e8c9caad9b2b"
   },
-  "vsmart-mobile/src/contexts/GeofenceDataContext.jsx": {
+  "vsmart-app/src/contexts/GeofenceDataContext.jsx": {
     "mtime": 1777362084.0,
     "ast_hash": "de04c1c9c2aa2285666fee4a3a13730a",
     "semantic_hash": "de04c1c9c2aa2285666fee4a3a13730a"
   },
-  "vsmart-mobile/src/hooks/useAuth.js": {
+  "vsmart-app/src/hooks/useAuth.js": {
     "mtime": 1777218168.0,
     "ast_hash": "aac8fd3336e2146f5b719c82966dfed4",
     "semantic_hash": "aac8fd3336e2146f5b719c82966dfed4"
   },
-  "vsmart-mobile/src/hooks/useScanner.js": {
+  "vsmart-app/src/hooks/useScanner.js": {
     "mtime": 1777281611.0,
     "ast_hash": "00baab11236a353d09b51142de0d6d7d",
     "semantic_hash": "00baab11236a353d09b51142de0d6d7d"
   },
-  "vsmart-mobile/src/hooks/useSystemNotifications.js": {
+  "vsmart-app/src/hooks/useSystemNotifications.js": {
     "mtime": 1777372084.0,
     "ast_hash": "3e0ab683626813709b2f8d12f9cf1530",
     "semantic_hash": "3e0ab683626813709b2f8d12f9cf1530"
   },
-  "vsmart-mobile/src/realtime/eventSchema.js": {
+  "vsmart-app/src/realtime/eventSchema.js": {
     "mtime": 1777363868.0,
     "ast_hash": "dbeebe1919ad134da065e1b36a4d31f5",
     "semantic_hash": "dbeebe1919ad134da065e1b36a4d31f5"
   },
-  "vsmart-mobile/src/services/localNotificationService.js": {
+  "vsmart-app/src/services/localNotificationService.js": {
     "mtime": 1777347744.0,
     "ast_hash": "fd0a4ff9c7679c60fbef8ab8e91da98b",
     "semantic_hash": "fd0a4ff9c7679c60fbef8ab8e91da98b"
   },
-  "vsmart-mobile/src/utils/aws.js": {
+  "vsmart-app/src/utils/aws.js": {
     "mtime": 1777372088.0,
     "ast_hash": "4e962b0284bf29078019513aebcb8d31",
     "semantic_hash": "4e962b0284bf29078019513aebcb8d31"
   },
-  "vsmart-mobile/src/utils/cognitoAuth.js": {
+  "vsmart-app/src/utils/cognitoAuth.js": {
     "mtime": 1782748463.403717,
     "ast_hash": "3161fe9ff9d553958e4292a82fd629cc",
     "semantic_hash": "3161fe9ff9d553958e4292a82fd629cc"
   },
-  "vsmart-mobile/tsconfig.json": {
+  "vsmart-app/tsconfig.json": {
     "mtime": 1777219975.0,
     "ast_hash": "3d3d93b08d27173642834be8e227901d",
     "semantic_hash": "3d3d93b08d27173642834be8e227901d"
@@ -614,117 +614,117 @@
     "ast_hash": "2aa4a352ab8bbef591039b789a802d65",
     "semantic_hash": "2aa4a352ab8bbef591039b789a802d65"
   },
-  "vsmart-backend/README.md": {
+  "tracking-data-streaming-backend/README.md": {
     "mtime": 1776661412.0,
     "ast_hash": "46664e899468493c345c012d84fe52fb",
     "semantic_hash": "46664e899468493c345c012d84fe52fb"
   },
-  "vsmart-web/README.md": {
+  "tracking-data-streaming-datn/README.md": {
     "mtime": 1775714853.0,
     "ast_hash": "a28dc4cb878325f3e9e5649f3e1469ac",
     "semantic_hash": "a28dc4cb878325f3e9e5649f3e1469ac"
   },
-  "vsmart-web/index.html": {
+  "tracking-data-streaming-datn/index.html": {
     "mtime": 1776660242.0,
     "ast_hash": "ecfe25048fcbf7d5f567b5fc1b2bf7bf",
     "semantic_hash": "ecfe25048fcbf7d5f567b5fc1b2bf7bf"
   },
-  "vsmart-infrastructure/README.md": {
+  "tracking-data-streaming-infrastructure/README.md": {
     "mtime": 1777363301.0,
     "ast_hash": "10ae628bf9f600f03cf80a1f94e74069",
     "semantic_hash": "10ae628bf9f600f03cf80a1f94e74069"
   },
-  "vsmart-infrastructure/lambda/geofence-event-consumer/requirements.txt": {
+  "tracking-data-streaming-infrastructure/lambda/geofence-event-consumer/requirements.txt": {
     "mtime": 1777363138.0,
     "ast_hash": "85afc3a999166aab337a42a1e61e8948",
     "semantic_hash": "85afc3a999166aab337a42a1e61e8948"
   },
-  "vsmart-infrastructure/lambda/iot-message-processor/README.md": {
+  "tracking-data-streaming-infrastructure/lambda/iot-message-processor/README.md": {
     "mtime": 1775718863.0,
     "ast_hash": "65e72dccc20b95ed3a1837efa0682d32",
     "semantic_hash": "65e72dccc20b95ed3a1837efa0682d32"
   },
-  "vsmart-infrastructure/lambda/iot-message-processor/requirements.txt": {
+  "tracking-data-streaming-infrastructure/lambda/iot-message-processor/requirements.txt": {
     "mtime": 1775718599.0,
     "ast_hash": "424ddd71137c6dce7d4772f4c57245b6",
     "semantic_hash": "424ddd71137c6dce7d4772f4c57245b6"
   },
-  "vsmart-infrastructure/lambda/offline-detector/requirements.txt": {
+  "tracking-data-streaming-infrastructure/lambda/offline-detector/requirements.txt": {
     "mtime": 1777364199.0,
     "ast_hash": "85afc3a999166aab337a42a1e61e8948",
     "semantic_hash": "85afc3a999166aab337a42a1e61e8948"
   },
-  "vsmart-infrastructure/lambda/realtime-event-publisher/requirements.txt": {
+  "tracking-data-streaming-infrastructure/lambda/realtime-event-publisher/requirements.txt": {
     "mtime": 1777363125.0,
     "ast_hash": "85afc3a999166aab337a42a1e61e8948",
     "semantic_hash": "85afc3a999166aab337a42a1e61e8948"
   },
-  "vsmart-infrastructure/packaged.yml": {
+  "tracking-data-streaming-infrastructure/packaged.yml": {
     "mtime": 1782723729.4763744,
     "ast_hash": "c48131351dfda989b1de6cfeccc9ca70",
     "semantic_hash": "c48131351dfda989b1de6cfeccc9ca70"
   },
-  "vsmart-infrastructure/template.yml": {
+  "tracking-data-streaming-infrastructure/template.yml": {
     "mtime": 1782722779.971053,
     "ast_hash": "4074fa891914a639c15088adebb37d05",
     "semantic_hash": "4074fa891914a639c15088adebb37d05"
   },
-  "vsmart-mobile/README.md": {
+  "vsmart-app/README.md": {
     "mtime": 499162500.0,
     "ast_hash": "e22acbc85bc1f0b21dd2d4fbb55488b7",
     "semantic_hash": "e22acbc85bc1f0b21dd2d4fbb55488b7"
   },
-  "vsmart-web/public/favicon.svg": {
+  "tracking-data-streaming-datn/public/favicon.svg": {
     "mtime": 1775714853.0,
     "ast_hash": "7e840862161341271697daa99a40d76b",
     "semantic_hash": "7e840862161341271697daa99a40d76b"
   },
-  "vsmart-web/public/icons.svg": {
+  "tracking-data-streaming-datn/public/icons.svg": {
     "mtime": 1775714853.0,
     "ast_hash": "3b4fcfcf393eca4d264dca4a4663bc37",
     "semantic_hash": "3b4fcfcf393eca4d264dca4a4663bc37"
   },
-  "vsmart-web/src/assets/background.png": {
+  "tracking-data-streaming-datn/src/assets/background.png": {
     "mtime": 1782792303.3288262,
     "ast_hash": "8794c50c64df65f12fb99ab1425f74fc",
     "semantic_hash": "8794c50c64df65f12fb99ab1425f74fc"
   },
-  "vsmart-web/src/assets/icon.png": {
+  "tracking-data-streaming-datn/src/assets/icon.png": {
     "mtime": 1777200512.0,
     "ast_hash": "3eb58424713191b29c5e9672b88aa6c2",
     "semantic_hash": "3eb58424713191b29c5e9672b88aa6c2"
   },
-  "vsmart-web/src/assets/icon.svg": {
+  "tracking-data-streaming-datn/src/assets/icon.svg": {
     "mtime": 1777201024.0,
     "ast_hash": "d784f92c0fc08244be78750cb295d8de",
     "semantic_hash": "d784f92c0fc08244be78750cb295d8de"
   },
-  "vsmart-mobile/assets/background.png": {
+  "vsmart-app/assets/background.png": {
     "mtime": 1777200555.0,
     "ast_hash": "2c221613deb72b8bb01f0e3b5490eb13",
     "semantic_hash": "2c221613deb72b8bb01f0e3b5490eb13"
   },
-  "vsmart-mobile/assets/icon-1.png": {
+  "vsmart-app/assets/icon-1.png": {
     "mtime": 1777219377.0,
     "ast_hash": "8b5d6c268f1df3c499c2a5f3986ed8af",
     "semantic_hash": "8b5d6c268f1df3c499c2a5f3986ed8af"
   },
-  "vsmart-mobile/assets/icon-2.png": {
+  "vsmart-app/assets/icon-2.png": {
     "mtime": 1777219421.0,
     "ast_hash": "62eec032cedf52a6f10ce77f486b7947",
     "semantic_hash": "62eec032cedf52a6f10ce77f486b7947"
   },
-  "vsmart-mobile/assets/icon-3.png": {
+  "vsmart-app/assets/icon-3.png": {
     "mtime": 1777220248.0,
     "ast_hash": "83fe48d00be82e5bb5890a5e09e135a1",
     "semantic_hash": "83fe48d00be82e5bb5890a5e09e135a1"
   },
-  "vsmart-mobile/assets/icon.png": {
+  "vsmart-app/assets/icon.png": {
     "mtime": 1777200512.0,
     "ast_hash": "3eb58424713191b29c5e9672b88aa6c2",
     "semantic_hash": "3eb58424713191b29c5e9672b88aa6c2"
   },
-  "vsmart-mobile/assets/icon.svg": {
+  "vsmart-app/assets/icon.svg": {
     "mtime": 1777201024.0,
     "ast_hash": "d784f92c0fc08244be78750cb295d8de",
     "semantic_hash": "d784f92c0fc08244be78750cb295d8de"

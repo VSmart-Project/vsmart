@@ -1,7 +1,6 @@
-# Vsmart module carrier — ESP32-DevKitC (board 2)
+# VSmart module carrier — ESP32-DevKitC (board 2)
 
-Carrier lắp tay cho ESP32-DevKitC 38 chân + A7680C 4G + GPS NEO-7M (Keyestudio
-KS0319) + MPU6050. Board 105.1 × 82.1 mm, 2 lớp, mọi module cắm header.
+Carrier lắp tay cho ESP32-DevKitC 38 chân + A7680C 4G + GPS NEO-7M (GY-GPSU3) + MPU6050. Board 105.1 × 82.1 mm, 2 lớp, mọi module cắm header.
 
 ## Rev C — trạng thái gia công (2026-08-30)
 
@@ -12,8 +11,8 @@ KS0319) + MPU6050. Board 105.1 × 82.1 mm, 2 lớp, mọi module cắm header.
 | Bộ gerber (`analyze_gerbers`) | **0 phát hiện**, đủ 7/7 lớp |
 | Cross-domain | **0 phát hiện** |
 | EMC risk score | 71.5/100 |
-| Via | 294 (285 khâu GND + 4 via hồi dòng) |
-| Lỗ khoan | 365 PTH + 5 NPTH, nhỏ nhất 0.3 mm |
+| Via | 294 (284 khâu GND + 4 hồi dòng + 1 chuyển lớp +3V3) |
+| Lỗ khoan | 364 PTH + 5 NPTH, nhỏ nhất 0.3 mm |
 
 Nộp xưởng: `manufacturing/vsmart-module-carrier-fab.zip` — 10 file phẳng.
 
@@ -68,6 +67,47 @@ phát, hàn một tụ 104 thẳng lên chân VCC/GND của header U4.
 `+5V 1A` / `GND` cạnh J1, `+5V 2A` / `GND` cạnh J2 (mỗi nhãn thẳng hàng với
 chân của nó), `SIM 5V 2A` cạnh U4, `GPS VCC=3V3` cạnh U3, `VSMART CARRIER REV C`
 mặt sau.
+
+
+## Đổi module GPS sang GY-GPSU3 (2026-08-30, cùng ngày)
+
+Board này trước dùng **Keyestudio KS0319** (5 chân, thân 53 mm) trong khi board
+ESP32-S3 đã dùng **GY-GPSU3** (4 chân, thân 25 mm). Nay đã thống nhất.
+
+| | KS0319 | GY-GPSU3 |
+|---|---|---|
+| Chân | 5 (có PPS) | **4 (không PPS)** |
+| Thân | 53 × 26 mm | **25 × 25 mm** |
+| U3.1 | VCC | VCC |
+| U3.2 | GND | **RXD** |
+| U3.3 | TXD | TXD |
+| U3.4 | RXD | **GND** |
+| U3.5 | PPS | — |
+
+**Hệ quả: net `GPS_PPS` bị bỏ hẳn.** GY-GPSU3 không có chân xung giây, nên
+`U1.5 (GPIO34)` nay để trống và đã được đánh dấu no-connect. Nếu firmware của
+bạn có dùng PPS để đồng bộ thời gian, **phải bỏ phần đó** — hoặc lấy thời gian
+từ chuỗi NMEA (độ chính xác ~100 ms thay vì ~10 ns).
+
+Ánh xạ chân đảo hoàn toàn nên phải đi lại 4 đường:
+
+```
++3V3    hành lang B.Cu → via (118, 42.09) → F.Cu → U3.1 (122, 33.19)
+GPS_TX  B.Cu y=34.46 → (118, 35.73) → U3.2 (122, 35.73)
+GPS_RX  B.Cu y=41.03 → (116.74, 38.27) → U3.3 (122, 38.27)
+GND     F.Cu trục dọc x=120.35 → U3.4 (122, 40.81)
+```
+
+`+3V3` phải nhảy sang F.Cu bằng via vì nó tới từ làn dưới cùng (y = 42.09)
+nhưng chân đích lại nằm trên cùng (y = 33.19) — cắt qua cả `GPS_RX` và
+`GPS_TX` nếu đi cùng lớp.
+
+Một via khâu GND tại (120.45, 35.45) bị đường `GPS_TX` mới chạm vào và bị hút
+sang net đó — đã phát hiện qua DRC (`via_dangling`) và xoá.
+
+**Cơ hội chưa khai thác:** module mới nhỏ hơn 28 mm, giải phóng dải x = 69…99.
+Nếu bố trí lại U3/U4/C1 thì có thể thu board xuống ≤ 100 mm để lọt bậc giá rẻ
+(xem `DFM-001`). Chưa làm vì cần đi lại phần lớn đường mạch.
 
 ## Cây nguồn
 

@@ -1,0 +1,310 @@
+{
+  "version": 1,
+  "project": "vsmart-module-esp32-s3-mini.kicad_pro",
+  "current": "2026-09-09_2312",
+  "runs": {
+    "2026-08-29_1802": {
+      "source_hashes": {
+        "vsmart-module-esp32-s3-mini.kicad_sch": "sha256:bbec2453e818260f749a35b5cdb0fd80a6ff0818549bb7221db05137ed83d640",
+        "vsmart-module-esp32-s3-mini.kicad_pcb": "sha256:f070d69ebd5ec8314f469ee1247556be2e74659d6eeccdf336abf170e3424b41",
+        "schematic.json": "sha256:702276afde8970571ac46b2aa4de77aa963ecf8ab277c47f0909ceec0c236143",
+        "pcb.json": "sha256:f19352a7ec57c394188981e72392a401584a507efc679985736063cda393b43d"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "gerber": "gerber.json",
+        "cross_analysis": "cross_analysis.json",
+        "emc": "emc.json",
+        "thermal": "thermal.json"
+      },
+      "scripts": {
+        "schematic": "analyze_schematic.py vsmart-module-esp32-s3-mini.kicad_sch"
+      },
+      "generated": "2026-08-29T18:13:52+07:00",
+      "pinned": false
+    },
+    "2026-08-29_1813": {
+      "source_hashes": {
+        "schematic.json": "sha256:702276afde8970571ac46b2aa4de77aa963ecf8ab277c47f0909ceec0c236143",
+        "pcb.json": "sha256:12effbf2928225f1c40fb45fb9c5f9962fd671134b36c7e886bc3b34c165bf8c",
+        "vsmart-module-esp32-s3-mini.kicad_pcb": "sha256:411bcb095a694b504e3870614a6340cd02ac03c0e9bf6065e92eda95f81d0ebc"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "gerber": "gerber.json",
+        "cross_analysis": "cross_analysis.json",
+        "emc": "emc.json",
+        "thermal": "thermal.json"
+      },
+      "scripts": {
+        "emc": "analyze_emc.py"
+      },
+      "generated": "2026-08-29T18:26:03+07:00",
+      "pinned": false
+    },
+    "2026-08-29_1826": {
+      "source_hashes": {
+        "schematic.json": "sha256:702276afde8970571ac46b2aa4de77aa963ecf8ab277c47f0909ceec0c236143",
+        "pcb.json": "sha256:0fe55baf1b1594a72774402b82ead15e3875a19e752a380f1d32e44605d64dd4",
+        "vsmart-module-esp32-s3-mini.kicad_sch": "sha256:bbec2453e818260f749a35b5cdb0fd80a6ff0818549bb7221db05137ed83d640",
+        "vsmart-module-esp32-s3-mini.kicad_pcb": "sha256:2bfa0a8394bce4149a4c8dce592b5b8eb5c1671c3520b29c632e4158fe133fbb"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "gerber": "gerber.json",
+        "cross_analysis": "cross_analysis.json",
+        "emc": "emc.json",
+        "thermal": "thermal.json"
+      },
+      "scripts": {
+        "emc": "analyze_emc.py"
+      },
+      "generated": "2026-08-29T18:51:40+07:00",
+      "pinned": false
+    },
+    "2026-08-29_1851": {
+      "source_hashes": {
+        "schematic.json": "sha256:dc4d4886924c22b590420f1a06c3773a3624bd5bac93760f0e63e4b610b4e82e",
+        "pcb.json": "sha256:f31f46e115cafa456d75788f1ff7d08cc77df36dd23d230d4c5f7e606cfb2ab8",
+        "vsmart-module-esp32-s3-mini.kicad_sch": "sha256:bbec2453e818260f749a35b5cdb0fd80a6ff0818549bb7221db05137ed83d640",
+        "vsmart-module-esp32-s3-mini.kicad_pcb": "sha256:70ff1755bb7d5aa0c07240aba892c746626b0c518e6fcf2eb37649e81276d246"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "gerber": "gerber.json",
+        "cross_analysis": "cross_analysis.json",
+        "emc": "emc.json",
+        "thermal": "thermal.json"
+      },
+      "scripts": {
+        "emc": "analyze_emc.py"
+      },
+      "generated": "2026-08-29T18:53:28+07:00",
+      "pinned": false
+    },
+    "2026-08-29_1853": {
+      "source_hashes": {
+        "schematic.json": "sha256:702276afde8970571ac46b2aa4de77aa963ecf8ab277c47f0909ceec0c236143",
+        "pcb.json": "sha256:ce0020008d09ee02d6eb3364ca32cb56ef23d30f99cc08a3cfe245724a215ac1",
+        "vsmart-module-esp32-s3-mini.kicad_sch": "sha256:bbec2453e818260f749a35b5cdb0fd80a6ff0818549bb7221db05137ed83d640",
+        "vsmart-module-esp32-s3-mini.kicad_pcb": "sha256:6428912933085cd3d91ba4db1cdb2ee16ec39c7883326eb4f41a777034fb010b"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "gerber": "gerber.json",
+        "cross_analysis": "cross_analysis.json",
+        "emc": "emc.json",
+        "thermal": "thermal.json"
+      },
+      "scripts": {
+        "emc": "analyze_emc.py"
+      },
+      "generated": "2026-08-29T18:57:53+07:00",
+      "pinned": false
+    },
+    "2026-08-29_1857": {
+      "source_hashes": {
+        "schematic.json": "sha256:d27986792bb36e27582da35c67cab4dea8fdb9c1393d11158f67eefd231e2872",
+        "pcb.json": "sha256:835668f0fd8ba17a0d618ccf48bb7ce2790037b341d46be4597b60de473eddf3",
+        "vsmart-module-esp32-s3-mini.kicad_pcb": "sha256:f25d3d518a210b28d17363d8129ff1844440e424be3755abc1c90bf48467245a"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "gerber": "gerber.json",
+        "cross_analysis": "cross_analysis.json",
+        "emc": "emc.json",
+        "thermal": "thermal.json"
+      },
+      "scripts": {
+        "emc": "analyze_emc.py"
+      },
+      "generated": "2026-08-29T19:11:41+07:00",
+      "pinned": false
+    },
+    "2026-08-29_1911": {
+      "source_hashes": {
+        "schematic.json": "sha256:d27986792bb36e27582da35c67cab4dea8fdb9c1393d11158f67eefd231e2872",
+        "pcb.json": "sha256:a76a3ac5fc324fee7f72e01961e6b79cfa4b4839cd39fdd8c871e0bc23a37219"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "gerber": "gerber.json",
+        "cross_analysis": "cross_analysis.json",
+        "emc": "emc.json",
+        "thermal": "thermal.json"
+      },
+      "scripts": {
+        "emc": "analyze_emc.py"
+      },
+      "generated": "2026-08-29T19:11:41+07:00",
+      "pinned": false
+    },
+    "2026-08-30_1110": {
+      "source_hashes": {
+        "vsmart-module-esp32-s3-mini.kicad_sch": "sha256:88fbce356caf26b0432d0718a84024037f46bccba7df1ad93f163561b213cda7"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "gerber": "gerber.json",
+        "cross_analysis": "cross_analysis.json",
+        "emc": "emc.json",
+        "thermal": "thermal.json"
+      },
+      "scripts": {
+        "schematic": "analyze_schematic.py vsmart-module-esp32-s3-mini.kicad_sch"
+      },
+      "generated": "2026-08-30T11:10:56+07:00",
+      "pinned": false
+    },
+    "2026-08-30_1110-2": {
+      "source_hashes": {
+        "vsmart-module-esp32-s3-mini.kicad_pcb": "sha256:a5ac1c27d7f73a9c2bfc16c5a26668d25db36ffd916c8f46e5ef41223357d8ae",
+        "schematic.json": "sha256:b138d7e3d00e06d7460baab07cf24dafd6bed650ff9f1cec31067b4e812bea48",
+        "pcb.json": "sha256:24ac0ecbf239ba3a1cd54ba2988d2bde86156d07aeb89399c3c6ed6413ad1aac",
+        "vsmart-module-esp32-s3-mini.kicad_sch": "sha256:bdb5a5158aeaf9138f81f511b9609ba5086d3527e662c45138144800e0511081"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "gerber": "gerber.json",
+        "cross_analysis": "cross_analysis.json",
+        "emc": "emc.json",
+        "thermal": "thermal.json"
+      },
+      "scripts": {
+        "pcb": "analyze_pcb.py vsmart-module-esp32-s3-mini.kicad_pcb"
+      },
+      "generated": "2026-08-30T16:19:04+07:00",
+      "pinned": false
+    },
+    "2026-08-30_1619": {
+      "source_hashes": {
+        "schematic.json": "sha256:b138d7e3d00e06d7460baab07cf24dafd6bed650ff9f1cec31067b4e812bea48",
+        "pcb.json": "sha256:6265c7f2f0f1ae71c0f7fa6e45f307014cd5527fd89896f06a7b6a788c273fb6",
+        "vsmart-module-esp32-s3-mini.kicad_sch": "sha256:bdb5a5158aeaf9138f81f511b9609ba5086d3527e662c45138144800e0511081",
+        "vsmart-module-esp32-s3-mini.kicad_pcb": "sha256:a0fcd8aa7513269d07be256c588d2402f98c9cb735a849ad2b464c974d2f06d3"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "gerber": "gerber.json",
+        "cross_analysis": "cross_analysis.json",
+        "emc": "emc.json",
+        "thermal": "thermal.json"
+      },
+      "scripts": {
+        "emc": "analyze_emc.py"
+      },
+      "generated": "2026-09-01T20:19:08+07:00",
+      "pinned": false
+    },
+    "2026-09-01_2019": {
+      "source_hashes": {
+        "schematic.json": "sha256:7d032048e34ee532ba4d29912ec834fe0a1a763f05d0f0d6ffa4372edfb4b046",
+        "pcb.json": "sha256:8846e1f94586324f13fd4b557945b23333a3390aab94ed0d718069d25dcc1b45",
+        "vsmart-module-esp32-s3-mini.kicad_pcb": "sha256:695860b333b3bff318d31521376e6dbcd239f838f0031d26cbd313f985a84bcc"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "gerber": "gerber.json",
+        "cross_analysis": "cross_analysis.json",
+        "emc": "emc.json",
+        "thermal": "thermal.json"
+      },
+      "scripts": {
+        "emc": "analyze_emc.py"
+      },
+      "generated": "2026-09-01T20:21:59+07:00",
+      "pinned": false
+    },
+    "2026-09-01_2021": {
+      "source_hashes": {
+        "schematic.json": "sha256:7d032048e34ee532ba4d29912ec834fe0a1a763f05d0f0d6ffa4372edfb4b046",
+        "pcb.json": "sha256:28e6a7a31874764b558911b87a00e28c3636f16809de2cd1a2f3076ed3953f62",
+        "vsmart-module-esp32-s3-mini.kicad_pcb": "sha256:751d7e3fc620f68fb5ad1bb9e03574ca0bee16bb81ac3277397fbfba6334c209"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "gerber": "gerber.json",
+        "cross_analysis": "cross_analysis.json",
+        "emc": "emc.json",
+        "thermal": "thermal.json"
+      },
+      "scripts": {
+        "emc": "analyze_emc.py"
+      },
+      "generated": "2026-09-01T20:23:42+07:00",
+      "pinned": false
+    },
+    "2026-09-01_2023": {
+      "source_hashes": {
+        "schematic.json": "sha256:7d032048e34ee532ba4d29912ec834fe0a1a763f05d0f0d6ffa4372edfb4b046",
+        "pcb.json": "sha256:68d1fa993053fce68c74d769be0f9c092c51096cf8f8c8e37ad35896d94f249a",
+        "vsmart-module-esp32-s3-mini.kicad_pcb": "sha256:177232e66c05be004924b7b8cfee906a6cc327f0644746d5310008321ef72101"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "gerber": "gerber.json",
+        "cross_analysis": "cross_analysis.json",
+        "emc": "emc.json",
+        "thermal": "thermal.json"
+      },
+      "scripts": {
+        "emc": "analyze_emc.py"
+      },
+      "generated": "2026-09-01T20:24:33+07:00",
+      "pinned": false
+    },
+    "2026-09-01_2024": {
+      "source_hashes": {
+        "schematic.json": "sha256:7d032048e34ee532ba4d29912ec834fe0a1a763f05d0f0d6ffa4372edfb4b046",
+        "pcb.json": "sha256:12c9f685ccf79868b5ea08f31380de2e37fa3ff3d4e9704c09c0102e1254a9c6",
+        "vsmart-module-esp32-s3-mini.kicad_sch": "sha256:bdb5a5158aeaf9138f81f511b9609ba5086d3527e662c45138144800e0511081",
+        "vsmart-module-esp32-s3-mini.kicad_pcb": "sha256:5276d8cee5c464dea4fd32760d56bb139899649ab159a37f08895559e955608a"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "gerber": "gerber.json",
+        "cross_analysis": "cross_analysis.json",
+        "emc": "emc.json",
+        "thermal": "thermal.json"
+      },
+      "scripts": {
+        "emc": "analyze_emc.py"
+      },
+      "generated": "2026-09-09T23:12:40+07:00",
+      "pinned": false
+    },
+    "2026-09-09_2312": {
+      "source_hashes": {
+        "schematic.json": "sha256:7d032048e34ee532ba4d29912ec834fe0a1a763f05d0f0d6ffa4372edfb4b046",
+        "pcb.json": "sha256:7733271c2c057c5e8ce78d20e5429881df72ad5c59cf23cbb269ac1c04bdb245"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "gerber": "gerber.json",
+        "cross_analysis": "cross_analysis.json",
+        "emc": "emc.json",
+        "thermal": "thermal.json"
+      },
+      "scripts": {
+        "emc": "analyze_emc.py"
+      },
+      "generated": "2026-09-09T23:12:40+07:00",
+      "pinned": false
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "cross_verify_version": 1,
+  "schematic_file": "",
+  "pcb_file": "",
+  "component_matching": {
+    "schematic_count": 8,
+    "pcb_count": 12,
+    "matched": 8,
+    "orphans": [
+      {
+        "ref": "MH1",
+        "pcb_value": "MountingHole_3.2mm_M3",
+        "status": "fail",
+        "message": "MH1 in PCB but not in schematic (stale placement?)"
+      },
+      {
+        "ref": "MH2",
+        "pcb_value": "MountingHole_3.2mm_M3",
+        "status": "fail",
+        "message": "MH2 in PCB but not in schematic (stale placement?)"
+      },
+      {
+        "ref": "MH3",
+        "pcb_value": "MountingHole_3.2mm_M3",
+        "status": "fail",
+        "message": "MH3 in PCB but not in schematic (stale placement?)"
+      },
+      {
+        "ref": "MH4",
+        "pcb_value": "MountingHole_3.2mm_M3",
+        "status": "fail",
+        "message": "MH4 in PCB but not in schematic (stale placement?)"
+      }
+    ],
+    "missing": [],
+    "value_mismatches": [],
+    "dnp_conflicts": []
+  },
+  "decoupling_placement": [
+    {
+      "ic_ref": "+5V_SIM",
+      "cap_ref": "C1",
+      "cap_value": "1000uF/16V LOW-ESR",
+      "status": "info",
+      "message": "C1 or +5V_SIM not found in PCB placement"
+    },
+    {
+      "ic_ref": "+5V",
+      "cap_ref": "C3",
+      "cap_value": "470uF/10V",
+      "status": "info",
+      "message": "C3 or +5V not found in PCB placement"
+    }
+  ],
+  "summary": {
+    "total_checks": 2,
+    "pass": 0,
+    "warning": 0,
+    "fail": 4,
+    "info": 2
+  }
+}

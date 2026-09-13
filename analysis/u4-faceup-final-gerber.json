@@ -1,0 +1,718 @@
+{
+  "analyzer_type": "gerber",
+  "schema_version": "1.4.0",
+  "directory": "gerbers-u4-faceup",
+  "generator": "Pcbnew 10.0.5",
+  "layer_count": 2,
+  "board_dimensions": {
+    "width_mm": 95.1,
+    "height_mm": 70.1,
+    "area_mm2": 6666.5,
+    "source": "gbrjob"
+  },
+  "statistics": {
+    "gerber_files": 8,
+    "drill_files": 2,
+    "total_holes": 92,
+    "total_flashes": 324,
+    "total_draws": 12003
+  },
+  "completeness": {
+    "found_layers": [
+      "B.Cu",
+      "B.Mask",
+      "B.SilkS",
+      "Edge.Cuts",
+      "F.Cu",
+      "F.Mask",
+      "F.Paste",
+      "F.SilkS"
+    ],
+    "expected_layers": [
+      "B.Cu",
+      "B.Mask",
+      "B.SilkS",
+      "Edge.Cuts",
+      "F.Cu",
+      "F.Mask",
+      "F.Paste",
+      "F.SilkS"
+    ],
+    "missing": [],
+    "extra": [],
+    "has_pth_drill": true,
+    "has_npth_drill": true,
+    "complete": true,
+    "source": "gbrjob"
+  },
+  "alignment": {
+    "aligned": true,
+    "issues": [],
+    "layer_extents": {
+      "B.Cu": {
+        "width": 93.999,
+        "height": 68.999
+      },
+      "B.Mask": {
+        "width": 87.0,
+        "height": 61.0
+      },
+      "B.SilkS": {
+        "width": 15.814,
+        "height": 0.9
+      },
+      "Edge.Cuts": {
+        "width": 95.0,
+        "height": 70.0
+      },
+      "F.Cu": {
+        "width": 93.999,
+        "height": 68.999
+      },
+      "F.Mask": {
+        "width": 87.0,
+        "height": 61.0
+      },
+      "F.Paste": {
+        "width": 0,
+        "height": 0
+      },
+      "F.SilkS": {
+        "width": 90.1,
+        "height": 72.404
+      },
+      "drill_NPTH": {
+        "width": 85.0,
+        "height": 60.0
+      },
+      "drill_PTH": {
+        "width": 78.074,
+        "height": 59.0
+      }
+    }
+  },
+  "drill_classification": {
+    "vias": {
+      "count": 17,
+      "tools": [
+        {
+          "diameter_mm": 0.4,
+          "count": 17
+        }
+      ]
+    },
+    "component_holes": {
+      "count": 71,
+      "tools": [
+        {
+          "diameter_mm": 0.762,
+          "count": 8
+        },
+        {
+          "diameter_mm": 0.8,
+          "count": 40
+        },
+        {
+          "diameter_mm": 1.0,
+          "count": 18
+        },
+        {
+          "diameter_mm": 1.75,
+          "count": 4
+        },
+        {
+          "diameter_mm": 2.0,
+          "count": 1,
+          "type": "NPTH"
+        }
+      ]
+    },
+    "mounting_holes": {
+      "count": 4,
+      "tools": [
+        {
+          "diameter_mm": 3.2,
+          "count": 4,
+          "type": "NPTH"
+        }
+      ]
+    },
+    "classification_method": "x2_attributes"
+  },
+  "pad_summary": {
+    "smd_apertures": 0,
+    "via_apertures": 34,
+    "heatsink_apertures": 0,
+    "tht_holes": 71,
+    "smd_source": "x2_aperture_function",
+    "smd_ratio": 0.0
+  },
+  "trace_widths": {
+    "unique_widths_mm": [
+      0.2,
+      0.25,
+      0.5,
+      1.0
+    ],
+    "min_trace_mm": 0.2,
+    "max_trace_mm": 1.0,
+    "width_count": 4,
+    "min_feature_mm": 0.2
+  },
+  "component_analysis": {
+    "total_unique": 12,
+    "front_side": 12,
+    "back_side": 0,
+    "component_refs": [
+      "C1",
+      "C3",
+      "J1",
+      "J2",
+      "MH1",
+      "MH2",
+      "MH3",
+      "MH4",
+      "U1",
+      "U2",
+      "U3",
+      "U4"
+    ],
+    "has_x2_data": true,
+    "pads_per_component": {
+      "C1": 2,
+      "C3": 2,
+      "J1": 2,
+      "J2": 2,
+      "MH1": 1,
+      "MH2": 1,
+      "MH3": 1,
+      "MH4": 1,
+      "U1": 38,
+      "U2": 8,
+      "U3": 4,
+      "U4": 13
+    },
+    "total_pads": 75
+  },
+  "net_analysis": {
+    "total_unique": 16,
+    "named_nets": 16,
+    "unnamed_nets": 0,
+    "power_nets": [
+      "+3V3",
+      "+5V",
+      "+5V_SIM",
+      "GND"
+    ],
+    "signal_nets": [
+      "GPS_PPS",
+      "GPS_RX",
+      "GPS_TX",
+      "I2C_SCL",
+      "I2C_SDA",
+      "MPU_INT",
+      "N/C",
+      "SIM_DTR",
+      "SIM_RI",
+      "SIM_RST",
+      "SIM_RX",
+      "SIM_TX"
+    ],
+    "total_pins": 70
+  },
+  "gerbers": [
+    {
+      "filename": "vsmart-module-carrier-B_Cu.gbl",
+      "layer_type": "B.Cu",
+      "units": "mm",
+      "aperture_count": 17,
+      "flash_count": 87,
+      "draw_count": 4111,
+      "region_count": 1,
+      "x2_attributes": {
+        "GenerationSoftware": "KiCad,Pcbnew,10.0.5",
+        "CreationDate": "2026-08-31T10:20:10+07:00",
+        "ProjectId": "vsmart-module-carrier,76736d61-7274-42d6-9d6f-64756c652d63,rev?",
+        "SameCoordinates": "Original",
+        "FileFunction": "Copper,L2,Bot",
+        "FilePolarity": "Positive"
+      },
+      "aperture_analysis": {
+        "by_function": {
+          "ComponentPad": 13,
+          "ViaPad": 1,
+          "Conductor": 3
+        },
+        "by_function_flashes": {
+          "ComponentPad": 70,
+          "ViaPad": 17,
+          "Conductor": 0
+        },
+        "conductor_widths_mm": [
+          0.2,
+          0.25,
+          1.0
+        ],
+        "min_feature_mm": 0.2
+      },
+      "x2_component_count": 0,
+      "x2_net_count": 16,
+      "x2_pin_count": 70
+    },
+    {
+      "filename": "vsmart-module-carrier-B_Mask.gbs",
+      "layer_type": "B.Mask",
+      "units": "mm",
+      "aperture_count": 14,
+      "flash_count": 75,
+      "draw_count": 0,
+      "region_count": 0,
+      "x2_attributes": {
+        "GenerationSoftware": "KiCad,Pcbnew,10.0.5",
+        "CreationDate": "2026-08-31T10:20:10+07:00",
+        "ProjectId": "vsmart-module-carrier,76736d61-7274-42d6-9d6f-64756c652d63,rev?",
+        "SameCoordinates": "Original",
+        "FileFunction": "Soldermask,Bot",
+        "FilePolarity": "Negative"
+      },
+      "aperture_analysis": {
+        "min_feature_mm": 0.5
+      },
+      "x2_component_count": 12,
+      "x2_net_count": 0,
+      "x2_pin_count": 0
+    },
+    {
+      "filename": "vsmart-module-carrier-B_Silkscreen.gbo",
+      "layer_type": "B.SilkS",
+      "units": "mm",
+      "aperture_count": 1,
+      "flash_count": 0,
+      "draw_count": 129,
+      "region_count": 0,
+      "x2_attributes": {
+        "GenerationSoftware": "KiCad,Pcbnew,10.0.5",
+        "CreationDate": "2026-08-31T10:20:10+07:00",
+        "ProjectId": "vsmart-module-carrier,76736d61-7274-42d6-9d6f-64756c652d63,rev?",
+        "SameCoordinates": "Original",
+        "FileFunction": "Legend,Bot",
+        "FilePolarity": "Positive"
+      },
+      "aperture_analysis": {
+        "min_feature_mm": 0.15
+      }
+    },
+    {
+      "filename": "vsmart-module-carrier-Edge_Cuts.gm1",
+      "layer_type": "Edge.Cuts",
+      "units": "mm",
+      "aperture_count": 1,
+      "flash_count": 0,
+      "draw_count": 8,
+      "region_count": 0,
+      "x2_attributes": {
+        "GenerationSoftware": "KiCad,Pcbnew,10.0.5",
+        "CreationDate": "2026-08-31T10:20:10+07:00",
+        "ProjectId": "vsmart-module-carrier,76736d61-7274-42d6-9d6f-64756c652d63,rev?",
+        "SameCoordinates": "Original",
+        "FileFunction": "Profile,NP"
+      },
+      "aperture_analysis": {
+        "by_function": {
+          "Profile": 1
+        },
+        "by_function_flashes": {
+          "Profile": 0
+        },
+        "min_feature_mm": 0.1
+      }
+    },
+    {
+      "filename": "vsmart-module-carrier-F_Cu.gtl",
+      "layer_type": "F.Cu",
+      "units": "mm",
+      "aperture_count": 18,
+      "flash_count": 87,
+      "draw_count": 3969,
+      "region_count": 2,
+      "x2_attributes": {
+        "GenerationSoftware": "KiCad,Pcbnew,10.0.5",
+        "CreationDate": "2026-08-31T10:20:10+07:00",
+        "ProjectId": "vsmart-module-carrier,76736d61-7274-42d6-9d6f-64756c652d63,rev?",
+        "SameCoordinates": "Original",
+        "FileFunction": "Copper,L1,Top",
+        "FilePolarity": "Positive"
+      },
+      "aperture_analysis": {
+        "by_function": {
+          "ComponentPad": 13,
+          "ViaPad": 1,
+          "Conductor": 4
+        },
+        "by_function_flashes": {
+          "ComponentPad": 70,
+          "ViaPad": 17,
+          "Conductor": 0
+        },
+        "conductor_widths_mm": [
+          0.2,
+          0.25,
+          0.5,
+          1.0
+        ],
+        "min_feature_mm": 0.2
+      },
+      "x2_component_count": 0,
+      "x2_net_count": 16,
+      "x2_pin_count": 70
+    },
+    {
+      "filename": "vsmart-module-carrier-F_Mask.gts",
+      "layer_type": "F.Mask",
+      "units": "mm",
+      "aperture_count": 14,
+      "flash_count": 75,
+      "draw_count": 0,
+      "region_count": 0,
+      "x2_attributes": {
+        "GenerationSoftware": "KiCad,Pcbnew,10.0.5",
+        "CreationDate": "2026-08-31T10:20:10+07:00",
+        "ProjectId": "vsmart-module-carrier,76736d61-7274-42d6-9d6f-64756c652d63,rev?",
+        "SameCoordinates": "Original",
+        "FileFunction": "Soldermask,Top",
+        "FilePolarity": "Negative"
+      },
+      "aperture_analysis": {
+        "min_feature_mm": 0.5
+      },
+      "x2_component_count": 12,
+      "x2_net_count": 0,
+      "x2_pin_count": 0
+    },
+    {
+      "filename": "vsmart-module-carrier-F_Paste.gtp",
+      "layer_type": "F.Paste",
+      "units": "mm",
+      "aperture_count": 0,
+      "flash_count": 0,
+      "draw_count": 0,
+      "region_count": 0,
+      "x2_attributes": {
+        "GenerationSoftware": "KiCad,Pcbnew,10.0.5",
+        "CreationDate": "2026-08-31T10:20:10+07:00",
+        "ProjectId": "vsmart-module-carrier,76736d61-7274-42d6-9d6f-64756c652d63,rev?",
+        "SameCoordinates": "Original",
+        "FileFunction": "Paste,Top",
+        "FilePolarity": "Positive"
+      }
+    },
+    {
+      "filename": "vsmart-module-carrier-F_Silkscreen.gto",
+      "layer_type": "F.SilkS",
+      "units": "mm",
+      "aperture_count": 6,
+      "flash_count": 0,
+      "draw_count": 3786,
+      "region_count": 0,
+      "x2_attributes": {
+        "GenerationSoftware": "KiCad,Pcbnew,10.0.5",
+        "CreationDate": "2026-08-31T10:20:10+07:00",
+        "ProjectId": "vsmart-module-carrier,76736d61-7274-42d6-9d6f-64756c652d63,rev?",
+        "SameCoordinates": "Original",
+        "FileFunction": "Legend,Top",
+        "FilePolarity": "Positive"
+      },
+      "aperture_analysis": {
+        "min_feature_mm": 0.1
+      },
+      "x2_component_count": 5,
+      "x2_net_count": 0,
+      "x2_pin_count": 0
+    }
+  ],
+  "drills": [
+    {
+      "filename": "vsmart-module-carrier-NPTH.drl",
+      "type": "NPTH",
+      "units": "mm",
+      "hole_count": 5,
+      "tools": {
+        "T1": {
+          "diameter_mm": 2.0,
+          "hole_count": 1,
+          "aper_function": "NonPlated,NPTH,ComponentDrill"
+        },
+        "T2": {
+          "diameter_mm": 3.2,
+          "hole_count": 4,
+          "aper_function": "NonPlated,NPTH,ComponentDrill"
+        }
+      },
+      "layer_span": [
+        1,
+        2
+      ],
+      "x2_attributes": {
+        "CreationDate": "2026-08-31T10:20:11+07:00",
+        "GenerationSoftware": "Kicad,Pcbnew,10.0.5",
+        "FileFunction": "NonPlated,1,2,NPTH"
+      }
+    },
+    {
+      "filename": "vsmart-module-carrier-PTH.drl",
+      "type": "PTH",
+      "units": "mm",
+      "hole_count": 87,
+      "tools": {
+        "T1": {
+          "diameter_mm": 0.4,
+          "hole_count": 17,
+          "aper_function": "Plated,PTH,ViaDrill"
+        },
+        "T2": {
+          "diameter_mm": 0.762,
+          "hole_count": 8,
+          "aper_function": "Plated,PTH,ComponentDrill"
+        },
+        "T3": {
+          "diameter_mm": 0.8,
+          "hole_count": 40,
+          "aper_function": "Plated,PTH,ComponentDrill"
+        },
+        "T4": {
+          "diameter_mm": 1.0,
+          "hole_count": 18,
+          "aper_function": "Plated,PTH,ComponentDrill"
+        },
+        "T5": {
+          "diameter_mm": 1.75,
+          "hole_count": 4,
+          "aper_function": "Plated,PTH,ComponentDrill"
+        }
+      },
+      "layer_span": [
+        1,
+        2
+      ],
+      "x2_attributes": {
+        "CreationDate": "2026-08-31T10:20:11+07:00",
+        "GenerationSoftware": "Kicad,Pcbnew,10.0.5",
+        "FileFunction": "Plated,1,2,PTH"
+      }
+    }
+  ],
+  "drill_tools": {
+    "2.0mm": {
+      "diameter_mm": 2.0,
+      "count": 1,
+      "type": "NPTH"
+    },
+    "3.2mm": {
+      "diameter_mm": 3.2,
+      "count": 4,
+      "type": "NPTH"
+    },
+    "0.4mm": {
+      "diameter_mm": 0.4,
+      "count": 17,
+      "type": "PTH"
+    },
+    "0.762mm": {
+      "diameter_mm": 0.762,
+      "count": 8,
+      "type": "PTH"
+    },
+    "0.8mm": {
+      "diameter_mm": 0.8,
+      "count": 40,
+      "type": "PTH"
+    },
+    "1.0mm": {
+      "diameter_mm": 1.0,
+      "count": 18,
+      "type": "PTH"
+    },
+    "1.75mm": {
+      "diameter_mm": 1.75,
+      "count": 4,
+      "type": "PTH"
+    }
+  },
+  "job_file": {
+    "generator": "Pcbnew 10.0.5",
+    "vendor": "KiCad",
+    "creation_date": "2026-08-31T10:20:10+07:00",
+    "board_width_mm": 95.1,
+    "board_height_mm": 70.1,
+    "layer_count": 2,
+    "board_thickness_mm": 1.6,
+    "finish": "None",
+    "project_name": "vsmart-module-carrier",
+    "design_rules": [
+      {
+        "layers": "Outer",
+        "PadToPad": 0.2,
+        "PadToTrack": 0.2,
+        "TrackToTrack": 0.2,
+        "MinLineWidth": 0.2,
+        "TrackToRegion": 0.3,
+        "RegionToRegion": 0.3
+      }
+    ],
+    "expected_files": [
+      {
+        "path": "vsmart-module-carrier-F_Cu.gtl",
+        "function": "Copper,L1,Top",
+        "polarity": "Positive"
+      },
+      {
+        "path": "vsmart-module-carrier-B_Cu.gbl",
+        "function": "Copper,L2,Bot",
+        "polarity": "Positive"
+      },
+      {
+        "path": "vsmart-module-carrier-F_Paste.gtp",
+        "function": "SolderPaste,Top",
+        "polarity": "Positive"
+      },
+      {
+        "path": "vsmart-module-carrier-F_Silkscreen.gto",
+        "function": "Legend,Top",
+        "polarity": "Positive"
+      },
+      {
+        "path": "vsmart-module-carrier-B_Silkscreen.gbo",
+        "function": "Legend,Bot",
+        "polarity": "Positive"
+      },
+      {
+        "path": "vsmart-module-carrier-F_Mask.gts",
+        "function": "SolderMask,Top",
+        "polarity": "Negative"
+      },
+      {
+        "path": "vsmart-module-carrier-B_Mask.gbs",
+        "function": "SolderMask,Bot",
+        "polarity": "Negative"
+      },
+      {
+        "path": "vsmart-module-carrier-Edge_Cuts.gm1",
+        "function": "Profile",
+        "polarity": "Positive"
+      }
+    ],
+    "stackup": [
+      {
+        "type": "Legend",
+        "name": "Top Silk Screen"
+      },
+      {
+        "type": "SolderPaste",
+        "name": "Top Solder Paste"
+      },
+      {
+        "type": "SolderMask",
+        "name": "Top Solder Mask",
+        "thickness_mm": 0.01
+      },
+      {
+        "type": "Copper",
+        "name": "F.Cu",
+        "thickness_mm": 0.035
+      },
+      {
+        "type": "Dielectric",
+        "name": "F.Cu/B.Cu",
+        "thickness_mm": 1.51,
+        "material": "FR4"
+      },
+      {
+        "type": "Copper",
+        "name": "B.Cu",
+        "thickness_mm": 0.035
+      },
+      {
+        "type": "SolderMask",
+        "name": "Bottom Solder Mask",
+        "thickness_mm": 0.01
+      },
+      {
+        "type": "SolderPaste",
+        "name": "Bottom Solder Paste"
+      },
+      {
+        "type": "Legend",
+        "name": "Bottom Silk Screen"
+      }
+    ]
+  },
+  "findings": [],
+  "assessments": [],
+  "summary": {
+    "total_findings": 0,
+    "by_severity": {
+      "error": 0,
+      "warning": 0,
+      "info": 0
+    }
+  },
+  "trust_summary": {
+    "total_findings": 0,
+    "trust_level": "high",
+    "by_confidence": {
+      "deterministic": 0,
+      "heuristic": 0,
+      "datasheet_backed": 0
+    },
+    "by_evidence_source": {
+      "datasheet": 0,
+      "topology": 0,
+      "heuristic_rule": 0,
+      "symbol_footprint": 0,
+      "bom": 0,
+      "geometry": 0,
+      "api_lookup": 0
+    },
+    "provenance_coverage_pct": null
+  },
+  "inputs": {
+    "source_files": [
+      "gerbers-u4-faceup/vsmart-module-carrier-B_Cu.gbl",
+      "gerbers-u4-faceup/vsmart-module-carrier-B_Mask.gbs",
+      "gerbers-u4-faceup/vsmart-module-carrier-B_Silkscreen.gbo",
+      "gerbers-u4-faceup/vsmart-module-carrier-Edge_Cuts.gm1",
+      "gerbers-u4-faceup/vsmart-module-carrier-F_Cu.gtl",
+      "gerbers-u4-faceup/vsmart-module-carrier-F_Mask.gts",
+      "gerbers-u4-faceup/vsmart-module-carrier-F_Paste.gtp",
+      "gerbers-u4-faceup/vsmart-module-carrier-F_Silkscreen.gto",
+      "gerbers-u4-faceup/vsmart-module-carrier-NPTH.drl",
+      "gerbers-u4-faceup/vsmart-module-carrier-PTH.drl",
+      "gerbers-u4-faceup/vsmart-module-carrier-job.gbrjob"
+    ],
+    "source_hashes": {
+      "gerbers-u4-faceup/vsmart-module-carrier-B_Cu.gbl": "4097b0d27c8658dd43df554109b5f4c102ac8377cb46c835c5fbe1f84cab6164",
+      "gerbers-u4-faceup/vsmart-module-carrier-B_Mask.gbs": "adf0d0023427b15293bf139610bd7307c5ff74112c018d22c99c85708e74232c",
+      "gerbers-u4-faceup/vsmart-module-carrier-B_Silkscreen.gbo": "f6945bdf97b2b8549da3a94156e779eda16231bca22623972aa2174315e19264",
+      "gerbers-u4-faceup/vsmart-module-carrier-Edge_Cuts.gm1": "70b0434040b32d287ef8fbcf4178396a76a7866fcab8572bf0cdb1f073231f3e",
+      "gerbers-u4-faceup/vsmart-module-carrier-F_Cu.gtl": "8d927f6283ff0f3b2ee890c3ec8e131036a6b26c05f2f18ac521a01f70c414dd",
+      "gerbers-u4-faceup/vsmart-module-carrier-F_Mask.gts": "801c4965821fd4de8587930e620cac301a38cf5469fa7f62baf9ee2d1ad5602e",
+      "gerbers-u4-faceup/vsmart-module-carrier-F_Paste.gtp": "861ea574442a635a0b237ff5aee9f654b60b8ed25e5986dc00eae166b3d38243",
+      "gerbers-u4-faceup/vsmart-module-carrier-F_Silkscreen.gto": "d462c35ad17e3d83f2f1ddced6db16ea50c2d6dacfed2247f594cddfe208b2f9",
+      "gerbers-u4-faceup/vsmart-module-carrier-NPTH.drl": "a4bd4985b96743ee67b8a3e3797fe6a723eecf8b313030ed43fff25050591565",
+      "gerbers-u4-faceup/vsmart-module-carrier-PTH.drl": "923ac8992131e661f891f6cafcf949eb5a0f09edb6df5375a3f783f51f590c67",
+      "gerbers-u4-faceup/vsmart-module-carrier-job.gbrjob": "71de4312dce8ef788e5691cfcda6c767347498cc310e735070797c2390290bc9"
+    },
+    "run_id": "20260831T032022Z-b494ea",
+    "config_hash": null,
+    "upstream_artifacts": {}
+  },
+  "compat": {
+    "minimum_consumer_version": "1.4.0",
+    "deprecated_fields": [],
+    "experimental_fields": []
+  },
+  "capability_mode_ref": {
+    "source": "analysis/capability_mode.json",
+    "run_id": "20260831T032022Z-b494ea"
+  }
+}

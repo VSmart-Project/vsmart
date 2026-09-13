@@ -6,6 +6,39 @@ import {
 import { deviceApi } from '../../api/deviceApi';
 import { clsx } from 'clsx';
 
+// ─── Reverse geocoding (best-effort, resilient) ────────────────────────────
+// Nominatim is public + rate-limited, and on some networks it is DNS-blackholed.
+// So: one shared cache keyed by rounded coords (~11 m), and a circuit breaker
+// that stops hammering it after repeated failures.
+const geocodeCache = new Map();
+const geocodeBreaker = { fails: 0, until: 0 };
+const geoKey = (lat, lon) => `${lat.toFixed(4)},${lon.toFixed(4)}`;
+
+async function reverseGeocode(lat, lon) {
+  const key = geoKey(lat, lon);
+  if (geocodeCache.has(key)) return geocodeCache.get(key);
+  const fallback = `${lat.toFixed(4)}, ${lon.toFixed(4)}`;
+  if (Date.now() < geocodeBreaker.until) return fallback;
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 4000);
+    const res = await fetch(
+      `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=16`,
+      { signal: ctrl.signal, headers: { 'Accept-Language': 'vi' } },
+    );
+    clearTimeout(timer);
+    const data = await res.json();
+    geocodeBreaker.fails = 0;
+    const name = data.display_name || fallback;
+    geocodeCache.set(key, name);
+    return name;
+  } catch {
+    if (++geocodeBreaker.fails >= 3) geocodeBreaker.until = Date.now() + 5 * 60_000;
+    geocodeCache.set(key, fallback);
+    return fallback;
+  }
+}
+
 // ─── Config ────────────────────────────────────────────────────────────────
 
 const VEHICLE_ICON = {
@@ -337,29 +370,34 @@ export default function DeviceDetailPanel({ device, selectedDate, onSelectedDate
     setEvents(parsedEvents.slice(0, 5));
   }, [device, historyPoints]);
 
-  // Translate coordinates to address
-  const fetchAddress = useCallback(async (lat, lon, key) => {
-    try {
-      const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=16`);
-      const data = await res.json();
-      if (data.display_name) {
-        setAddresses(prev => ({ ...prev, [key]: data.display_name }));
-      }
-    } catch {
-      setAddresses(prev => ({ ...prev, [key]: `${lat.toFixed(4)}, ${lon.toFixed(4)}` }));
-    }
-  }, []);
-
+  // Resolve addresses for the timeline events (deduped by rounded coords).
   useEffect(() => {
-    events.forEach(eventItem => {
-      if (eventItem.position) {
-        const key = `${eventItem.position[1]},${eventItem.position[0]}`;
-        if (!addresses[key]) {
-          fetchAddress(eventItem.position[1], eventItem.position[0], key);
-        }
-      }
+    let cancelled = false;
+    const pending = [];
+    const seen = new Set();
+    for (const eventItem of events) {
+      if (!eventItem.position) continue;
+      const [lon, lat] = eventItem.position;
+      const key = geoKey(lat, lon);
+      if (seen.has(key) || addresses[key]) continue;
+      seen.add(key);
+      pending.push({ key, lat, lon });
+    }
+    if (pending.length === 0) return undefined;
+    Promise.all(
+      pending.map(async ({ key, lat, lon }) => [key, await reverseGeocode(lat, lon)]),
+    ).then((results) => {
+      if (cancelled) return;
+      setAddresses(prev => {
+        const next = { ...prev };
+        for (const [k, v] of results) next[k] = v;
+        return next;
+      });
     });
-  }, [events, fetchAddress, addresses]);
+    return () => { cancelled = true; };
+    // `addresses` intentionally omitted — reading it for the guard, not reacting to it.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [events]);
 
   // Day summary derived from the same movement heuristic used for the timeline
   const daySummary = useMemo(() => {
@@ -644,7 +682,7 @@ export default function DeviceDetailPanel({ device, selectedDate, onSelectedDate
             ) : events.length > 0 ? (
               <ol className="relative">
                 {events.map((eventItem, index) => {
-                  const key = eventItem.position ? `${eventItem.position[1]},${eventItem.position[0]}` : '';
+                  const key = eventItem.position ? geoKey(eventItem.position[1], eventItem.position[0]) : '';
                   const addr = addresses[key] || 'Resolving location…';
                   const isDriving = eventItem.type === 'driving';
                   const isLast = index === events.length - 1;

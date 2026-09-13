@@ -1,0 +1,1 @@
+Rotate A7680C module to opposite orientation while preserving the photographed pinout and existing electrical nets.

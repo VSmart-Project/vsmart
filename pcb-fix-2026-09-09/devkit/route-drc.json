@@ -1,0 +1,452 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-09-09T22:33:09",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.5",
+    "schematic_parity": [],
+    "source": "vsmart-module-carrier.kicad_pcb",
+    "unconnected_items": [],
+    "violations": [
+        {
+            "description": "Clearance violation (netclass 'SIGNALS' clearance 0.2000 mm; actual 0.0377 mm)",
+            "items": [
+                {
+                    "description": "Track [SIM_RST] on F.Cu, length 1.1767 mm",
+                    "pos": {
+                        "x": 101.0736,
+                        "y": 70.936
+                    },
+                    "uuid": "4db5bdbf-dfed-44c7-b0cf-2052d0729cf9"
+                },
+                {
+                    "description": "Track [+5V_SIM] on F.Cu, length 1.0075 mm",
+                    "pos": {
+                        "x": 102.2363,
+                        "y": 70.4225
+                    },
+                    "uuid": "f45ac24f-80f6-4ed4-bd6f-e488474b769d"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'SIGNALS' clearance 0.2000 mm; actual 0.0486 mm)",
+            "items": [
+                {
+                    "description": "Track [+5V_SIM] on F.Cu, length 33.6663 mm",
+                    "pos": {
+                        "x": 101.5727,
+                        "y": 72.0936
+                    },
+                    "uuid": "d57f87a5-889d-4844-8621-0d9e7b901a0e"
+                },
+                {
+                    "description": "Track [SIM_DTR] on F.Cu, length 38.0733 mm",
+                    "pos": {
+                        "x": 40.9267,
+                        "y": 70.92
+                    },
+                    "uuid": "dc822265-b99b-4ae3-a7e9-7e8e6068867f"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'SIGNALS' clearance 0.2000 mm; actual 0.0603 mm)",
+            "items": [
+                {
+                    "description": "Track [SIM_RST] on F.Cu, length 1.1767 mm",
+                    "pos": {
+                        "x": 101.0736,
+                        "y": 70.936
+                    },
+                    "uuid": "4db5bdbf-dfed-44c7-b0cf-2052d0729cf9"
+                },
+                {
+                    "description": "Track [+5V_SIM] on F.Cu, length 1.2372 mm",
+                    "pos": {
+                        "x": 101.3615,
+                        "y": 69.5477
+                    },
+                    "uuid": "e602b71b-f51b-4c21-8580-6215545d0f00"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'SIGNALS' clearance 0.2000 mm; actual 0.0326 mm)",
+            "items": [
+                {
+                    "description": "Track [SIM_RST] on F.Cu, length 1.1767 mm",
+                    "pos": {
+                        "x": 101.0736,
+                        "y": 70.936
+                    },
+                    "uuid": "4db5bdbf-dfed-44c7-b0cf-2052d0729cf9"
+                },
+                {
+                    "description": "Track [+5V_SIM] on F.Cu, length 33.6663 mm",
+                    "pos": {
+                        "x": 101.5727,
+                        "y": 72.0936
+                    },
+                    "uuid": "d57f87a5-889d-4844-8621-0d9e7b901a0e"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation (netclass 'SIGNALS' clearance 0.2000 mm; actual 0.0465 mm)",
+            "items": [
+                {
+                    "description": "Track [SIM_RST] on F.Cu, length 1.1767 mm",
+                    "pos": {
+                        "x": 101.0736,
+                        "y": 70.936
+                    },
+                    "uuid": "4db5bdbf-dfed-44c7-b0cf-2052d0729cf9"
+                },
+                {
+                    "description": "Track [+5V_SIM] on F.Cu, length 0.9385 mm",
+                    "pos": {
+                        "x": 102.2363,
+                        "y": 71.43
+                    },
+                    "uuid": "ce8d023f-fb52-4f9a-83d1-f8d9505464df"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Items shorting two nets (nets +5V_SIM and SIM_RST)",
+            "items": [
+                {
+                    "description": "Track [+5V_SIM] on F.Cu, length 1.1517 mm",
+                    "pos": {
+                        "x": 101.0736,
+                        "y": 68.396
+                    },
+                    "uuid": "d4867e98-5116-4143-acec-6969a626307b"
+                },
+                {
+                    "description": "PTH pad 9 [SIM_RST] of U4",
+                    "pos": {
+                        "x": 101.0736,
+                        "y": 70.936
+                    },
+                    "uuid": "ee2f5d83-c954-499a-9df2-054f6eb3de84"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Items shorting two nets (nets +5V_SIM and SIM_RST)",
+            "items": [
+                {
+                    "description": "Track [+5V_SIM] on F.Cu, length 0.2879 mm",
+                    "pos": {
+                        "x": 101.0736,
+                        "y": 69.5477
+                    },
+                    "uuid": "540558f8-5f1f-44a5-91b9-eefc87463a0e"
+                },
+                {
+                    "description": "PTH pad 9 [SIM_RST] of U4",
+                    "pos": {
+                        "x": 101.0736,
+                        "y": 70.936
+                    },
+                    "uuid": "ee2f5d83-c954-499a-9df2-054f6eb3de84"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Front solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [+5V_SIM] on F.Cu, length 0.2879 mm",
+                    "pos": {
+                        "x": 101.0736,
+                        "y": 69.5477
+                    },
+                    "uuid": "540558f8-5f1f-44a5-91b9-eefc87463a0e"
+                },
+                {
+                    "description": "PTH pad 9 [SIM_RST] of U4",
+                    "pos": {
+                        "x": 101.0736,
+                        "y": 70.936
+                    },
+                    "uuid": "ee2f5d83-c954-499a-9df2-054f6eb3de84"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Front solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [+5V_SIM] on F.Cu, length 0.9385 mm",
+                    "pos": {
+                        "x": 102.2363,
+                        "y": 71.43
+                    },
+                    "uuid": "ce8d023f-fb52-4f9a-83d1-f8d9505464df"
+                },
+                {
+                    "description": "PTH pad 9 [SIM_RST] of U4",
+                    "pos": {
+                        "x": 101.0736,
+                        "y": 70.936
+                    },
+                    "uuid": "ee2f5d83-c954-499a-9df2-054f6eb3de84"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Front solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [+5V_SIM] on F.Cu, length 0.9385 mm",
+                    "pos": {
+                        "x": 102.2363,
+                        "y": 71.43
+                    },
+                    "uuid": "ce8d023f-fb52-4f9a-83d1-f8d9505464df"
+                },
+                {
+                    "description": "PTH pad 10 [SIM_TX] of U4",
+                    "pos": {
+                        "x": 101.0736,
+                        "y": 73.476
+                    },
+                    "uuid": "a18538d0-363d-4fa4-b344-94fea45f3714"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Front solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [+5V_SIM] on F.Cu, length 1.1517 mm",
+                    "pos": {
+                        "x": 101.0736,
+                        "y": 68.396
+                    },
+                    "uuid": "d4867e98-5116-4143-acec-6969a626307b"
+                },
+                {
+                    "description": "PTH pad 9 [SIM_RST] of U4",
+                    "pos": {
+                        "x": 101.0736,
+                        "y": 70.936
+                    },
+                    "uuid": "ee2f5d83-c954-499a-9df2-054f6eb3de84"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Front solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [+5V_SIM] on F.Cu, length 33.6663 mm",
+                    "pos": {
+                        "x": 101.5727,
+                        "y": 72.0936
+                    },
+                    "uuid": "d57f87a5-889d-4844-8621-0d9e7b901a0e"
+                },
+                {
+                    "description": "PTH pad 2 [SIM_DTR] of U4",
+                    "pos": {
+                        "x": 79.0,
+                        "y": 70.92
+                    },
+                    "uuid": "d1b4604b-8a0e-4334-9a7a-997ebf6b5d0d"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Front solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [+5V_SIM] on F.Cu, length 33.6663 mm",
+                    "pos": {
+                        "x": 101.5727,
+                        "y": 72.0936
+                    },
+                    "uuid": "d57f87a5-889d-4844-8621-0d9e7b901a0e"
+                },
+                {
+                    "description": "PTH pad 3 [<no net>] of U4",
+                    "pos": {
+                        "x": 79.0,
+                        "y": 73.46
+                    },
+                    "uuid": "925166b6-d5e1-410c-9b16-a05194472a9a"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Front solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [+5V_SIM] on F.Cu, length 33.6663 mm",
+                    "pos": {
+                        "x": 101.5727,
+                        "y": 72.0936
+                    },
+                    "uuid": "d57f87a5-889d-4844-8621-0d9e7b901a0e"
+                },
+                {
+                    "description": "PTH pad 9 [SIM_RST] of U4",
+                    "pos": {
+                        "x": 101.0736,
+                        "y": 70.936
+                    },
+                    "uuid": "ee2f5d83-c954-499a-9df2-054f6eb3de84"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Front solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [+5V_SIM] on F.Cu, length 33.6663 mm",
+                    "pos": {
+                        "x": 101.5727,
+                        "y": 72.0936
+                    },
+                    "uuid": "d57f87a5-889d-4844-8621-0d9e7b901a0e"
+                },
+                {
+                    "description": "PTH pad 10 [SIM_TX] of U4",
+                    "pos": {
+                        "x": 101.0736,
+                        "y": 73.476
+                    },
+                    "uuid": "a18538d0-363d-4fa4-b344-94fea45f3714"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Front solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [+5V_SIM] on F.Cu, length 33.6663 mm",
+                    "pos": {
+                        "x": 101.5727,
+                        "y": 72.0936
+                    },
+                    "uuid": "d57f87a5-889d-4844-8621-0d9e7b901a0e"
+                },
+                {
+                    "description": "PTH pad 2 [GND] of C1",
+                    "pos": {
+                        "x": 71.0,
+                        "y": 74.0
+                    },
+                    "uuid": "0f09a99a-6bfc-4a66-937b-32738b62fd3b"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Front solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [+5V_SIM] on F.Cu, length 1.2372 mm",
+                    "pos": {
+                        "x": 101.3615,
+                        "y": 69.5477
+                    },
+                    "uuid": "e602b71b-f51b-4c21-8580-6215545d0f00"
+                },
+                {
+                    "description": "PTH pad 9 [SIM_RST] of U4",
+                    "pos": {
+                        "x": 101.0736,
+                        "y": 70.936
+                    },
+                    "uuid": "ee2f5d83-c954-499a-9df2-054f6eb3de84"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Front solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [+5V_SIM] on F.Cu, length 1.0075 mm",
+                    "pos": {
+                        "x": 102.2363,
+                        "y": 70.4225
+                    },
+                    "uuid": "f45ac24f-80f6-4ed4-bd6f-e488474b769d"
+                },
+                {
+                    "description": "PTH pad 9 [SIM_RST] of U4",
+                    "pos": {
+                        "x": 101.0736,
+                        "y": 70.936
+                    },
+                    "uuid": "ee2f5d83-c954-499a-9df2-054f6eb3de84"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        }
+    ]
+}

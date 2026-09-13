@@ -1,0 +1,7086 @@
+{
+  "analyzer_type": "schematic",
+  "schema_version": "1.4.0",
+  "summary": {
+    "total_findings": 24,
+    "by_severity": {
+      "error": 9,
+      "warning": 0,
+      "info": 15
+    }
+  },
+  "trust_summary": {
+    "total_findings": 24,
+    "trust_level": "low",
+    "by_confidence": {
+      "deterministic": 10,
+      "heuristic": 14,
+      "datasheet_backed": 0
+    },
+    "by_evidence_source": {
+      "datasheet": 0,
+      "topology": 22,
+      "heuristic_rule": 0,
+      "symbol_footprint": 0,
+      "bom": 2,
+      "geometry": 0,
+      "api_lookup": 0
+    },
+    "provenance_coverage_pct": 83.3,
+    "bom_coverage": {
+      "total_components": 8,
+      "with_mpn": 0,
+      "with_datasheet": 3,
+      "mpn_pct": 0.0,
+      "datasheet_pct": 37.5
+    }
+  },
+  "kicad_version": "10.0",
+  "file_version": "20260101",
+  "title_block": {},
+  "statistics": {
+    "total_components": 8,
+    "unique_parts": 8,
+    "dnp_parts": 0,
+    "total_nets": 26,
+    "total_wires": 0,
+    "total_no_connects": 12,
+    "component_types": {
+      "ic": 4,
+      "capacitor": 2,
+      "connector": 2
+    },
+    "power_rails": [
+      {
+        "name": "+3V3",
+        "voltage": 3.3
+      },
+      {
+        "name": "+5V",
+        "voltage": 5.0
+      },
+      {
+        "name": "+5V_SIM",
+        "voltage": 5.0
+      },
+      {
+        "name": "GND",
+        "voltage": null
+      }
+    ],
+    "missing_mpn": [
+      "U2",
+      "U4",
+      "C1",
+      "C3",
+      "J1",
+      "J2",
+      "U1",
+      "U3"
+    ],
+    "missing_footprint": []
+  },
+  "findings": [
+    {
+      "standard": "FCC Part 15",
+      "region": "US",
+      "reason": "Wireless module detected: U1",
+      "detector": "suggest_certifications",
+      "rule_id": "CERT-001",
+      "category": "certification",
+      "severity": "info",
+      "confidence": "heuristic",
+      "evidence_source": "topology",
+      "summary": "Wireless module detected: U1",
+      "description": "FCC Part 15: Wireless module detected: U1",
+      "components": [],
+      "nets": [],
+      "pins": [],
+      "recommendation": "",
+      "report_context": {
+        "section": "Certifications",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "detection_id": "suggested_certifications:7727701db685",
+      "stages": [
+        "schematic"
+      ],
+      "finding_id": "schematic:suggested_certifications-7727701db685"
+    },
+    {
+      "rail": "+5V_SIM",
+      "capacitors": [
+        {
+          "ref": "C1",
+          "value": "1000uF/16V LOW-ESR",
+          "farads": 0.001,
+          "self_resonant_hz": 159155.0,
+          "dielectric": "X7R",
+          "rated_voltage_V": 16.0
+        }
+      ],
+      "total_capacitance_uF": 1000.0,
+      "cap_count": 1,
+      "detector": "detect_decoupling",
+      "rule_id": "DC-DET",
+      "category": "decoupling",
+      "severity": "info",
+      "confidence": "deterministic",
+      "evidence_source": "topology",
+      "summary": "Decoupling on +5V_SIM",
+      "description": "Decoupling capacitors on power rail +5V_SIM",
+      "components": [
+        "C1"
+      ],
+      "nets": [],
+      "pins": [],
+      "recommendation": "",
+      "report_context": {
+        "section": "Decoupling",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "provenance": {
+        "evidence": "decoup_cap_near_ic",
+        "confidence": "deterministic",
+        "claimed_components": [
+          "C1"
+        ],
+        "excluded_by": [],
+        "suppressed_candidates": []
+      },
+      "detection_id": "decoupling_analysis:9a1adf60f6b2",
+      "stages": [
+        "schematic",
+        "layout"
+      ],
+      "finding_id": "schematic:decoupling_analysis-9a1adf60f6b2"
+    },
+    {
+      "rail": "+5V",
+      "capacitors": [
+        {
+          "ref": "C3",
+          "value": "470uF/10V",
+          "farads": 0.00047,
+          "self_resonant_hz": 232151.0,
+          "dielectric": "X7R",
+          "rated_voltage_V": 10.0
+        }
+      ],
+      "total_capacitance_uF": 470.0,
+      "cap_count": 1,
+      "detector": "detect_decoupling",
+      "rule_id": "DC-DET",
+      "category": "decoupling",
+      "severity": "info",
+      "confidence": "deterministic",
+      "evidence_source": "topology",
+      "summary": "Decoupling on +5V",
+      "description": "Decoupling capacitors on power rail +5V",
+      "components": [
+        "C3"
+      ],
+      "nets": [],
+      "pins": [],
+      "recommendation": "",
+      "report_context": {
+        "section": "Decoupling",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "provenance": {
+        "evidence": "decoup_cap_near_ic",
+        "confidence": "deterministic",
+        "claimed_components": [
+          "C3"
+        ],
+        "excluded_by": [],
+        "suppressed_candidates": []
+      },
+      "detection_id": "decoupling_analysis:9a1adf60f6b2",
+      "stages": [
+        "schematic",
+        "layout"
+      ],
+      "finding_id": "schematic:decoupling_analysis-9a1adf60f6b2#1"
+    },
+    {
+      "category": "decoupling_coverage",
+      "rail": "+5V_SIM",
+      "cap_count": 1,
+      "total_uF": 1000.0,
+      "has_bulk": true,
+      "has_bypass": false,
+      "has_high_freq": false,
+      "detector": "detect_design_observations",
+      "rule_id": "DO-DET",
+      "severity": "info",
+      "confidence": "heuristic",
+      "evidence_source": "topology",
+      "summary": "Decoupling coverage on +5V_SIM",
+      "description": "Decoupling frequency coverage for rail +5V_SIM",
+      "components": [
+        "C1"
+      ],
+      "nets": [],
+      "pins": [],
+      "recommendation": "",
+      "report_context": {
+        "section": "Design Observations",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "provenance": {
+        "evidence": "obs_topology",
+        "confidence": "heuristic",
+        "claimed_components": [
+          "C1"
+        ],
+        "excluded_by": [],
+        "suppressed_candidates": []
+      },
+      "detection_id": "",
+      "stages": [
+        "schematic"
+      ],
+      "finding_id": "schematic:DO-DET-c1"
+    },
+    {
+      "category": "decoupling_coverage",
+      "rail": "+5V",
+      "cap_count": 1,
+      "total_uF": 470.0,
+      "has_bulk": true,
+      "has_bypass": false,
+      "has_high_freq": false,
+      "detector": "detect_design_observations",
+      "rule_id": "DO-DET",
+      "severity": "info",
+      "confidence": "heuristic",
+      "evidence_source": "topology",
+      "summary": "Decoupling coverage on +5V",
+      "description": "Decoupling frequency coverage for rail +5V",
+      "components": [
+        "C3"
+      ],
+      "nets": [],
+      "pins": [],
+      "recommendation": "",
+      "report_context": {
+        "section": "Design Observations",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "provenance": {
+        "evidence": "obs_topology",
+        "confidence": "heuristic",
+        "claimed_components": [
+          "C3"
+        ],
+        "excluded_by": [],
+        "suppressed_candidates": []
+      },
+      "detection_id": "",
+      "stages": [
+        "schematic"
+      ],
+      "finding_id": "schematic:DO-DET-c3"
+    },
+    {
+      "category": "i2c_bus",
+      "net": "I2C_SCL",
+      "line": "SCL",
+      "devices": [
+        "U2",
+        "U1"
+      ],
+      "has_pullup": false,
+      "pullup_resistor": null,
+      "pullup_rail": null,
+      "detector": "detect_design_observations",
+      "rule_id": "DO-DET",
+      "severity": "info",
+      "confidence": "heuristic",
+      "evidence_source": "topology",
+      "summary": "I2C SCL bus on I2C_SCL",
+      "description": "I2C SCL bus detected with 2 device(s)",
+      "components": [
+        "U1",
+        "U2"
+      ],
+      "nets": [],
+      "pins": [],
+      "recommendation": "",
+      "report_context": {
+        "section": "Design Observations",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "provenance": {
+        "evidence": "obs_topology",
+        "confidence": "heuristic",
+        "claimed_components": [
+          "U2",
+          "U1"
+        ],
+        "excluded_by": [],
+        "suppressed_candidates": []
+      },
+      "detection_id": "",
+      "stages": [
+        "schematic"
+      ],
+      "finding_id": "schematic:DO-DET-u1"
+    },
+    {
+      "category": "i2c_bus",
+      "net": "I2C_SDA",
+      "line": "SDA",
+      "devices": [
+        "U2",
+        "U1"
+      ],
+      "has_pullup": false,
+      "pullup_resistor": null,
+      "pullup_rail": null,
+      "detector": "detect_design_observations",
+      "rule_id": "DO-DET",
+      "severity": "info",
+      "confidence": "heuristic",
+      "evidence_source": "topology",
+      "summary": "I2C SDA bus on I2C_SDA",
+      "description": "I2C SDA bus detected with 2 device(s)",
+      "components": [
+        "U1",
+        "U2"
+      ],
+      "nets": [],
+      "pins": [],
+      "recommendation": "",
+      "report_context": {
+        "section": "Design Observations",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "provenance": {
+        "evidence": "obs_topology",
+        "confidence": "heuristic",
+        "claimed_components": [
+          "U2",
+          "U1"
+        ],
+        "excluded_by": [],
+        "suppressed_candidates": []
+      },
+      "detection_id": "",
+      "stages": [
+        "schematic"
+      ],
+      "finding_id": "schematic:DO-DET-u1#1"
+    },
+    {
+      "category": "decoupling",
+      "component": "U1",
+      "value": "ESP32-S3 SuperMini",
+      "rails_without_caps": [
+        "+3V3"
+      ],
+      "rails_with_caps": [
+        "+5V"
+      ],
+      "detector": "detect_design_observations",
+      "rule_id": "DO-DET",
+      "severity": "info",
+      "confidence": "heuristic",
+      "evidence_source": "topology",
+      "summary": "IC U1 missing decoupling on +3V3",
+      "description": "IC power pin(s) without decoupling capacitors",
+      "components": [
+        "U1"
+      ],
+      "nets": [],
+      "pins": [],
+      "recommendation": "",
+      "report_context": {
+        "section": "Design Observations",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "provenance": {
+        "evidence": "obs_topology",
+        "confidence": "heuristic",
+        "claimed_components": [
+          "U1"
+        ],
+        "excluded_by": [],
+        "suppressed_candidates": []
+      },
+      "detection_id": "",
+      "stages": [
+        "schematic"
+      ],
+      "finding_id": "schematic:DO-DET-u1#2"
+    },
+    {
+      "category": "decoupling",
+      "component": "U2",
+      "value": "MPU6050 GY-521 MODULE",
+      "rails_without_caps": [
+        "+3V3"
+      ],
+      "rails_with_caps": [],
+      "detector": "detect_design_observations",
+      "rule_id": "DO-DET",
+      "severity": "info",
+      "confidence": "heuristic",
+      "evidence_source": "topology",
+      "summary": "IC U2 missing decoupling on +3V3",
+      "description": "IC power pin(s) without decoupling capacitors",
+      "components": [
+        "U2"
+      ],
+      "nets": [],
+      "pins": [],
+      "recommendation": "",
+      "report_context": {
+        "section": "Design Observations",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "provenance": {
+        "evidence": "obs_topology",
+        "confidence": "heuristic",
+        "claimed_components": [
+          "U2"
+        ],
+        "excluded_by": [],
+        "suppressed_candidates": []
+      },
+      "detection_id": "",
+      "stages": [
+        "schematic"
+      ],
+      "finding_id": "schematic:DO-DET-u2"
+    },
+    {
+      "category": "decoupling",
+      "component": "U3",
+      "value": "GPS NEO-7M GY-GPSU3",
+      "rails_without_caps": [
+        "+3V3"
+      ],
+      "rails_with_caps": [],
+      "detector": "detect_design_observations",
+      "rule_id": "DO-DET",
+      "severity": "info",
+      "confidence": "heuristic",
+      "evidence_source": "topology",
+      "summary": "IC U3 missing decoupling on +3V3",
+      "description": "IC power pin(s) without decoupling capacitors",
+      "components": [
+        "U3"
+      ],
+      "nets": [],
+      "pins": [],
+      "recommendation": "",
+      "report_context": {
+        "section": "Design Observations",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "provenance": {
+        "evidence": "obs_topology",
+        "confidence": "heuristic",
+        "claimed_components": [
+          "U3"
+        ],
+        "excluded_by": [],
+        "suppressed_candidates": []
+      },
+      "detection_id": "",
+      "stages": [
+        "schematic"
+      ],
+      "finding_id": "schematic:DO-DET-u3"
+    },
+    {
+      "category": "reset_pin",
+      "component": "U4",
+      "value": "A7680C TDM2309 4G",
+      "pin": "RST",
+      "net": "SIM_RST",
+      "has_pullup": false,
+      "has_filter_cap": false,
+      "connected_components": [
+        {
+          "ref": "U1",
+          "type": "ic"
+        }
+      ],
+      "detector": "detect_design_observations",
+      "rule_id": "DO-DET",
+      "severity": "info",
+      "confidence": "heuristic",
+      "evidence_source": "topology",
+      "summary": "Reset pin on U4 (RST)",
+      "description": "Reset pin configuration for U4",
+      "components": [
+        "U4"
+      ],
+      "nets": [],
+      "pins": [],
+      "recommendation": "",
+      "report_context": {
+        "section": "Design Observations",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "provenance": {
+        "evidence": "obs_topology",
+        "confidence": "heuristic",
+        "claimed_components": [
+          "U4"
+        ],
+        "excluded_by": [],
+        "suppressed_candidates": []
+      },
+      "detection_id": "",
+      "stages": [
+        "schematic"
+      ],
+      "finding_id": "schematic:DO-DET-u4"
+    },
+    {
+      "detector": "audit_datasheet_coverage",
+      "rule_id": "DS-001",
+      "severity": "error",
+      "confidence": "deterministic",
+      "evidence_source": "bom",
+      "category": "verification",
+      "summary": "No datasheets directory found and no BOM parts have MPNs. Review is a consistency check only \u2014 manufacturer specs cannot be verified.",
+      "components": [],
+      "nets": [],
+      "pins": [],
+      "datasheets_dir": null,
+      "datasheet_file_count": 0,
+      "bom_size": 8,
+      "mpn_coverage_percent": 0.0,
+      "recommendation": "Before reporting 'verified' findings, (1) populate the MPN field on BOM parts, (2) run the datasheet sync skill (digikey, mouser, lcsc, or element14) to download PDFs into ./datasheets/, then re-run analysis. If datasheets are unreachable, state every pin-level and electrical claim as 'per symbol/library' (consistency), not 'verified against datasheet' (correctness).",
+      "report_context": {
+        "section": "Datasheet Coverage",
+        "impact": "Report wording must avoid 'verified' / 'datasheet-confirmed' language for every BOM part \u2014 none have manufacturer evidence attached.",
+        "standard_ref": ""
+      },
+      "stages": [
+        "schematic"
+      ],
+      "finding_id": "schematic:DS-001:9820bbea68d9"
+    },
+    {
+      "detector": "validate_i2c_bus",
+      "rule_id": "PR-001",
+      "category": "protocol_integrity",
+      "summary": "I2C bus I2C_SDA/I2C_SCL: SCL missing pull-up",
+      "description": "I2C bus with 1 device(s) (U2) has no pull-up on SCL net I2C_SCL.",
+      "components": [
+        "U2"
+      ],
+      "nets": [
+        "I2C_SCL",
+        "I2C_SDA"
+      ],
+      "pins": [],
+      "severity": "error",
+      "confidence": "deterministic",
+      "evidence_source": "topology",
+      "recommendation": "Add a 4.7k pull-up resistor from SCL to VDD.",
+      "fix_params": {
+        "type": "add_component",
+        "components": [
+          {
+            "type": "resistor",
+            "value": "4.7k",
+            "net_from": "I2C_SCL",
+            "net_to": "<VDD>"
+          }
+        ],
+        "basis": "I2C spec requires pull-ups on SCL"
+      },
+      "report_context": {
+        "section": "Protocol Integrity",
+        "impact": "I2C bus non-functional",
+        "standard_ref": "I2C specification UM10204 section 3.1.1"
+      },
+      "provenance": {
+        "evidence": "pr_i2c_spec",
+        "confidence": "deterministic",
+        "claimed_components": [],
+        "excluded_by": [],
+        "suppressed_candidates": []
+      },
+      "finding_id": "schematic:validation_findings-73e13e76a2b5",
+      "detection_id": "validation_findings:73e13e76a2b5",
+      "stages": [
+        "schematic"
+      ]
+    },
+    {
+      "detector": "validate_i2c_bus",
+      "rule_id": "PR-001",
+      "category": "protocol_integrity",
+      "summary": "I2C bus I2C_SDA/I2C_SCL: SDA missing pull-up",
+      "description": "I2C bus with 1 device(s) (U2) has no pull-up on SDA net I2C_SDA.",
+      "components": [
+        "U2"
+      ],
+      "nets": [
+        "I2C_SCL",
+        "I2C_SDA"
+      ],
+      "pins": [],
+      "severity": "error",
+      "confidence": "deterministic",
+      "evidence_source": "topology",
+      "recommendation": "Add a 4.7k pull-up resistor from SDA to VDD.",
+      "fix_params": {
+        "type": "add_component",
+        "components": [
+          {
+            "type": "resistor",
+            "value": "4.7k",
+            "net_from": "I2C_SDA",
+            "net_to": "<VDD>"
+          }
+        ],
+        "basis": "I2C spec requires pull-ups on SDA"
+      },
+      "report_context": {
+        "section": "Protocol Integrity",
+        "impact": "I2C bus non-functional",
+        "standard_ref": "I2C specification UM10204 section 3.1.1"
+      },
+      "provenance": {
+        "evidence": "pr_i2c_spec",
+        "confidence": "deterministic",
+        "claimed_components": [],
+        "excluded_by": [],
+        "suppressed_candidates": []
+      },
+      "finding_id": "schematic:validation_findings-73e13e76a2b5#1",
+      "detection_id": "validation_findings:73e13e76a2b5",
+      "stages": [
+        "schematic"
+      ]
+    },
+    {
+      "ref": "U2",
+      "value": "MPU6050 GY-521 MODULE",
+      "type": "motion",
+      "interface": "i2c",
+      "interrupt_pins": [
+        {
+          "pin": "INT",
+          "net": "MPU_INT",
+          "connected_to_ic": "U1"
+        }
+      ],
+      "bus_peers": [],
+      "detector": "detect_sensor_interfaces",
+      "rule_id": "SI-DET",
+      "category": "sensors",
+      "severity": "info",
+      "confidence": "deterministic",
+      "evidence_source": "topology",
+      "summary": "Sensor U2 (MPU6050 GY-521 MODULE) [motion/i2c]",
+      "description": "Detected motion sensor IC U2.",
+      "components": [
+        "U2"
+      ],
+      "nets": [
+        "I2C_SCL",
+        "I2C_SDA"
+      ],
+      "pins": [],
+      "recommendation": "",
+      "report_context": {
+        "section": "Sensors",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "provenance": {
+        "evidence": "sensor_ic_topology",
+        "confidence": "heuristic",
+        "claimed_components": [
+          "U2"
+        ],
+        "excluded_by": [],
+        "suppressed_candidates": []
+      },
+      "detection_id": "sensor_interfaces:ef00a0fef42c",
+      "stages": [
+        "schematic"
+      ],
+      "finding_id": "schematic:sensor_interfaces-ef00a0fef42c"
+    },
+    {
+      "detector": "audit_sourcing_gate",
+      "rule_id": "SS-001",
+      "severity": "error",
+      "confidence": "deterministic",
+      "evidence_source": "bom",
+      "category": "sourcing",
+      "summary": "Sourcing blocker: BOM has <50% MPN coverage (0/8 unique parts). Board is not pre-fab ready.",
+      "description": "Sourcing audit: 0 of 8 unique BOM lines (grouped by value + footprint) carry a manufacturer part number (0.0%). Pre-fab readiness requires 100% coverage; production assembly requires all parts sourceable via one of the supported distributors.",
+      "components": [
+        "C1",
+        "C3",
+        "J1",
+        "J2",
+        "U1",
+        "U2",
+        "U3",
+        "U4"
+      ],
+      "nets": [],
+      "pins": [],
+      "mpn_coverage_percent": 0.0,
+      "missing_mpn_lines": 8,
+      "missing_mpn_refs": 8,
+      "total_bom_lines": 8,
+      "recommendation": "Populate the MPN field on the listed refs (use the digikey / mouser / lcsc / element14 skill to search by value/footprint when the MPN isn't already known).",
+      "report_context": {
+        "section": "Sourcing",
+        "impact": "Pre-fab gate: board cannot be ordered until MPN coverage reaches 100%.",
+        "standard_ref": ""
+      },
+      "stages": [
+        "pre_fab"
+      ],
+      "finding_id": "schematic:SS-001:c1"
+    },
+    {
+      "detector": "validate_voltage_levels",
+      "rule_id": "VM-001",
+      "category": "signal_integrity",
+      "summary": "Net SIM_DTR: 5.0V / 3.3V domain crossing without level shifter",
+      "description": "Net SIM_DTR connects ICs in 5.0V and 3.3V domains. The 5.0V output may exceed the 3.3V input absolute maximum rating of 3.6V, risking damage.",
+      "components": [
+        "U1",
+        "U4"
+      ],
+      "nets": [
+        "SIM_DTR"
+      ],
+      "pins": [
+        {
+          "ref": "U4",
+          "pin": "DTR",
+          "function": "signal_io"
+        },
+        {
+          "ref": "U1",
+          "pin": "GPIO11",
+          "function": "signal_io"
+        }
+      ],
+      "severity": "error",
+      "confidence": "heuristic",
+      "evidence_source": "topology",
+      "recommendation": "Add a level shifter between the 5.0V and 3.3V domains on net SIM_DTR, or verify that the connected ICs have tolerant inputs.",
+      "fix_params": {
+        "type": "add_component",
+        "components": [
+          {
+            "type": "level_shifter",
+            "domain_a": "5.0V",
+            "domain_b": "3.3V",
+            "nets": [
+              "SIM_DTR"
+            ]
+          }
+        ],
+        "basis": "Net crosses 5.0V to 3.3V boundary"
+      },
+      "report_context": {
+        "section": "Signal Integrity",
+        "impact": "Risk of damage or unreliable logic levels",
+        "standard_ref": ""
+      },
+      "provenance": {
+        "evidence": "vm_rail_mismatch",
+        "confidence": "deterministic",
+        "claimed_components": [],
+        "excluded_by": [],
+        "suppressed_candidates": []
+      },
+      "schema_era": "v1.4",
+      "finding_id": "schematic:validation_findings-945c941105cc",
+      "detection_id": "validation_findings:945c941105cc",
+      "stages": [
+        "schematic"
+      ]
+    },
+    {
+      "detector": "validate_voltage_levels",
+      "rule_id": "VM-001",
+      "category": "signal_integrity",
+      "summary": "Net SIM_RI: 5.0V / 3.3V domain crossing without level shifter",
+      "description": "Net SIM_RI connects ICs in 5.0V and 3.3V domains. The 5.0V output may exceed the 3.3V input absolute maximum rating of 3.6V, risking damage.",
+      "components": [
+        "U1",
+        "U4"
+      ],
+      "nets": [
+        "SIM_RI"
+      ],
+      "pins": [
+        {
+          "ref": "U4",
+          "pin": "RI",
+          "function": "signal_io"
+        },
+        {
+          "ref": "U1",
+          "pin": "GPIO13",
+          "function": "signal_io"
+        }
+      ],
+      "severity": "error",
+      "confidence": "heuristic",
+      "evidence_source": "topology",
+      "recommendation": "Add a level shifter between the 5.0V and 3.3V domains on net SIM_RI, or verify that the connected ICs have tolerant inputs.",
+      "fix_params": {
+        "type": "add_component",
+        "components": [
+          {
+            "type": "level_shifter",
+            "domain_a": "5.0V",
+            "domain_b": "3.3V",
+            "nets": [
+              "SIM_RI"
+            ]
+          }
+        ],
+        "basis": "Net crosses 5.0V to 3.3V boundary"
+      },
+      "report_context": {
+        "section": "Signal Integrity",
+        "impact": "Risk of damage or unreliable logic levels",
+        "standard_ref": ""
+      },
+      "provenance": {
+        "evidence": "vm_rail_mismatch",
+        "confidence": "deterministic",
+        "claimed_components": [],
+        "excluded_by": [],
+        "suppressed_candidates": []
+      },
+      "schema_era": "v1.4",
+      "finding_id": "schematic:validation_findings-945c941105cc#1",
+      "detection_id": "validation_findings:945c941105cc",
+      "stages": [
+        "schematic"
+      ]
+    },
+    {
+      "detector": "validate_voltage_levels",
+      "rule_id": "VM-001",
+      "category": "signal_integrity",
+      "summary": "Net SIM_RST: 5.0V / 3.3V domain crossing without level shifter",
+      "description": "Net SIM_RST connects ICs in 5.0V and 3.3V domains. The 5.0V output may exceed the 3.3V input absolute maximum rating of 3.6V, risking damage.",
+      "components": [
+        "U1",
+        "U4"
+      ],
+      "nets": [
+        "SIM_RST"
+      ],
+      "pins": [
+        {
+          "ref": "U4",
+          "pin": "RST",
+          "function": "signal_io"
+        },
+        {
+          "ref": "U1",
+          "pin": "GPIO12",
+          "function": "signal_io"
+        }
+      ],
+      "severity": "error",
+      "confidence": "heuristic",
+      "evidence_source": "topology",
+      "recommendation": "Add a level shifter between the 5.0V and 3.3V domains on net SIM_RST, or verify that the connected ICs have tolerant inputs.",
+      "fix_params": {
+        "type": "add_component",
+        "components": [
+          {
+            "type": "level_shifter",
+            "domain_a": "5.0V",
+            "domain_b": "3.3V",
+            "nets": [
+              "SIM_RST"
+            ]
+          }
+        ],
+        "basis": "Net crosses 5.0V to 3.3V boundary"
+      },
+      "report_context": {
+        "section": "Signal Integrity",
+        "impact": "Risk of damage or unreliable logic levels",
+        "standard_ref": ""
+      },
+      "provenance": {
+        "evidence": "vm_rail_mismatch",
+        "confidence": "deterministic",
+        "claimed_components": [],
+        "excluded_by": [],
+        "suppressed_candidates": []
+      },
+      "schema_era": "v1.4",
+      "finding_id": "schematic:validation_findings-945c941105cc#2",
+      "detection_id": "validation_findings:945c941105cc",
+      "stages": [
+        "schematic"
+      ]
+    },
+    {
+      "detector": "validate_voltage_levels",
+      "rule_id": "VM-001",
+      "category": "signal_integrity",
+      "summary": "Net SIM_RX: 5.0V / 3.3V domain crossing without level shifter",
+      "description": "Net SIM_RX connects ICs in 5.0V and 3.3V domains. The 5.0V output may exceed the 3.3V input absolute maximum rating of 3.6V, risking damage.",
+      "components": [
+        "U1",
+        "U4"
+      ],
+      "nets": [
+        "SIM_RX"
+      ],
+      "pins": [
+        {
+          "ref": "U4",
+          "pin": "TXD",
+          "function": "signal_io"
+        },
+        {
+          "ref": "U1",
+          "pin": "GPIO6",
+          "function": "signal_io"
+        }
+      ],
+      "severity": "error",
+      "confidence": "heuristic",
+      "evidence_source": "topology",
+      "recommendation": "Add a level shifter between the 5.0V and 3.3V domains on net SIM_RX, or verify that the connected ICs have tolerant inputs.",
+      "fix_params": {
+        "type": "add_component",
+        "components": [
+          {
+            "type": "level_shifter",
+            "domain_a": "5.0V",
+            "domain_b": "3.3V",
+            "nets": [
+              "SIM_RX"
+            ]
+          }
+        ],
+        "basis": "Net crosses 5.0V to 3.3V boundary"
+      },
+      "report_context": {
+        "section": "Signal Integrity",
+        "impact": "Risk of damage or unreliable logic levels",
+        "standard_ref": ""
+      },
+      "provenance": {
+        "evidence": "vm_rail_mismatch",
+        "confidence": "deterministic",
+        "claimed_components": [],
+        "excluded_by": [],
+        "suppressed_candidates": []
+      },
+      "schema_era": "v1.4",
+      "finding_id": "schematic:validation_findings-945c941105cc#3",
+      "detection_id": "validation_findings:945c941105cc",
+      "stages": [
+        "schematic"
+      ]
+    },
+    {
+      "detector": "validate_voltage_levels",
+      "rule_id": "VM-001",
+      "category": "signal_integrity",
+      "summary": "Net SIM_TX: 5.0V / 3.3V domain crossing without level shifter",
+      "description": "Net SIM_TX connects ICs in 5.0V and 3.3V domains. The 5.0V output may exceed the 3.3V input absolute maximum rating of 3.6V, risking damage.",
+      "components": [
+        "U1",
+        "U4"
+      ],
+      "nets": [
+        "SIM_TX"
+      ],
+      "pins": [
+        {
+          "ref": "U4",
+          "pin": "RXD",
+          "function": "signal_io"
+        },
+        {
+          "ref": "U1",
+          "pin": "GPIO7",
+          "function": "signal_io"
+        }
+      ],
+      "severity": "error",
+      "confidence": "heuristic",
+      "evidence_source": "topology",
+      "recommendation": "Add a level shifter between the 5.0V and 3.3V domains on net SIM_TX, or verify that the connected ICs have tolerant inputs.",
+      "fix_params": {
+        "type": "add_component",
+        "components": [
+          {
+            "type": "level_shifter",
+            "domain_a": "5.0V",
+            "domain_b": "3.3V",
+            "nets": [
+              "SIM_TX"
+            ]
+          }
+        ],
+        "basis": "Net crosses 5.0V to 3.3V boundary"
+      },
+      "report_context": {
+        "section": "Signal Integrity",
+        "impact": "Risk of damage or unreliable logic levels",
+        "standard_ref": ""
+      },
+      "provenance": {
+        "evidence": "vm_rail_mismatch",
+        "confidence": "deterministic",
+        "claimed_components": [],
+        "excluded_by": [],
+        "suppressed_candidates": []
+      },
+      "schema_era": "v1.4",
+      "finding_id": "schematic:validation_findings-945c941105cc#4",
+      "detection_id": "validation_findings:945c941105cc",
+      "stages": [
+        "schematic"
+      ]
+    },
+    {
+      "detector": "detect_wireless_modules",
+      "rule_id": "WL-001",
+      "category": "wireless",
+      "reference": "U1",
+      "value": "ESP32-S3 SuperMini",
+      "wireless_type": "wifi_ble",
+      "antenna_net": null,
+      "severity": "info",
+      "confidence": "deterministic",
+      "evidence_source": "topology",
+      "summary": "wifi/ble module U1 (ESP32-S3 SuperMini)",
+      "description": "Detected wifi_ble wireless module U1 (ESP32-S3 SuperMini).",
+      "components": [
+        "U1"
+      ],
+      "nets": [],
+      "pins": [],
+      "recommendation": "",
+      "report_context": {
+        "section": "Wireless",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "provenance": {
+        "evidence": "wireless_antenna_match",
+        "confidence": "heuristic",
+        "claimed_components": [
+          "U1"
+        ],
+        "excluded_by": [],
+        "suppressed_candidates": []
+      },
+      "detection_id": "wireless_modules:924e60b675a1",
+      "stages": [
+        "schematic",
+        "bring_up"
+      ],
+      "finding_id": "schematic:wireless_modules-924e60b675a1"
+    },
+    {
+      "detector": "detect_wireless_modules",
+      "rule_id": "WL-001",
+      "category": "wireless",
+      "reference": "U3",
+      "value": "GPS NEO-7M GY-GPSU3",
+      "wireless_type": "gps",
+      "antenna_net": null,
+      "severity": "info",
+      "confidence": "deterministic",
+      "evidence_source": "topology",
+      "summary": "gps module U3 (GPS NEO-7M GY-GPSU3)",
+      "description": "Detected gps wireless module U3 (GPS NEO-7M GY-GPSU3).",
+      "components": [
+        "U3"
+      ],
+      "nets": [],
+      "pins": [],
+      "recommendation": "",
+      "report_context": {
+        "section": "Wireless",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "provenance": {
+        "evidence": "wireless_antenna_match",
+        "confidence": "heuristic",
+        "claimed_components": [
+          "U3"
+        ],
+        "excluded_by": [],
+        "suppressed_candidates": []
+      },
+      "detection_id": "wireless_modules:961550988a5d",
+      "stages": [
+        "schematic",
+        "bring_up"
+      ],
+      "finding_id": "schematic:wireless_modules-961550988a5d"
+    },
+    {
+      "detector": "audit_lifecycle_skipped",
+      "rule_id": "LC-007",
+      "severity": "info",
+      "confidence": "deterministic",
+      "evidence_source": "topology",
+      "category": "lifecycle",
+      "summary": "Lifecycle audit not run \u2014 --lifecycle flag not passed",
+      "description": "Component lifecycle / obsolescence audit was not run this session. Reason: --lifecycle flag not passed (run with --lifecycle to query DigiKey / Mouser / LCSC / element14 for obsolescence + operating-temp coverage; requires network + API keys). The review cannot report active / NRND / EOL / obsolete status, last-time-buy windows, or operating-temperature coverage for any BOM part. Treat the lifecycle section of the report as 'not performed'.",
+      "components": [],
+      "nets": [],
+      "pins": [],
+      "recommendation": "Run with --lifecycle (requires DIGIKEY_CLIENT_ID / MOUSER_SEARCH_API_KEY / ELEMENT14_API_KEY env vars; LCSC needs no auth) to populate this section. If intentionally skipped, note it explicitly in the report's 'Not Performed' section.",
+      "report_context": {
+        "section": "Component Lifecycle",
+        "impact": "No obsolescence / temperature-grade evidence available.",
+        "standard_ref": ""
+      },
+      "stages": [
+        "schematic"
+      ],
+      "finding_id": "schematic:LC-007:8ddf539c9727"
+    }
+  ],
+  "assessments": [],
+  "bom": [
+    {
+      "value": "1000uF/16V LOW-ESR",
+      "footprint": "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm",
+      "mpn": "",
+      "manufacturer": "",
+      "digikey": "",
+      "mouser": "",
+      "lcsc": "",
+      "element14": "",
+      "datasheet": "",
+      "description": "Polarized capacitor",
+      "references": [
+        "C1"
+      ],
+      "quantity": 1,
+      "dnp": false,
+      "type": "capacitor"
+    },
+    {
+      "value": "470uF/10V",
+      "footprint": "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm",
+      "mpn": "",
+      "manufacturer": "",
+      "digikey": "",
+      "mouser": "",
+      "lcsc": "",
+      "element14": "",
+      "datasheet": "",
+      "description": "Polarized capacitor",
+      "references": [
+        "C3"
+      ],
+      "quantity": 1,
+      "dnp": false,
+      "type": "capacitor"
+    },
+    {
+      "value": "EXTERNAL 5V INPUT",
+      "footprint": "Connector_Wire:SolderWire-1sqmm_1x02_P5.4mm_D1.4mm_OD2.7mm",
+      "mpn": "",
+      "manufacturer": "",
+      "digikey": "",
+      "mouser": "",
+      "lcsc": "",
+      "element14": "",
+      "datasheet": "",
+      "description": "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)",
+      "references": [
+        "J1"
+      ],
+      "quantity": 1,
+      "dnp": false,
+      "type": "connector"
+    },
+    {
+      "value": "EXTERNAL 5V 2A SIM INPUT",
+      "footprint": "Connector_Wire:SolderWire-1sqmm_1x02_P5.4mm_D1.4mm_OD2.7mm",
+      "mpn": "",
+      "manufacturer": "",
+      "digikey": "",
+      "mouser": "",
+      "lcsc": "",
+      "element14": "",
+      "datasheet": "",
+      "description": "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)",
+      "references": [
+        "J2"
+      ],
+      "quantity": 1,
+      "dnp": false,
+      "type": "connector"
+    },
+    {
+      "value": "ESP32-S3 SuperMini",
+      "footprint": "VSmart_Modules:ESP32-S3-SuperMini",
+      "mpn": "",
+      "manufacturer": "",
+      "digikey": "",
+      "mouser": "",
+      "lcsc": "",
+      "element14": "",
+      "datasheet": "https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/hw-reference/esp32/get-started-devkitc.html",
+      "description": "Development Kit",
+      "references": [
+        "U1"
+      ],
+      "quantity": 1,
+      "dnp": false,
+      "type": "ic"
+    },
+    {
+      "value": "MPU6050 GY-521 MODULE",
+      "footprint": "usini_sensors:module_mpu6050",
+      "mpn": "",
+      "manufacturer": "",
+      "digikey": "",
+      "mouser": "",
+      "lcsc": "",
+      "element14": "",
+      "datasheet": "",
+      "description": "",
+      "references": [
+        "U2"
+      ],
+      "quantity": 1,
+      "dnp": false,
+      "type": "ic"
+    },
+    {
+      "value": "GPS NEO-7M GY-GPSU3",
+      "footprint": "VSmart_Modules:GY-GPSU3-NEO7M",
+      "mpn": "",
+      "manufacturer": "",
+      "digikey": "",
+      "mouser": "",
+      "lcsc": "",
+      "element14": "",
+      "datasheet": "https://www.u-blox.com/en/product/neo-7-series",
+      "description": "GY-GPSU3-NEO / GY-NEO6MV2 style u-blox NEO-7M breakout, 4-pin UART header, external u.FL patch antenna",
+      "references": [
+        "U3"
+      ],
+      "quantity": 1,
+      "dnp": false,
+      "type": "ic"
+    },
+    {
+      "value": "A7680C TDM2309 4G",
+      "footprint": "TDM_4G_V1:TDM-4G-V1",
+      "mpn": "",
+      "manufacturer": "",
+      "digikey": "",
+      "mouser": "",
+      "lcsc": "",
+      "element14": "",
+      "datasheet": "https://github.com/TDLOGY/TDM2309-A7680C-4G-Replace-SIM800L",
+      "description": "TDM2309 A7680C/TDM-4G-V1 SIM800L-compatible breakout module",
+      "references": [
+        "U4"
+      ],
+      "quantity": 1,
+      "dnp": false,
+      "type": "ic"
+    }
+  ],
+  "components": [
+    {
+      "reference": "U2",
+      "value": "MPU6050 GY-521 MODULE",
+      "lib_id": "usini_sensors:module_mpu6050",
+      "lib_name": "",
+      "footprint": "usini_sensors:module_mpu6050",
+      "datasheet": "",
+      "description": "",
+      "mpn": "",
+      "manufacturer": "",
+      "digikey": "",
+      "mouser": "",
+      "lcsc": "",
+      "element14": "",
+      "x": 195.58,
+      "y": 39.37,
+      "angle": 0.0,
+      "mirror_x": false,
+      "mirror_y": false,
+      "unit": 1,
+      "uuid": "336bf950-2ec7-4bfa-bbc2-d396b8785bf8",
+      "in_bom": true,
+      "dnp": false,
+      "on_board": true,
+      "pin_uuids": {
+        "1": "680cc1d3-e96a-47f6-87e6-407bb5ef86db",
+        "2": "16fe9d4e-71c5-421b-920d-2f219250c4a4",
+        "3": "5b6d8a07-df4c-4949-803b-661fdb39195e",
+        "4": "0809e7f2-65ca-4fbf-bb4c-a3353011096c",
+        "5": "531ca419-eebd-41cd-8802-db6716bbe657",
+        "6": "d704f57e-36e7-439b-b807-494770a5d6df",
+        "7": "df7d1994-e74b-4615-a4ab-54dfdc44ede3",
+        "8": "a75f675f-617e-4d3b-999b-53f15d56d5be"
+      },
+      "type": "ic",
+      "keywords": "",
+      "functional_class": "sensor",
+      "_sheet": 0,
+      "category": "ic",
+      "pin_nets": {
+        "1": "+3V3",
+        "2": "GND",
+        "7": "GND",
+        "3": "I2C_SCL",
+        "4": "I2C_SDA",
+        "5": "__unnamed_0",
+        "6": "__unnamed_1",
+        "8": "MPU_INT"
+      }
+    },
+    {
+      "reference": "U4",
+      "value": "A7680C TDM2309 4G",
+      "lib_id": "VSmart_Modules:A7680C_TDM2309",
+      "lib_name": "",
+      "footprint": "TDM_4G_V1:TDM-4G-V1",
+      "datasheet": "https://github.com/TDLOGY/TDM2309-A7680C-4G-Replace-SIM800L",
+      "description": "TDM2309 A7680C/TDM-4G-V1 SIM800L-compatible breakout module",
+      "mpn": "",
+      "manufacturer": "",
+      "digikey": "",
+      "mouser": "",
+      "lcsc": "",
+      "element14": "",
+      "x": 195.58,
+      "y": 124.46,
+      "angle": 0.0,
+      "mirror_x": false,
+      "mirror_y": false,
+      "unit": 1,
+      "uuid": "a25e4871-c495-4623-b38f-06cb4e27f205",
+      "in_bom": true,
+      "dnp": false,
+      "on_board": true,
+      "pin_uuids": {
+        "1": "f2ccf595-32c9-4852-a5c2-350395a9dc4f",
+        "10": "5e434e8d-4919-4c90-ab66-5fd476d932da",
+        "11": "54a3e523-adb6-484b-be3b-64206bcd2d3d",
+        "12": "ab0c7ec2-dd1c-4f1e-9cf8-48a137f71168",
+        "2": "7564f2c0-53b4-4461-b401-5211b2a23257",
+        "3": "a10d32df-8d19-46f3-a653-dae754edd054",
+        "4": "315b4749-e119-4cd1-8eba-c3f4c69fb356",
+        "5": "4383a51f-2e73-4976-a0ba-7472d26bf92c",
+        "6": "de508add-4234-4221-82ed-f9d8ada38f8a",
+        "7": "01af6a5a-1cf3-475d-ab9c-147dcb677dbb",
+        "8": "bc511509-9675-46cb-b6ec-1628a6d0df43",
+        "9": "734f5bbd-efb5-43d3-bae9-96b1bb1556c9"
+      },
+      "type": "ic",
+      "keywords": "A7680C TDM2309 4G LTE SIM800L breakout",
+      "functional_class": "other_ic",
+      "_sheet": 0,
+      "category": "ic",
+      "pin_nets": {
+        "12": "GND",
+        "1": "SIM_RI",
+        "2": "SIM_DTR",
+        "3": "__unnamed_2",
+        "4": "__unnamed_3",
+        "5": "__unnamed_4",
+        "6": "__unnamed_5",
+        "7": "__unnamed_6",
+        "8": "+5V_SIM",
+        "9": "SIM_RST",
+        "10": "SIM_TX",
+        "11": "SIM_RX"
+      }
+    },
+    {
+      "reference": "C1",
+      "value": "1000uF/16V LOW-ESR",
+      "lib_id": "Device:C_Polarized",
+      "lib_name": "",
+      "footprint": "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm",
+      "datasheet": "",
+      "description": "Polarized capacitor",
+      "mpn": "",
+      "manufacturer": "",
+      "digikey": "",
+      "mouser": "",
+      "lcsc": "",
+      "element14": "",
+      "x": 149.86,
+      "y": 129.54,
+      "angle": 0.0,
+      "mirror_x": false,
+      "mirror_y": false,
+      "unit": 1,
+      "uuid": "c5b2a070-1472-4fc9-adec-887a8af67714",
+      "in_bom": true,
+      "dnp": false,
+      "on_board": true,
+      "pin_uuids": {
+        "1": "695a3020-5d2f-42f7-9647-982c6b8a6da6",
+        "2": "09eca060-715b-4227-abdd-e8c2b3b391ec"
+      },
+      "type": "capacitor",
+      "keywords": "cap capacitor",
+      "_sheet": 0,
+      "category": "capacitor",
+      "parsed_value": 0.001,
+      "pin_nets": {
+        "2": "GND",
+        "1": "+5V_SIM"
+      }
+    },
+    {
+      "reference": "C3",
+      "value": "470uF/10V",
+      "lib_id": "Device:C_Polarized",
+      "lib_name": "",
+      "footprint": "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm",
+      "datasheet": "",
+      "description": "Polarized capacitor",
+      "mpn": "",
+      "manufacturer": "",
+      "digikey": "",
+      "mouser": "",
+      "lcsc": "",
+      "element14": "",
+      "x": 90.17,
+      "y": 35.56,
+      "angle": 0.0,
+      "mirror_x": false,
+      "mirror_y": false,
+      "unit": 1,
+      "uuid": "a8244325-f6a1-4f9b-8ec4-be2762aa42a2",
+      "in_bom": true,
+      "dnp": false,
+      "on_board": true,
+      "pin_uuids": {
+        "1": "92537f83-e580-4f22-9577-d35a5417569f",
+        "2": "7c3abf39-bc43-48c9-b313-3e460e5c1f88"
+      },
+      "type": "capacitor",
+      "keywords": "cap capacitor",
+      "_sheet": 0,
+      "category": "capacitor",
+      "parsed_value": 0.00047,
+      "pin_nets": {
+        "2": "GND",
+        "1": "+5V"
+      }
+    },
+    {
+      "reference": "J1",
+      "value": "EXTERNAL 5V INPUT",
+      "lib_id": "Connector_Generic:Conn_01x02",
+      "lib_name": "",
+      "footprint": "Connector_Wire:SolderWire-1sqmm_1x02_P5.4mm_D1.4mm_OD2.7mm",
+      "datasheet": "",
+      "description": "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)",
+      "mpn": "",
+      "manufacturer": "",
+      "digikey": "",
+      "mouser": "",
+      "lcsc": "",
+      "element14": "",
+      "x": 64.77,
+      "y": 35.56,
+      "angle": 0.0,
+      "mirror_x": false,
+      "mirror_y": false,
+      "unit": 1,
+      "uuid": "f229bae2-a176-442a-ae9f-a7118b8bef80",
+      "in_bom": true,
+      "dnp": false,
+      "on_board": true,
+      "pin_uuids": {
+        "1": "b08d70da-d661-445f-8f3a-2ee00eba09f5",
+        "2": "8b1b009c-dd7a-40a8-aa68-03b99530a044"
+      },
+      "type": "connector",
+      "keywords": "connector",
+      "is_external_connector": false,
+      "connector_layout": "dual",
+      "_sheet": 0,
+      "category": "connector",
+      "pin_nets": {
+        "2": "GND",
+        "1": "+5V"
+      }
+    },
+    {
+      "reference": "J2",
+      "value": "EXTERNAL 5V 2A SIM INPUT",
+      "lib_id": "Connector_Generic:Conn_01x02",
+      "lib_name": "",
+      "footprint": "Connector_Wire:SolderWire-1sqmm_1x02_P5.4mm_D1.4mm_OD2.7mm",
+      "datasheet": "",
+      "description": "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)",
+      "mpn": "",
+      "manufacturer": "",
+      "digikey": "",
+      "mouser": "",
+      "lcsc": "",
+      "element14": "",
+      "x": 64.77,
+      "y": 55.88,
+      "angle": 0.0,
+      "mirror_x": false,
+      "mirror_y": false,
+      "unit": 1,
+      "uuid": "1942b08f-7c7d-4bd1-b7dc-9cfdf7e570e1",
+      "in_bom": true,
+      "dnp": false,
+      "on_board": true,
+      "pin_uuids": {
+        "1": "068fd9a3-af4a-48ab-823f-faa674de3940",
+        "2": "a0e88983-dce4-41fa-94b7-e28b369dfc4c"
+      },
+      "type": "connector",
+      "keywords": "connector",
+      "is_external_connector": false,
+      "connector_layout": "dual",
+      "_sheet": 0,
+      "category": "connector",
+      "pin_nets": {
+        "2": "GND",
+        "1": "+5V_SIM"
+      }
+    },
+    {
+      "reference": "U1",
+      "value": "ESP32-S3 SuperMini",
+      "lib_id": "VSmart_Modules:ESP32_S3_SuperMini",
+      "lib_name": "",
+      "footprint": "VSmart_Modules:ESP32-S3-SuperMini",
+      "datasheet": "https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/hw-reference/esp32/get-started-devkitc.html",
+      "description": "Development Kit",
+      "mpn": "",
+      "manufacturer": "",
+      "digikey": "",
+      "mouser": "",
+      "lcsc": "",
+      "element14": "",
+      "x": 124.46,
+      "y": 80.01,
+      "angle": 0.0,
+      "mirror_x": false,
+      "mirror_y": false,
+      "unit": 1,
+      "uuid": "e881b841-77d1-468d-8514-8d92a349ea43",
+      "in_bom": true,
+      "dnp": false,
+      "on_board": true,
+      "pin_uuids": {
+        "1": "9bf56986-2ae7-45a5-a65b-a82b206bc5d2",
+        "10": "4184cd66-341d-4c52-998d-523912623810",
+        "11": "0ca7d23b-5f57-49fe-abd4-b25d5a20895c",
+        "12": "15f89978-3944-40d2-bdac-b6462a6dfd0f",
+        "13": "acb4926f-9da8-486a-8ca1-d05eb756c0b0",
+        "2": "c475dce6-d72f-4045-9ad7-b54abaf96cd2",
+        "3": "89cfc75b-5522-4373-b772-e4b8297cea28",
+        "3V3": "08302e5b-94d7-45fb-b8b1-7ba4199002e7",
+        "4": "bb40bf9d-d5c4-4c32-b0b3-df7ccf0f0d0d",
+        "5": "abe5f102-90f4-45b7-907d-8f152a759403",
+        "5V": "1b56714e-a99d-4f7b-bacd-d5eed73a1c6f",
+        "6": "bfcb3994-34b4-4de2-880b-3e4dd1b4360a",
+        "7": "b8a285fb-99f9-4913-a02b-c1fc89e003e5",
+        "8": "76d6ceb4-cdab-479b-853c-1b797e74c3e2",
+        "9": "97fb12f6-4050-472c-9537-3b9b53e7b0c0",
+        "GND": "0dbca1c6-9df0-4058-aa72-0cd6b4e3c2e3",
+        "RX": "052c1618-1527-4d83-bd84-b03ff8655991",
+        "TX": "b884775d-7514-415d-9f5d-5da6abb78a8d"
+      },
+      "type": "ic",
+      "keywords": "ESP32 S3 SuperMini WiFi BLE module",
+      "functional_class": "mcu",
+      "_sheet": 0,
+      "category": "ic",
+      "pin_nets": {
+        "3V3": "+3V3",
+        "GND": "GND",
+        "9": "I2C_SCL",
+        "8": "I2C_SDA",
+        "10": "MPU_INT",
+        "13": "SIM_RI",
+        "11": "SIM_DTR",
+        "12": "SIM_RST",
+        "7": "SIM_TX",
+        "6": "SIM_RX",
+        "5V": "+5V",
+        "1": "__unnamed_7",
+        "2": "__unnamed_8",
+        "3": "__unnamed_9",
+        "4": "__unnamed_10",
+        "5": "__unnamed_11",
+        "RX": "GPS_RX",
+        "TX": "GPS_TX"
+      }
+    },
+    {
+      "reference": "U3",
+      "value": "GPS NEO-7M GY-GPSU3",
+      "lib_id": "VSmart_Modules:GPS_GY_GPSU3_NEO7M",
+      "lib_name": "",
+      "footprint": "VSmart_Modules:GY-GPSU3-NEO7M",
+      "datasheet": "https://www.u-blox.com/en/product/neo-7-series",
+      "description": "GY-GPSU3-NEO / GY-NEO6MV2 style u-blox NEO-7M breakout, 4-pin UART header, external u.FL patch antenna",
+      "mpn": "",
+      "manufacturer": "",
+      "digikey": "",
+      "mouser": "",
+      "lcsc": "",
+      "element14": "",
+      "x": 195.58,
+      "y": 80.01,
+      "angle": 0.0,
+      "mirror_x": false,
+      "mirror_y": false,
+      "unit": 1,
+      "uuid": "bc60f656-10e4-4d24-83c9-68a3002f8647",
+      "in_bom": true,
+      "dnp": false,
+      "on_board": true,
+      "pin_uuids": {
+        "1": "b56a1a4e-5287-46c3-8209-159a648faeb5",
+        "2": "05bd58b1-4ddf-44d3-b3fb-e7de790ef25b",
+        "3": "b2c6f593-b065-4eb1-8684-c138cf150bf5",
+        "4": "94c78629-2a3c-45aa-a236-50dbb1d94822"
+      },
+      "type": "ic",
+      "keywords": "GPS NEO-7M GY-GPSU3 GY-NEO6MV2 ublox module ufl",
+      "functional_class": "communication",
+      "_sheet": 0,
+      "category": "ic",
+      "pin_nets": {
+        "1": "+3V3",
+        "4": "GND",
+        "3": "GPS_RX",
+        "2": "GPS_TX"
+      }
+    }
+  ],
+  "nets": {
+    "+3V3": {
+      "name": "+3V3",
+      "pins": [
+        {
+          "component": "U2",
+          "pin_number": "1",
+          "pin_name": "VCC",
+          "pin_type": "input"
+        },
+        {
+          "component": "U1",
+          "pin_number": "3V3",
+          "pin_name": "3V3_OUT",
+          "pin_type": "power_out"
+        },
+        {
+          "component": "U3",
+          "pin_number": "1",
+          "pin_name": "VCC",
+          "pin_type": "power_in"
+        }
+      ],
+      "point_count": 3,
+      "no_connect": false,
+      "has_pwr_flag": false,
+      "labels": [
+        {
+          "name": "+3V3",
+          "type": "global_label"
+        }
+      ]
+    },
+    "GND": {
+      "name": "GND",
+      "pins": [
+        {
+          "component": "U2",
+          "pin_number": "2",
+          "pin_name": "GND",
+          "pin_type": "input"
+        },
+        {
+          "component": "U2",
+          "pin_number": "7",
+          "pin_name": "ADD",
+          "pin_type": "input"
+        },
+        {
+          "component": "U4",
+          "pin_number": "12",
+          "pin_name": "GND",
+          "pin_type": "power_in"
+        },
+        {
+          "component": "C1",
+          "pin_number": "2",
+          "pin_name": "",
+          "pin_type": "passive"
+        },
+        {
+          "component": "C3",
+          "pin_number": "2",
+          "pin_name": "",
+          "pin_type": "passive"
+        },
+        {
+          "component": "J1",
+          "pin_number": "2",
+          "pin_name": "Pin_2",
+          "pin_type": "passive"
+        },
+        {
+          "component": "J2",
+          "pin_number": "2",
+          "pin_name": "Pin_2",
+          "pin_type": "passive"
+        },
+        {
+          "component": "U1",
+          "pin_number": "GND",
+          "pin_name": "GND",
+          "pin_type": "power_in"
+        },
+        {
+          "component": "U3",
+          "pin_number": "4",
+          "pin_name": "GND",
+          "pin_type": "power_in"
+        }
+      ],
+      "point_count": 10,
+      "no_connect": false,
+      "has_pwr_flag": true,
+      "labels": [
+        {
+          "name": "GND",
+          "type": "global_label"
+        }
+      ]
+    },
+    "I2C_SCL": {
+      "name": "I2C_SCL",
+      "pins": [
+        {
+          "component": "U2",
+          "pin_number": "3",
+          "pin_name": "SCL",
+          "pin_type": "input"
+        },
+        {
+          "component": "U1",
+          "pin_number": "9",
+          "pin_name": "GPIO9",
+          "pin_type": "bidirectional"
+        }
+      ],
+      "point_count": 2,
+      "no_connect": false,
+      "has_pwr_flag": false,
+      "labels": [
+        {
+          "name": "I2C_SCL",
+          "type": "global_label"
+        }
+      ]
+    },
+    "I2C_SDA": {
+      "name": "I2C_SDA",
+      "pins": [
+        {
+          "component": "U2",
+          "pin_number": "4",
+          "pin_name": "SDA",
+          "pin_type": "input"
+        },
+        {
+          "component": "U1",
+          "pin_number": "8",
+          "pin_name": "GPIO8",
+          "pin_type": "bidirectional"
+        }
+      ],
+      "point_count": 2,
+      "no_connect": false,
+      "has_pwr_flag": false,
+      "labels": [
+        {
+          "name": "I2C_SDA",
+          "type": "global_label"
+        }
+      ]
+    },
+    "__unnamed_0": {
+      "name": "__unnamed_0",
+      "pins": [
+        {
+          "component": "U2",
+          "pin_number": "5",
+          "pin_name": "XDA",
+          "pin_type": "input"
+        }
+      ],
+      "point_count": 1,
+      "no_connect": true,
+      "has_pwr_flag": false,
+      "labels": [],
+      "display_name": "U2.XDA"
+    },
+    "__unnamed_1": {
+      "name": "__unnamed_1",
+      "pins": [
+        {
+          "component": "U2",
+          "pin_number": "6",
+          "pin_name": "XCL",
+          "pin_type": "input"
+        }
+      ],
+      "point_count": 1,
+      "no_connect": true,
+      "has_pwr_flag": false,
+      "labels": [],
+      "display_name": "U2.XCL"
+    },
+    "MPU_INT": {
+      "name": "MPU_INT",
+      "pins": [
+        {
+          "component": "U2",
+          "pin_number": "8",
+          "pin_name": "INT",
+          "pin_type": "output"
+        },
+        {
+          "component": "U1",
+          "pin_number": "10",
+          "pin_name": "GPIO10",
+          "pin_type": "bidirectional"
+        }
+      ],
+      "point_count": 2,
+      "no_connect": false,
+      "has_pwr_flag": false,
+      "labels": [
+        {
+          "name": "MPU_INT",
+          "type": "global_label"
+        }
+      ]
+    },
+    "SIM_RI": {
+      "name": "SIM_RI",
+      "pins": [
+        {
+          "component": "U4",
+          "pin_number": "1",
+          "pin_name": "RI",
+          "pin_type": "output"
+        },
+        {
+          "component": "U1",
+          "pin_number": "13",
+          "pin_name": "GPIO13",
+          "pin_type": "bidirectional"
+        }
+      ],
+      "point_count": 2,
+      "no_connect": false,
+      "has_pwr_flag": false,
+      "labels": [
+        {
+          "name": "SIM_RI",
+          "type": "global_label"
+        }
+      ]
+    },
+    "SIM_DTR": {
+      "name": "SIM_DTR",
+      "pins": [
+        {
+          "component": "U4",
+          "pin_number": "2",
+          "pin_name": "DTR",
+          "pin_type": "input"
+        },
+        {
+          "component": "U1",
+          "pin_number": "11",
+          "pin_name": "GPIO11",
+          "pin_type": "bidirectional"
+        }
+      ],
+      "point_count": 2,
+      "no_connect": false,
+      "has_pwr_flag": false,
+      "labels": [
+        {
+          "name": "SIM_DTR",
+          "type": "global_label"
+        }
+      ]
+    },
+    "__unnamed_2": {
+      "name": "__unnamed_2",
+      "pins": [
+        {
+          "component": "U4",
+          "pin_number": "3",
+          "pin_name": "MICP",
+          "pin_type": "input"
+        }
+      ],
+      "point_count": 1,
+      "no_connect": true,
+      "has_pwr_flag": false,
+      "labels": [],
+      "display_name": "U4.MICP"
+    },
+    "__unnamed_3": {
+      "name": "__unnamed_3",
+      "pins": [
+        {
+          "component": "U4",
+          "pin_number": "4",
+          "pin_name": "MICN",
+          "pin_type": "input"
+        }
+      ],
+      "point_count": 1,
+      "no_connect": true,
+      "has_pwr_flag": false,
+      "labels": [],
+      "display_name": "U4.MICN"
+    },
+    "__unnamed_4": {
+      "name": "__unnamed_4",
+      "pins": [
+        {
+          "component": "U4",
+          "pin_number": "5",
+          "pin_name": "SPKP",
+          "pin_type": "output"
+        }
+      ],
+      "point_count": 1,
+      "no_connect": true,
+      "has_pwr_flag": false,
+      "labels": [],
+      "display_name": "U4.SPKP"
+    },
+    "__unnamed_5": {
+      "name": "__unnamed_5",
+      "pins": [
+        {
+          "component": "U4",
+          "pin_number": "6",
+          "pin_name": "SPKN",
+          "pin_type": "output"
+        }
+      ],
+      "point_count": 1,
+      "no_connect": true,
+      "has_pwr_flag": false,
+      "labels": [],
+      "display_name": "U4.SPKN"
+    },
+    "__unnamed_6": {
+      "name": "__unnamed_6",
+      "pins": [
+        {
+          "component": "U4",
+          "pin_number": "7",
+          "pin_name": "ANT",
+          "pin_type": "passive"
+        }
+      ],
+      "point_count": 1,
+      "no_connect": true,
+      "has_pwr_flag": false,
+      "labels": [],
+      "display_name": "U4.ANT"
+    },
+    "+5V_SIM": {
+      "name": "+5V_SIM",
+      "pins": [
+        {
+          "component": "U4",
+          "pin_number": "8",
+          "pin_name": "VCC",
+          "pin_type": "power_in"
+        },
+        {
+          "component": "C1",
+          "pin_number": "1",
+          "pin_name": "",
+          "pin_type": "passive"
+        },
+        {
+          "component": "J2",
+          "pin_number": "1",
+          "pin_name": "Pin_1",
+          "pin_type": "passive"
+        }
+      ],
+      "point_count": 4,
+      "no_connect": false,
+      "has_pwr_flag": true,
+      "labels": [
+        {
+          "name": "+5V_SIM",
+          "type": "global_label"
+        }
+      ]
+    },
+    "SIM_RST": {
+      "name": "SIM_RST",
+      "pins": [
+        {
+          "component": "U4",
+          "pin_number": "9",
+          "pin_name": "RST",
+          "pin_type": "input"
+        },
+        {
+          "component": "U1",
+          "pin_number": "12",
+          "pin_name": "GPIO12",
+          "pin_type": "bidirectional"
+        }
+      ],
+      "point_count": 2,
+      "no_connect": false,
+      "has_pwr_flag": false,
+      "labels": [
+        {
+          "name": "SIM_RST",
+          "type": "global_label"
+        }
+      ]
+    },
+    "SIM_TX": {
+      "name": "SIM_TX",
+      "pins": [
+        {
+          "component": "U4",
+          "pin_number": "10",
+          "pin_name": "RXD",
+          "pin_type": "input"
+        },
+        {
+          "component": "U1",
+          "pin_number": "7",
+          "pin_name": "GPIO7",
+          "pin_type": "bidirectional"
+        }
+      ],
+      "point_count": 2,
+      "no_connect": false,
+      "has_pwr_flag": false,
+      "labels": [
+        {
+          "name": "SIM_TX",
+          "type": "global_label"
+        }
+      ]
+    },
+    "SIM_RX": {
+      "name": "SIM_RX",
+      "pins": [
+        {
+          "component": "U4",
+          "pin_number": "11",
+          "pin_name": "TXD",
+          "pin_type": "output"
+        },
+        {
+          "component": "U1",
+          "pin_number": "6",
+          "pin_name": "GPIO6",
+          "pin_type": "bidirectional"
+        }
+      ],
+      "point_count": 2,
+      "no_connect": false,
+      "has_pwr_flag": false,
+      "labels": [
+        {
+          "name": "SIM_RX",
+          "type": "global_label"
+        }
+      ]
+    },
+    "+5V": {
+      "name": "+5V",
+      "pins": [
+        {
+          "component": "C3",
+          "pin_number": "1",
+          "pin_name": "",
+          "pin_type": "passive"
+        },
+        {
+          "component": "J1",
+          "pin_number": "1",
+          "pin_name": "Pin_1",
+          "pin_type": "passive"
+        },
+        {
+          "component": "U1",
+          "pin_number": "5V",
+          "pin_name": "5V",
+          "pin_type": "power_in"
+        }
+      ],
+      "point_count": 4,
+      "no_connect": false,
+      "has_pwr_flag": true,
+      "labels": [
+        {
+          "name": "+5V",
+          "type": "global_label"
+        }
+      ]
+    },
+    "__unnamed_7": {
+      "name": "__unnamed_7",
+      "pins": [
+        {
+          "component": "U1",
+          "pin_number": "1",
+          "pin_name": "GPIO1",
+          "pin_type": "bidirectional"
+        }
+      ],
+      "point_count": 1,
+      "no_connect": true,
+      "has_pwr_flag": false,
+      "labels": [],
+      "display_name": "U1.GPIO1"
+    },
+    "__unnamed_8": {
+      "name": "__unnamed_8",
+      "pins": [
+        {
+          "component": "U1",
+          "pin_number": "2",
+          "pin_name": "GPIO2",
+          "pin_type": "bidirectional"
+        }
+      ],
+      "point_count": 1,
+      "no_connect": true,
+      "has_pwr_flag": false,
+      "labels": [],
+      "display_name": "U1.GPIO2"
+    },
+    "__unnamed_9": {
+      "name": "__unnamed_9",
+      "pins": [
+        {
+          "component": "U1",
+          "pin_number": "3",
+          "pin_name": "GPIO3",
+          "pin_type": "bidirectional"
+        }
+      ],
+      "point_count": 1,
+      "no_connect": true,
+      "has_pwr_flag": false,
+      "labels": [],
+      "display_name": "U1.GPIO3"
+    },
+    "__unnamed_10": {
+      "name": "__unnamed_10",
+      "pins": [
+        {
+          "component": "U1",
+          "pin_number": "4",
+          "pin_name": "GPIO4",
+          "pin_type": "bidirectional"
+        }
+      ],
+      "point_count": 1,
+      "no_connect": true,
+      "has_pwr_flag": false,
+      "labels": [],
+      "display_name": "U1.GPIO4"
+    },
+    "__unnamed_11": {
+      "name": "__unnamed_11",
+      "pins": [
+        {
+          "component": "U1",
+          "pin_number": "5",
+          "pin_name": "GPIO5",
+          "pin_type": "bidirectional"
+        }
+      ],
+      "point_count": 1,
+      "no_connect": true,
+      "has_pwr_flag": false,
+      "labels": [],
+      "display_name": "U1.GPIO5"
+    },
+    "GPS_RX": {
+      "name": "GPS_RX",
+      "pins": [
+        {
+          "component": "U1",
+          "pin_number": "RX",
+          "pin_name": "RX/GPIO44",
+          "pin_type": "input"
+        },
+        {
+          "component": "U3",
+          "pin_number": "3",
+          "pin_name": "TXD",
+          "pin_type": "output"
+        }
+      ],
+      "point_count": 2,
+      "no_connect": false,
+      "has_pwr_flag": false,
+      "labels": [
+        {
+          "name": "GPS_RX",
+          "type": "global_label"
+        }
+      ]
+    },
+    "GPS_TX": {
+      "name": "GPS_TX",
+      "pins": [
+        {
+          "component": "U1",
+          "pin_number": "TX",
+          "pin_name": "TX/GPIO43",
+          "pin_type": "output"
+        },
+        {
+          "component": "U3",
+          "pin_number": "2",
+          "pin_name": "RXD",
+          "pin_type": "input"
+        }
+      ],
+      "point_count": 2,
+      "no_connect": false,
+      "has_pwr_flag": false,
+      "labels": [
+        {
+          "name": "GPS_TX",
+          "type": "global_label"
+        }
+      ]
+    }
+  },
+  "subcircuits": [
+    {
+      "center_ic": "U2",
+      "ic_value": "MPU6050 GY-521 MODULE",
+      "ic_mpn": "",
+      "ic_lib_id": "usini_sensors:module_mpu6050",
+      "neighbor_components": [
+        {
+          "ref": "U1",
+          "value": "ESP32-S3 SuperMini",
+          "type": "ic"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "center_ic": "U4",
+      "ic_value": "A7680C TDM2309 4G",
+      "ic_mpn": "",
+      "ic_lib_id": "VSmart_Modules:A7680C_TDM2309",
+      "neighbor_components": [
+        {
+          "ref": "U1",
+          "value": "ESP32-S3 SuperMini",
+          "type": "ic"
+        }
+      ],
+      "description": "TDM2309 A7680C/TDM-4G-V1 SIM800L-compatible breakout module"
+    },
+    {
+      "center_ic": "U1",
+      "ic_value": "ESP32-S3 SuperMini",
+      "ic_mpn": "",
+      "ic_lib_id": "VSmart_Modules:ESP32_S3_SuperMini",
+      "neighbor_components": [
+        {
+          "ref": "U2",
+          "value": "MPU6050 GY-521 MODULE",
+          "type": "ic"
+        },
+        {
+          "ref": "U3",
+          "value": "GPS NEO-7M GY-GPSU3",
+          "type": "ic"
+        },
+        {
+          "ref": "U4",
+          "value": "A7680C TDM2309 4G",
+          "type": "ic"
+        }
+      ],
+      "description": "Development Kit"
+    },
+    {
+      "center_ic": "U3",
+      "ic_value": "GPS NEO-7M GY-GPSU3",
+      "ic_mpn": "",
+      "ic_lib_id": "VSmart_Modules:GPS_GY_GPSU3_NEO7M",
+      "neighbor_components": [
+        {
+          "ref": "U1",
+          "value": "ESP32-S3 SuperMini",
+          "type": "ic"
+        }
+      ],
+      "description": "GY-GPSU3-NEO / GY-NEO6MV2 style u-blox NEO-7M breakout, 4-pin UART header, external u.FL patch antenna"
+    }
+  ],
+  "ic_pin_analysis": [
+    {
+      "reference": "U2",
+      "value": "MPU6050 GY-521 MODULE",
+      "type": "ic",
+      "lib_id": "usini_sensors:module_mpu6050",
+      "mpn": "",
+      "description": "",
+      "datasheet": "",
+      "function": "IMU/motion sensor",
+      "total_pins": 8,
+      "unconnected_pins": 0,
+      "pins": [
+        {
+          "pin_number": "1",
+          "pin_name": "VCC",
+          "pin_type": "input",
+          "net": "+3V3",
+          "connected_to": [
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "3V3",
+              "pin_name": "3V3_OUT"
+            },
+            {
+              "ref": "U3",
+              "value": "GPS NEO-7M GY-GPSU3",
+              "type": "ic",
+              "pin": "1",
+              "pin_name": "VCC"
+            }
+          ],
+          "has_decoupling_cap": false,
+          "decoupling_caps": []
+        },
+        {
+          "pin_number": "2",
+          "pin_name": "GND",
+          "pin_type": "input",
+          "net": "GND",
+          "connected_to": [
+            {
+              "ref": "U4",
+              "value": "A7680C TDM2309 4G",
+              "type": "ic",
+              "pin": "12",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "C1",
+              "value": "1000uF/16V LOW-ESR",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "C3",
+              "value": "470uF/10V",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "J1",
+              "value": "EXTERNAL 5V INPUT",
+              "type": "connector",
+              "pin": "2",
+              "pin_name": "Pin_2"
+            },
+            {
+              "ref": "J2",
+              "value": "EXTERNAL 5V 2A SIM INPUT",
+              "type": "connector",
+              "pin": "2",
+              "pin_name": "Pin_2"
+            },
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "GND",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "U3",
+              "value": "GPS NEO-7M GY-GPSU3",
+              "type": "ic",
+              "pin": "4",
+              "pin_name": "GND"
+            }
+          ],
+          "has_decoupling_cap": true,
+          "decoupling_caps": [],
+          "note": "Ground net \u2014 decoupling caps listed on VCC/VDD pins"
+        },
+        {
+          "pin_number": "3",
+          "pin_name": "SCL",
+          "pin_type": "input",
+          "net": "I2C_SCL",
+          "connected_to": [
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "9",
+              "pin_name": "GPIO9"
+            }
+          ]
+        },
+        {
+          "pin_number": "4",
+          "pin_name": "SDA",
+          "pin_type": "input",
+          "net": "I2C_SDA",
+          "connected_to": [
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "8",
+              "pin_name": "GPIO8"
+            }
+          ]
+        },
+        {
+          "pin_number": "5",
+          "pin_name": "XDA",
+          "pin_type": "input",
+          "net": "NO_CONNECT",
+          "connected_to": []
+        },
+        {
+          "pin_number": "6",
+          "pin_name": "XCL",
+          "pin_type": "input",
+          "net": "NO_CONNECT",
+          "connected_to": []
+        },
+        {
+          "pin_number": "7",
+          "pin_name": "ADD",
+          "pin_type": "input",
+          "net": "GND",
+          "connected_to": [
+            {
+              "ref": "U4",
+              "value": "A7680C TDM2309 4G",
+              "type": "ic",
+              "pin": "12",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "C1",
+              "value": "1000uF/16V LOW-ESR",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "C3",
+              "value": "470uF/10V",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "J1",
+              "value": "EXTERNAL 5V INPUT",
+              "type": "connector",
+              "pin": "2",
+              "pin_name": "Pin_2"
+            },
+            {
+              "ref": "J2",
+              "value": "EXTERNAL 5V 2A SIM INPUT",
+              "type": "connector",
+              "pin": "2",
+              "pin_name": "Pin_2"
+            },
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "GND",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "U3",
+              "value": "GPS NEO-7M GY-GPSU3",
+              "type": "ic",
+              "pin": "4",
+              "pin_name": "GND"
+            }
+          ],
+          "has_decoupling_cap": true,
+          "decoupling_caps": [],
+          "note": "Ground net \u2014 decoupling caps listed on VCC/VDD pins"
+        },
+        {
+          "pin_number": "8",
+          "pin_name": "INT",
+          "pin_type": "output",
+          "net": "MPU_INT",
+          "connected_to": [
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "10",
+              "pin_name": "GPIO10"
+            }
+          ]
+        }
+      ],
+      "power_pins": [
+        {
+          "pin_number": "1",
+          "pin_name": "VCC",
+          "pin_type": "input",
+          "net": "+3V3",
+          "connected_to": [
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "3V3",
+              "pin_name": "3V3_OUT"
+            },
+            {
+              "ref": "U3",
+              "value": "GPS NEO-7M GY-GPSU3",
+              "type": "ic",
+              "pin": "1",
+              "pin_name": "VCC"
+            }
+          ],
+          "has_decoupling_cap": false,
+          "decoupling_caps": []
+        },
+        {
+          "pin_number": "2",
+          "pin_name": "GND",
+          "pin_type": "input",
+          "net": "GND",
+          "connected_to": [
+            {
+              "ref": "U4",
+              "value": "A7680C TDM2309 4G",
+              "type": "ic",
+              "pin": "12",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "C1",
+              "value": "1000uF/16V LOW-ESR",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "C3",
+              "value": "470uF/10V",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "J1",
+              "value": "EXTERNAL 5V INPUT",
+              "type": "connector",
+              "pin": "2",
+              "pin_name": "Pin_2"
+            },
+            {
+              "ref": "J2",
+              "value": "EXTERNAL 5V 2A SIM INPUT",
+              "type": "connector",
+              "pin": "2",
+              "pin_name": "Pin_2"
+            },
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "GND",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "U3",
+              "value": "GPS NEO-7M GY-GPSU3",
+              "type": "ic",
+              "pin": "4",
+              "pin_name": "GND"
+            }
+          ],
+          "has_decoupling_cap": true,
+          "decoupling_caps": [],
+          "note": "Ground net \u2014 decoupling caps listed on VCC/VDD pins"
+        },
+        {
+          "pin_number": "7",
+          "pin_name": "ADD",
+          "pin_type": "input",
+          "net": "GND",
+          "connected_to": [
+            {
+              "ref": "U4",
+              "value": "A7680C TDM2309 4G",
+              "type": "ic",
+              "pin": "12",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "C1",
+              "value": "1000uF/16V LOW-ESR",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "C3",
+              "value": "470uF/10V",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "J1",
+              "value": "EXTERNAL 5V INPUT",
+              "type": "connector",
+              "pin": "2",
+              "pin_name": "Pin_2"
+            },
+            {
+              "ref": "J2",
+              "value": "EXTERNAL 5V 2A SIM INPUT",
+              "type": "connector",
+              "pin": "2",
+              "pin_name": "Pin_2"
+            },
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "GND",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "U3",
+              "value": "GPS NEO-7M GY-GPSU3",
+              "type": "ic",
+              "pin": "4",
+              "pin_name": "GND"
+            }
+          ],
+          "has_decoupling_cap": true,
+          "decoupling_caps": [],
+          "note": "Ground net \u2014 decoupling caps listed on VCC/VDD pins"
+        }
+      ],
+      "signal_pins": [
+        {
+          "pin_number": "3",
+          "pin_name": "SCL",
+          "pin_type": "input",
+          "net": "I2C_SCL",
+          "connected_to": [
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "9",
+              "pin_name": "GPIO9"
+            }
+          ]
+        },
+        {
+          "pin_number": "4",
+          "pin_name": "SDA",
+          "pin_type": "input",
+          "net": "I2C_SDA",
+          "connected_to": [
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "8",
+              "pin_name": "GPIO8"
+            }
+          ]
+        },
+        {
+          "pin_number": "5",
+          "pin_name": "XDA",
+          "pin_type": "input",
+          "net": "NO_CONNECT",
+          "connected_to": []
+        },
+        {
+          "pin_number": "6",
+          "pin_name": "XCL",
+          "pin_type": "input",
+          "net": "NO_CONNECT",
+          "connected_to": []
+        },
+        {
+          "pin_number": "8",
+          "pin_name": "INT",
+          "pin_type": "output",
+          "net": "MPU_INT",
+          "connected_to": [
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "10",
+              "pin_name": "GPIO10"
+            }
+          ]
+        }
+      ],
+      "decoupling_caps_by_rail": {}
+    },
+    {
+      "reference": "U4",
+      "value": "A7680C TDM2309 4G",
+      "type": "ic",
+      "lib_id": "VSmart_Modules:A7680C_TDM2309",
+      "mpn": "",
+      "description": "TDM2309 A7680C/TDM-4G-V1 SIM800L-compatible breakout module",
+      "datasheet": "https://github.com/TDLOGY/TDM2309-A7680C-4G-Replace-SIM800L",
+      "function": "",
+      "total_pins": 12,
+      "unconnected_pins": 0,
+      "pins": [
+        {
+          "pin_number": "1",
+          "pin_name": "RI",
+          "pin_type": "output",
+          "net": "SIM_RI",
+          "connected_to": [
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "13",
+              "pin_name": "GPIO13"
+            }
+          ]
+        },
+        {
+          "pin_number": "2",
+          "pin_name": "DTR",
+          "pin_type": "input",
+          "net": "SIM_DTR",
+          "connected_to": [
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "11",
+              "pin_name": "GPIO11"
+            }
+          ]
+        },
+        {
+          "pin_number": "3",
+          "pin_name": "MICP",
+          "pin_type": "input",
+          "net": "NO_CONNECT",
+          "connected_to": []
+        },
+        {
+          "pin_number": "4",
+          "pin_name": "MICN",
+          "pin_type": "input",
+          "net": "NO_CONNECT",
+          "connected_to": []
+        },
+        {
+          "pin_number": "5",
+          "pin_name": "SPKP",
+          "pin_type": "output",
+          "net": "NO_CONNECT",
+          "connected_to": []
+        },
+        {
+          "pin_number": "6",
+          "pin_name": "SPKN",
+          "pin_type": "output",
+          "net": "NO_CONNECT",
+          "connected_to": []
+        },
+        {
+          "pin_number": "7",
+          "pin_name": "ANT",
+          "pin_type": "passive",
+          "net": "NO_CONNECT",
+          "connected_to": []
+        },
+        {
+          "pin_number": "8",
+          "pin_name": "VCC",
+          "pin_type": "power_in",
+          "net": "+5V_SIM",
+          "connected_to": [
+            {
+              "ref": "C1",
+              "value": "1000uF/16V LOW-ESR",
+              "type": "capacitor",
+              "pin": "1",
+              "pin_name": ""
+            },
+            {
+              "ref": "J2",
+              "value": "EXTERNAL 5V 2A SIM INPUT",
+              "type": "connector",
+              "pin": "1",
+              "pin_name": "Pin_1"
+            }
+          ],
+          "has_decoupling_cap": true,
+          "decoupling_caps": [
+            {
+              "ref": "C1",
+              "value": "1000uF/16V LOW-ESR"
+            }
+          ]
+        },
+        {
+          "pin_number": "9",
+          "pin_name": "RST",
+          "pin_type": "input",
+          "net": "SIM_RST",
+          "connected_to": [
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "12",
+              "pin_name": "GPIO12"
+            }
+          ]
+        },
+        {
+          "pin_number": "10",
+          "pin_name": "RXD",
+          "pin_type": "input",
+          "net": "SIM_TX",
+          "connected_to": [
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "7",
+              "pin_name": "GPIO7"
+            }
+          ]
+        },
+        {
+          "pin_number": "11",
+          "pin_name": "TXD",
+          "pin_type": "output",
+          "net": "SIM_RX",
+          "connected_to": [
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "6",
+              "pin_name": "GPIO6"
+            }
+          ]
+        },
+        {
+          "pin_number": "12",
+          "pin_name": "GND",
+          "pin_type": "power_in",
+          "net": "GND",
+          "connected_to": [
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "2",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "7",
+              "pin_name": "ADD"
+            },
+            {
+              "ref": "C1",
+              "value": "1000uF/16V LOW-ESR",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "C3",
+              "value": "470uF/10V",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "J1",
+              "value": "EXTERNAL 5V INPUT",
+              "type": "connector",
+              "pin": "2",
+              "pin_name": "Pin_2"
+            },
+            {
+              "ref": "J2",
+              "value": "EXTERNAL 5V 2A SIM INPUT",
+              "type": "connector",
+              "pin": "2",
+              "pin_name": "Pin_2"
+            },
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "GND",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "U3",
+              "value": "GPS NEO-7M GY-GPSU3",
+              "type": "ic",
+              "pin": "4",
+              "pin_name": "GND"
+            }
+          ],
+          "has_decoupling_cap": true,
+          "decoupling_caps": [],
+          "note": "Ground net \u2014 decoupling caps listed on VCC/VDD pins"
+        }
+      ],
+      "power_pins": [
+        {
+          "pin_number": "8",
+          "pin_name": "VCC",
+          "pin_type": "power_in",
+          "net": "+5V_SIM",
+          "connected_to": [
+            {
+              "ref": "C1",
+              "value": "1000uF/16V LOW-ESR",
+              "type": "capacitor",
+              "pin": "1",
+              "pin_name": ""
+            },
+            {
+              "ref": "J2",
+              "value": "EXTERNAL 5V 2A SIM INPUT",
+              "type": "connector",
+              "pin": "1",
+              "pin_name": "Pin_1"
+            }
+          ],
+          "has_decoupling_cap": true,
+          "decoupling_caps": [
+            {
+              "ref": "C1",
+              "value": "1000uF/16V LOW-ESR"
+            }
+          ]
+        },
+        {
+          "pin_number": "12",
+          "pin_name": "GND",
+          "pin_type": "power_in",
+          "net": "GND",
+          "connected_to": [
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "2",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "7",
+              "pin_name": "ADD"
+            },
+            {
+              "ref": "C1",
+              "value": "1000uF/16V LOW-ESR",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "C3",
+              "value": "470uF/10V",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "J1",
+              "value": "EXTERNAL 5V INPUT",
+              "type": "connector",
+              "pin": "2",
+              "pin_name": "Pin_2"
+            },
+            {
+              "ref": "J2",
+              "value": "EXTERNAL 5V 2A SIM INPUT",
+              "type": "connector",
+              "pin": "2",
+              "pin_name": "Pin_2"
+            },
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "GND",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "U3",
+              "value": "GPS NEO-7M GY-GPSU3",
+              "type": "ic",
+              "pin": "4",
+              "pin_name": "GND"
+            }
+          ],
+          "has_decoupling_cap": true,
+          "decoupling_caps": [],
+          "note": "Ground net \u2014 decoupling caps listed on VCC/VDD pins"
+        }
+      ],
+      "signal_pins": [
+        {
+          "pin_number": "1",
+          "pin_name": "RI",
+          "pin_type": "output",
+          "net": "SIM_RI",
+          "connected_to": [
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "13",
+              "pin_name": "GPIO13"
+            }
+          ]
+        },
+        {
+          "pin_number": "2",
+          "pin_name": "DTR",
+          "pin_type": "input",
+          "net": "SIM_DTR",
+          "connected_to": [
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "11",
+              "pin_name": "GPIO11"
+            }
+          ]
+        },
+        {
+          "pin_number": "3",
+          "pin_name": "MICP",
+          "pin_type": "input",
+          "net": "NO_CONNECT",
+          "connected_to": []
+        },
+        {
+          "pin_number": "4",
+          "pin_name": "MICN",
+          "pin_type": "input",
+          "net": "NO_CONNECT",
+          "connected_to": []
+        },
+        {
+          "pin_number": "5",
+          "pin_name": "SPKP",
+          "pin_type": "output",
+          "net": "NO_CONNECT",
+          "connected_to": []
+        },
+        {
+          "pin_number": "6",
+          "pin_name": "SPKN",
+          "pin_type": "output",
+          "net": "NO_CONNECT",
+          "connected_to": []
+        },
+        {
+          "pin_number": "7",
+          "pin_name": "ANT",
+          "pin_type": "passive",
+          "net": "NO_CONNECT",
+          "connected_to": []
+        },
+        {
+          "pin_number": "9",
+          "pin_name": "RST",
+          "pin_type": "input",
+          "net": "SIM_RST",
+          "connected_to": [
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "12",
+              "pin_name": "GPIO12"
+            }
+          ]
+        },
+        {
+          "pin_number": "10",
+          "pin_name": "RXD",
+          "pin_type": "input",
+          "net": "SIM_TX",
+          "connected_to": [
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "7",
+              "pin_name": "GPIO7"
+            }
+          ]
+        },
+        {
+          "pin_number": "11",
+          "pin_name": "TXD",
+          "pin_type": "output",
+          "net": "SIM_RX",
+          "connected_to": [
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "6",
+              "pin_name": "GPIO6"
+            }
+          ]
+        }
+      ],
+      "decoupling_caps_by_rail": {
+        "+5V_SIM": [
+          {
+            "ref": "C1",
+            "value": "1000uF/16V LOW-ESR"
+          }
+        ]
+      }
+    },
+    {
+      "reference": "J1",
+      "value": "EXTERNAL 5V INPUT",
+      "type": "connector",
+      "lib_id": "Connector_Generic:Conn_01x02",
+      "mpn": "",
+      "description": "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)",
+      "datasheet": "",
+      "function": "",
+      "total_pins": 2,
+      "unconnected_pins": 0,
+      "pins": [
+        {
+          "pin_number": "1",
+          "pin_name": "Pin_1",
+          "pin_type": "passive",
+          "net": "+5V",
+          "connected_to": [
+            {
+              "ref": "C3",
+              "value": "470uF/10V",
+              "type": "capacitor",
+              "pin": "1",
+              "pin_name": ""
+            },
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "5V",
+              "pin_name": "5V"
+            }
+          ],
+          "has_decoupling_cap": true,
+          "decoupling_caps": [
+            {
+              "ref": "C3",
+              "value": "470uF/10V"
+            }
+          ]
+        },
+        {
+          "pin_number": "2",
+          "pin_name": "Pin_2",
+          "pin_type": "passive",
+          "net": "GND",
+          "connected_to": [
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "2",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "7",
+              "pin_name": "ADD"
+            },
+            {
+              "ref": "U4",
+              "value": "A7680C TDM2309 4G",
+              "type": "ic",
+              "pin": "12",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "C1",
+              "value": "1000uF/16V LOW-ESR",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "C3",
+              "value": "470uF/10V",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "J2",
+              "value": "EXTERNAL 5V 2A SIM INPUT",
+              "type": "connector",
+              "pin": "2",
+              "pin_name": "Pin_2"
+            },
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "GND",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "U3",
+              "value": "GPS NEO-7M GY-GPSU3",
+              "type": "ic",
+              "pin": "4",
+              "pin_name": "GND"
+            }
+          ],
+          "has_decoupling_cap": true,
+          "decoupling_caps": [],
+          "note": "Ground net \u2014 decoupling caps listed on VCC/VDD pins"
+        }
+      ],
+      "power_pins": [
+        {
+          "pin_number": "1",
+          "pin_name": "Pin_1",
+          "pin_type": "passive",
+          "net": "+5V",
+          "connected_to": [
+            {
+              "ref": "C3",
+              "value": "470uF/10V",
+              "type": "capacitor",
+              "pin": "1",
+              "pin_name": ""
+            },
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "5V",
+              "pin_name": "5V"
+            }
+          ],
+          "has_decoupling_cap": true,
+          "decoupling_caps": [
+            {
+              "ref": "C3",
+              "value": "470uF/10V"
+            }
+          ]
+        },
+        {
+          "pin_number": "2",
+          "pin_name": "Pin_2",
+          "pin_type": "passive",
+          "net": "GND",
+          "connected_to": [
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "2",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "7",
+              "pin_name": "ADD"
+            },
+            {
+              "ref": "U4",
+              "value": "A7680C TDM2309 4G",
+              "type": "ic",
+              "pin": "12",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "C1",
+              "value": "1000uF/16V LOW-ESR",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "C3",
+              "value": "470uF/10V",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "J2",
+              "value": "EXTERNAL 5V 2A SIM INPUT",
+              "type": "connector",
+              "pin": "2",
+              "pin_name": "Pin_2"
+            },
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "GND",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "U3",
+              "value": "GPS NEO-7M GY-GPSU3",
+              "type": "ic",
+              "pin": "4",
+              "pin_name": "GND"
+            }
+          ],
+          "has_decoupling_cap": true,
+          "decoupling_caps": [],
+          "note": "Ground net \u2014 decoupling caps listed on VCC/VDD pins"
+        }
+      ],
+      "signal_pins": [],
+      "decoupling_caps_by_rail": {
+        "+5V": [
+          {
+            "ref": "C3",
+            "value": "470uF/10V"
+          }
+        ]
+      }
+    },
+    {
+      "reference": "J2",
+      "value": "EXTERNAL 5V 2A SIM INPUT",
+      "type": "connector",
+      "lib_id": "Connector_Generic:Conn_01x02",
+      "mpn": "",
+      "description": "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)",
+      "datasheet": "",
+      "function": "",
+      "total_pins": 2,
+      "unconnected_pins": 0,
+      "pins": [
+        {
+          "pin_number": "1",
+          "pin_name": "Pin_1",
+          "pin_type": "passive",
+          "net": "+5V_SIM",
+          "connected_to": [
+            {
+              "ref": "U4",
+              "value": "A7680C TDM2309 4G",
+              "type": "ic",
+              "pin": "8",
+              "pin_name": "VCC"
+            },
+            {
+              "ref": "C1",
+              "value": "1000uF/16V LOW-ESR",
+              "type": "capacitor",
+              "pin": "1",
+              "pin_name": ""
+            }
+          ],
+          "has_decoupling_cap": true,
+          "decoupling_caps": [
+            {
+              "ref": "C1",
+              "value": "1000uF/16V LOW-ESR"
+            }
+          ]
+        },
+        {
+          "pin_number": "2",
+          "pin_name": "Pin_2",
+          "pin_type": "passive",
+          "net": "GND",
+          "connected_to": [
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "2",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "7",
+              "pin_name": "ADD"
+            },
+            {
+              "ref": "U4",
+              "value": "A7680C TDM2309 4G",
+              "type": "ic",
+              "pin": "12",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "C1",
+              "value": "1000uF/16V LOW-ESR",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "C3",
+              "value": "470uF/10V",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "J1",
+              "value": "EXTERNAL 5V INPUT",
+              "type": "connector",
+              "pin": "2",
+              "pin_name": "Pin_2"
+            },
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "GND",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "U3",
+              "value": "GPS NEO-7M GY-GPSU3",
+              "type": "ic",
+              "pin": "4",
+              "pin_name": "GND"
+            }
+          ],
+          "has_decoupling_cap": true,
+          "decoupling_caps": [],
+          "note": "Ground net \u2014 decoupling caps listed on VCC/VDD pins"
+        }
+      ],
+      "power_pins": [
+        {
+          "pin_number": "1",
+          "pin_name": "Pin_1",
+          "pin_type": "passive",
+          "net": "+5V_SIM",
+          "connected_to": [
+            {
+              "ref": "U4",
+              "value": "A7680C TDM2309 4G",
+              "type": "ic",
+              "pin": "8",
+              "pin_name": "VCC"
+            },
+            {
+              "ref": "C1",
+              "value": "1000uF/16V LOW-ESR",
+              "type": "capacitor",
+              "pin": "1",
+              "pin_name": ""
+            }
+          ],
+          "has_decoupling_cap": true,
+          "decoupling_caps": [
+            {
+              "ref": "C1",
+              "value": "1000uF/16V LOW-ESR"
+            }
+          ]
+        },
+        {
+          "pin_number": "2",
+          "pin_name": "Pin_2",
+          "pin_type": "passive",
+          "net": "GND",
+          "connected_to": [
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "2",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "7",
+              "pin_name": "ADD"
+            },
+            {
+              "ref": "U4",
+              "value": "A7680C TDM2309 4G",
+              "type": "ic",
+              "pin": "12",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "C1",
+              "value": "1000uF/16V LOW-ESR",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "C3",
+              "value": "470uF/10V",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "J1",
+              "value": "EXTERNAL 5V INPUT",
+              "type": "connector",
+              "pin": "2",
+              "pin_name": "Pin_2"
+            },
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "GND",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "U3",
+              "value": "GPS NEO-7M GY-GPSU3",
+              "type": "ic",
+              "pin": "4",
+              "pin_name": "GND"
+            }
+          ],
+          "has_decoupling_cap": true,
+          "decoupling_caps": [],
+          "note": "Ground net \u2014 decoupling caps listed on VCC/VDD pins"
+        }
+      ],
+      "signal_pins": [],
+      "decoupling_caps_by_rail": {
+        "+5V_SIM": [
+          {
+            "ref": "C1",
+            "value": "1000uF/16V LOW-ESR"
+          }
+        ]
+      }
+    },
+    {
+      "reference": "U1",
+      "value": "ESP32-S3 SuperMini",
+      "type": "ic",
+      "lib_id": "VSmart_Modules:ESP32_S3_SuperMini",
+      "mpn": "",
+      "description": "Development Kit",
+      "datasheet": "https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/hw-reference/esp32/get-started-devkitc.html",
+      "function": "microcontroller (ESP)",
+      "total_pins": 18,
+      "unconnected_pins": 0,
+      "pins": [
+        {
+          "pin_number": "1",
+          "pin_name": "GPIO1",
+          "pin_type": "bidirectional",
+          "net": "NO_CONNECT",
+          "connected_to": []
+        },
+        {
+          "pin_number": "2",
+          "pin_name": "GPIO2",
+          "pin_type": "bidirectional",
+          "net": "NO_CONNECT",
+          "connected_to": []
+        },
+        {
+          "pin_number": "3",
+          "pin_name": "GPIO3",
+          "pin_type": "bidirectional",
+          "net": "NO_CONNECT",
+          "connected_to": []
+        },
+        {
+          "pin_number": "4",
+          "pin_name": "GPIO4",
+          "pin_type": "bidirectional",
+          "net": "NO_CONNECT",
+          "connected_to": []
+        },
+        {
+          "pin_number": "5",
+          "pin_name": "GPIO5",
+          "pin_type": "bidirectional",
+          "net": "NO_CONNECT",
+          "connected_to": []
+        },
+        {
+          "pin_number": "6",
+          "pin_name": "GPIO6",
+          "pin_type": "bidirectional",
+          "net": "SIM_RX",
+          "connected_to": [
+            {
+              "ref": "U4",
+              "value": "A7680C TDM2309 4G",
+              "type": "ic",
+              "pin": "11",
+              "pin_name": "TXD"
+            }
+          ]
+        },
+        {
+          "pin_number": "7",
+          "pin_name": "GPIO7",
+          "pin_type": "bidirectional",
+          "net": "SIM_TX",
+          "connected_to": [
+            {
+              "ref": "U4",
+              "value": "A7680C TDM2309 4G",
+              "type": "ic",
+              "pin": "10",
+              "pin_name": "RXD"
+            }
+          ]
+        },
+        {
+          "pin_number": "8",
+          "pin_name": "GPIO8",
+          "pin_type": "bidirectional",
+          "net": "I2C_SDA",
+          "connected_to": [
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "4",
+              "pin_name": "SDA"
+            }
+          ]
+        },
+        {
+          "pin_number": "9",
+          "pin_name": "GPIO9",
+          "pin_type": "bidirectional",
+          "net": "I2C_SCL",
+          "connected_to": [
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "3",
+              "pin_name": "SCL"
+            }
+          ]
+        },
+        {
+          "pin_number": "10",
+          "pin_name": "GPIO10",
+          "pin_type": "bidirectional",
+          "net": "MPU_INT",
+          "connected_to": [
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "8",
+              "pin_name": "INT"
+            }
+          ]
+        },
+        {
+          "pin_number": "11",
+          "pin_name": "GPIO11",
+          "pin_type": "bidirectional",
+          "net": "SIM_DTR",
+          "connected_to": [
+            {
+              "ref": "U4",
+              "value": "A7680C TDM2309 4G",
+              "type": "ic",
+              "pin": "2",
+              "pin_name": "DTR"
+            }
+          ]
+        },
+        {
+          "pin_number": "12",
+          "pin_name": "GPIO12",
+          "pin_type": "bidirectional",
+          "net": "SIM_RST",
+          "connected_to": [
+            {
+              "ref": "U4",
+              "value": "A7680C TDM2309 4G",
+              "type": "ic",
+              "pin": "9",
+              "pin_name": "RST"
+            }
+          ]
+        },
+        {
+          "pin_number": "13",
+          "pin_name": "GPIO13",
+          "pin_type": "bidirectional",
+          "net": "SIM_RI",
+          "connected_to": [
+            {
+              "ref": "U4",
+              "value": "A7680C TDM2309 4G",
+              "type": "ic",
+              "pin": "1",
+              "pin_name": "RI"
+            }
+          ]
+        },
+        {
+          "pin_number": "3V3",
+          "pin_name": "3V3_OUT",
+          "pin_type": "power_out",
+          "net": "+3V3",
+          "connected_to": [
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "1",
+              "pin_name": "VCC"
+            },
+            {
+              "ref": "U3",
+              "value": "GPS NEO-7M GY-GPSU3",
+              "type": "ic",
+              "pin": "1",
+              "pin_name": "VCC"
+            }
+          ],
+          "has_decoupling_cap": false,
+          "decoupling_caps": []
+        },
+        {
+          "pin_number": "5V",
+          "pin_name": "5V",
+          "pin_type": "power_in",
+          "net": "+5V",
+          "connected_to": [
+            {
+              "ref": "C3",
+              "value": "470uF/10V",
+              "type": "capacitor",
+              "pin": "1",
+              "pin_name": ""
+            },
+            {
+              "ref": "J1",
+              "value": "EXTERNAL 5V INPUT",
+              "type": "connector",
+              "pin": "1",
+              "pin_name": "Pin_1"
+            }
+          ],
+          "has_decoupling_cap": true,
+          "decoupling_caps": [
+            {
+              "ref": "C3",
+              "value": "470uF/10V"
+            }
+          ]
+        },
+        {
+          "pin_number": "GND",
+          "pin_name": "GND",
+          "pin_type": "power_in",
+          "net": "GND",
+          "connected_to": [
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "2",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "7",
+              "pin_name": "ADD"
+            },
+            {
+              "ref": "U4",
+              "value": "A7680C TDM2309 4G",
+              "type": "ic",
+              "pin": "12",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "C1",
+              "value": "1000uF/16V LOW-ESR",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "C3",
+              "value": "470uF/10V",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "J1",
+              "value": "EXTERNAL 5V INPUT",
+              "type": "connector",
+              "pin": "2",
+              "pin_name": "Pin_2"
+            },
+            {
+              "ref": "J2",
+              "value": "EXTERNAL 5V 2A SIM INPUT",
+              "type": "connector",
+              "pin": "2",
+              "pin_name": "Pin_2"
+            },
+            {
+              "ref": "U3",
+              "value": "GPS NEO-7M GY-GPSU3",
+              "type": "ic",
+              "pin": "4",
+              "pin_name": "GND"
+            }
+          ],
+          "has_decoupling_cap": true,
+          "decoupling_caps": [],
+          "note": "Ground net \u2014 decoupling caps listed on VCC/VDD pins"
+        },
+        {
+          "pin_number": "RX",
+          "pin_name": "RX/GPIO44",
+          "pin_type": "input",
+          "net": "GPS_RX",
+          "connected_to": [
+            {
+              "ref": "U3",
+              "value": "GPS NEO-7M GY-GPSU3",
+              "type": "ic",
+              "pin": "3",
+              "pin_name": "TXD"
+            }
+          ]
+        },
+        {
+          "pin_number": "TX",
+          "pin_name": "TX/GPIO43",
+          "pin_type": "output",
+          "net": "GPS_TX",
+          "connected_to": [
+            {
+              "ref": "U3",
+              "value": "GPS NEO-7M GY-GPSU3",
+              "type": "ic",
+              "pin": "2",
+              "pin_name": "RXD"
+            }
+          ]
+        }
+      ],
+      "power_pins": [
+        {
+          "pin_number": "3V3",
+          "pin_name": "3V3_OUT",
+          "pin_type": "power_out",
+          "net": "+3V3",
+          "connected_to": [
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "1",
+              "pin_name": "VCC"
+            },
+            {
+              "ref": "U3",
+              "value": "GPS NEO-7M GY-GPSU3",
+              "type": "ic",
+              "pin": "1",
+              "pin_name": "VCC"
+            }
+          ],
+          "has_decoupling_cap": false,
+          "decoupling_caps": []
+        },
+        {
+          "pin_number": "5V",
+          "pin_name": "5V",
+          "pin_type": "power_in",
+          "net": "+5V",
+          "connected_to": [
+            {
+              "ref": "C3",
+              "value": "470uF/10V",
+              "type": "capacitor",
+              "pin": "1",
+              "pin_name": ""
+            },
+            {
+              "ref": "J1",
+              "value": "EXTERNAL 5V INPUT",
+              "type": "connector",
+              "pin": "1",
+              "pin_name": "Pin_1"
+            }
+          ],
+          "has_decoupling_cap": true,
+          "decoupling_caps": [
+            {
+              "ref": "C3",
+              "value": "470uF/10V"
+            }
+          ]
+        },
+        {
+          "pin_number": "GND",
+          "pin_name": "GND",
+          "pin_type": "power_in",
+          "net": "GND",
+          "connected_to": [
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "2",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "7",
+              "pin_name": "ADD"
+            },
+            {
+              "ref": "U4",
+              "value": "A7680C TDM2309 4G",
+              "type": "ic",
+              "pin": "12",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "C1",
+              "value": "1000uF/16V LOW-ESR",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "C3",
+              "value": "470uF/10V",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "J1",
+              "value": "EXTERNAL 5V INPUT",
+              "type": "connector",
+              "pin": "2",
+              "pin_name": "Pin_2"
+            },
+            {
+              "ref": "J2",
+              "value": "EXTERNAL 5V 2A SIM INPUT",
+              "type": "connector",
+              "pin": "2",
+              "pin_name": "Pin_2"
+            },
+            {
+              "ref": "U3",
+              "value": "GPS NEO-7M GY-GPSU3",
+              "type": "ic",
+              "pin": "4",
+              "pin_name": "GND"
+            }
+          ],
+          "has_decoupling_cap": true,
+          "decoupling_caps": [],
+          "note": "Ground net \u2014 decoupling caps listed on VCC/VDD pins"
+        }
+      ],
+      "signal_pins": [
+        {
+          "pin_number": "1",
+          "pin_name": "GPIO1",
+          "pin_type": "bidirectional",
+          "net": "NO_CONNECT",
+          "connected_to": []
+        },
+        {
+          "pin_number": "2",
+          "pin_name": "GPIO2",
+          "pin_type": "bidirectional",
+          "net": "NO_CONNECT",
+          "connected_to": []
+        },
+        {
+          "pin_number": "3",
+          "pin_name": "GPIO3",
+          "pin_type": "bidirectional",
+          "net": "NO_CONNECT",
+          "connected_to": []
+        },
+        {
+          "pin_number": "4",
+          "pin_name": "GPIO4",
+          "pin_type": "bidirectional",
+          "net": "NO_CONNECT",
+          "connected_to": []
+        },
+        {
+          "pin_number": "5",
+          "pin_name": "GPIO5",
+          "pin_type": "bidirectional",
+          "net": "NO_CONNECT",
+          "connected_to": []
+        },
+        {
+          "pin_number": "6",
+          "pin_name": "GPIO6",
+          "pin_type": "bidirectional",
+          "net": "SIM_RX",
+          "connected_to": [
+            {
+              "ref": "U4",
+              "value": "A7680C TDM2309 4G",
+              "type": "ic",
+              "pin": "11",
+              "pin_name": "TXD"
+            }
+          ]
+        },
+        {
+          "pin_number": "7",
+          "pin_name": "GPIO7",
+          "pin_type": "bidirectional",
+          "net": "SIM_TX",
+          "connected_to": [
+            {
+              "ref": "U4",
+              "value": "A7680C TDM2309 4G",
+              "type": "ic",
+              "pin": "10",
+              "pin_name": "RXD"
+            }
+          ]
+        },
+        {
+          "pin_number": "8",
+          "pin_name": "GPIO8",
+          "pin_type": "bidirectional",
+          "net": "I2C_SDA",
+          "connected_to": [
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "4",
+              "pin_name": "SDA"
+            }
+          ]
+        },
+        {
+          "pin_number": "9",
+          "pin_name": "GPIO9",
+          "pin_type": "bidirectional",
+          "net": "I2C_SCL",
+          "connected_to": [
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "3",
+              "pin_name": "SCL"
+            }
+          ]
+        },
+        {
+          "pin_number": "10",
+          "pin_name": "GPIO10",
+          "pin_type": "bidirectional",
+          "net": "MPU_INT",
+          "connected_to": [
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "8",
+              "pin_name": "INT"
+            }
+          ]
+        },
+        {
+          "pin_number": "11",
+          "pin_name": "GPIO11",
+          "pin_type": "bidirectional",
+          "net": "SIM_DTR",
+          "connected_to": [
+            {
+              "ref": "U4",
+              "value": "A7680C TDM2309 4G",
+              "type": "ic",
+              "pin": "2",
+              "pin_name": "DTR"
+            }
+          ]
+        },
+        {
+          "pin_number": "12",
+          "pin_name": "GPIO12",
+          "pin_type": "bidirectional",
+          "net": "SIM_RST",
+          "connected_to": [
+            {
+              "ref": "U4",
+              "value": "A7680C TDM2309 4G",
+              "type": "ic",
+              "pin": "9",
+              "pin_name": "RST"
+            }
+          ]
+        },
+        {
+          "pin_number": "13",
+          "pin_name": "GPIO13",
+          "pin_type": "bidirectional",
+          "net": "SIM_RI",
+          "connected_to": [
+            {
+              "ref": "U4",
+              "value": "A7680C TDM2309 4G",
+              "type": "ic",
+              "pin": "1",
+              "pin_name": "RI"
+            }
+          ]
+        },
+        {
+          "pin_number": "RX",
+          "pin_name": "RX/GPIO44",
+          "pin_type": "input",
+          "net": "GPS_RX",
+          "connected_to": [
+            {
+              "ref": "U3",
+              "value": "GPS NEO-7M GY-GPSU3",
+              "type": "ic",
+              "pin": "3",
+              "pin_name": "TXD"
+            }
+          ]
+        },
+        {
+          "pin_number": "TX",
+          "pin_name": "TX/GPIO43",
+          "pin_type": "output",
+          "net": "GPS_TX",
+          "connected_to": [
+            {
+              "ref": "U3",
+              "value": "GPS NEO-7M GY-GPSU3",
+              "type": "ic",
+              "pin": "2",
+              "pin_name": "RXD"
+            }
+          ]
+        }
+      ],
+      "decoupling_caps_by_rail": {
+        "+5V": [
+          {
+            "ref": "C3",
+            "value": "470uF/10V"
+          }
+        ]
+      }
+    },
+    {
+      "reference": "U3",
+      "value": "GPS NEO-7M GY-GPSU3",
+      "type": "ic",
+      "lib_id": "VSmart_Modules:GPS_GY_GPSU3_NEO7M",
+      "mpn": "",
+      "description": "GY-GPSU3-NEO / GY-NEO6MV2 style u-blox NEO-7M breakout, 4-pin UART header, external u.FL patch antenna",
+      "datasheet": "https://www.u-blox.com/en/product/neo-7-series",
+      "function": "UART interface",
+      "total_pins": 4,
+      "unconnected_pins": 0,
+      "pins": [
+        {
+          "pin_number": "1",
+          "pin_name": "VCC",
+          "pin_type": "power_in",
+          "net": "+3V3",
+          "connected_to": [
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "1",
+              "pin_name": "VCC"
+            },
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "3V3",
+              "pin_name": "3V3_OUT"
+            }
+          ],
+          "has_decoupling_cap": false,
+          "decoupling_caps": []
+        },
+        {
+          "pin_number": "2",
+          "pin_name": "RXD",
+          "pin_type": "input",
+          "net": "GPS_TX",
+          "connected_to": [
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "TX",
+              "pin_name": "TX/GPIO43"
+            }
+          ]
+        },
+        {
+          "pin_number": "3",
+          "pin_name": "TXD",
+          "pin_type": "output",
+          "net": "GPS_RX",
+          "connected_to": [
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "RX",
+              "pin_name": "RX/GPIO44"
+            }
+          ]
+        },
+        {
+          "pin_number": "4",
+          "pin_name": "GND",
+          "pin_type": "power_in",
+          "net": "GND",
+          "connected_to": [
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "2",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "7",
+              "pin_name": "ADD"
+            },
+            {
+              "ref": "U4",
+              "value": "A7680C TDM2309 4G",
+              "type": "ic",
+              "pin": "12",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "C1",
+              "value": "1000uF/16V LOW-ESR",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "C3",
+              "value": "470uF/10V",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "J1",
+              "value": "EXTERNAL 5V INPUT",
+              "type": "connector",
+              "pin": "2",
+              "pin_name": "Pin_2"
+            },
+            {
+              "ref": "J2",
+              "value": "EXTERNAL 5V 2A SIM INPUT",
+              "type": "connector",
+              "pin": "2",
+              "pin_name": "Pin_2"
+            },
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "GND",
+              "pin_name": "GND"
+            }
+          ],
+          "has_decoupling_cap": true,
+          "decoupling_caps": [],
+          "note": "Ground net \u2014 decoupling caps listed on VCC/VDD pins"
+        }
+      ],
+      "power_pins": [
+        {
+          "pin_number": "1",
+          "pin_name": "VCC",
+          "pin_type": "power_in",
+          "net": "+3V3",
+          "connected_to": [
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "1",
+              "pin_name": "VCC"
+            },
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "3V3",
+              "pin_name": "3V3_OUT"
+            }
+          ],
+          "has_decoupling_cap": false,
+          "decoupling_caps": []
+        },
+        {
+          "pin_number": "4",
+          "pin_name": "GND",
+          "pin_type": "power_in",
+          "net": "GND",
+          "connected_to": [
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "2",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "type": "ic",
+              "pin": "7",
+              "pin_name": "ADD"
+            },
+            {
+              "ref": "U4",
+              "value": "A7680C TDM2309 4G",
+              "type": "ic",
+              "pin": "12",
+              "pin_name": "GND"
+            },
+            {
+              "ref": "C1",
+              "value": "1000uF/16V LOW-ESR",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "C3",
+              "value": "470uF/10V",
+              "type": "capacitor",
+              "pin": "2",
+              "pin_name": ""
+            },
+            {
+              "ref": "J1",
+              "value": "EXTERNAL 5V INPUT",
+              "type": "connector",
+              "pin": "2",
+              "pin_name": "Pin_2"
+            },
+            {
+              "ref": "J2",
+              "value": "EXTERNAL 5V 2A SIM INPUT",
+              "type": "connector",
+              "pin": "2",
+              "pin_name": "Pin_2"
+            },
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "GND",
+              "pin_name": "GND"
+            }
+          ],
+          "has_decoupling_cap": true,
+          "decoupling_caps": [],
+          "note": "Ground net \u2014 decoupling caps listed on VCC/VDD pins"
+        }
+      ],
+      "signal_pins": [
+        {
+          "pin_number": "2",
+          "pin_name": "RXD",
+          "pin_type": "input",
+          "net": "GPS_TX",
+          "connected_to": [
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "TX",
+              "pin_name": "TX/GPIO43"
+            }
+          ]
+        },
+        {
+          "pin_number": "3",
+          "pin_name": "TXD",
+          "pin_type": "output",
+          "net": "GPS_RX",
+          "connected_to": [
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "type": "ic",
+              "pin": "RX",
+              "pin_name": "RX/GPIO44"
+            }
+          ]
+        }
+      ],
+      "decoupling_caps_by_rail": {}
+    }
+  ],
+  "transistor_pin_analysis": [],
+  "design_analysis": {
+    "net_classification": {
+      "+3V3": "power",
+      "GND": "ground",
+      "I2C_SCL": "clock",
+      "I2C_SDA": "data",
+      "__unnamed_0": "signal",
+      "__unnamed_1": "signal",
+      "MPU_INT": "interrupt",
+      "SIM_RI": "signal",
+      "SIM_DTR": "signal",
+      "__unnamed_2": "signal",
+      "__unnamed_3": "signal",
+      "__unnamed_4": "signal",
+      "__unnamed_5": "signal",
+      "__unnamed_6": "signal",
+      "+5V_SIM": "power",
+      "SIM_RST": "control",
+      "SIM_TX": "data",
+      "SIM_RX": "data",
+      "+5V": "power",
+      "__unnamed_7": "signal",
+      "__unnamed_8": "signal",
+      "__unnamed_9": "signal",
+      "__unnamed_10": "signal",
+      "__unnamed_11": "signal",
+      "GPS_RX": "data",
+      "GPS_TX": "data"
+    },
+    "power_domains": {
+      "ic_power_rails": {
+        "U2": {
+          "value": "MPU6050 GY-521 MODULE",
+          "power_rails": [
+            "+3V3"
+          ],
+          "io_rails": null
+        },
+        "U4": {
+          "value": "A7680C TDM2309 4G",
+          "power_rails": [
+            "+5V_SIM"
+          ],
+          "io_rails": null
+        },
+        "U1": {
+          "value": "ESP32-S3 SuperMini",
+          "power_rails": [
+            "+3V3",
+            "+5V"
+          ],
+          "io_rails": null
+        },
+        "U3": {
+          "value": "GPS NEO-7M GY-GPSU3",
+          "power_rails": [
+            "+3V3"
+          ],
+          "io_rails": null
+        }
+      },
+      "domain_groups": {
+        "+3V3": [
+          "U2",
+          "U1",
+          "U3"
+        ],
+        "+5V_SIM": [
+          "U4"
+        ],
+        "+5V": [
+          "U1"
+        ]
+      }
+    },
+    "cross_domain_signals": [
+      {
+        "net": "I2C_SCL",
+        "ics": [
+          "U1",
+          "U2"
+        ],
+        "power_domains": [
+          "+3V3",
+          "+5V"
+        ],
+        "needs_level_shifter": false
+      },
+      {
+        "net": "I2C_SDA",
+        "ics": [
+          "U1",
+          "U2"
+        ],
+        "power_domains": [
+          "+3V3",
+          "+5V"
+        ],
+        "needs_level_shifter": false
+      },
+      {
+        "net": "MPU_INT",
+        "ics": [
+          "U1",
+          "U2"
+        ],
+        "power_domains": [
+          "+3V3",
+          "+5V"
+        ],
+        "needs_level_shifter": false
+      },
+      {
+        "net": "SIM_RI",
+        "ics": [
+          "U1",
+          "U4"
+        ],
+        "power_domains": [
+          "+3V3",
+          "+5V",
+          "+5V_SIM"
+        ],
+        "needs_level_shifter": false
+      },
+      {
+        "net": "SIM_DTR",
+        "ics": [
+          "U1",
+          "U4"
+        ],
+        "power_domains": [
+          "+3V3",
+          "+5V",
+          "+5V_SIM"
+        ],
+        "needs_level_shifter": false
+      },
+      {
+        "net": "SIM_RST",
+        "ics": [
+          "U1",
+          "U4"
+        ],
+        "power_domains": [
+          "+3V3",
+          "+5V",
+          "+5V_SIM"
+        ],
+        "needs_level_shifter": false
+      },
+      {
+        "net": "SIM_TX",
+        "ics": [
+          "U1",
+          "U4"
+        ],
+        "power_domains": [
+          "+3V3",
+          "+5V",
+          "+5V_SIM"
+        ],
+        "needs_level_shifter": false
+      },
+      {
+        "net": "SIM_RX",
+        "ics": [
+          "U1",
+          "U4"
+        ],
+        "power_domains": [
+          "+3V3",
+          "+5V",
+          "+5V_SIM"
+        ],
+        "needs_level_shifter": false
+      },
+      {
+        "net": "GPS_RX",
+        "ics": [
+          "U1",
+          "U3"
+        ],
+        "power_domains": [
+          "+3V3",
+          "+5V"
+        ],
+        "needs_level_shifter": false
+      },
+      {
+        "net": "GPS_TX",
+        "ics": [
+          "U1",
+          "U3"
+        ],
+        "power_domains": [
+          "+3V3",
+          "+5V"
+        ],
+        "needs_level_shifter": false
+      }
+    ],
+    "bus_analysis": {
+      "i2c": [
+        {
+          "net": "I2C_SCL",
+          "line": "SCL",
+          "devices": [
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "lib_id": "usini_sensors:module_mpu6050"
+            },
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "lib_id": "VSmart_Modules:ESP32_S3_SuperMini"
+            }
+          ],
+          "load_count": 2,
+          "estimated_bus_capacitance_pF": 10,
+          "pull_ups": [],
+          "has_pull_up": false,
+          "speed_mode": null,
+          "voltage_level_V": null,
+          "pull_up_ohms": null,
+          "controller": "U1"
+        },
+        {
+          "net": "I2C_SDA",
+          "line": "SDA",
+          "devices": [
+            {
+              "ref": "U2",
+              "value": "MPU6050 GY-521 MODULE",
+              "lib_id": "usini_sensors:module_mpu6050"
+            },
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "lib_id": "VSmart_Modules:ESP32_S3_SuperMini"
+            }
+          ],
+          "load_count": 2,
+          "estimated_bus_capacitance_pF": 10,
+          "pull_ups": [],
+          "has_pull_up": false,
+          "speed_mode": null,
+          "voltage_level_V": null,
+          "pull_up_ohms": null,
+          "controller": "U1"
+        }
+      ],
+      "spi": [],
+      "uart": [
+        {
+          "net": "SIM_TX",
+          "devices": [
+            {
+              "ref": "U4",
+              "value": "A7680C TDM2309 4G",
+              "lib_id": "VSmart_Modules:A7680C_TDM2309"
+            },
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "lib_id": "VSmart_Modules:ESP32_S3_SuperMini"
+            }
+          ],
+          "pin_count": 2
+        },
+        {
+          "net": "SIM_RX",
+          "devices": [
+            {
+              "ref": "U4",
+              "value": "A7680C TDM2309 4G",
+              "lib_id": "VSmart_Modules:A7680C_TDM2309"
+            },
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "lib_id": "VSmart_Modules:ESP32_S3_SuperMini"
+            }
+          ],
+          "pin_count": 2
+        },
+        {
+          "net": "GPS_RX",
+          "devices": [
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "lib_id": "VSmart_Modules:ESP32_S3_SuperMini"
+            },
+            {
+              "ref": "U3",
+              "value": "GPS NEO-7M GY-GPSU3",
+              "lib_id": "VSmart_Modules:GPS_GY_GPSU3_NEO7M"
+            }
+          ],
+          "pin_count": 2
+        },
+        {
+          "net": "GPS_TX",
+          "devices": [
+            {
+              "ref": "U1",
+              "value": "ESP32-S3 SuperMini",
+              "lib_id": "VSmart_Modules:ESP32_S3_SuperMini"
+            },
+            {
+              "ref": "U3",
+              "value": "GPS NEO-7M GY-GPSU3",
+              "lib_id": "VSmart_Modules:GPS_GY_GPSU3_NEO7M"
+            }
+          ],
+          "pin_count": 2
+        }
+      ],
+      "can": []
+    },
+    "differential_pairs": [],
+    "erc_warnings": [],
+    "passive_warnings": []
+  },
+  "connectivity_issues": {
+    "unconnected_pins": [],
+    "single_pin_nets": [],
+    "single_pin_net_findings": [],
+    "multi_driver_nets": [],
+    "power_net_summary": {
+      "+3V3": {
+        "pin_count": 3,
+        "components": [
+          "U1",
+          "U2",
+          "U3"
+        ]
+      },
+      "GND": {
+        "pin_count": 9,
+        "components": [
+          "C1",
+          "C3",
+          "J1",
+          "J2",
+          "U1",
+          "U2",
+          "U3",
+          "U4"
+        ]
+      },
+      "+5V_SIM": {
+        "pin_count": 3,
+        "components": [
+          "C1",
+          "J2",
+          "U4"
+        ]
+      },
+      "+5V": {
+        "pin_count": 3,
+        "components": [
+          "C3",
+          "J1",
+          "U1"
+        ]
+      }
+    }
+  },
+  "labels": [
+    {
+      "name": "+3V3",
+      "type": "global_label",
+      "x": 195.58,
+      "y": 21.59,
+      "angle": 0.0,
+      "_sheet": 0
+    },
+    {
+      "name": "GND",
+      "type": "global_label",
+      "x": 195.58,
+      "y": 24.13,
+      "angle": 0.0,
+      "_sheet": 0
+    },
+    {
+      "name": "I2C_SCL",
+      "type": "global_label",
+      "x": 195.58,
+      "y": 26.67,
+      "angle": 0.0,
+      "_sheet": 0
+    },
+    {
+      "name": "I2C_SDA",
+      "type": "global_label",
+      "x": 195.58,
+      "y": 29.21,
+      "angle": 0.0,
+      "_sheet": 0
+    },
+    {
+      "name": "GND",
+      "type": "global_label",
+      "x": 195.58,
+      "y": 36.83,
+      "angle": 0.0,
+      "_sheet": 0
+    },
+    {
+      "name": "MPU_INT",
+      "type": "global_label",
+      "x": 195.58,
+      "y": 39.37,
+      "angle": 0.0,
+      "_sheet": 0
+    },
+    {
+      "name": "SIM_RI",
+      "type": "global_label",
+      "x": 185.42,
+      "y": 111.76,
+      "angle": 0.0,
+      "_sheet": 0
+    },
+    {
+      "name": "SIM_DTR",
+      "type": "global_label",
+      "x": 185.42,
+      "y": 114.3,
+      "angle": 0.0,
+      "_sheet": 0
+    },
+    {
+      "name": "+5V_SIM",
+      "type": "global_label",
+      "x": 205.74,
+      "y": 114.3,
+      "angle": 180.0,
+      "_sheet": 0
+    },
+    {
+      "name": "SIM_RST",
+      "type": "global_label",
+      "x": 205.74,
+      "y": 116.84,
+      "angle": 180.0,
+      "_sheet": 0
+    },
+    {
+      "name": "SIM_TX",
+      "type": "global_label",
+      "x": 205.74,
+      "y": 119.38,
+      "angle": 180.0,
+      "_sheet": 0
+    },
+    {
+      "name": "SIM_RX",
+      "type": "global_label",
+      "x": 205.74,
+      "y": 121.92,
+      "angle": 180.0,
+      "_sheet": 0
+    },
+    {
+      "name": "GND",
+      "type": "global_label",
+      "x": 205.74,
+      "y": 124.46,
+      "angle": 180.0,
+      "_sheet": 0
+    },
+    {
+      "name": "+5V_SIM",
+      "type": "global_label",
+      "x": 149.86,
+      "y": 125.73,
+      "angle": 270.0,
+      "_sheet": 0
+    },
+    {
+      "name": "GND",
+      "type": "global_label",
+      "x": 149.86,
+      "y": 133.35,
+      "angle": 90.0,
+      "_sheet": 0
+    },
+    {
+      "name": "+5V",
+      "type": "global_label",
+      "x": 90.17,
+      "y": 31.75,
+      "angle": 270.0,
+      "_sheet": 0
+    },
+    {
+      "name": "GND",
+      "type": "global_label",
+      "x": 90.17,
+      "y": 39.37,
+      "angle": 90.0,
+      "_sheet": 0
+    },
+    {
+      "name": "GND",
+      "type": "global_label",
+      "x": 105.41,
+      "y": 64.77,
+      "angle": 90.0,
+      "_sheet": 0
+    },
+    {
+      "name": "+5V",
+      "type": "global_label",
+      "x": 59.69,
+      "y": 35.56,
+      "angle": 0.0,
+      "_sheet": 0
+    },
+    {
+      "name": "GND",
+      "type": "global_label",
+      "x": 59.69,
+      "y": 38.1,
+      "angle": 0.0,
+      "_sheet": 0
+    },
+    {
+      "name": "+5V_SIM",
+      "type": "global_label",
+      "x": 59.69,
+      "y": 55.88,
+      "angle": 0.0,
+      "_sheet": 0
+    },
+    {
+      "name": "GND",
+      "type": "global_label",
+      "x": 59.69,
+      "y": 58.42,
+      "angle": 0.0,
+      "_sheet": 0
+    },
+    {
+      "name": "+5V",
+      "type": "global_label",
+      "x": 90.17,
+      "y": 35.56,
+      "angle": 90.0,
+      "_sheet": 0
+    },
+    {
+      "name": "+5V_SIM",
+      "type": "global_label",
+      "x": 90.17,
+      "y": 55.88,
+      "angle": 90.0,
+      "_sheet": 0
+    },
+    {
+      "name": "+5V",
+      "type": "global_label",
+      "x": 134.62,
+      "y": 90.17,
+      "angle": 0.0,
+      "_sheet": 0
+    },
+    {
+      "name": "GND",
+      "type": "global_label",
+      "x": 134.62,
+      "y": 87.63,
+      "angle": 0.0,
+      "_sheet": 0
+    },
+    {
+      "name": "+3V3",
+      "type": "global_label",
+      "x": 134.62,
+      "y": 85.09,
+      "angle": 0.0,
+      "_sheet": 0
+    },
+    {
+      "name": "I2C_SDA",
+      "type": "global_label",
+      "x": 134.62,
+      "y": 69.85,
+      "angle": 0.0,
+      "_sheet": 0
+    },
+    {
+      "name": "I2C_SCL",
+      "type": "global_label",
+      "x": 134.62,
+      "y": 72.39,
+      "angle": 0.0,
+      "_sheet": 0
+    },
+    {
+      "name": "MPU_INT",
+      "type": "global_label",
+      "x": 134.62,
+      "y": 74.93,
+      "angle": 0.0,
+      "_sheet": 0
+    },
+    {
+      "name": "GPS_RX",
+      "type": "global_label",
+      "x": 114.3,
+      "y": 87.63,
+      "angle": 0.0,
+      "_sheet": 0
+    },
+    {
+      "name": "GPS_TX",
+      "type": "global_label",
+      "x": 114.3,
+      "y": 90.17,
+      "angle": 0.0,
+      "_sheet": 0
+    },
+    {
+      "name": "SIM_RX",
+      "type": "global_label",
+      "x": 114.3,
+      "y": 72.39,
+      "angle": 0.0,
+      "_sheet": 0
+    },
+    {
+      "name": "SIM_TX",
+      "type": "global_label",
+      "x": 114.3,
+      "y": 69.85,
+      "angle": 0.0,
+      "_sheet": 0
+    },
+    {
+      "name": "SIM_RST",
+      "type": "global_label",
+      "x": 134.62,
+      "y": 80.01,
+      "angle": 0.0,
+      "_sheet": 0
+    },
+    {
+      "name": "SIM_RI",
+      "type": "global_label",
+      "x": 134.62,
+      "y": 82.55,
+      "angle": 0.0,
+      "_sheet": 0
+    },
+    {
+      "name": "+3V3",
+      "type": "global_label",
+      "x": 187.96,
+      "y": 77.47,
+      "angle": 0.0,
+      "_sheet": 0
+    },
+    {
+      "name": "GPS_TX",
+      "type": "global_label",
+      "x": 203.2,
+      "y": 77.47,
+      "angle": 180.0,
+      "_sheet": 0
+    },
+    {
+      "name": "GPS_RX",
+      "type": "global_label",
+      "x": 203.2,
+      "y": 80.01,
+      "angle": 180.0,
+      "_sheet": 0
+    },
+    {
+      "name": "GND",
+      "type": "global_label",
+      "x": 187.96,
+      "y": 80.01,
+      "angle": 0.0,
+      "_sheet": 0
+    },
+    {
+      "name": "SIM_DTR",
+      "type": "global_label",
+      "x": 134.62,
+      "y": 77.47,
+      "angle": 180.0,
+      "_sheet": 0
+    }
+  ],
+  "no_connects": [
+    {
+      "x": 195.58,
+      "y": 31.75,
+      "_sheet": 0
+    },
+    {
+      "x": 195.58,
+      "y": 34.29,
+      "_sheet": 0
+    },
+    {
+      "x": 185.42,
+      "y": 116.84,
+      "_sheet": 0
+    },
+    {
+      "x": 185.42,
+      "y": 119.38,
+      "_sheet": 0
+    },
+    {
+      "x": 185.42,
+      "y": 121.92,
+      "_sheet": 0
+    },
+    {
+      "x": 185.42,
+      "y": 124.46,
+      "_sheet": 0
+    },
+    {
+      "x": 205.74,
+      "y": 111.76,
+      "_sheet": 0
+    },
+    {
+      "x": 114.3,
+      "y": 85.09,
+      "_sheet": 0
+    },
+    {
+      "x": 114.3,
+      "y": 82.55,
+      "_sheet": 0
+    },
+    {
+      "x": 114.3,
+      "y": 80.01,
+      "_sheet": 0
+    },
+    {
+      "x": 114.3,
+      "y": 74.93,
+      "_sheet": 0
+    },
+    {
+      "x": 114.3,
+      "y": 77.47,
+      "_sheet": 0
+    }
+  ],
+  "power_symbols": [
+    {
+      "net_name": "PWR_FLAG",
+      "x": 105.41,
+      "y": 64.77,
+      "lib_id": "power:PWR_FLAG",
+      "_sheet": 0,
+      "_power_scope": "global"
+    },
+    {
+      "net_name": "PWR_FLAG",
+      "x": 90.17,
+      "y": 35.56,
+      "lib_id": "power:PWR_FLAG",
+      "_sheet": 0,
+      "_power_scope": "global"
+    },
+    {
+      "net_name": "PWR_FLAG",
+      "x": 90.17,
+      "y": 55.88,
+      "lib_id": "power:PWR_FLAG",
+      "_sheet": 0,
+      "_power_scope": "global"
+    }
+  ],
+  "annotation_issues": {},
+  "label_shape_warnings": [],
+  "pwr_flag_warnings": [],
+  "footprint_filter_warnings": [],
+  "sourcing_audit": {
+    "total_bom_components": 8,
+    "mpn_coverage": "0/8",
+    "missing_mpn": [
+      "C1",
+      "C3",
+      "J1",
+      "J2",
+      "U1",
+      "U2",
+      "U3",
+      "U4"
+    ],
+    "missing_digikey": [
+      "C1",
+      "C3",
+      "J1",
+      "J2",
+      "U1",
+      "U2",
+      "U3",
+      "U4"
+    ],
+    "missing_lcsc": [
+      "C1",
+      "C3",
+      "J1",
+      "J2",
+      "U1",
+      "U2",
+      "U3",
+      "U4"
+    ],
+    "mpn_percent": 0.0
+  },
+  "ground_domains": {
+    "ground_nets": {
+      "GND": {
+        "domain": "signal",
+        "connections": 9,
+        "components": [
+          "C1",
+          "C3",
+          "J1",
+          "J2",
+          "U1",
+          "U2",
+          "U3",
+          "U4"
+        ]
+      }
+    },
+    "multiple_domains": false
+  },
+  "bus_topology": {
+    "bus_wire_count": 0,
+    "bus_entry_count": 0,
+    "unresolved": []
+  },
+  "wire_geometry": {
+    "total_wires": 0
+  },
+  "simulation_readiness": {
+    "total_components": 8,
+    "likely_simulatable": 2,
+    "needs_model": 6,
+    "components_without_model": [
+      "J1",
+      "J2",
+      "U1",
+      "U2",
+      "U3",
+      "U4"
+    ],
+    "simulatable_percent": 25.0
+  },
+  "property_issues": {},
+  "placement_analysis": {
+    "bounding_box": {
+      "x_min": 64.8,
+      "y_min": 35.6,
+      "x_max": 195.6,
+      "y_max": 129.5,
+      "width_mm": 130.8,
+      "height_mm": 94.0
+    },
+    "clusters": [
+      {
+        "region": "row0_col0",
+        "component_count": 3,
+        "types": {
+          "capacitor": 1,
+          "connector": 2
+        },
+        "references": [
+          "C3",
+          "J1",
+          "J2"
+        ]
+      },
+      {
+        "region": "row0_col2",
+        "component_count": 1,
+        "types": {
+          "ic": 1
+        },
+        "references": [
+          "U2"
+        ]
+      },
+      {
+        "region": "row1_col1",
+        "component_count": 1,
+        "types": {
+          "ic": 1
+        },
+        "references": [
+          "U1"
+        ]
+      },
+      {
+        "region": "row1_col2",
+        "component_count": 1,
+        "types": {
+          "ic": 1
+        },
+        "references": [
+          "U3"
+        ]
+      },
+      {
+        "region": "row2_col1",
+        "component_count": 1,
+        "types": {
+          "capacitor": 1
+        },
+        "references": [
+          "C1"
+        ]
+      },
+      {
+        "region": "row2_col2",
+        "component_count": 1,
+        "types": {
+          "ic": 1
+        },
+        "references": [
+          "U4"
+        ]
+      }
+    ],
+    "grid_size": "3x3"
+  },
+  "hierarchical_labels": {
+    "hierarchical_label_count": 0,
+    "global_label_count": 41
+  },
+  "rail_voltages": {
+    "+3V3": 3.3,
+    "GND": 0,
+    "+5V_SIM": 5.0,
+    "+5V": 5.0
+  },
+  "power_sequencing_validation": {
+    "power_tree": [],
+    "provenance": {
+      "evidence": "pseq_enable_chain",
+      "confidence": "heuristic",
+      "claimed_components": [],
+      "excluded_by": [],
+      "suppressed_candidates": []
+    }
+  },
+  "net_classifications": {
+    "I2C_SDA": {
+      "type": "i2c",
+      "source": "protocol_detection"
+    },
+    "I2C_SCL": {
+      "type": "i2c",
+      "source": "protocol_detection"
+    }
+  },
+  "pdn_impedance": {
+    "rails": {
+      "+5V_SIM": {
+        "capacitors": [
+          {
+            "ref": "C1",
+            "value": "1000uF/16V LOW-ESR",
+            "farads": 0.001,
+            "package": null,
+            "esr_ohm": 0.1,
+            "esl_nH": 7.5,
+            "srf_hz": 58115,
+            "srf_formatted": "58.12 kHz",
+            "type": "electrolytic/tantalum"
+          }
+        ],
+        "cap_count": 1,
+        "total_capacitance_uF": 1000.0,
+        "impedance_profile": [
+          {
+            "freq_hz": 1000,
+            "freq_formatted": "1.00 kHz",
+            "impedance_ohm": 0.187924
+          },
+          {
+            "freq_hz": 1259,
+            "freq_formatted": "1.26 kHz",
+            "impedance_ohm": 0.161144
+          },
+          {
+            "freq_hz": 1585,
+            "freq_formatted": "1.58 kHz",
+            "impedance_ohm": 0.141666
+          },
+          {
+            "freq_hz": 1995,
+            "freq_formatted": "2.00 kHz",
+            "impedance_ohm": 0.127858
+          },
+          {
+            "freq_hz": 2512,
+            "freq_formatted": "2.51 kHz",
+            "impedance_ohm": 0.11832
+          },
+          {
+            "freq_hz": 3162,
+            "freq_formatted": "3.16 kHz",
+            "impedance_ohm": 0.111884
+          },
+          {
+            "freq_hz": 3981,
+            "freq_formatted": "3.98 kHz",
+            "impedance_ohm": 0.107626
+          },
+          {
+            "freq_hz": 5012,
+            "freq_formatted": "5.01 kHz",
+            "impedance_ohm": 0.10485
+          },
+          {
+            "freq_hz": 6310,
+            "freq_formatted": "6.31 kHz",
+            "impedance_ohm": 0.10306
+          },
+          {
+            "freq_hz": 7943,
+            "freq_formatted": "7.94 kHz",
+            "impedance_ohm": 0.101915
+          },
+          {
+            "freq_hz": 10000,
+            "freq_formatted": "10.00 kHz",
+            "impedance_ohm": 0.101186
+          },
+          {
+            "freq_hz": 12589,
+            "freq_formatted": "12.59 kHz",
+            "impedance_ohm": 0.100723
+          },
+          {
+            "freq_hz": 15849,
+            "freq_formatted": "15.85 kHz",
+            "impedance_ohm": 0.100431
+          },
+          {
+            "freq_hz": 19953,
+            "freq_formatted": "19.95 kHz",
+            "impedance_ohm": 0.100247
+          },
+          {
+            "freq_hz": 25119,
+            "freq_formatted": "25.12 kHz",
+            "impedance_ohm": 0.100133
+          },
+          {
+            "freq_hz": 31623,
+            "freq_formatted": "31.62 kHz",
+            "impedance_ohm": 0.100063
+          },
+          {
+            "freq_hz": 39811,
+            "freq_formatted": "39.81 kHz",
+            "impedance_ohm": 0.100023
+          },
+          {
+            "freq_hz": 50119,
+            "freq_formatted": "50.12 kHz",
+            "impedance_ohm": 0.100003
+          },
+          {
+            "freq_hz": 63096,
+            "freq_formatted": "63.10 kHz",
+            "impedance_ohm": 0.100001
+          },
+          {
+            "freq_hz": 79433,
+            "freq_formatted": "79.43 kHz",
+            "impedance_ohm": 0.100015
+          },
+          {
+            "freq_hz": 100000,
+            "freq_formatted": "100.00 kHz",
+            "impedance_ohm": 0.100049
+          },
+          {
+            "freq_hz": 125893,
+            "freq_formatted": "125.89 kHz",
+            "impedance_ohm": 0.100109
+          },
+          {
+            "freq_hz": 158489,
+            "freq_formatted": "158.49 kHz",
+            "impedance_ohm": 0.100209
+          },
+          {
+            "freq_hz": 199526,
+            "freq_formatted": "199.53 kHz",
+            "impedance_ohm": 0.10037
+          },
+          {
+            "freq_hz": 251189,
+            "freq_formatted": "251.19 kHz",
+            "impedance_ohm": 0.100626
+          },
+          {
+            "freq_hz": 316228,
+            "freq_formatted": "316.23 kHz",
+            "impedance_ohm": 0.101031
+          },
+          {
+            "freq_hz": 398107,
+            "freq_formatted": "398.11 kHz",
+            "impedance_ohm": 0.101672
+          },
+          {
+            "freq_hz": 501187,
+            "freq_formatted": "501.19 kHz",
+            "impedance_ohm": 0.102679
+          },
+          {
+            "freq_hz": 630957,
+            "freq_formatted": "630.96 kHz",
+            "impedance_ohm": 0.104255
+          },
+          {
+            "freq_hz": 794328,
+            "freq_formatted": "794.33 kHz",
+            "impedance_ohm": 0.106706
+          },
+          {
+            "freq_hz": 1000000,
+            "freq_formatted": "1.00 MHz",
+            "impedance_ohm": 0.110479
+          },
+          {
+            "freq_hz": 1258925,
+            "freq_formatted": "1.26 MHz",
+            "impedance_ohm": 0.116209
+          },
+          {
+            "freq_hz": 1584893,
+            "freq_formatted": "1.58 MHz",
+            "impedance_ohm": 0.124752
+          },
+          {
+            "freq_hz": 1995262,
+            "freq_formatted": "2.00 MHz",
+            "impedance_ohm": 0.137206
+          },
+          {
+            "freq_hz": 2511886,
+            "freq_formatted": "2.51 MHz",
+            "impedance_ohm": 0.154908
+          },
+          {
+            "freq_hz": 3162278,
+            "freq_formatted": "3.16 MHz",
+            "impedance_ohm": 0.17942
+          },
+          {
+            "freq_hz": 3981072,
+            "freq_formatted": "3.98 MHz",
+            "impedance_ohm": 0.212556
+          },
+          {
+            "freq_hz": 5011872,
+            "freq_formatted": "5.01 MHz",
+            "impedance_ohm": 0.256448
+          },
+          {
+            "freq_hz": 6309573,
+            "freq_formatted": "6.31 MHz",
+            "impedance_ohm": 0.313674
+          },
+          {
+            "freq_hz": 7943282,
+            "freq_formatted": "7.94 MHz",
+            "impedance_ohm": 0.387426
+          },
+          {
+            "freq_hz": 10000000,
+            "freq_formatted": "10.00 MHz",
+            "impedance_ohm": 0.481717
+          },
+          {
+            "freq_hz": 12589254,
+            "freq_formatted": "12.59 MHz",
+            "impedance_ohm": 0.601611
+          },
+          {
+            "freq_hz": 15848932,
+            "freq_formatted": "15.85 MHz",
+            "impedance_ohm": 0.753518
+          },
+          {
+            "freq_hz": 19952623,
+            "freq_formatted": "19.95 MHz",
+            "impedance_ohm": 0.94554
+          },
+          {
+            "freq_hz": 25118864,
+            "freq_formatted": "25.12 MHz",
+            "impedance_ohm": 1.187909
+          },
+          {
+            "freq_hz": 31622777,
+            "freq_formatted": "31.62 MHz",
+            "impedance_ohm": 1.493535
+          },
+          {
+            "freq_hz": 39810717,
+            "freq_formatted": "39.81 MHz",
+            "impedance_ohm": 1.878695
+          },
+          {
+            "freq_hz": 50118723,
+            "freq_formatted": "50.12 MHz",
+            "impedance_ohm": 2.363902
+          },
+          {
+            "freq_hz": 63095734,
+            "freq_formatted": "63.10 MHz",
+            "impedance_ohm": 2.974995
+          },
+          {
+            "freq_hz": 79432823,
+            "freq_formatted": "79.43 MHz",
+            "impedance_ohm": 3.744517
+          },
+          {
+            "freq_hz": 100000000,
+            "freq_formatted": "100.00 MHz",
+            "impedance_ohm": 4.713448
+          },
+          {
+            "freq_hz": 125892541,
+            "freq_formatted": "125.89 MHz",
+            "impedance_ohm": 5.933388
+          },
+          {
+            "freq_hz": 158489319,
+            "freq_formatted": "158.49 MHz",
+            "impedance_ohm": 7.469302
+          },
+          {
+            "freq_hz": 199526231,
+            "freq_formatted": "199.53 MHz",
+            "impedance_ohm": 9.402983
+          },
+          {
+            "freq_hz": 251188643,
+            "freq_formatted": "251.19 MHz",
+            "impedance_ohm": 11.837408
+          },
+          {
+            "freq_hz": 316227766,
+            "freq_formatted": "316.23 MHz",
+            "impedance_ohm": 14.902217
+          },
+          {
+            "freq_hz": 398107171,
+            "freq_formatted": "398.11 MHz",
+            "impedance_ohm": 18.760625
+          },
+          {
+            "freq_hz": 501187234,
+            "freq_formatted": "501.19 MHz",
+            "impedance_ohm": 23.618103
+          },
+          {
+            "freq_hz": 630957344,
+            "freq_formatted": "630.96 MHz",
+            "impedance_ohm": 29.733332
+          },
+          {
+            "freq_hz": 794328235,
+            "freq_formatted": "794.33 MHz",
+            "impedance_ohm": 37.43197
+          },
+          {
+            "freq_hz": 1000000000,
+            "freq_formatted": "1.00 GHz",
+            "impedance_ohm": 47.123996
+          }
+        ],
+        "min_impedance": {
+          "freq_formatted": "63.10 kHz",
+          "impedance_ohm": 0.100001
+        }
+      },
+      "+5V": {
+        "capacitors": [
+          {
+            "ref": "C3",
+            "value": "470uF/10V",
+            "farads": 0.00047,
+            "package": null,
+            "esr_ohm": 0.1,
+            "esl_nH": 7.5,
+            "srf_hz": 84770,
+            "srf_formatted": "84.77 kHz",
+            "type": "electrolytic/tantalum"
+          }
+        ],
+        "cap_count": 1,
+        "total_capacitance_uF": 470.0,
+        "impedance_profile": [
+          {
+            "freq_hz": 1000,
+            "freq_formatted": "1.00 kHz",
+            "impedance_ohm": 0.353039
+          },
+          {
+            "freq_hz": 1259,
+            "freq_formatted": "1.26 kHz",
+            "impedance_ohm": 0.286913
+          },
+          {
+            "freq_hz": 1585,
+            "freq_formatted": "1.58 kHz",
+            "impedance_ohm": 0.235836
+          },
+          {
+            "freq_hz": 1995,
+            "freq_formatted": "2.00 kHz",
+            "impedance_ohm": 0.196905
+          },
+          {
+            "freq_hz": 2512,
+            "freq_formatted": "2.51 kHz",
+            "impedance_ohm": 0.167755
+          },
+          {
+            "freq_hz": 3162,
+            "freq_formatted": "3.16 kHz",
+            "impedance_ohm": 0.146407
+          },
+          {
+            "freq_hz": 3981,
+            "freq_formatted": "3.98 kHz",
+            "impedance_ohm": 0.131161
+          },
+          {
+            "freq_hz": 5012,
+            "freq_formatted": "5.01 kHz",
+            "impedance_ohm": 0.120554
+          },
+          {
+            "freq_hz": 6310,
+            "freq_formatted": "6.31 kHz",
+            "impedance_ohm": 0.113351
+          },
+          {
+            "freq_hz": 7943,
+            "freq_formatted": "7.94 kHz",
+            "impedance_ohm": 0.108562
+          },
+          {
+            "freq_hz": 10000,
+            "freq_formatted": "10.00 kHz",
+            "impedance_ohm": 0.105428
+          },
+          {
+            "freq_hz": 12589,
+            "freq_formatted": "12.59 kHz",
+            "impedance_ohm": 0.103402
+          },
+          {
+            "freq_hz": 15849,
+            "freq_formatted": "15.85 kHz",
+            "impedance_ohm": 0.102104
+          },
+          {
+            "freq_hz": 19953,
+            "freq_formatted": "19.95 kHz",
+            "impedance_ohm": 0.101277
+          },
+          {
+            "freq_hz": 25119,
+            "freq_formatted": "25.12 kHz",
+            "impedance_ohm": 0.100753
+          },
+          {
+            "freq_hz": 31623,
+            "freq_formatted": "31.62 kHz",
+            "impedance_ohm": 0.100424
+          },
+          {
+            "freq_hz": 39811,
+            "freq_formatted": "39.81 kHz",
+            "impedance_ohm": 0.10022
+          },
+          {
+            "freq_hz": 50119,
+            "freq_formatted": "50.12 kHz",
+            "impedance_ohm": 0.100097
+          },
+          {
+            "freq_hz": 63096,
+            "freq_formatted": "63.10 kHz",
+            "impedance_ohm": 0.100029
+          },
+          {
+            "freq_hz": 79433,
+            "freq_formatted": "79.43 kHz",
+            "impedance_ohm": 0.100001
+          },
+          {
+            "freq_hz": 100000,
+            "freq_formatted": "100.00 kHz",
+            "impedance_ohm": 0.100009
+          },
+          {
+            "freq_hz": 125893,
+            "freq_formatted": "125.89 kHz",
+            "impedance_ohm": 0.100053
+          },
+          {
+            "freq_hz": 158489,
+            "freq_formatted": "158.49 kHz",
+            "impedance_ohm": 0.100142
+          },
+          {
+            "freq_hz": 199526,
+            "freq_formatted": "199.53 kHz",
+            "impedance_ohm": 0.100296
+          },
+          {
+            "freq_hz": 251189,
+            "freq_formatted": "251.19 kHz",
+            "impedance_ohm": 0.100549
+          },
+          {
+            "freq_hz": 316228,
+            "freq_formatted": "316.23 kHz",
+            "impedance_ohm": 0.100952
+          },
+          {
+            "freq_hz": 398107,
+            "freq_formatted": "398.11 kHz",
+            "impedance_ohm": 0.101591
+          },
+          {
+            "freq_hz": 501187,
+            "freq_formatted": "501.19 kHz",
+            "impedance_ohm": 0.102598
+          },
+          {
+            "freq_hz": 630957,
+            "freq_formatted": "630.96 kHz",
+            "impedance_ohm": 0.104175
+          },
+          {
+            "freq_hz": 794328,
+            "freq_formatted": "794.33 kHz",
+            "impedance_ohm": 0.106627
+          },
+          {
+            "freq_hz": 1000000,
+            "freq_formatted": "1.00 MHz",
+            "impedance_ohm": 0.110403
+          },
+          {
+            "freq_hz": 1258925,
+            "freq_formatted": "1.26 MHz",
+            "impedance_ohm": 0.116136
+          },
+          {
+            "freq_hz": 1584893,
+            "freq_formatted": "1.58 MHz",
+            "impedance_ohm": 0.124684
+          },
+          {
+            "freq_hz": 1995262,
+            "freq_formatted": "2.00 MHz",
+            "impedance_ohm": 0.137145
+          },
+          {
+            "freq_hz": 2511886,
+            "freq_formatted": "2.51 MHz",
+            "impedance_ohm": 0.154853
+          },
+          {
+            "freq_hz": 3162278,
+            "freq_formatted": "3.16 MHz",
+            "impedance_ohm": 0.179373
+          },
+          {
+            "freq_hz": 3981072,
+            "freq_formatted": "3.98 MHz",
+            "impedance_ohm": 0.212516
+          },
+          {
+            "freq_hz": 5011872,
+            "freq_formatted": "5.01 MHz",
+            "impedance_ohm": 0.256415
+          },
+          {
+            "freq_hz": 6309573,
+            "freq_formatted": "6.31 MHz",
+            "impedance_ohm": 0.313647
+          },
+          {
+            "freq_hz": 7943282,
+            "freq_formatted": "7.94 MHz",
+            "impedance_ohm": 0.387405
+          },
+          {
+            "freq_hz": 10000000,
+            "freq_formatted": "10.00 MHz",
+            "impedance_ohm": 0.481699
+          },
+          {
+            "freq_hz": 12589254,
+            "freq_formatted": "12.59 MHz",
+            "impedance_ohm": 0.601597
+          },
+          {
+            "freq_hz": 15848932,
+            "freq_formatted": "15.85 MHz",
+            "impedance_ohm": 0.753507
+          },
+          {
+            "freq_hz": 19952623,
+            "freq_formatted": "19.95 MHz",
+            "impedance_ohm": 0.945531
+          },
+          {
+            "freq_hz": 25118864,
+            "freq_formatted": "25.12 MHz",
+            "impedance_ohm": 1.187902
+          },
+          {
+            "freq_hz": 31622777,
+            "freq_formatted": "31.62 MHz",
+            "impedance_ohm": 1.493529
+          },
+          {
+            "freq_hz": 39810717,
+            "freq_formatted": "39.81 MHz",
+            "impedance_ohm": 1.878691
+          },
+          {
+            "freq_hz": 50118723,
+            "freq_formatted": "50.12 MHz",
+            "impedance_ohm": 2.363899
+          },
+          {
+            "freq_hz": 63095734,
+            "freq_formatted": "63.10 MHz",
+            "impedance_ohm": 2.974992
+          },
+          {
+            "freq_hz": 79432823,
+            "freq_formatted": "79.43 MHz",
+            "impedance_ohm": 3.744515
+          },
+          {
+            "freq_hz": 100000000,
+            "freq_formatted": "100.00 MHz",
+            "impedance_ohm": 4.713447
+          },
+          {
+            "freq_hz": 125892541,
+            "freq_formatted": "125.89 MHz",
+            "impedance_ohm": 5.933386
+          },
+          {
+            "freq_hz": 158489319,
+            "freq_formatted": "158.49 MHz",
+            "impedance_ohm": 7.469301
+          },
+          {
+            "freq_hz": 199526231,
+            "freq_formatted": "199.53 MHz",
+            "impedance_ohm": 9.402982
+          },
+          {
+            "freq_hz": 251188643,
+            "freq_formatted": "251.19 MHz",
+            "impedance_ohm": 11.837407
+          },
+          {
+            "freq_hz": 316227766,
+            "freq_formatted": "316.23 MHz",
+            "impedance_ohm": 14.902217
+          },
+          {
+            "freq_hz": 398107171,
+            "freq_formatted": "398.11 MHz",
+            "impedance_ohm": 18.760624
+          },
+          {
+            "freq_hz": 501187234,
+            "freq_formatted": "501.19 MHz",
+            "impedance_ohm": 23.618103
+          },
+          {
+            "freq_hz": 630957344,
+            "freq_formatted": "630.96 MHz",
+            "impedance_ohm": 29.733332
+          },
+          {
+            "freq_hz": 794328235,
+            "freq_formatted": "794.33 MHz",
+            "impedance_ohm": 37.431969
+          },
+          {
+            "freq_hz": 1000000000,
+            "freq_formatted": "1.00 GHz",
+            "impedance_ohm": 47.123996
+          }
+        ],
+        "min_impedance": {
+          "freq_formatted": "79.43 kHz",
+          "impedance_ohm": 0.100001
+        }
+      }
+    },
+    "observations": [
+      "+5V_SIM: highest SRF is 58.12 kHz \u2014 consider adding small (100pF-1nF) MLCC for >100 MHz coverage",
+      "+5V: highest SRF is 84.77 kHz \u2014 consider adding small (100pF-1nF) MLCC for >100 MHz coverage"
+    ]
+  },
+  "power_budget": {
+    "rails": {
+      "+3V3": {
+        "ic_count": 2,
+        "ics": [
+          {
+            "ref": "U2",
+            "value": "MPU6050 GY-521 MODULE",
+            "estimated_mA": 5
+          },
+          {
+            "ref": "U3",
+            "value": "GPS NEO-7M GY-GPSU3",
+            "estimated_mA": 10
+          }
+        ],
+        "estimated_load_mA": 15
+      },
+      "+5V": {
+        "ic_count": 1,
+        "ics": [
+          {
+            "ref": "U1",
+            "value": "ESP32-S3 SuperMini",
+            "estimated_mA": 240
+          }
+        ],
+        "estimated_load_mA": 240
+      },
+      "+5V_SIM": {
+        "ic_count": 1,
+        "ics": [
+          {
+            "ref": "U4",
+            "value": "A7680C TDM2309 4G",
+            "estimated_mA": 10
+          }
+        ],
+        "estimated_load_mA": 10
+      }
+    }
+  },
+  "bom_optimization": {
+    "unique_value_counts": {
+      "resistor": 0,
+      "capacitor": 2
+    },
+    "total_unique_footprints": 7,
+    "single_use_passive_values": 2
+  },
+  "test_coverage": {
+    "test_points": [],
+    "test_point_count": 0,
+    "covered_nets": [],
+    "uncovered_key_nets": [
+      {
+        "net": "+3V3",
+        "category": "power_rail"
+      },
+      {
+        "net": "I2C_SCL",
+        "category": "i2c"
+      },
+      {
+        "net": "I2C_SDA",
+        "category": "i2c"
+      },
+      {
+        "net": "+5V_SIM",
+        "category": "power_rail"
+      },
+      {
+        "net": "SIM_RST",
+        "category": "reset"
+      },
+      {
+        "net": "SIM_TX",
+        "category": "uart"
+      },
+      {
+        "net": "SIM_RX",
+        "category": "uart"
+      },
+      {
+        "net": "+5V",
+        "category": "power_rail"
+      },
+      {
+        "net": "GPS_RX",
+        "category": "uart"
+      },
+      {
+        "net": "GPS_TX",
+        "category": "uart"
+      }
+    ],
+    "observations": [
+      "No test points found in design",
+      "No debug connectors (SWD/JTAG/UART) identified",
+      "Key nets without test points: 2 i2c, 3 power_rail, 1 reset, 4 uart"
+    ]
+  },
+  "assembly_complexity": {
+    "total_components": 8,
+    "smd_count": 6,
+    "tht_count": 2,
+    "complexity_score": 32,
+    "difficulty_breakdown": {
+      "hard": 0,
+      "medium": 6,
+      "easy": 2
+    },
+    "package_breakdown": {
+      "other_SMD": 6,
+      "THT": 2
+    },
+    "unique_footprints": 2,
+    "observations": [
+      "Low assembly complexity (score 32/100) \u2014 hand assembly feasible"
+    ]
+  },
+  "protocol_compliance": {
+    "protocols_checked": [
+      "uart",
+      "i2c"
+    ],
+    "findings": [
+      {
+        "protocol": "i2c",
+        "sda_net": "I2C_SDA",
+        "scl_net": "I2C_SCL",
+        "devices": [
+          {
+            "ref": "U1",
+            "value": "ESP32-S3 SuperMini",
+            "lib_id": "VSmart_Modules:ESP32_S3_SuperMini"
+          },
+          {
+            "ref": "U2",
+            "value": "MPU6050 GY-521 MODULE",
+            "lib_id": "usini_sensors:module_mpu6050"
+          }
+        ],
+        "checks": {
+          "pull_ups_present": {
+            "sda": false,
+            "scl": false,
+            "status": "fail"
+          }
+        },
+        "issues": [
+          "SDA line missing pull-up resistor",
+          "SCL line missing pull-up resistor"
+        ]
+      },
+      {
+        "protocol": "uart",
+        "net": "SIM_TX",
+        "issues": [
+          "UART signal crosses voltage domains (+3V3, +5V, +5V_SIM) \u2014 level shifter may be needed"
+        ]
+      },
+      {
+        "protocol": "uart",
+        "net": "SIM_RX",
+        "issues": [
+          "UART signal crosses voltage domains (+3V3, +5V, +5V_SIM) \u2014 level shifter may be needed"
+        ]
+      },
+      {
+        "protocol": "uart",
+        "net": "GPS_RX",
+        "issues": [
+          "UART signal crosses voltage domains (+3V3, +5V) \u2014 level shifter may be needed"
+        ]
+      },
+      {
+        "protocol": "uart",
+        "net": "GPS_TX",
+        "issues": [
+          "UART signal crosses voltage domains (+3V3, +5V) \u2014 level shifter may be needed"
+        ]
+      }
+    ],
+    "total_issues": 6
+  },
+  "project_settings": {
+    "symbol_libs": [
+      {
+        "name": "usini_sensors",
+        "type": "KiCad",
+        "uri": "${KIPRJMOD}/usini_sensors.kicad_sym",
+        "descr": "Usini breakout sensor symbols"
+      },
+      {
+        "name": "Espressif",
+        "type": "KiCad",
+        "uri": "/Users/vi.trandai/Documents/KiCad/10.0/3rdparty/symbols/com_github_espressif_kicad-libraries/Espressif.kicad_sym",
+        "descr": "Espressif official PCM library"
+      },
+      {
+        "name": "VSmart_Modules",
+        "type": "KiCad",
+        "uri": "${KIPRJMOD}/VSmart_Modules.kicad_sym",
+        "descr": "VSmart module carrier schematic symbols"
+      }
+    ]
+  },
+  "missing_info": {
+    "missing_mpn": [
+      "U2",
+      "U4",
+      "C1",
+      "C3",
+      "J1",
+      "J2",
+      "U1",
+      "U3"
+    ]
+  },
+  "bom_lock": {
+    "total_bom_components": 8,
+    "components_with_mpn": 0,
+    "missing_mpn": [
+      "U2",
+      "U4",
+      "C1",
+      "C3",
+      "J1",
+      "J2",
+      "U1",
+      "U3"
+    ],
+    "missing_mpn_count": 8,
+    "generic_values": [],
+    "lock_pct": 0,
+    "status": "fail"
+  },
+  "inputs": {
+    "source_files": [
+      "/Users/vi.trandai/7 - NCKH/DATN/vsmart-hardware/vsmart-module-esp32-s3-mini.kicad_sch"
+    ],
+    "source_hashes": {
+      "/Users/vi.trandai/7 - NCKH/DATN/vsmart-hardware/vsmart-module-esp32-s3-mini.kicad_sch": "bdb5a5158aeaf9138f81f511b9609ba5086d3527e662c45138144800e0511081"
+    },
+    "run_id": "20260909T151051Z-ae98cc",
+    "config_hash": null,
+    "upstream_artifacts": {}
+  },
+  "compat": {
+    "minimum_consumer_version": "1.4.0",
+    "deprecated_fields": [],
+    "experimental_fields": []
+  },
+  "design_intent": {
+    "product_class": "prototype",
+    "ipc_class": 2,
+    "target_market": "hobby",
+    "expected_lifetime_years": 5,
+    "operating_temp_range": [
+      -10,
+      70
+    ],
+    "preferred_passive_size": "0603",
+    "test_coverage_target": 0.85,
+    "approved_manufacturers": [],
+    "confidence": 0.3,
+    "detection_signals": [],
+    "source": {
+      "ipc_class": "auto",
+      "product_class": "auto",
+      "target_market": "auto",
+      "expected_lifetime_years": "auto",
+      "operating_temp_range": "auto",
+      "preferred_passive_size": "auto",
+      "test_coverage_target": "auto",
+      "approved_manufacturers": "auto"
+    }
+  },
+  "audience_summary": {
+    "designer": {
+      "total_findings": 24,
+      "by_severity": {
+        "error": 9,
+        "warning": 0,
+        "info": 15
+      },
+      "by_category": {
+        "certification": 1,
+        "decoupling": 5,
+        "decoupling_coverage": 2,
+        "i2c_bus": 2,
+        "reset_pin": 1,
+        "verification": 1,
+        "protocol_integrity": 2,
+        "sensors": 1,
+        "sourcing": 1,
+        "signal_integrity": 5,
+        "wireless": 2,
+        "lifecycle": 1
+      },
+      "top_issues": [
+        {
+          "detector": "audit_datasheet_coverage",
+          "rule_id": "DS-001",
+          "severity": "error",
+          "confidence": "deterministic",
+          "evidence_source": "bom",
+          "category": "verification",
+          "summary": "No datasheets directory found and no BOM parts have MPNs. Review is a consistency check only \u2014 manufacturer specs cannot be verified.",
+          "components": [],
+          "nets": [],
+          "pins": [],
+          "datasheets_dir": null,
+          "datasheet_file_count": 0,
+          "bom_size": 8,
+          "mpn_coverage_percent": 0.0,
+          "recommendation": "Before reporting 'verified' findings, (1) populate the MPN field on BOM parts, (2) run the datasheet sync skill (digikey, mouser, lcsc, or element14) to download PDFs into ./datasheets/, then re-run analysis. If datasheets are unreachable, state every pin-level and electrical claim as 'per symbol/library' (consistency), not 'verified against datasheet' (correctness).",
+          "report_context": {
+            "section": "Datasheet Coverage",
+            "impact": "Report wording must avoid 'verified' / 'datasheet-confirmed' language for every BOM part \u2014 none have manufacturer evidence attached.",
+            "standard_ref": ""
+          },
+          "stages": [
+            "schematic"
+          ],
+          "finding_id": "schematic:DS-001:9820bbea68d9"
+        },
+        {
+          "detector": "validate_i2c_bus",
+          "rule_id": "PR-001",
+          "category": "protocol_integrity",
+          "summary": "I2C bus I2C_SDA/I2C_SCL: SCL missing pull-up",
+          "description": "I2C bus with 1 device(s) (U2) has no pull-up on SCL net I2C_SCL.",
+          "components": [
+            "U2"
+          ],
+          "nets": [
+            "I2C_SCL",
+            "I2C_SDA"
+          ],
+          "pins": [],
+          "severity": "error",
+          "confidence": "deterministic",
+          "evidence_source": "topology",
+          "recommendation": "Add a 4.7k pull-up resistor from SCL to VDD.",
+          "fix_params": {
+            "type": "add_component",
+            "components": [
+              {
+                "type": "resistor",
+                "value": "4.7k",
+                "net_from": "I2C_SCL",
+                "net_to": "<VDD>"
+              }
+            ],
+            "basis": "I2C spec requires pull-ups on SCL"
+          },
+          "report_context": {
+            "section": "Protocol Integrity",
+            "impact": "I2C bus non-functional",
+            "standard_ref": "I2C specification UM10204 section 3.1.1"
+          },
+          "provenance": {
+            "evidence": "pr_i2c_spec",
+            "confidence": "deterministic",
+            "claimed_components": [],
+            "excluded_by": [],
+            "suppressed_candidates": []
+          },
+          "finding_id": "schematic:validation_findings-73e13e76a2b5",
+          "detection_id": "validation_findings:73e13e76a2b5",
+          "stages": [
+            "schematic"
+          ]
+        },
+        {
+          "detector": "validate_i2c_bus",
+          "rule_id": "PR-001",
+          "category": "protocol_integrity",
+          "summary": "I2C bus I2C_SDA/I2C_SCL: SDA missing pull-up",
+          "description": "I2C bus with 1 device(s) (U2) has no pull-up on SDA net I2C_SDA.",
+          "components": [
+            "U2"
+          ],
+          "nets": [
+            "I2C_SCL",
+            "I2C_SDA"
+          ],
+          "pins": [],
+          "severity": "error",
+          "confidence": "deterministic",
+          "evidence_source": "topology",
+          "recommendation": "Add a 4.7k pull-up resistor from SDA to VDD.",
+          "fix_params": {
+            "type": "add_component",
+            "components": [
+              {
+                "type": "resistor",
+                "value": "4.7k",
+                "net_from": "I2C_SDA",
+                "net_to": "<VDD>"
+              }
+            ],
+            "basis": "I2C spec requires pull-ups on SDA"
+          },
+          "report_context": {
+            "section": "Protocol Integrity",
+            "impact": "I2C bus non-functional",
+            "standard_ref": "I2C specification UM10204 section 3.1.1"
+          },
+          "provenance": {
+            "evidence": "pr_i2c_spec",
+            "confidence": "deterministic",
+            "claimed_components": [],
+            "excluded_by": [],
+            "suppressed_candidates": []
+          },
+          "finding_id": "schematic:validation_findings-73e13e76a2b5#1",
+          "detection_id": "validation_findings:73e13e76a2b5",
+          "stages": [
+            "schematic"
+          ]
+        },
+        {
+          "detector": "audit_sourcing_gate",
+          "rule_id": "SS-001",
+          "severity": "error",
+          "confidence": "deterministic",
+          "evidence_source": "bom",
+          "category": "sourcing",
+          "summary": "Sourcing blocker: BOM has <50% MPN coverage (0/8 unique parts). Board is not pre-fab ready.",
+          "description": "Sourcing audit: 0 of 8 unique BOM lines (grouped by value + footprint) carry a manufacturer part number (0.0%). Pre-fab readiness requires 100% coverage; production assembly requires all parts sourceable via one of the supported distributors.",
+          "components": [
+            "C1",
+            "C3",
+            "J1",
+            "J2",
+            "U1",
+            "U2",
+            "U3",
+            "U4"
+          ],
+          "nets": [],
+          "pins": [],
+          "mpn_coverage_percent": 0.0,
+          "missing_mpn_lines": 8,
+          "missing_mpn_refs": 8,
+          "total_bom_lines": 8,
+          "recommendation": "Populate the MPN field on the listed refs (use the digikey / mouser / lcsc / element14 skill to search by value/footprint when the MPN isn't already known).",
+          "report_context": {
+            "section": "Sourcing",
+            "impact": "Pre-fab gate: board cannot be ordered until MPN coverage reaches 100%.",
+            "standard_ref": ""
+          },
+          "stages": [
+            "pre_fab"
+          ],
+          "finding_id": "schematic:SS-001:c1"
+        },
+        {
+          "detector": "validate_voltage_levels",
+          "rule_id": "VM-001",
+          "category": "signal_integrity",
+          "summary": "Net SIM_DTR: 5.0V / 3.3V domain crossing without level shifter",
+          "description": "Net SIM_DTR connects ICs in 5.0V and 3.3V domains. The 5.0V output may exceed the 3.3V input absolute maximum rating of 3.6V, risking damage.",
+          "components": [
+            "U1",
+            "U4"
+          ],
+          "nets": [
+            "SIM_DTR"
+          ],
+          "pins": [
+            {
+              "ref": "U4",
+              "pin": "DTR",
+              "function": "signal_io"
+            },
+            {
+              "ref": "U1",
+              "pin": "GPIO11",
+              "function": "signal_io"
+            }
+          ],
+          "severity": "error",
+          "confidence": "heuristic",
+          "evidence_source": "topology",
+          "recommendation": "Add a level shifter between the 5.0V and 3.3V domains on net SIM_DTR, or verify that the connected ICs have tolerant inputs.",
+          "fix_params": {
+            "type": "add_component",
+            "components": [
+              {
+                "type": "level_shifter",
+                "domain_a": "5.0V",
+                "domain_b": "3.3V",
+                "nets": [
+                  "SIM_DTR"
+                ]
+              }
+            ],
+            "basis": "Net crosses 5.0V to 3.3V boundary"
+          },
+          "report_context": {
+            "section": "Signal Integrity",
+            "impact": "Risk of damage or unreliable logic levels",
+            "standard_ref": ""
+          },
+          "provenance": {
+            "evidence": "vm_rail_mismatch",
+            "confidence": "deterministic",
+            "claimed_components": [],
+            "excluded_by": [],
+            "suppressed_candidates": []
+          },
+          "schema_era": "v1.4",
+          "finding_id": "schematic:validation_findings-945c941105cc",
+          "detection_id": "validation_findings:945c941105cc",
+          "stages": [
+            "schematic"
+          ]
+        },
+        {
+          "detector": "validate_voltage_levels",
+          "rule_id": "VM-001",
+          "category": "signal_integrity",
+          "summary": "Net SIM_RI: 5.0V / 3.3V domain crossing without level shifter",
+          "description": "Net SIM_RI connects ICs in 5.0V and 3.3V domains. The 5.0V output may exceed the 3.3V input absolute maximum rating of 3.6V, risking damage.",
+          "components": [
+            "U1",
+            "U4"
+          ],
+          "nets": [
+            "SIM_RI"
+          ],
+          "pins": [
+            {
+              "ref": "U4",
+              "pin": "RI",
+              "function": "signal_io"
+            },
+            {
+              "ref": "U1",
+              "pin": "GPIO13",
+              "function": "signal_io"
+            }
+          ],
+          "severity": "error",
+          "confidence": "heuristic",
+          "evidence_source": "topology",
+          "recommendation": "Add a level shifter between the 5.0V and 3.3V domains on net SIM_RI, or verify that the connected ICs have tolerant inputs.",
+          "fix_params": {
+            "type": "add_component",
+            "components": [
+              {
+                "type": "level_shifter",
+                "domain_a": "5.0V",
+                "domain_b": "3.3V",
+                "nets": [
+                  "SIM_RI"
+                ]
+              }
+            ],
+            "basis": "Net crosses 5.0V to 3.3V boundary"
+          },
+          "report_context": {
+            "section": "Signal Integrity",
+            "impact": "Risk of damage or unreliable logic levels",
+            "standard_ref": ""
+          },
+          "provenance": {
+            "evidence": "vm_rail_mismatch",
+            "confidence": "deterministic",
+            "claimed_components": [],
+            "excluded_by": [],
+            "suppressed_candidates": []
+          },
+          "schema_era": "v1.4",
+          "finding_id": "schematic:validation_findings-945c941105cc#1",
+          "detection_id": "validation_findings:945c941105cc",
+          "stages": [
+            "schematic"
+          ]
+        },
+        {
+          "detector": "validate_voltage_levels",
+          "rule_id": "VM-001",
+          "category": "signal_integrity",
+          "summary": "Net SIM_RST: 5.0V / 3.3V domain crossing without level shifter",
+          "description": "Net SIM_RST connects ICs in 5.0V and 3.3V domains. The 5.0V output may exceed the 3.3V input absolute maximum rating of 3.6V, risking damage.",
+          "components": [
+            "U1",
+            "U4"
+          ],
+          "nets": [
+            "SIM_RST"
+          ],
+          "pins": [
+            {
+              "ref": "U4",
+              "pin": "RST",
+              "function": "signal_io"
+            },
+            {
+              "ref": "U1",
+              "pin": "GPIO12",
+              "function": "signal_io"
+            }
+          ],
+          "severity": "error",
+          "confidence": "heuristic",
+          "evidence_source": "topology",
+          "recommendation": "Add a level shifter between the 5.0V and 3.3V domains on net SIM_RST, or verify that the connected ICs have tolerant inputs.",
+          "fix_params": {
+            "type": "add_component",
+            "components": [
+              {
+                "type": "level_shifter",
+                "domain_a": "5.0V",
+                "domain_b": "3.3V",
+                "nets": [
+                  "SIM_RST"
+                ]
+              }
+            ],
+            "basis": "Net crosses 5.0V to 3.3V boundary"
+          },
+          "report_context": {
+            "section": "Signal Integrity",
+            "impact": "Risk of damage or unreliable logic levels",
+            "standard_ref": ""
+          },
+          "provenance": {
+            "evidence": "vm_rail_mismatch",
+            "confidence": "deterministic",
+            "claimed_components": [],
+            "excluded_by": [],
+            "suppressed_candidates": []
+          },
+          "schema_era": "v1.4",
+          "finding_id": "schematic:validation_findings-945c941105cc#2",
+          "detection_id": "validation_findings:945c941105cc",
+          "stages": [
+            "schematic"
+          ]
+        },
+        {
+          "detector": "validate_voltage_levels",
+          "rule_id": "VM-001",
+          "category": "signal_integrity",
+          "summary": "Net SIM_RX: 5.0V / 3.3V domain crossing without level shifter",
+          "description": "Net SIM_RX connects ICs in 5.0V and 3.3V domains. The 5.0V output may exceed the 3.3V input absolute maximum rating of 3.6V, risking damage.",
+          "components": [
+            "U1",
+            "U4"
+          ],
+          "nets": [
+            "SIM_RX"
+          ],
+          "pins": [
+            {
+              "ref": "U4",
+              "pin": "TXD",
+              "function": "signal_io"
+            },
+            {
+              "ref": "U1",
+              "pin": "GPIO6",
+              "function": "signal_io"
+            }
+          ],
+          "severity": "error",
+          "confidence": "heuristic",
+          "evidence_source": "topology",
+          "recommendation": "Add a level shifter between the 5.0V and 3.3V domains on net SIM_RX, or verify that the connected ICs have tolerant inputs.",
+          "fix_params": {
+            "type": "add_component",
+            "components": [
+              {
+                "type": "level_shifter",
+                "domain_a": "5.0V",
+                "domain_b": "3.3V",
+                "nets": [
+                  "SIM_RX"
+                ]
+              }
+            ],
+            "basis": "Net crosses 5.0V to 3.3V boundary"
+          },
+          "report_context": {
+            "section": "Signal Integrity",
+            "impact": "Risk of damage or unreliable logic levels",
+            "standard_ref": ""
+          },
+          "provenance": {
+            "evidence": "vm_rail_mismatch",
+            "confidence": "deterministic",
+            "claimed_components": [],
+            "excluded_by": [],
+            "suppressed_candidates": []
+          },
+          "schema_era": "v1.4",
+          "finding_id": "schematic:validation_findings-945c941105cc#3",
+          "detection_id": "validation_findings:945c941105cc",
+          "stages": [
+            "schematic"
+          ]
+        },
+        {
+          "detector": "validate_voltage_levels",
+          "rule_id": "VM-001",
+          "category": "signal_integrity",
+          "summary": "Net SIM_TX: 5.0V / 3.3V domain crossing without level shifter",
+          "description": "Net SIM_TX connects ICs in 5.0V and 3.3V domains. The 5.0V output may exceed the 3.3V input absolute maximum rating of 3.6V, risking damage.",
+          "components": [
+            "U1",
+            "U4"
+          ],
+          "nets": [
+            "SIM_TX"
+          ],
+          "pins": [
+            {
+              "ref": "U4",
+              "pin": "RXD",
+              "function": "signal_io"
+            },
+            {
+              "ref": "U1",
+              "pin": "GPIO7",
+              "function": "signal_io"
+            }
+          ],
+          "severity": "error",
+          "confidence": "heuristic",
+          "evidence_source": "topology",
+          "recommendation": "Add a level shifter between the 5.0V and 3.3V domains on net SIM_TX, or verify that the connected ICs have tolerant inputs.",
+          "fix_params": {
+            "type": "add_component",
+            "components": [
+              {
+                "type": "level_shifter",
+                "domain_a": "5.0V",
+                "domain_b": "3.3V",
+                "nets": [
+                  "SIM_TX"
+                ]
+              }
+            ],
+            "basis": "Net crosses 5.0V to 3.3V boundary"
+          },
+          "report_context": {
+            "section": "Signal Integrity",
+            "impact": "Risk of damage or unreliable logic levels",
+            "standard_ref": ""
+          },
+          "provenance": {
+            "evidence": "vm_rail_mismatch",
+            "confidence": "deterministic",
+            "claimed_components": [],
+            "excluded_by": [],
+            "suppressed_candidates": []
+          },
+          "schema_era": "v1.4",
+          "finding_id": "schematic:validation_findings-945c941105cc#4",
+          "detection_id": "validation_findings:945c941105cc",
+          "stages": [
+            "schematic"
+          ]
+        }
+      ]
+    },
+    "reviewer": {
+      "total_findings": 9,
+      "by_category": {
+        "verification": 1,
+        "protocol_integrity": 2,
+        "sourcing": 1,
+        "signal_integrity": 5
+      },
+      "top_issues": [
+        {
+          "rule_id": "DS-001",
+          "severity": "error",
+          "summary": "No datasheets directory found and no BOM parts have MPNs. Review is a consistency check only \u2014 manufacturer specs cannot be verified.",
+          "recommendation": "Before reporting 'verified' findings, (1) populate the MPN field on BOM parts, (2) run the datasheet sync skill (digikey, mouser, lcsc, or element14) to download PDFs into ./datasheets/, then re-run analysis. If datasheets are unreachable, state every pin-level and electrical claim as 'per symbol/library' (consistency), not 'verified against datasheet' (correctness).",
+          "category": "verification"
+        },
+        {
+          "rule_id": "PR-001",
+          "severity": "error",
+          "summary": "I2C bus I2C_SDA/I2C_SCL: SCL missing pull-up",
+          "recommendation": "Add a 4.7k pull-up resistor from SCL to VDD.",
+          "category": "protocol_integrity"
+        },
+        {
+          "rule_id": "PR-001",
+          "severity": "error",
+          "summary": "I2C bus I2C_SDA/I2C_SCL: SDA missing pull-up",
+          "recommendation": "Add a 4.7k pull-up resistor from SDA to VDD.",
+          "category": "protocol_integrity"
+        },
+        {
+          "rule_id": "SS-001",
+          "severity": "error",
+          "summary": "Sourcing blocker: BOM has <50% MPN coverage (0/8 unique parts). Board is not pre-fab ready.",
+          "recommendation": "Populate the MPN field on the listed refs (use the digikey / mouser / lcsc / element14 skill to search by value/footprint when the MPN isn't already known).",
+          "category": "sourcing"
+        },
+        {
+          "rule_id": "VM-001",
+          "severity": "error",
+          "summary": "Net SIM_DTR: 5.0V / 3.3V domain crossing without level shifter",
+          "recommendation": "Add a level shifter between the 5.0V and 3.3V domains on net SIM_DTR, or verify that the connected ICs have tolerant inputs.",
+          "category": "signal_integrity"
+        },
+        {
+          "rule_id": "VM-001",
+          "severity": "error",
+          "summary": "Net SIM_RI: 5.0V / 3.3V domain crossing without level shifter",
+          "recommendation": "Add a level shifter between the 5.0V and 3.3V domains on net SIM_RI, or verify that the connected ICs have tolerant inputs.",
+          "category": "signal_integrity"
+        },
+        {
+          "rule_id": "VM-001",
+          "severity": "error",
+          "summary": "Net SIM_RST: 5.0V / 3.3V domain crossing without level shifter",
+          "recommendation": "Add a level shifter between the 5.0V and 3.3V domains on net SIM_RST, or verify that the connected ICs have tolerant inputs.",
+          "category": "signal_integrity"
+        },
+        {
+          "rule_id": "VM-001",
+          "severity": "error",
+          "summary": "Net SIM_RX: 5.0V / 3.3V domain crossing without level shifter",
+          "recommendation": "Add a level shifter between the 5.0V and 3.3V domains on net SIM_RX, or verify that the connected ICs have tolerant inputs.",
+          "category": "signal_integrity"
+        },
+        {
+          "rule_id": "VM-001",
+          "severity": "error",
+          "summary": "Net SIM_TX: 5.0V / 3.3V domain crossing without level shifter",
+          "recommendation": "Add a level shifter between the 5.0V and 3.3V domains on net SIM_TX, or verify that the connected ICs have tolerant inputs.",
+          "category": "signal_integrity"
+        }
+      ]
+    },
+    "manager": {
+      "risk_level": "high",
+      "blocker_count": 9,
+      "warning_count": 0,
+      "stage_readiness": {
+        "schematic": "needs_work",
+        "layout": "pass",
+        "pre_fab": "needs_work",
+        "bring_up": "pass"
+      },
+      "one_liner": "9 errors across 4 categories. Schematic, pre-fab stages have blockers."
+    }
+  },
+  "capability_mode_ref": {
+    "source": "analysis/capability_mode.json",
+    "run_id": "20260909T151051Z-ae98cc"
+  }
+}

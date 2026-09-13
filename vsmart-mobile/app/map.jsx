@@ -212,9 +212,12 @@ export default function MapScreen() {
 
     return (
         <View style={s.container}>
+            {/* IMPORTANT: on the New Architecture (Fabric), react-native-maps only
+                lays out with flex sizing — StyleSheet.absoluteFillObject makes the
+                Fabric shadow node compute 0×0 and the map renders blank. */}
             <MapView
                 ref={mapRef}
-                style={StyleSheet.absoluteFillObject}
+                style={{ flex: 1 }}
                 initialRegion={{ latitude: 10.8231, longitude: 106.6297, latitudeDelta: 0.08, longitudeDelta: 0.08 }}
                 showsUserLocation
                 showsMyLocationButton={false}

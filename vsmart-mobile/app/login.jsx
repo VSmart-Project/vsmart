@@ -87,12 +87,6 @@ export default function LoginScreen() {
         else handleVerify();
     };
 
-    const headerTitle = view === 'login'
-        ? 'Log in to stay on\ntop of your devices.'
-        : view === 'register'
-        ? 'Create Your Account\nand Start Tracking'
-        : 'Verify Your\nAccount';
-
     return (
         <ImageBackground source={require('../assets/background.png')} style={s.root} resizeMode="cover">
             <StatusBar barStyle="light-content" />
@@ -108,7 +102,7 @@ export default function LoginScreen() {
                     showsVerticalScrollIndicator={false}
                 >
                     {/* Header Text */}
-                    <Text style={s.headerTitle}>{headerTitle}</Text>
+                    {/* <Text style={s.headerTitle}>{headerTitle}</Text> */}
 
                     {/* Dark Card */}
                     <View style={s.card}>

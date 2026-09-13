@@ -105,11 +105,15 @@ function App() {
       });
 
       socket.on('realtime-event', (event) => {
-      console.log('📦 Received realtime event:', event);
+      if (import.meta.env.DEV) console.debug('rt', event.type, event.deviceId);
       const processed = applyRealtimeEvent(event);
-      
+
+      // The road-snapped follow-up (correction:true) is only for the marker's
+      // interpolation — applyRealtimeEvent already fed it to the follower. Don't
+      // fire the heavier selected-device / history-trail state updates for it.
+      const isCorrection = event.payload?.correction === true;
       const currentSelected = selectedDeviceRef.current;
-      if (processed && currentSelected && event.deviceId === currentSelected.deviceId) {
+      if (processed && !isCorrection && currentSelected && event.deviceId === currentSelected.deviceId) {
         const payload = event.payload || {};
         setSelectedDevice(prev => {
           if (!prev) return null;
@@ -125,16 +129,13 @@ function App() {
         if (payload.position && payload.sampleTime) {
           setHistoryPoints(prev => {
             const newPoint = { Position: payload.position, SampleTime: payload.sampleTime };
-            if (prev.length === 0) {
-              return [newPoint];
-            }
-            const lastPoint = prev[prev.length - 1];
-            const liveTime = new Date(newPoint.SampleTime).getTime();
-            const lastTime = new Date(lastPoint.SampleTime).getTime();
-            if (liveTime > lastTime) {
-              return [...prev, newPoint];
-            }
-            return prev;
+            if (prev.length === 0) return [newPoint];
+            const lastTime = new Date(prev[prev.length - 1].SampleTime).getTime();
+            if (new Date(newPoint.SampleTime).getTime() <= lastTime) return prev;
+            // keep the live trail bounded — the loaded day-history is what the
+            // replay uses; the live tail only needs the recent window.
+            const next = [...prev, newPoint];
+            return next.length > 1500 ? next.slice(next.length - 1500) : next;
           });
         }
       }

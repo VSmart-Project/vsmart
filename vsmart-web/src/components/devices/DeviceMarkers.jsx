@@ -55,11 +55,13 @@ function useSmoothFollow(position, { fixSeq, serverTs, sampleTime, pathFromPrev 
     // very first fix so a fresh marker has something to show.
     const realtime = Number.isFinite(serverTs);
     if (realtime || follower.fixCount === 0) {
+      const sampleMs = sampleTime ? Date.parse(sampleTime) : NaN;
       // A repeated seq is a road-snap correction: the follower re-targets that
       // fix in place (with the on-road polyline, if given) instead of restarting.
       follower.pushFix(lat, lng, {
         seq: Number.isFinite(fixSeq) ? fixSeq : null,
         serverTs: realtime ? serverTs : undefined,
+        sampleMs: Number.isFinite(sampleMs) ? sampleMs : undefined,
         path: Array.isArray(pathFromPrev) && pathFromPrev.length >= 2 ? pathFromPrev : undefined,
       });
     }
@@ -80,7 +82,7 @@ function useSmoothFollow(position, { fixSeq, serverTs, sampleTime, pathFromPrev 
       removeTicker(cb);
     };
     // Re-run when a genuinely new fix (or its road-snap correction) lands.
-  }, [stamp, serverTs, fixSeq, lng, lat, pathFromPrev]);
+  }, [stamp, serverTs, sampleTime, fixSeq, lng, lat, pathFromPrev]);
 
   return out;
 }

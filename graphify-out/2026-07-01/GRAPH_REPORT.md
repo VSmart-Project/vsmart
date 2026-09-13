@@ -67,18 +67,18 @@
 
 ## Surprising Connections (you probably didn't know these)
 - `GeofencesScreen()` --calls--> `useToast()`  [EXTRACTED]
-  vsmart-mobile/app/(tabs)/geofences.jsx → vsmart-mobile/src/components/ui/Toast.jsx
+  vsmart-app/app/(tabs)/geofences.jsx → vsmart-app/src/components/ui/Toast.jsx
 - `RootLayout()` --calls--> `useAuth()`  [EXTRACTED]
-  vsmart-mobile/app/_layout.jsx → vsmart-mobile/src/hooks/useAuth.js
+  vsmart-app/app/_layout.jsx → vsmart-app/src/hooks/useAuth.js
 - `App()` --calls--> `useDeviceManager()`  [EXTRACTED]
-  vsmart-web/src/App.jsx → vsmart-web/src/hooks/useDeviceManager.js
+  tracking-data-streaming-datn/src/App.jsx → tracking-data-streaming-datn/src/hooks/useDeviceManager.js
 - `App()` --calls--> `useDevicePolling()`  [EXTRACTED]
-  vsmart-web/src/App.jsx → vsmart-web/src/hooks/useDevicePolling.js
+  tracking-data-streaming-datn/src/App.jsx → tracking-data-streaming-datn/src/hooks/useDevicePolling.js
 - `DevicesScreen()` --calls--> `useToast()`  [EXTRACTED]
-  vsmart-mobile/app/(tabs)/devices.jsx → vsmart-mobile/src/components/ui/Toast.jsx
+  vsmart-app/app/(tabs)/devices.jsx → vsmart-app/src/components/ui/Toast.jsx
 
 ## Import Cycles
-- 1-file cycle: `vsmart-mobile/metro.config.js -> vsmart-mobile/metro.config.js`
+- 1-file cycle: `vsmart-app/metro.config.js -> vsmart-app/metro.config.js`
 
 ## Communities (50 total, 8 thin omitted)
 

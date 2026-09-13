@@ -1,0 +1,1 @@
+Tối ưu board ESP32 DevKitC còn 95 x 70 mm; đặt module A7680C với khe SIM ở phía trên như ảnh, giữ nguyên pinout; hoàn tất routing và xuất file sản xuất.

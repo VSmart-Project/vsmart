@@ -1,0 +1,1 @@
+Rotate the complete A7680C U4 module 180 degrees from the previous render so the SIM socket side faces upward on the PCB. Preserve correct pad numbers/nets, reroute, DRC/ERC/Gerber verify.

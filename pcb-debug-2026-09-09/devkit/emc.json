@@ -1,0 +1,1209 @@
+{
+  "analyzer_type": "emc",
+  "schema_version": "1.4.0",
+  "inputs": {
+    "source_files": [
+      "DATN/pcb-debug-2026-09-09/devkit/schematic.json",
+      "DATN/pcb-debug-2026-09-09/devkit/pcb.json"
+    ],
+    "source_hashes": {
+      "DATN/pcb-debug-2026-09-09/devkit/schematic.json": "19fe1053b74fdf3b63564c91edb97a3b34dffc590c4beefccddd9c36c9b374e7",
+      "DATN/pcb-debug-2026-09-09/devkit/pcb.json": "34dcf4be32bacfe3d65d1df8462d43d0b8c5f4248cc45d3fef1cb8aad722146f"
+    },
+    "run_id": "20260909T151052Z-22bb7a",
+    "config_hash": null,
+    "upstream_artifacts": {
+      "schematic": {
+        "path": "DATN/pcb-debug-2026-09-09/devkit/schematic.json",
+        "sha256": "19fe1053b74fdf3b63564c91edb97a3b34dffc590c4beefccddd9c36c9b374e7",
+        "schema_version": "1.4.0",
+        "run_id": "20260909T151052Z-22bb7a"
+      },
+      "pcb": {
+        "path": "DATN/pcb-debug-2026-09-09/devkit/pcb.json",
+        "sha256": "34dcf4be32bacfe3d65d1df8462d43d0b8c5f4248cc45d3fef1cb8aad722146f",
+        "schema_version": "1.4.0",
+        "run_id": "20260909T151052Z-22bb7a"
+      }
+    }
+  },
+  "compat": {
+    "minimum_consumer_version": "1.4.0",
+    "deprecated_fields": [],
+    "experimental_fields": []
+  },
+  "summary": {
+    "total_findings": 14,
+    "categories_checked": 4,
+    "active": 14,
+    "suppressed": 0,
+    "by_severity": {
+      "error": 6,
+      "warning": 5,
+      "info": 3
+    },
+    "emc_risk_score": 56.5
+  },
+  "target_standard": "fcc-class-b",
+  "findings": [
+    {
+      "category": "ground_plane",
+      "severity": "error",
+      "rule_id": "GP-001",
+      "confidence": "heuristic",
+      "title": "Signal has significant reference plane gap",
+      "description": "Net I2C_SDA has 60% reference plane coverage over 8.3mm of routing. Return current must detour around the gap, creating a loop antenna.",
+      "components": [],
+      "nets": [
+        "I2C_SDA"
+      ],
+      "recommendation": "Route this signal to avoid ground plane gaps, or fill the void. If a split is intentional, add a bridge capacitor across the gap.",
+      "detector": "emc_ground_plane",
+      "summary": "Signal has significant reference plane gap",
+      "pins": [],
+      "evidence_source": "heuristic_rule",
+      "report_context": {
+        "section": "Ground Plane",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "signal_net": "I2C_SDA",
+      "coverage_pct": 60.0,
+      "trace_mm": 8.3,
+      "is_high_speed_or_clock": false,
+      "suppressed": false,
+      "suppression_reason": "",
+      "stages": [
+        "layout"
+      ],
+      "finding_id": "emc:GP-001:i2c_sda"
+    },
+    {
+      "category": "ground_plane",
+      "severity": "error",
+      "rule_id": "GP-001",
+      "confidence": "heuristic",
+      "title": "Signal has significant reference plane gap",
+      "description": "Net I2C_SCL has 75% reference plane coverage over 12.7mm of routing. Return current must detour around the gap, creating a loop antenna.",
+      "components": [],
+      "nets": [
+        "I2C_SCL"
+      ],
+      "recommendation": "Route this signal to avoid ground plane gaps, or fill the void. If a split is intentional, add a bridge capacitor across the gap.",
+      "detector": "emc_ground_plane",
+      "summary": "Signal has significant reference plane gap",
+      "pins": [],
+      "evidence_source": "heuristic_rule",
+      "report_context": {
+        "section": "Ground Plane",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "signal_net": "I2C_SCL",
+      "coverage_pct": 75.0,
+      "trace_mm": 12.7,
+      "is_high_speed_or_clock": false,
+      "suppressed": false,
+      "suppression_reason": "",
+      "stages": [
+        "layout"
+      ],
+      "finding_id": "emc:GP-001:i2c_scl"
+    },
+    {
+      "category": "ground_plane",
+      "severity": "warning",
+      "rule_id": "GP-001",
+      "confidence": "heuristic",
+      "title": "Signal has partial reference plane gap",
+      "description": "Net MPU_INT has 91% reference plane coverage over 37.9mm of routing. Return current must detour around the gap, creating a loop antenna.",
+      "components": [],
+      "nets": [
+        "MPU_INT"
+      ],
+      "recommendation": "Route this signal to avoid ground plane gaps, or fill the void. If a split is intentional, add a bridge capacitor across the gap.",
+      "detector": "emc_ground_plane",
+      "summary": "Signal has partial reference plane gap",
+      "pins": [],
+      "evidence_source": "heuristic_rule",
+      "report_context": {
+        "section": "Ground Plane",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "signal_net": "MPU_INT",
+      "coverage_pct": 90.9,
+      "trace_mm": 37.9,
+      "is_high_speed_or_clock": false,
+      "suppressed": false,
+      "suppression_reason": "",
+      "stages": [
+        "layout"
+      ],
+      "finding_id": "emc:GP-001:mpu_int"
+    },
+    {
+      "category": "ground_plane",
+      "severity": "warning",
+      "rule_id": "GP-001",
+      "confidence": "heuristic",
+      "title": "Signal has partial reference plane gap",
+      "description": "Net SIM_RI has 94% reference plane coverage over 62.9mm of routing. Return current must detour around the gap, creating a loop antenna.",
+      "components": [],
+      "nets": [
+        "SIM_RI"
+      ],
+      "recommendation": "Route this signal to avoid ground plane gaps, or fill the void. If a split is intentional, add a bridge capacitor across the gap.",
+      "detector": "emc_ground_plane",
+      "summary": "Signal has partial reference plane gap",
+      "pins": [],
+      "evidence_source": "heuristic_rule",
+      "report_context": {
+        "section": "Ground Plane",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "signal_net": "SIM_RI",
+      "coverage_pct": 94.1,
+      "trace_mm": 62.9,
+      "is_high_speed_or_clock": false,
+      "suppressed": false,
+      "suppression_reason": "",
+      "stages": [
+        "layout"
+      ],
+      "finding_id": "emc:GP-001:sim_ri"
+    },
+    {
+      "category": "ground_plane",
+      "severity": "warning",
+      "rule_id": "GP-001",
+      "confidence": "heuristic",
+      "title": "Signal has partial reference plane gap",
+      "description": "Net SIM_DTR has 94% reference plane coverage over 62.9mm of routing. Return current must detour around the gap, creating a loop antenna.",
+      "components": [],
+      "nets": [
+        "SIM_DTR"
+      ],
+      "recommendation": "Route this signal to avoid ground plane gaps, or fill the void. If a split is intentional, add a bridge capacitor across the gap.",
+      "detector": "emc_ground_plane",
+      "summary": "Signal has partial reference plane gap",
+      "pins": [],
+      "evidence_source": "heuristic_rule",
+      "report_context": {
+        "section": "Ground Plane",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "signal_net": "SIM_DTR",
+      "coverage_pct": 94.1,
+      "trace_mm": 62.9,
+      "is_high_speed_or_clock": false,
+      "suppressed": false,
+      "suppression_reason": "",
+      "stages": [
+        "layout"
+      ],
+      "finding_id": "emc:GP-001:sim_dtr"
+    },
+    {
+      "category": "ground_plane",
+      "severity": "warning",
+      "rule_id": "GP-001",
+      "confidence": "heuristic",
+      "title": "Signal has partial reference plane gap",
+      "description": "Net GPS_RX has 94% reference plane coverage over 59.5mm of routing. Return current must detour around the gap, creating a loop antenna.",
+      "components": [],
+      "nets": [
+        "GPS_RX"
+      ],
+      "recommendation": "Route this signal to avoid ground plane gaps, or fill the void. If a split is intentional, add a bridge capacitor across the gap.",
+      "detector": "emc_ground_plane",
+      "summary": "Signal has partial reference plane gap",
+      "pins": [],
+      "evidence_source": "heuristic_rule",
+      "report_context": {
+        "section": "Ground Plane",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "signal_net": "GPS_RX",
+      "coverage_pct": 94.4,
+      "trace_mm": 59.5,
+      "is_high_speed_or_clock": false,
+      "suppressed": false,
+      "suppression_reason": "",
+      "stages": [
+        "layout"
+      ],
+      "finding_id": "emc:GP-001:gps_rx"
+    },
+    {
+      "category": "ground_plane",
+      "severity": "warning",
+      "rule_id": "GP-001",
+      "confidence": "heuristic",
+      "title": "Signal has partial reference plane gap",
+      "description": "Net GPS_TX has 94% reference plane coverage over 59.5mm of routing. Return current must detour around the gap, creating a loop antenna.",
+      "components": [],
+      "nets": [
+        "GPS_TX"
+      ],
+      "recommendation": "Route this signal to avoid ground plane gaps, or fill the void. If a split is intentional, add a bridge capacitor across the gap.",
+      "detector": "emc_ground_plane",
+      "summary": "Signal has partial reference plane gap",
+      "pins": [],
+      "evidence_source": "heuristic_rule",
+      "report_context": {
+        "section": "Ground Plane",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "signal_net": "GPS_TX",
+      "coverage_pct": 94.4,
+      "trace_mm": 59.5,
+      "is_high_speed_or_clock": false,
+      "suppressed": false,
+      "suppression_reason": "",
+      "stages": [
+        "layout"
+      ],
+      "finding_id": "emc:GP-001:gps_tx"
+    },
+    {
+      "category": "decoupling",
+      "severity": "error",
+      "rule_id": "DC-001",
+      "confidence": "deterministic",
+      "title": "Decoupling cap too far from U1",
+      "description": "Nearest decoupling cap to U1 (ESP32-DevKitC 38-pin) is 9.6mm away. Each mm of trace adds 0.3-0.8 nH of loop inductance, reducing decoupling effectiveness at high frequencies.",
+      "components": [
+        "U1",
+        "C3"
+      ],
+      "nets": [],
+      "recommendation": "Move decoupling cap within 2-3mm of U1 power pins.",
+      "detector": "emc_decoupling",
+      "summary": "Decoupling cap too far from U1",
+      "pins": [],
+      "evidence_source": "topology",
+      "report_context": {
+        "section": "Decoupling",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "suppressed": false,
+      "suppression_reason": "",
+      "stages": [
+        "layout"
+      ],
+      "finding_id": "emc:DC-001:u1"
+    },
+    {
+      "category": "decoupling",
+      "severity": "error",
+      "rule_id": "DC-002",
+      "confidence": "heuristic",
+      "title": "No decoupling cap found near U4",
+      "description": "U4 (A7680C TDM2309 4G) has no capacitor within 10mm. Every IC with power pins needs at least one decoupling capacitor.",
+      "components": [
+        "U4"
+      ],
+      "nets": [],
+      "recommendation": "Add 100nF X7R 0402 + 1\u00b5F X5R 0603 close to U4 power pins. For high-speed ICs, add 10nF C0G for high-frequency decoupling. Place caps on the same side as U4 with short, wide traces to vias.",
+      "detector": "emc_decoupling",
+      "summary": "No decoupling cap found near U4",
+      "pins": [],
+      "evidence_source": "heuristic_rule",
+      "report_context": {
+        "section": "Decoupling",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "fix_params": {
+        "type": "add_component",
+        "components": [
+          {
+            "type": "capacitor",
+            "value": "100n"
+          }
+        ],
+        "basis": "Standard 100nF decoupling per IC"
+      },
+      "suppressed": false,
+      "suppression_reason": "",
+      "stages": [
+        "layout"
+      ],
+      "finding_id": "emc:DC-002:u4"
+    },
+    {
+      "category": "decoupling",
+      "severity": "error",
+      "rule_id": "DC-002",
+      "confidence": "heuristic",
+      "title": "No decoupling cap found near U2",
+      "description": "U2 (MPU6050 GY-521 MODULE) has no capacitor within 10mm. Every IC with power pins needs at least one decoupling capacitor.",
+      "components": [
+        "U2"
+      ],
+      "nets": [],
+      "recommendation": "Add 100nF X7R 0402 + 1\u00b5F X5R 0603 close to U2 power pins. For high-speed ICs, add 10nF C0G for high-frequency decoupling. Place caps on the same side as U2 with short, wide traces to vias.",
+      "detector": "emc_decoupling",
+      "summary": "No decoupling cap found near U2",
+      "pins": [],
+      "evidence_source": "heuristic_rule",
+      "report_context": {
+        "section": "Decoupling",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "fix_params": {
+        "type": "add_component",
+        "components": [
+          {
+            "type": "capacitor",
+            "value": "100n"
+          }
+        ],
+        "basis": "Standard 100nF decoupling per IC"
+      },
+      "suppressed": false,
+      "suppression_reason": "",
+      "stages": [
+        "layout"
+      ],
+      "finding_id": "emc:DC-002:u2"
+    },
+    {
+      "category": "decoupling",
+      "severity": "error",
+      "rule_id": "DC-002",
+      "confidence": "heuristic",
+      "title": "No decoupling cap found near U3",
+      "description": "U3 (GPS NEO-7M GY-GPSU3) has no capacitor within 10mm. Every IC with power pins needs at least one decoupling capacitor.",
+      "components": [
+        "U3"
+      ],
+      "nets": [],
+      "recommendation": "Add 100nF X7R 0402 + 1\u00b5F X5R 0603 close to U3 power pins. For high-speed ICs, add 10nF C0G for high-frequency decoupling. Place caps on the same side as U3 with short, wide traces to vias.",
+      "detector": "emc_decoupling",
+      "summary": "No decoupling cap found near U3",
+      "pins": [],
+      "evidence_source": "heuristic_rule",
+      "report_context": {
+        "section": "Decoupling",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "fix_params": {
+        "type": "add_component",
+        "components": [
+          {
+            "type": "capacitor",
+            "value": "100n"
+          }
+        ],
+        "basis": "Standard 100nF decoupling per IC"
+      },
+      "suppressed": false,
+      "suppression_reason": "",
+      "stages": [
+        "layout"
+      ],
+      "finding_id": "emc:DC-002:u3"
+    },
+    {
+      "category": "io_filtering",
+      "severity": "info",
+      "rule_id": "IO-001",
+      "confidence": "heuristic",
+      "title": "No EMC filtering near J2",
+      "description": "Connector J2 (EXTERNAL 5V 2A SIM INPUT) has no ferrite bead, CM choke, or ESD protection within 25mm. Unfiltered I/O cables are the dominant source of radiated emissions \u2014 common-mode current as low as 5 \u00b5A can exceed FCC Class B.",
+      "components": [
+        "J2"
+      ],
+      "nets": [],
+      "recommendation": "J2 appears to be a power-only connector (all pins are power/ground rails). A board-level ferrite bead would saturate at typical power-supply currents. If radiated EMI is a concern on the cable, add a system-level common-mode choke or use shielded cable with chassis termination.",
+      "detector": "emc_io_filtering",
+      "summary": "No EMC filtering near J2",
+      "pins": [],
+      "evidence_source": "heuristic_rule",
+      "report_context": {
+        "section": "Io Filtering",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "fix_params": {
+        "type": "add_component",
+        "components": [
+          {
+            "type": "ferrite_bead"
+          }
+        ],
+        "basis": "EMI filter on external I/O"
+      },
+      "suppressed": false,
+      "suppression_reason": "",
+      "stages": [
+        "pre_fab"
+      ],
+      "finding_id": "emc:IO-001:j2"
+    },
+    {
+      "category": "io_filtering",
+      "severity": "info",
+      "rule_id": "IO-001",
+      "confidence": "heuristic",
+      "title": "No EMC filtering near J1",
+      "description": "Connector J1 (EXTERNAL 5V INPUT) has no ferrite bead, CM choke, or ESD protection within 25mm. Unfiltered I/O cables are the dominant source of radiated emissions \u2014 common-mode current as low as 5 \u00b5A can exceed FCC Class B.",
+      "components": [
+        "J1"
+      ],
+      "nets": [],
+      "recommendation": "J1 appears to be a power-only connector (all pins are power/ground rails). A board-level ferrite bead would saturate at typical power-supply currents. If radiated EMI is a concern on the cable, add a system-level common-mode choke or use shielded cable with chassis termination.",
+      "detector": "emc_io_filtering",
+      "summary": "No EMC filtering near J1",
+      "pins": [],
+      "evidence_source": "heuristic_rule",
+      "report_context": {
+        "section": "Io Filtering",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "fix_params": {
+        "type": "add_component",
+        "components": [
+          {
+            "type": "ferrite_bead"
+          }
+        ],
+        "basis": "EMI filter on external I/O"
+      },
+      "suppressed": false,
+      "suppression_reason": "",
+      "stages": [
+        "pre_fab"
+      ],
+      "finding_id": "emc:IO-001:j1"
+    },
+    {
+      "category": "emission_estimate",
+      "severity": "info",
+      "rule_id": "EE-001",
+      "confidence": "heuristic",
+      "title": "Board cavity resonance frequencies",
+      "description": "Board (95\u00d770mm, \u03b5r=4.4) cavity resonances: (1,0) at 752 MHz; (0,1) at 1021 MHz; (1,1) at 1268 MHz; (2,0) at 1504 MHz; (2,1) at 1818 MHz. PDN impedance spikes at these frequencies. Ensure adequate decoupling at and around these frequencies.",
+      "components": [],
+      "nets": [],
+      "recommendation": "Add decoupling capacitors with SRF near these frequencies.",
+      "detector": "emc_emission_estimate",
+      "summary": "Board cavity resonance frequencies",
+      "pins": [],
+      "evidence_source": "heuristic_rule",
+      "report_context": {
+        "section": "Emission Estimate",
+        "impact": "",
+        "standard_ref": ""
+      },
+      "suppressed": false,
+      "suppression_reason": "",
+      "stages": [
+        "schematic"
+      ],
+      "finding_id": "emc:EE-001:14ba23cdf0dc"
+    }
+  ],
+  "assessments": [],
+  "per_net_scores": [
+    {
+      "net": "I2C_SDA",
+      "score": 94.0,
+      "finding_count": 1,
+      "rules": [
+        "GP-001"
+      ]
+    },
+    {
+      "net": "I2C_SCL",
+      "score": 94.0,
+      "finding_count": 1,
+      "rules": [
+        "GP-001"
+      ]
+    },
+    {
+      "net": "MPU_INT",
+      "score": 98.5,
+      "finding_count": 1,
+      "rules": [
+        "GP-001"
+      ]
+    },
+    {
+      "net": "SIM_RI",
+      "score": 98.5,
+      "finding_count": 1,
+      "rules": [
+        "GP-001"
+      ]
+    },
+    {
+      "net": "SIM_DTR",
+      "score": 98.5,
+      "finding_count": 1,
+      "rules": [
+        "GP-001"
+      ]
+    },
+    {
+      "net": "GPS_RX",
+      "score": 98.5,
+      "finding_count": 1,
+      "rules": [
+        "GP-001"
+      ]
+    },
+    {
+      "net": "GPS_TX",
+      "score": 98.5,
+      "finding_count": 1,
+      "rules": [
+        "GP-001"
+      ]
+    }
+  ],
+  "test_plan": {
+    "frequency_bands": [
+      {
+        "band": "30-88 MHz",
+        "freq_min_hz": 30000000.0,
+        "freq_max_hz": 88000000.0,
+        "risk_level": "none",
+        "source_count": 0,
+        "sources": []
+      },
+      {
+        "band": "88-216 MHz",
+        "freq_min_hz": 88000000.0,
+        "freq_max_hz": 216000000.0,
+        "risk_level": "none",
+        "source_count": 0,
+        "sources": []
+      },
+      {
+        "band": "216-960 MHz",
+        "freq_min_hz": 216000000.0,
+        "freq_max_hz": 960000000.0,
+        "risk_level": "none",
+        "source_count": 0,
+        "sources": []
+      },
+      {
+        "band": "960-40000 MHz",
+        "freq_min_hz": 960000000.0,
+        "freq_max_hz": 40000000000.0,
+        "risk_level": "none",
+        "source_count": 0,
+        "sources": []
+      }
+    ],
+    "interface_risks": [
+      {
+        "connector": "J2",
+        "value": "EXTERNAL 5V 2A SIM INPUT",
+        "protocol": "unknown",
+        "risk_score": 5,
+        "reasons": [
+          "No EMC filtering detected"
+        ]
+      },
+      {
+        "connector": "J1",
+        "value": "EXTERNAL 5V INPUT",
+        "protocol": "unknown",
+        "risk_score": 5,
+        "reasons": [
+          "No EMC filtering detected"
+        ]
+      }
+    ],
+    "probe_points": [
+      {
+        "x": 67.0,
+        "y": 86.0,
+        "type": "unfiltered_connector",
+        "ref": "J2",
+        "reason": "Unfiltered I/O \u2014 cable radiation risk"
+      },
+      {
+        "x": 53.0,
+        "y": 86.0,
+        "type": "unfiltered_connector",
+        "ref": "J1",
+        "reason": "Unfiltered I/O \u2014 cable radiation risk"
+      }
+    ]
+  },
+  "regulatory_coverage": {
+    "market": "us",
+    "applicable_standards": [
+      "FCC Part 15 Class B",
+      "FCC Part 15 Class B"
+    ],
+    "coverage_matrix": [
+      {
+        "standard": "FCC Part 15 Class B",
+        "test_type": "radiated",
+        "coverage": "minimal",
+        "checked_rules": [
+          "GP-001",
+          "DC-001",
+          "DC-002",
+          "IO-001",
+          "EE-001"
+        ],
+        "total_applicable_rules": 23,
+        "note": "Design rule checks identify common radiation sources. Cannot predict absolute emission levels."
+      },
+      {
+        "standard": "FCC Part 15 Class B",
+        "test_type": "conducted",
+        "coverage": "partial",
+        "checked_rules": [
+          "DC-001",
+          "DC-002"
+        ],
+        "total_applicable_rules": 4,
+        "note": "Switching harmonic analysis and decoupling checks. EMI filter verification not yet implemented."
+      }
+    ]
+  },
+  "category_summary": {
+    "ground_plane": {
+      "count": 7,
+      "max_severity": "error",
+      "severities": {
+        "error": 2,
+        "warning": 5,
+        "info": 0
+      },
+      "suppressed_count": 0
+    },
+    "decoupling": {
+      "count": 4,
+      "max_severity": "error",
+      "severities": {
+        "error": 4,
+        "warning": 0,
+        "info": 0
+      },
+      "suppressed_count": 0
+    },
+    "io_filtering": {
+      "count": 2,
+      "max_severity": "info",
+      "severities": {
+        "error": 0,
+        "warning": 0,
+        "info": 2
+      },
+      "suppressed_count": 0
+    },
+    "emission_estimate": {
+      "count": 1,
+      "max_severity": "info",
+      "severities": {
+        "error": 0,
+        "warning": 0,
+        "info": 1
+      },
+      "suppressed_count": 0
+    }
+  },
+  "board_info": {
+    "board_width_mm": 95.0,
+    "board_height_mm": 70.0,
+    "layer_count": 2,
+    "footprint_count": 12,
+    "via_count": 181,
+    "has_stackup": false,
+    "total_components": 8,
+    "total_nets": 44
+  },
+  "elapsed_s": 0.001,
+  "audience_summary": {
+    "designer": {
+      "total_findings": 14,
+      "by_severity": {
+        "error": 6,
+        "warning": 5,
+        "info": 3
+      },
+      "by_category": {
+        "ground_plane": 7,
+        "decoupling": 4,
+        "io_filtering": 2,
+        "emission_estimate": 1
+      },
+      "top_issues": [
+        {
+          "category": "ground_plane",
+          "severity": "error",
+          "rule_id": "GP-001",
+          "confidence": "heuristic",
+          "title": "Signal has significant reference plane gap",
+          "description": "Net I2C_SDA has 60% reference plane coverage over 8.3mm of routing. Return current must detour around the gap, creating a loop antenna.",
+          "components": [],
+          "nets": [
+            "I2C_SDA"
+          ],
+          "recommendation": "Route this signal to avoid ground plane gaps, or fill the void. If a split is intentional, add a bridge capacitor across the gap.",
+          "detector": "emc_ground_plane",
+          "summary": "Signal has significant reference plane gap",
+          "pins": [],
+          "evidence_source": "heuristic_rule",
+          "report_context": {
+            "section": "Ground Plane",
+            "impact": "",
+            "standard_ref": ""
+          },
+          "signal_net": "I2C_SDA",
+          "coverage_pct": 60.0,
+          "trace_mm": 8.3,
+          "is_high_speed_or_clock": false,
+          "suppressed": false,
+          "suppression_reason": "",
+          "stages": [
+            "layout"
+          ],
+          "finding_id": "emc:GP-001:i2c_sda"
+        },
+        {
+          "category": "ground_plane",
+          "severity": "error",
+          "rule_id": "GP-001",
+          "confidence": "heuristic",
+          "title": "Signal has significant reference plane gap",
+          "description": "Net I2C_SCL has 75% reference plane coverage over 12.7mm of routing. Return current must detour around the gap, creating a loop antenna.",
+          "components": [],
+          "nets": [
+            "I2C_SCL"
+          ],
+          "recommendation": "Route this signal to avoid ground plane gaps, or fill the void. If a split is intentional, add a bridge capacitor across the gap.",
+          "detector": "emc_ground_plane",
+          "summary": "Signal has significant reference plane gap",
+          "pins": [],
+          "evidence_source": "heuristic_rule",
+          "report_context": {
+            "section": "Ground Plane",
+            "impact": "",
+            "standard_ref": ""
+          },
+          "signal_net": "I2C_SCL",
+          "coverage_pct": 75.0,
+          "trace_mm": 12.7,
+          "is_high_speed_or_clock": false,
+          "suppressed": false,
+          "suppression_reason": "",
+          "stages": [
+            "layout"
+          ],
+          "finding_id": "emc:GP-001:i2c_scl"
+        },
+        {
+          "category": "decoupling",
+          "severity": "error",
+          "rule_id": "DC-001",
+          "confidence": "deterministic",
+          "title": "Decoupling cap too far from U1",
+          "description": "Nearest decoupling cap to U1 (ESP32-DevKitC 38-pin) is 9.6mm away. Each mm of trace adds 0.3-0.8 nH of loop inductance, reducing decoupling effectiveness at high frequencies.",
+          "components": [
+            "U1",
+            "C3"
+          ],
+          "nets": [],
+          "recommendation": "Move decoupling cap within 2-3mm of U1 power pins.",
+          "detector": "emc_decoupling",
+          "summary": "Decoupling cap too far from U1",
+          "pins": [],
+          "evidence_source": "topology",
+          "report_context": {
+            "section": "Decoupling",
+            "impact": "",
+            "standard_ref": ""
+          },
+          "suppressed": false,
+          "suppression_reason": "",
+          "stages": [
+            "layout"
+          ],
+          "finding_id": "emc:DC-001:u1"
+        },
+        {
+          "category": "decoupling",
+          "severity": "error",
+          "rule_id": "DC-002",
+          "confidence": "heuristic",
+          "title": "No decoupling cap found near U4",
+          "description": "U4 (A7680C TDM2309 4G) has no capacitor within 10mm. Every IC with power pins needs at least one decoupling capacitor.",
+          "components": [
+            "U4"
+          ],
+          "nets": [],
+          "recommendation": "Add 100nF X7R 0402 + 1\u00b5F X5R 0603 close to U4 power pins. For high-speed ICs, add 10nF C0G for high-frequency decoupling. Place caps on the same side as U4 with short, wide traces to vias.",
+          "detector": "emc_decoupling",
+          "summary": "No decoupling cap found near U4",
+          "pins": [],
+          "evidence_source": "heuristic_rule",
+          "report_context": {
+            "section": "Decoupling",
+            "impact": "",
+            "standard_ref": ""
+          },
+          "fix_params": {
+            "type": "add_component",
+            "components": [
+              {
+                "type": "capacitor",
+                "value": "100n"
+              }
+            ],
+            "basis": "Standard 100nF decoupling per IC"
+          },
+          "suppressed": false,
+          "suppression_reason": "",
+          "stages": [
+            "layout"
+          ],
+          "finding_id": "emc:DC-002:u4"
+        },
+        {
+          "category": "decoupling",
+          "severity": "error",
+          "rule_id": "DC-002",
+          "confidence": "heuristic",
+          "title": "No decoupling cap found near U2",
+          "description": "U2 (MPU6050 GY-521 MODULE) has no capacitor within 10mm. Every IC with power pins needs at least one decoupling capacitor.",
+          "components": [
+            "U2"
+          ],
+          "nets": [],
+          "recommendation": "Add 100nF X7R 0402 + 1\u00b5F X5R 0603 close to U2 power pins. For high-speed ICs, add 10nF C0G for high-frequency decoupling. Place caps on the same side as U2 with short, wide traces to vias.",
+          "detector": "emc_decoupling",
+          "summary": "No decoupling cap found near U2",
+          "pins": [],
+          "evidence_source": "heuristic_rule",
+          "report_context": {
+            "section": "Decoupling",
+            "impact": "",
+            "standard_ref": ""
+          },
+          "fix_params": {
+            "type": "add_component",
+            "components": [
+              {
+                "type": "capacitor",
+                "value": "100n"
+              }
+            ],
+            "basis": "Standard 100nF decoupling per IC"
+          },
+          "suppressed": false,
+          "suppression_reason": "",
+          "stages": [
+            "layout"
+          ],
+          "finding_id": "emc:DC-002:u2"
+        },
+        {
+          "category": "decoupling",
+          "severity": "error",
+          "rule_id": "DC-002",
+          "confidence": "heuristic",
+          "title": "No decoupling cap found near U3",
+          "description": "U3 (GPS NEO-7M GY-GPSU3) has no capacitor within 10mm. Every IC with power pins needs at least one decoupling capacitor.",
+          "components": [
+            "U3"
+          ],
+          "nets": [],
+          "recommendation": "Add 100nF X7R 0402 + 1\u00b5F X5R 0603 close to U3 power pins. For high-speed ICs, add 10nF C0G for high-frequency decoupling. Place caps on the same side as U3 with short, wide traces to vias.",
+          "detector": "emc_decoupling",
+          "summary": "No decoupling cap found near U3",
+          "pins": [],
+          "evidence_source": "heuristic_rule",
+          "report_context": {
+            "section": "Decoupling",
+            "impact": "",
+            "standard_ref": ""
+          },
+          "fix_params": {
+            "type": "add_component",
+            "components": [
+              {
+                "type": "capacitor",
+                "value": "100n"
+              }
+            ],
+            "basis": "Standard 100nF decoupling per IC"
+          },
+          "suppressed": false,
+          "suppression_reason": "",
+          "stages": [
+            "layout"
+          ],
+          "finding_id": "emc:DC-002:u3"
+        },
+        {
+          "category": "ground_plane",
+          "severity": "warning",
+          "rule_id": "GP-001",
+          "confidence": "heuristic",
+          "title": "Signal has partial reference plane gap",
+          "description": "Net MPU_INT has 91% reference plane coverage over 37.9mm of routing. Return current must detour around the gap, creating a loop antenna.",
+          "components": [],
+          "nets": [
+            "MPU_INT"
+          ],
+          "recommendation": "Route this signal to avoid ground plane gaps, or fill the void. If a split is intentional, add a bridge capacitor across the gap.",
+          "detector": "emc_ground_plane",
+          "summary": "Signal has partial reference plane gap",
+          "pins": [],
+          "evidence_source": "heuristic_rule",
+          "report_context": {
+            "section": "Ground Plane",
+            "impact": "",
+            "standard_ref": ""
+          },
+          "signal_net": "MPU_INT",
+          "coverage_pct": 90.9,
+          "trace_mm": 37.9,
+          "is_high_speed_or_clock": false,
+          "suppressed": false,
+          "suppression_reason": "",
+          "stages": [
+            "layout"
+          ],
+          "finding_id": "emc:GP-001:mpu_int"
+        },
+        {
+          "category": "ground_plane",
+          "severity": "warning",
+          "rule_id": "GP-001",
+          "confidence": "heuristic",
+          "title": "Signal has partial reference plane gap",
+          "description": "Net SIM_RI has 94% reference plane coverage over 62.9mm of routing. Return current must detour around the gap, creating a loop antenna.",
+          "components": [],
+          "nets": [
+            "SIM_RI"
+          ],
+          "recommendation": "Route this signal to avoid ground plane gaps, or fill the void. If a split is intentional, add a bridge capacitor across the gap.",
+          "detector": "emc_ground_plane",
+          "summary": "Signal has partial reference plane gap",
+          "pins": [],
+          "evidence_source": "heuristic_rule",
+          "report_context": {
+            "section": "Ground Plane",
+            "impact": "",
+            "standard_ref": ""
+          },
+          "signal_net": "SIM_RI",
+          "coverage_pct": 94.1,
+          "trace_mm": 62.9,
+          "is_high_speed_or_clock": false,
+          "suppressed": false,
+          "suppression_reason": "",
+          "stages": [
+            "layout"
+          ],
+          "finding_id": "emc:GP-001:sim_ri"
+        },
+        {
+          "category": "ground_plane",
+          "severity": "warning",
+          "rule_id": "GP-001",
+          "confidence": "heuristic",
+          "title": "Signal has partial reference plane gap",
+          "description": "Net SIM_DTR has 94% reference plane coverage over 62.9mm of routing. Return current must detour around the gap, creating a loop antenna.",
+          "components": [],
+          "nets": [
+            "SIM_DTR"
+          ],
+          "recommendation": "Route this signal to avoid ground plane gaps, or fill the void. If a split is intentional, add a bridge capacitor across the gap.",
+          "detector": "emc_ground_plane",
+          "summary": "Signal has partial reference plane gap",
+          "pins": [],
+          "evidence_source": "heuristic_rule",
+          "report_context": {
+            "section": "Ground Plane",
+            "impact": "",
+            "standard_ref": ""
+          },
+          "signal_net": "SIM_DTR",
+          "coverage_pct": 94.1,
+          "trace_mm": 62.9,
+          "is_high_speed_or_clock": false,
+          "suppressed": false,
+          "suppression_reason": "",
+          "stages": [
+            "layout"
+          ],
+          "finding_id": "emc:GP-001:sim_dtr"
+        },
+        {
+          "category": "ground_plane",
+          "severity": "warning",
+          "rule_id": "GP-001",
+          "confidence": "heuristic",
+          "title": "Signal has partial reference plane gap",
+          "description": "Net GPS_RX has 94% reference plane coverage over 59.5mm of routing. Return current must detour around the gap, creating a loop antenna.",
+          "components": [],
+          "nets": [
+            "GPS_RX"
+          ],
+          "recommendation": "Route this signal to avoid ground plane gaps, or fill the void. If a split is intentional, add a bridge capacitor across the gap.",
+          "detector": "emc_ground_plane",
+          "summary": "Signal has partial reference plane gap",
+          "pins": [],
+          "evidence_source": "heuristic_rule",
+          "report_context": {
+            "section": "Ground Plane",
+            "impact": "",
+            "standard_ref": ""
+          },
+          "signal_net": "GPS_RX",
+          "coverage_pct": 94.4,
+          "trace_mm": 59.5,
+          "is_high_speed_or_clock": false,
+          "suppressed": false,
+          "suppression_reason": "",
+          "stages": [
+            "layout"
+          ],
+          "finding_id": "emc:GP-001:gps_rx"
+        }
+      ]
+    },
+    "reviewer": {
+      "total_findings": 11,
+      "by_category": {
+        "ground_plane": 7,
+        "decoupling": 4
+      },
+      "top_issues": [
+        {
+          "rule_id": "GP-001",
+          "severity": "error",
+          "summary": "Signal has significant reference plane gap",
+          "recommendation": "Route this signal to avoid ground plane gaps, or fill the void. If a split is intentional, add a bridge capacitor across the gap.",
+          "category": "ground_plane"
+        },
+        {
+          "rule_id": "GP-001",
+          "severity": "error",
+          "summary": "Signal has significant reference plane gap",
+          "recommendation": "Route this signal to avoid ground plane gaps, or fill the void. If a split is intentional, add a bridge capacitor across the gap.",
+          "category": "ground_plane"
+        },
+        {
+          "rule_id": "DC-001",
+          "severity": "error",
+          "summary": "Decoupling cap too far from U1",
+          "recommendation": "Move decoupling cap within 2-3mm of U1 power pins.",
+          "category": "decoupling"
+        },
+        {
+          "rule_id": "DC-002",
+          "severity": "error",
+          "summary": "No decoupling cap found near U4",
+          "recommendation": "Add 100nF X7R 0402 + 1\u00b5F X5R 0603 close to U4 power pins. For high-speed ICs, add 10nF C0G for high-frequency decoupling. Place caps on the same side as U4 with short, wide traces to vias.",
+          "category": "decoupling"
+        },
+        {
+          "rule_id": "DC-002",
+          "severity": "error",
+          "summary": "No decoupling cap found near U2",
+          "recommendation": "Add 100nF X7R 0402 + 1\u00b5F X5R 0603 close to U2 power pins. For high-speed ICs, add 10nF C0G for high-frequency decoupling. Place caps on the same side as U2 with short, wide traces to vias.",
+          "category": "decoupling"
+        },
+        {
+          "rule_id": "DC-002",
+          "severity": "error",
+          "summary": "No decoupling cap found near U3",
+          "recommendation": "Add 100nF X7R 0402 + 1\u00b5F X5R 0603 close to U3 power pins. For high-speed ICs, add 10nF C0G for high-frequency decoupling. Place caps on the same side as U3 with short, wide traces to vias.",
+          "category": "decoupling"
+        },
+        {
+          "rule_id": "GP-001",
+          "severity": "warning",
+          "summary": "Signal has partial reference plane gap",
+          "recommendation": "Route this signal to avoid ground plane gaps, or fill the void. If a split is intentional, add a bridge capacitor across the gap.",
+          "category": "ground_plane"
+        },
+        {
+          "rule_id": "GP-001",
+          "severity": "warning",
+          "summary": "Signal has partial reference plane gap",
+          "recommendation": "Route this signal to avoid ground plane gaps, or fill the void. If a split is intentional, add a bridge capacitor across the gap.",
+          "category": "ground_plane"
+        },
+        {
+          "rule_id": "GP-001",
+          "severity": "warning",
+          "summary": "Signal has partial reference plane gap",
+          "recommendation": "Route this signal to avoid ground plane gaps, or fill the void. If a split is intentional, add a bridge capacitor across the gap.",
+          "category": "ground_plane"
+        },
+        {
+          "rule_id": "GP-001",
+          "severity": "warning",
+          "summary": "Signal has partial reference plane gap",
+          "recommendation": "Route this signal to avoid ground plane gaps, or fill the void. If a split is intentional, add a bridge capacitor across the gap.",
+          "category": "ground_plane"
+        },
+        {
+          "rule_id": "GP-001",
+          "severity": "warning",
+          "summary": "Signal has partial reference plane gap",
+          "recommendation": "Route this signal to avoid ground plane gaps, or fill the void. If a split is intentional, add a bridge capacitor across the gap.",
+          "category": "ground_plane"
+        }
+      ]
+    },
+    "manager": {
+      "risk_level": "high",
+      "blocker_count": 6,
+      "warning_count": 5,
+      "stage_readiness": {
+        "schematic": "pass",
+        "layout": "needs_work",
+        "pre_fab": "pass",
+        "bring_up": "pass"
+      },
+      "one_liner": "6 errors, 5 warnings across 2 categories. Layout stage has blockers."
+    }
+  },
+  "trust_summary": {
+    "total_findings": 14,
+    "trust_level": "low",
+    "by_confidence": {
+      "deterministic": 1,
+      "heuristic": 13,
+      "datasheet_backed": 0
+    },
+    "by_evidence_source": {
+      "datasheet": 0,
+      "topology": 1,
+      "heuristic_rule": 13,
+      "symbol_footprint": 0,
+      "bom": 0,
+      "geometry": 0,
+      "api_lookup": 0
+    },
+    "provenance_coverage_pct": 0.0
+  },
+  "capability_mode_ref": {
+    "source": "analysis/capability_mode.json",
+    "run_id": "20260909T151052Z-22bb7a"
+  }
+}

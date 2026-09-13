@@ -181,7 +181,7 @@ const s = StyleSheet.create({
     seeAll: { fontSize: 13, fontWeight: '700', color: '#A78BFA' },
 
     mapCard: { borderRadius: 20, overflow: 'hidden', backgroundColor: CARD, height: MAP_H, borderWidth: 1, borderColor: BORDER },
-    map: { width: '100%', height: '100%' },
+    map: { flex: 1 },
     mapPlaceholder: { flex: 1, alignItems: 'center', justifyContent: 'center' },
     mapPlaceholderText: { color: MUTED, fontSize: 13, marginTop: 8 },
     mapOverlay: { position: 'absolute', bottom: 12, left: 12, flexDirection: 'row', alignItems: 'center', backgroundColor: 'rgba(11,15,26,0.85)', paddingHorizontal: 12, paddingVertical: 6, borderRadius: 20 },

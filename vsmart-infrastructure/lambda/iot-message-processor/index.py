@@ -7,7 +7,7 @@ import json
 import math
 import os
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, Any, List
 import boto3
 from boto3.dynamodb.conditions import Attr
@@ -229,6 +229,59 @@ def _put_device_state(device_id: str, patch: Dict[str, Any]) -> None:
         ExpressionAttributeValues=values,
     )
 
+def _process_health(event: Dict[str, Any]) -> Dict[str, Any]:
+    """Refresh reachability independently of GPS fix. Never write a location."""
+    # sourceDeviceId is added by the IoT rule from the MQTT topic; do not let
+    # the body redirect updates to a different device or choose its owner.
+    device_id = event.get("sourceDeviceId")
+    if not isinstance(device_id, str) or not device_id or event.get("deviceid") != device_id:
+        raise ValueError("Health deviceid must match the MQTT topic")
+    meta = _get_device_metadata(device_id, force_refresh=True)
+    owner_id = meta.get("ownerUserId")
+    if not owner_id:
+        raise ValueError("Health requires a registered device with an owner")
+    if not DEVICE_STATE_TABLE:
+        raise RuntimeError("DEVICE_STATE_TABLE is required for health updates")
+    gps = event.get("gps")
+    if not isinstance(gps, dict) or not isinstance(gps.get("valid"), bool):
+        raise ValueError("Health requires gps.valid boolean")
+    # Bounded scalar diagnostics only. Raw strings, coordinates and client
+    # ownerUserId are never trusted as device metadata or measured positions.
+    health = {"valid": gps["valid"]}
+    for key in ("used", "solution", "tracked", "inView", "snr", "hdop", "hdopGsa", "ageMs", "baud", "nmea", "passed", "failed"):
+        value = gps.get(key)
+        if isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value) and value >= 0:
+            health[key] = Decimal(str(value))
+    for key in ("silent", "locked", "gsvFresh"):
+        if isinstance(gps.get(key), bool):
+            health[key] = gps[key]
+    if gps.get("fix") in ("none", "unknown", "2D", "3D"):
+        health["fix"] = gps["fix"]
+    received_ms = _now_ms()
+    _put_device_state(device_id, {
+        "ownerUserId": owner_id,
+        "displayName": meta.get("displayName"),
+        "type": meta.get("type"),
+        "lastSeenAtMs": received_ms,
+        "isOnline": True,
+        "isOnlineStr": "true",
+        "gpsHealth": health,
+    })
+    # Existing clients already handle device.online. Do not emit a fabricated
+    # device.position.updated when GPS is unavailable.
+    evt = {
+        "version": 1, "eventId": f"evt-health-{uuid.uuid4()}",
+        "type": "device.online", "timestamp": received_ms,
+        "userId": owner_id, "deviceId": device_id,
+        "payload": {"displayName": meta.get("displayName"), "isOnline": True,
+                    "gpsHealth": health},
+    }
+    if REALTIME_ENABLED:
+        _publish(_user_topic(owner_id), evt)
+    _call_webhook(evt)
+    return {"statusCode": 200, "body": json.dumps({"deviceId": device_id, "healthUpdated": True})}
+
+
 def lambda_handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     """
     Main handler function
@@ -254,6 +307,14 @@ def lambda_handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     }
     """
     
+    if event.get("messageType") == "gps_health":
+        # Invalid requests are rejected; infrastructure errors propagate so
+        # asynchronous Lambda invocation can retry them.
+        try:
+            return _process_health(event)
+        except ValueError as exc:
+            return {"statusCode": 400, "body": json.dumps({"error": str(exc)})}
+
     print(f"Received event: {json.dumps(event)}")
     
     try:
@@ -392,20 +453,35 @@ def build_location_update(payload: Dict[str, Any]) -> Dict[str, Any]:
     Returns:
         Update object theo format của BatchUpdateDevicePosition API
     """
-    # Convert timestamp to ISO 8601 format
     timestamp = payload['timestamp']
-    if isinstance(timestamp, int):
-        sample_time = datetime.fromtimestamp(timestamp).strftime("%Y-%m-%dT%H:%M:%SZ")
+    if isinstance(timestamp, bool):
+        raise ValueError("Invalid GPS timestamp")
+    if isinstance(timestamp, (int, float)):
+        if not math.isfinite(timestamp) or not 1600000000 < timestamp < 4102444800:
+            raise ValueError("GPS timestamp is outside the supported range")
+        sample_time = datetime.fromtimestamp(timestamp, timezone.utc).isoformat().replace("+00:00", "Z")
+    elif isinstance(timestamp, str):
+        try:
+            parsed = datetime.fromisoformat(timestamp.replace("Z", "+00:00"))
+            if parsed.tzinfo is None or not 1600000000 < parsed.timestamp() < 4102444800:
+                raise ValueError("Timestamp must include a timezone and valid date")
+            sample_time = parsed.astimezone(timezone.utc).isoformat().replace("+00:00", "Z")
+        except ValueError as exc:
+            raise ValueError("Invalid GPS timestamp") from exc
     else:
-        sample_time = timestamp
-    
+        raise ValueError("Invalid GPS timestamp")
+    lat = float(payload['location']['lat'])
+    lng = float(payload['location']['long'])
+    if not math.isfinite(lat) or not math.isfinite(lng) or not -90 <= lat <= 90 or not -180 <= lng <= 180:
+        raise ValueError("Invalid GPS coordinates")
+
     # Build base update
     update = {
         "DeviceId": payload['deviceid'],
         "SampleTime": sample_time,
         "Position": [
-            float(payload['location']['long']),  # Longitude first (GeoJSON format)
-            float(payload['location']['lat'])     # Latitude second
+            lng,  # Longitude first (GeoJSON format)
+            lat   # Latitude second
         ]
     }
     
@@ -417,8 +493,12 @@ def build_location_update(payload: Dict[str, Any]) -> Dict[str, Any]:
     if 'positionProperties' in payload:
         # Location Service chỉ chấp nhận string values
         position_props = {}
-        for key, value in payload['positionProperties'].items():
-            position_props[key] = str(value)
+        # Legacy firmware may still send 15 diagnostics. Location accepts at
+        # most four properties; detailed GPS data now travels on health.
+        for key in ("speed", "heading", "status", "reason"):
+            value = payload['positionProperties'].get(key)
+            if value is not None and 1 <= len(str(value)) <= 150:
+                position_props[key] = str(value)
         update['PositionProperties'] = position_props
     
     return update

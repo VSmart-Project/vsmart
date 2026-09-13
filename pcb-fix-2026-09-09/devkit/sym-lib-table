@@ -1,0 +1,6 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "usini_sensors")(type "KiCad")(uri "${KIPRJMOD}/usini_sensors.kicad_sym")(options "")(descr "Usini breakout sensor symbols"))
+  (lib (name "Espressif")(type "KiCad")(uri "/Users/vi.trandai/Documents/KiCad/10.0/3rdparty/symbols/com_github_espressif_kicad-libraries/Espressif.kicad_sym")(options "")(descr "Espressif official PCM library"))
+  (lib (name "VSmart_Modules")(type "KiCad")(uri "${KIPRJMOD}/VSmart_Modules.kicad_sym")(options "")(descr "VSmart module carrier schematic symbols"))
+)

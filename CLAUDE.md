@@ -8,7 +8,7 @@ When the user types `/graphify`, use the installed graphify skill or instruction
 
 ## Repository overview
 
-This is a graduation-thesis IoT fleet-tracking system ("Vsmart" / vsmart), not a single application. It is **not a git repo at the top level** and has **no root package.json** — it's five independent, separately-deployed modules living side by side. Always `cd` into the relevant module before running any install/build/lint/test command; there is no workspace tooling tying them together.
+This is a graduation-thesis IoT fleet-tracking system ("Vsmart"), not a single application. It is **not a git repo at the top level** and has **no root package.json** — it's five independent, separately-deployed modules living side by side. Always `cd` into the relevant module before running any install/build/lint/test command; there is no workspace tooling tying them together.
 
 | Module | Stack | Role |
 |---|---|---|
@@ -16,7 +16,7 @@ This is a graduation-thesis IoT fleet-tracking system ("Vsmart" / vsmart), not a
 | `vsmart-backend/` | Node.js + Express + Socket.io | REST API, JWT auth, Socket.io WebSocket proxy, anti-theft background worker |
 | `vsmart-web/` | React 19 + Vite 8 + Tailwind + MapLibre GL | Web dashboard |
 | `vsmart-mobile/` | React Native (Expo SDK 54, file-based router) | Mobile app |
-| `vsmart-firmware/` | PlatformIO / Arduino (ESP32) | GPS device firmware (`gps_neo7m.ino`, NEO-6M/7M GPS module) |
+| `vsmart-firmware/` | PlatformIO / Arduino (ESP32) | Tracker firmware: NEO-7M GPS published to AWS IoT over Wi-Fi/TLS; the A7680C LTE modem and MPU6050 IMU sit unbuilt in `attic/` |
 
 `guidance-for-tracking-assets-and-locating-devices-using-aws-iot/` is a vendored AWS reference sample kept for guidance only — treat it as read-only reference material, not part of the app.
 
@@ -65,7 +65,52 @@ aws cloudformation deploy --template-file packaged.yml --stack-name Vsmart-Unifi
 Lambda functions are Python 3.12 under `lambda/<function-name>/`. A local backend needs to be reachable from AWS (via `ngrok http 3001` in dev) since Lambdas call it as a webhook.
 
 ### Firmware (`vsmart-firmware/`)
-PlatformIO project targeting `esp32doit-devkit-v1`; standard `pio run` / `pio run -t upload` / `pio device monitor` from that directory.
+Two build environments over one source tree, selected by a `BOARD_*` define:
+
+```bash
+pio run -e devkitc                        # ESP32-DevKitC carrier Rev C (vsmart-module-esp32/)
+pio run -e devkitc -t upload -t monitor
+pio run -e s3mini                         # ESP32-S3 SuperMini board (vsmart-hardware/)
+```
+
+Needs `include/secrets.h` (copy `include/secrets.example.h`): Wi-Fi, cellular APN,
+AWS IoT endpoint/client ID, and the three PEM strings.
+
+Layout follows PlatformIO conventions: modules are private libraries under `lib/`
+(`Board`, `Diagnostics`, `Gps`, `Cloud`, `Telemetry`), each a folder with its `.h` and
+`.cpp`, auto-compiled and auto-included. `include/` holds shared headers **only** —
+a `.cpp` there is silently not compiled and fails at link. Note `build_flags = -I include`
+in platformio.ini: without it nothing under `lib/` can see `app_config.h` or `secrets.h`.
+
+Board differences live in `src/devkitc/` and `src/s3mini/`, one folder per PCB, each
+defining the `BOARD` struct declared by `lib/Board/Board.h` from its own netlist.
+`build_src_filter` compiles exactly one of them per environment — building both is a
+duplicate-symbol error. No module may name a GPIO or test a `BOARD_*` macro; everything
+goes through `BOARD`, so a third PCB is one new folder plus one env block.
+
+Built modules are `lib/Board`, `lib/Diagnostics`, `lib/Gps`, `lib/Cloud` (Wi-Fi + TLS +
+MQTT) and `lib/Telemetry`. The A7680C LTE driver, the MPU6050 driver, the two-transport
+failover and the offline ring buffer are complete but parked in `attic/`, outside the
+PlatformIO source root; restore steps are in
+[vsmart-firmware/attic/README.md](vsmart-firmware/attic/README.md).
+
+A frame reaches AWS only if it clears `GPS_MIN_SATELLITES` (4), `GPS_MAX_HDOP` (5.0),
+`GPS_MAX_FIX_AGE_MS` (5 s) **and** has a trustworthy clock — a frame with timestamp 0
+would be written as SampleTime 1970 into both the tracker and `Vsmart-DeviceState`.
+Measured fixes on this hardware run HDOP 12-13 and are correctly rejected; the serial
+log names the failing criterion. `lib/Gps` hand-parses GSV and GSA because TinyGPS++
+reads neither — it takes HDOP from GGA field 8 only, which carries garbage while unfixed,
+so the payload prefers the GSA value.
+
+`MOVE_DISTANCE_M` (30.0) is deliberately matched to the tracker's
+`PositionFiltering: DistanceBased` (template.yml:167), which silently discards any update
+under 30 m. Changing one without the other either wastes IoT messages and Lambda
+invocations or loses trip-history resolution. Only `speed` and `heading` are consumed
+downstream; `TELEMETRY_DIAGNOSTICS` gates the GPS diagnostic fields that otherwise ride
+into every stored position and geofence event.
+
+Pin tables, the payload contract and bring-up notes are in
+[vsmart-firmware/README.md](vsmart-firmware/README.md).
 
 ## Architecture notes
 

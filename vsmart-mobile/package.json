@@ -48,5 +48,10 @@
     "eslint-config-expo": "~10.0.0",
     "typescript": "~5.9.2"
   },
+  "overrides": {
+    "@react-navigation/bottom-tabs": "7.15.10",
+    "@react-navigation/elements": "2.9.15",
+    "@react-navigation/native-stack": "7.14.12"
+  },
   "private": true
 }

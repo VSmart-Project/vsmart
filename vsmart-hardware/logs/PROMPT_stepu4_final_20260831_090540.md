@@ -1,0 +1,1 @@
+Correct A7680C U4 orientation to match physical module: SIM socket at top; left RI,DTR,MICP,MICN,SPKP,SPKN; right ANT,VCC,RST,RXD,TXD,GND. Reroute and validate DRC/ERC/Gerbers.

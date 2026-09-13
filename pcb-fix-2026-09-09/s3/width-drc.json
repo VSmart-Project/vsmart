@@ -1,0 +1,84 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-09-09T22:31:55",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.5",
+    "schematic_parity": [],
+    "source": "vsmart-module-esp32-s3-mini.kicad_pcb",
+    "unconnected_items": [],
+    "violations": [
+        {
+            "description": "Items shorting two nets (nets +5V_SIM and SIM_RI)",
+            "items": [
+                {
+                    "description": "Track [+5V_SIM] on F.Cu, length 27.4073 mm",
+                    "pos": {
+                        "x": 80.8468,
+                        "y": 63.5605
+                    },
+                    "uuid": "807cb32e-4da6-44a6-afe0-4a66a39f1e93"
+                },
+                {
+                    "description": "PTH pad 1 [SIM_RI] of U4",
+                    "pos": {
+                        "x": 61.1264,
+                        "y": 64.746
+                    },
+                    "uuid": "fa940057-b5fe-4808-8f0d-a4cb51504a94"
+                }
+            ],
+            "severity": "error",
+            "type": "shorting_items"
+        },
+        {
+            "description": "Front solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [+5V_SIM] on F.Cu, length 27.4073 mm",
+                    "pos": {
+                        "x": 80.8468,
+                        "y": 63.5605
+                    },
+                    "uuid": "807cb32e-4da6-44a6-afe0-4a66a39f1e93"
+                },
+                {
+                    "description": "PTH pad 1 [SIM_RI] of U4",
+                    "pos": {
+                        "x": 61.1264,
+                        "y": 64.746
+                    },
+                    "uuid": "fa940057-b5fe-4808-8f0d-a4cb51504a94"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        }
+    ]
+}

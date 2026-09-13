@@ -1,42 +1,55 @@
-# Secrets and environment-specific configuration
+# OS
+.DS_Store
+
+# Secrets / environment files
 .env
 .env.*
 !.env.example
-!*.example.h
-**/secrets.h
-**/lib/secrets/
-*.key
-*-certificate.pem.crt
 
-# Dependencies and generated build products
-**/node_modules/
-**/dist/
-**/.expo/
-**/.pio/
-**/.venv/
-**/.runtime/
-**/.aws-sam/
-**/coverage/
-**/__pycache__/
-**/*.py[cod]
+# Firmware device credentials (AWS IoT Core)
+certs/*.key
+certs/*.pem
+certs/*.crt
+!certs/AmazonRootCA*.pem
+include/secrets.h
+
+# Dependencies (reinstall locally instead of committing)
+node_modules/
+.venv/
+venv/
+**/ios/Pods/
 **/android/.gradle/
 **/android/build/
-**/android/app/build/
-**/ios/Pods/
-**/ios/build/
+**/.gradle/
 
-# Large/regenerable datasets and local history
-osrm/data/
-**/snapshots/
-**/.history/
-**/graphify-out/cache/
-**/graphify-out/*.html
+# Build output / local caches
+.pio/
+.cache/
+.expo/
+dist/
+build/
+*.pyc
+__pycache__/
+.vscode/
+.mcp-backups/
 
-# Local metadata
-**/.DS_Store
-**/.idea/
-**/.vscode/
-*.lck
-/.agents/
-/.claude/
-/.impeccable/
+# OSRM map data (large binaries, regenerate via prepare-data.sh)
+vsmart-osrm/data/
+
+# Reports & auto-generated hardware snapshots
+REPORT.pdf
+vsmart-firmware/reports/
+vsmart-hardware/reports/
+vsmart-hardware/snapshots/
+vsmart-module-esp32/reports/
+vsmart-module-esp32/snapshots/
+
+# Local Claude Code / agent tooling, ephemeral runtime state
+.agents/
+.claude/
+.runtime/
+.impeccable/
+
+# Vendored third-party reference material (not part of the app, see CLAUDE.md)
+ESP32_OSM_NAV/
+guidance-for-tracking-assets-and-locating-devices-using-aws-iot/

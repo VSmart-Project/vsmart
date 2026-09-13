@@ -1,0 +1,1 @@
+Căn lại toàn bộ 12 pad và lỗ cơ khí U4 A7680C với hàng lỗ thực tế của model 3D; dịch hàng pad 5.08 mm, lỗ cơ khí 2.54 mm, đi dây lại, DRC/ERC/Gerber kiểm tra sạch.

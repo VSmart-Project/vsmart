@@ -1,0 +1,1 @@
+Đổi vị trí chân U4 trên ESP32-S3 Mini theo ảnh module A7680C nhìn từ mặt trên: trái RI,DTR,MICP,MICN,SPKP,SPKN; phải ANT,VCC,RST,RXD,TXD,GND. Giữ đấu chéo UART đúng và khe SIM nhìn thấy từ trên.

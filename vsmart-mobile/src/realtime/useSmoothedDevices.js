@@ -69,9 +69,11 @@ export function useSmoothedDevices(devices) {
         : (Number.isFinite(device.fixSeq) ? `seq:${device.fixSeq}` : null);
       if ((stamp != null && seen.get(id) !== stamp) || isNew) {
         if (stamp != null) seen.set(id, stamp);
+        const sampleMs = device.sampleTime ? Date.parse(device.sampleTime) : NaN;
         follower.pushFix(pos[1], pos[0], {
           seq: Number.isFinite(device.fixSeq) ? device.fixSeq : null,
           serverTs: Number.isFinite(device.serverTs) ? device.serverTs : undefined,
+          sampleMs: Number.isFinite(sampleMs) ? sampleMs : undefined,
           path:
             Array.isArray(device.pathFromPrev) && device.pathFromPrev.length >= 2
               ? device.pathFromPrev

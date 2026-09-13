@@ -1,0 +1,1 @@
+Resize DevKitC carrier to 95x70 mm and rotate A7680C module to opposite orientation while preserving image pinout.
