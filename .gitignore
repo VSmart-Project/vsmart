@@ -44,6 +44,10 @@ vsmart-hardware/snapshots/
 vsmart-module-esp32/reports/
 vsmart-module-esp32/snapshots/
 
+# Ad-hoc debug/fix scratch sessions
+pcb-debug-2026-09-09/
+pcb-fix-2026-09-09/
+
 # Local Claude Code / agent tooling, ephemeral runtime state
 .agents/
 .claude/

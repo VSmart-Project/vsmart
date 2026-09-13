@@ -1,7 +1,0 @@
-(fp_lib_table
-  (version 7)
-  (lib (name "VSmart_Modules")(type "KiCad")(uri "${KIPRJMOD}/libs/VSmart_Modules.pretty")(options "")(descr "Carrier footprints for VSmart tracker modules"))
-  (lib (name "TDM_4G_V1")(type "KiCad")(uri "${KIPRJMOD}/libs/TDM-4G-V1.pretty")(options "")(descr "Corrected TDM2309 A7680C carrier footprint"))
-  (lib (name "usini_sensors")(type "KiCad")(uri "${KIPRJMOD}/usini_sensors.pretty")(options "")(descr "Usini breakout sensor footprints"))
-  (lib (name "Espressif")(type "KiCad")(uri "/Users/vi.trandai/Documents/KiCad/10.0/3rdparty/footprints/com_github_espressif_kicad-libraries/Espressif.pretty")(options "")(descr "Espressif official PCM footprints"))
-)
